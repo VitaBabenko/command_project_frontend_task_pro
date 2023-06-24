@@ -1,5 +1,6 @@
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import { FilterWrapper, Title, Wrapper, Text, StackWrapper, ButtonStyled, AddIconStyled } from './ProjectOfficeStyle';
+import ProjectOfficeItem from './ProjectOfficeItem';
 
 const ProjectOffice = () => {
   return (
@@ -16,6 +17,7 @@ const ProjectOffice = () => {
                 Add another column
             </ButtonStyled>
         </StackWrapper>
+        <ProjectOfficeItem />
     </> 
   );
 };
