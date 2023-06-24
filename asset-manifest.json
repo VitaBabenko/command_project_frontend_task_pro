@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/command_project_frontend_task_pro/static/css/main.7acaea2f.css",
+    "main.js": "/command_project_frontend_task_pro/static/js/main.07d3183d.js",
+    "index.html": "/command_project_frontend_task_pro/index.html",
+    "main.7acaea2f.css.map": "/command_project_frontend_task_pro/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/command_project_frontend_task_pro/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
