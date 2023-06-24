@@ -2,12 +2,15 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
-import { RegisterForm } from './RegisterForm';
-import { LoginForm } from './LoginForm';
+
+import { RegisterForm } from './RegisterForm/RegisterForm';
+import { LoginForm } from './LoginForm/LoginForm';
+
 import GlobalStyle from 'GlobalStyle';
 
+
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
-const AuthPage = lazy(() => import('../pages/AuthPage'));
+const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('../pages/HomePage'));
 const ScreensPage = lazy(() => import('../pages/ScreensPage'));
 
