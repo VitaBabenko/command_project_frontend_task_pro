@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
+import ThemeSelect from './ThemeSelect/ThemeSelect';
 
 export const Welcome = () => {
   return (
@@ -13,6 +14,7 @@ export const Welcome = () => {
         <NavLink to="/auth/login">Log In</NavLink>
         <NavLink to="/home">Screen Page</NavLink>
       </nav>
+      <ThemeSelect />
     </div>
   );
 };
