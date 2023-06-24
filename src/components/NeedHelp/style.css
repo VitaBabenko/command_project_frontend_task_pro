@@ -1,0 +1,39 @@
+.need-help__wrapper {
+  width: 212px;
+  height: 272px;
+  border-radius: 8px;
+  background-color: #1F1F1F;
+  padding: 20px;
+}
+
+.need-help__img {
+  width: 54px;
+  height: 78px;
+}
+
+.need-help__text {
+  color: #FFF;
+  font-size: 14px;
+  font-family: Poppins;
+  line-height: 20px;
+  letter-spacing: -0.28px;
+  margin-top: 14px;
+}
+
+.need-help__btn {
+  margin-top: 19px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  opacity: 0.0 - 1.0;
+}
+
+.need-help__btn-title {
+  color: #FFF;
+  font-size: 12px;
+  font-family: Poppins;
+  font-weight: 500;
+  letter-spacing: -0.24px;
+}
