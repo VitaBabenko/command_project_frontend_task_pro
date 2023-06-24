@@ -3,6 +3,7 @@ import { FilterWrapper, Title, Wrapper, Text, StackWrapper, ButtonStyled, AddIco
 import { CustomButton } from 'components/Button/CustomButton';
 import { useState } from 'react';
 import { ModalColumn } from 'components/Modal/ModalColumn/ModalColumn';
+import ProjectOfficeItem from './ProjectOfficeItem';
 
 const ProjectOffice = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +34,7 @@ const ProjectOffice = () => {
                 Add another column
             </ButtonStyled>
         </StackWrapper>
+        <ProjectOfficeItem />
     </> 
   );
 };
