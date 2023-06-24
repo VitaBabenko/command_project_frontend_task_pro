@@ -2,8 +2,12 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
+
 import { RegisterForm } from './RegisterForm/RegisterForm';
 import { LoginForm } from './LoginForm/LoginForm';
+
+import GlobalStyle from 'GlobalStyle';
+
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
@@ -13,6 +17,7 @@ const ScreensPage = lazy(() => import('../pages/ScreensPage'));
 export const App = () => {
   return (
     <>
+      <GlobalStyle/>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<WelcomePage />} />

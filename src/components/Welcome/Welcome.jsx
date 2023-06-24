@@ -1,3 +1,4 @@
+import ThemeSelect from "components/ThemeSelect/ThemeSelect";
 import sprite from "../../images/sprite.svg"
 import { Container, ContainerTitle, Icon, IconContainer, Img, Nav, StyledNavLinkLog, StyledNavLinkReg, Text, Title } from "./Welcome.styled";
 
@@ -24,6 +25,7 @@ export const Welcome = () => {
         <StyledNavLinkReg to="/auth/register">Registration</StyledNavLinkReg>
         <StyledNavLinkLog to="/auth/login">Log In</StyledNavLinkLog >
       </Nav>
+      <ThemeSelect/>
     </Container>
   );
 };
