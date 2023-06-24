@@ -23,9 +23,10 @@ export const IconContainer = styled.div`
 
 export const Icon = styled.svg`
   
-  width: 28px;
-  height: 28px;
-  padding: 20px;
+  width: 48px;
+  height: 48px;
+  padding: 10px;
+  
   
   fill: white;
   background-color:#161616;
