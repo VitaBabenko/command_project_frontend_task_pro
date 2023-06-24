@@ -2,14 +2,29 @@ import { DialogTitle, Box, DialogContent } from "@mui/material";
 import { CustomButton } from "../../Button/CustomButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { CustomDialog, StyleInput } from "./ModalColumn.styled";
+import { useState } from "react";
 
-export const ModalColumn = ({ isOpen, onClose, type = "create" }) => {
+export const ModalColumn = ({ isOpen, onClose, type = "create", initialState = '', onRemove }) => {
+  const [columnName, setColumnName] = useState(initialState);
+
+  const reset = () => {
+    setColumnName('');
+  }
+
+  const handleClose = () => { 
+    reset();
+    onClose();
+  }
+
+  const handleChange = ({ target }) => { 
+    setColumnName(target.value);
+  }
 
   return (
     <CustomDialog
       open={isOpen}
       fullWidth={true}
-      onClose={onClose}
+      onClose={handleClose}
       position="relative"
     >
       <Box
@@ -30,7 +45,7 @@ export const ModalColumn = ({ isOpen, onClose, type = "create" }) => {
           {type === 'create' ? 'Add Column' : 'Edit Column'}
         </DialogTitle>
         <CloseIcon
-          onClick={onClose}
+          onClick={handleClose}
           sx={{
             color: "white",
             position: "absolute",
@@ -44,7 +59,7 @@ export const ModalColumn = ({ isOpen, onClose, type = "create" }) => {
       </Box>
       <DialogContent>
         <StyleInput
-          autoFocus="true"
+          autoFocus
           id="title"
           placeholder="Title"
           name="title"
@@ -52,8 +67,10 @@ export const ModalColumn = ({ isOpen, onClose, type = "create" }) => {
           fullWidth
           variant="outlined"
           InputLabelProps={{ shrink: false }}
+          value={columnName}
+          onChange={handleChange}
         />
-              <CustomButton>
+        <CustomButton onClick={() => { onRemove(columnName);  handleClose()}}>
                   Add
         </CustomButton>
       </DialogContent>
