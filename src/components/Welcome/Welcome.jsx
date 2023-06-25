@@ -12,7 +12,7 @@ export const Welcome = () => {
         <IconContainer >
 
         <Icon aria-label="open theme select icon">
-        <use href={sprite + "#icon-logo-lightning"}></use> 
+        <use href={sprite + '#icon-logo-lightning'}></use> 
         </Icon>
         <Title>Task Pro</Title>
         </IconContainer>

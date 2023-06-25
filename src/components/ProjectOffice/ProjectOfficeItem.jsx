@@ -7,7 +7,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 
-const ProjectOfficeItem = () => {
+const ProjectOfficeItem = ({ column: { title } }) => {
   return (
     <>
         <Wrapper>
@@ -19,7 +19,7 @@ const ProjectOfficeItem = () => {
         </Wrapper>
         <Wrapper>
             <ActionsButton>
-                To Do
+                  { title}
                 <ActionsIconsButton>
                     <EditIcon fontSize='small'  /> 
                     <DeleteOutlineIcon fontSize='small' />
