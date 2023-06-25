@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-
+import { useDispatch } from 'react-redux';
+import { setTheme } from '../../redux/theme/themeSlice';
 import sprite from '../../images/sprite.svg';
+import { useSelector } from 'react-redux';
 // console.log("sprite: ", Sprite);
 
 import {
@@ -11,8 +13,14 @@ import {
 } from './ThemeSelect.styled';
 
 const ThemeSelect = () => {
+  const dispatch = useDispatch();
   const [isListOpen, setIsListOpen] = useState(false);
-  const [selectedTheme, setSelectedTheme] = useState('light');
+
+
+  const currentTheme = useSelector(state => state.theme.themeColor);
+  console.log('currentTheme: ', currentTheme);
+
+    const [selectedTheme, setSelectedTheme] = useState(currentTheme);
 
   useEffect(() => {
     // console.log("useEffect", selectedTheme);
@@ -20,6 +28,7 @@ const ThemeSelect = () => {
   }, [selectedTheme]);
 
   const handleThemeToggle = theme => {
+    dispatch(setTheme(theme));
     setSelectedTheme(theme);
     setIsListOpen(false);
   };
