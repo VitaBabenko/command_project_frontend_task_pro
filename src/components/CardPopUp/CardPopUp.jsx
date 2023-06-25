@@ -9,9 +9,11 @@ import {
   RadioButton,
   RadioLabel,
   Wrap,
+  Text,
 } from './CardPopUp.styled';
+import { CustomButton } from 'components/Button/CustomButton';
 
-export const CardPopUp = () => {
+export const CardPopUp = ({ title }) => {
   const {
     register,
     handleSubmit,
@@ -24,13 +26,13 @@ export const CardPopUp = () => {
   };
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <FormText>TEXT</FormText>
+      <FormText>{title}</FormText>
       <FromInput {...register('title', { minLength: 3 })} placeholder="Title" />
       <FormTextarea
         placeholder="Description"
         {...register('description', { minLength: 3 })}
       ></FormTextarea>
-      <label>Label color</label>
+      <Text>Lable color</Text>
       <RadioGroup>
         <Wrap>
           <RadioButton
@@ -87,13 +89,11 @@ export const CardPopUp = () => {
           />
         </Wrap>
       </RadioGroup>
+      <Text>Deadline</Text>
+      <span style={{ marginBottom: 40 }}>Today, March 8</span>
 
       {errors.exampleRequired && <span>This field is required</span>}
-      <button type="submit">
-        <svg>
-          <use></use>
-        </svg>
-      </button>
+      <CustomButton type="submit">{'Add another card'}</CustomButton>
     </Form>
   );
 };

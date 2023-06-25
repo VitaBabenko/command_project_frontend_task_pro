@@ -3,10 +3,13 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  min-width: 302px;
 `;
 export const FormText = styled.label`
   text-align: start;
   margin-bottom: 24px;
+  font-size: 18px;
+  font-weight: 500;
 `;
 export const FromInput = styled.input`
   padding: 14px 18px;
@@ -18,6 +21,7 @@ export const FromInput = styled.input`
 
 export const FormTextarea = styled.textarea`
   vertical-align: text-top;
+  resize: none;
   min-height: 100px;
   padding: 14px 18px;
   margin-bottom: 24px;
@@ -31,6 +35,7 @@ export const FormTextarea = styled.textarea`
 export const RadioGroup = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 14px;
 `;
 
 export const RadioLabel = styled.label`
@@ -52,7 +57,7 @@ export const RadioLabel = styled.label`
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  margin-right: 10px;
+
   cursor: pointer;
   background-color: var(--radio-background-color);
 `;
@@ -60,14 +65,14 @@ export const RadioLabel = styled.label`
 export const RadioButton = styled.input`
   display: none;
   &:checked + ${RadioLabel} {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     position: relative;
-    ::before {
+    &:before {
       content: '';
       position: absolute;
       top: 50%;
-      /* right: 50%; */
+      left: 50%;
       transform: translate(-50%, -50%);
       width: 14px;
       height: 14px;
@@ -82,6 +87,14 @@ export const Wrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 14px;
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+`;
+
+export const Text = styled.span`
+  color: rgba(22, 22, 22, 0.5);
+  font-size: 12px;
+  margin-bottom: 4px;
 `;
