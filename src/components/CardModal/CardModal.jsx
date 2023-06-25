@@ -1,8 +1,12 @@
 import { useRef, useEffect } from 'react';
-import { ModalWrapper, ModalContent, ThemeSelectIcon } from './MyModal.styled';
+import {
+  ModalWrapper,
+  ModalContent,
+  ThemeSelectIcon,
+} from './CardModal.styled';
 import sprite from '../../images/sprite.svg';
 
-export const MyModal = ({ isOpen, onClose, children }) => {
+export const CardModal = ({ isOpen, onClose, children }) => {
   const modalRef = useRef(null);
 
   const handleOutsideClick = event => {
@@ -36,7 +40,6 @@ export const MyModal = ({ isOpen, onClose, children }) => {
         >
           <use href={sprite + '#icon-x-close'}></use>
         </ThemeSelectIcon>
-
         {children}
       </ModalContent>
     </ModalWrapper>

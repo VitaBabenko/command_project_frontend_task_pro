@@ -91,7 +91,6 @@ export const CardPopUp = ({ title }) => {
       </RadioGroup>
       <Text>Deadline</Text>
       <span style={{ marginBottom: 40 }}>Today, March 8</span>
-
       {errors.exampleRequired && <span>This field is required</span>}
       <CustomButton type="submit">{'Add another card'}</CustomButton>
     </Form>
