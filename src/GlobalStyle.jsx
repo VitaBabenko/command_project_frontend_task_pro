@@ -18,7 +18,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   font-family: "Poppins", sans-serif;
-  background-color: var(--sidebarBgColor);
+  ${'' /* background-color: var(--sidebarBgColor); */}
+    ${'' /* background-image: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
+   background-repeat: no-repeat; */}
   transition: 0.3s ease;
 
 
