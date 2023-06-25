@@ -20,6 +20,13 @@ import { useEffect } from 'react';
 import { getColumns } from 'services/fetchColumn';
 
 const ProjectOffice = () => {
+  // const [isOpen, setIsOpen] = useState(false);
+  // const columns = [{columnName: 'one', id: 1}, {columnName: 'two', id: 2}];
+
+  // const handleToggleModal = () => {
+  //     setIsOpen((prevstate) => !prevstate )
+  // }
+
     const [isOpen, setIsOpen] = useState(false);
     const [columns, setColumns] = useState([])
     const id = '9a5c9bf5-64d7-42dc-9279-d22fde663db5'
