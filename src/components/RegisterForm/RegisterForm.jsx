@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button, Form, Icon, Input } from './RegisterForm.syled';
 import sprite from "../../images/sprite.svg";
+import { useDispatch } from 'react-redux';
+import { registerUser } from 'redux/Auth/operestions';
+
 
 
 
 export const RegisterForm = () => {
- 
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -25,8 +28,9 @@ export const RegisterForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+   dispatch(registerUser( data))
+  console.log(data);
     
-    console.log(data);
     reset();
     
   };
@@ -39,9 +43,9 @@ export const RegisterForm = () => {
         type="text"
         name="name"
         placeholder="Enter your name"
-        {...register('firstName',{ required: true })}
+        {...register('name',{ required: true })}
       />
-      {errors.firstName && <span></span>}
+      {errors.name && <span></span>}
     </div>
     <div>
       
