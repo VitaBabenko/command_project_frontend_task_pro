@@ -1,9 +1,12 @@
 import ProjectOffice from "components/ProjectOffice/ProjectOffice";
+
 import { Header } from "../components/Header";
 import { SideBar } from "../components/SideBar";
 
-const HomePage = () => {
 
+const HomePage = () => {
+  
+ 
   return (
     <>
       <Header />
