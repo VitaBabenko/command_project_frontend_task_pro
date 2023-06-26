@@ -9,7 +9,7 @@ color: #161616;
 font-size: 40px;
 font-family: Poppins;
 font-weight: 600;
-letter-spacing: -1.6px;
+letter-spacing: 1.6px;
 
 `;
 
@@ -22,27 +22,27 @@ export const IconContainer = styled.div`
 `;
 
 export const Icon = styled.svg`
-  
+ 
   width: 48px;
   height: 48px;
   padding: 10px;
-  
-  
+  stroke:white;
   fill: white;
   background-color:#161616;
   border-radius: 8px; 
 `;
 
 export const Container = styled.div`
-    margin: auto ;;
+    margin: auto ;
     gap:24px;
     display: flex;
     width: 473px;
-    height: 438px;
+    height: 100vh;
     flex-direction: column;
   justify-content: center;
   align-items: center;
- 
+  background-size: cover;
+  background-color: #F6F6F7;
     
 `;
 
@@ -50,6 +50,7 @@ export const ContainerTitle = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap:24px;
    
 `
 

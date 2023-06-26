@@ -1,26 +1,31 @@
 import { Button, Form, Icon, Input } from "components/RegisterForm/RegisterForm.syled";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { loginUser } from "redux/Auth/operestions";
 import sprite from "../../images/sprite.svg";
-// import { unstable_HistoryRouter } from "react-router-dom";
+
+
 
 export const LoginForm = () => {
-
-  const { register, handleSubmit,  formState: { errors } } = useForm();
+  const dispatch = useDispatch()
+  const { register, handleSubmit,reset,  formState: { errors } } = useForm();
   const [showPassword, setShowPassword] = useState(false);
-
+  
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
-  // const history = unstable_HistoryRouter();
+  
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
-      // history.push('/home');
+      dispatch(loginUser(data));
+     
+      
     } catch (error) {
       console.log(error);
     }
+    reset()
   };
 
   return (

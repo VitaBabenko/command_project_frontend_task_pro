@@ -1,48 +1,37 @@
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import {
-  FilterWrapper,
-  Title,
-  Wrapper,
-  Text,
-  StackWrapper,
-  ButtonStyled,
-  AddIconStyled,
-} from './ProjectOfficeStyle';
-// import { CustomButton } from 'components/Button/CustomButton';
-// import { useState } from 'react';
-// import { ModalColumn } from 'components/Modal/ModalColumn/ModalColumn';
+import { useState } from 'react';
+
 import ProjectOfficeItem from './ProjectOfficeItem';
+import { useEffect } from 'react';
+import { getColumns } from 'services/fetchColumn';
+import ProjectOfficeHeader from './ProjectOfficeHeader/ProjectOfficeHeader';
+import AddColumnButton from './AddColumnsButton/AddColumnsButton';
 
 const ProjectOffice = () => {
-  // const [isOpen, setIsOpen] = useState(false);
-  // const columns = [{columnName: 'one', id: 1}, {columnName: 'two', id: 2}];
+  const [columns, setColumns] = useState([]);
+  const id = '9a5c9bf5-64d7-42dc-9279-d22fde663db5';
 
-  //   const handleToggleModal = () => {
-  //     setIsOpen((prevstate) => !prevstate )
-  //   };
+  useEffect(() => {
+    const getBoardColumn = async () => {
+      try {
+        const boardColumns = await getColumns(id);
+        setColumns(boardColumns);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    getBoardColumn();
+  }, [id]);
 
-  // const handleCreateColumn = (columnName) => {
-  //     const newArr = [...columns, { id: 4, columnName: columnName }];
-  //     console.log(columns)
-  // }
+  console.log(columns);
 
   return (
     <>
-      <Wrapper>
-        <Title>Project office</Title>
-        <FilterWrapper>
-          <FilterAltIcon />
-          <Text>Filters</Text>
-        </FilterWrapper>
-      </Wrapper>
-      <StackWrapper direction="row" spacing={2}>
-        {/* <CustomButton isWhiteBackground={true} onClick={handleToggleModal}>Add</CustomButton>
-              <ModalColumn isOpen={isOpen} onClose={handleToggleModal} onRemove={handleCreateColumn} /> */}
-        <ButtonStyled startIcon={<AddIconStyled />}>
-          Add another column
-        </ButtonStyled>
-      </StackWrapper>
-      <ProjectOfficeItem />
+      <ProjectOfficeHeader />
+      <AddColumnButton />
+      {columns.map(column => {
+        return <ProjectOfficeItem column={column} key={column.id} />;
+      })}
+      {/* <ProjectOfficeItem column={columns} /> */}
     </>
   );
 };
