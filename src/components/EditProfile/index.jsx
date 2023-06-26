@@ -10,6 +10,8 @@ import './style.css';
 import { AvatarEditorContainer } from './AvatarEditor';
 import user from '../../images/user.svg'
 import { ProfileDataEditor } from './ProfileDataEditor';
+import { CustomButtonSend } from 'components/Button/CustomButton';
+import { EditProfileWrapper, } from './ProfileDataEditor.styled'
 
 export const EditProfile = ({ toggle, open, HeaderRender }) => {
   const [currentEditOperation, setCurrentEditOperation] = useState(ECurrentEditOperationEditData);
@@ -54,8 +56,9 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
   };
 
   return (
-    <div className="edit-profile-wrapper">
-      {HeaderRender('Edit profile')}
+    // <EditProfileWrapper>
+    <div className='edit-profile-wrapper'>
+      {HeaderRender && HeaderRender('Edit profile')}
       <FormProvider {...methods}>
 
         <div className={isEditAvatarOperation ? 'display-block' : 'display-none'}>
@@ -67,12 +70,16 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
           <div >
             <ProfileDataEditor {...{ currentImg, handleChangeNewImg, handleChangeCurrentOperation }} />
 
-            <button disabled={isDisabledSubmitBtn} onClick={handleSubmit(onSubmit)}>
+            {/* <button disabled={isDisabledSubmitBtn} onClick={handleSubmit(onSubmit)}>
               Save
-            </button>
+            </button> */}
+            <CustomButtonSend disabled={isDisabledSubmitBtn} onClick={handleSubmit(onSubmit)} >
+              Send
+            </CustomButtonSend>
           </div >
         </div>
       </FormProvider>
-    </div >
+    </div>
+    // </EditProfileWrapper >
   );
 };

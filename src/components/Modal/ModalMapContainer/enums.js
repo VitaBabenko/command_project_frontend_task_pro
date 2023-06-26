@@ -1,0 +1,1 @@
+export const MODAL_EDIT_PROFILE = 'MODAL_EDIT_PROFILE';

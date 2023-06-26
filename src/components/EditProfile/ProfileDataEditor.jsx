@@ -9,8 +9,10 @@ import {
   ERegisterFieldPassword,
 } from './util';
 import './style.css';
-import { Button } from '@mui/material';
+// import { Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import sprite from "../../images/sprite.svg";
+import {Avatar,AvatarImg}  from './ProfileDataEditor.styled'
 
 export const ProfileDataEditor = ({ currentImg, handleChangeNewImg, handleChangeCurrentOperation }) => {
   const { register, control, formState: { errors } } = useFormContext();
@@ -25,9 +27,9 @@ export const ProfileDataEditor = ({ currentImg, handleChangeNewImg, handleChange
     <>
       <div className="file">
         <div>
-          <div className='avatar'>
-            <img src={currentImg} alt='Avatar' />
-          </div>
+          <Avatar>
+            <AvatarImg src={currentImg} alt='Avatar' />
+          </Avatar>
 
           <Controller
             name={ERegisterFieldAvatar}
@@ -63,6 +65,7 @@ export const ProfileDataEditor = ({ currentImg, handleChangeNewImg, handleChange
           disabled={isFetching}
           className={errors?.ERegisterFieldName && 'error'}
           type="text"
+          placeholder=''
           {...register(ERegisterFieldName, {
             required: 'This input is required.',
             maxLength: {
@@ -89,7 +92,7 @@ export const ProfileDataEditor = ({ currentImg, handleChangeNewImg, handleChange
               message: 'Invalid email address',
             },
             maxLength: {
-              value: 255,
+              value: 32,
               message: 'This input must not exceed 255 characters',
             },
           })}
@@ -109,12 +112,14 @@ export const ProfileDataEditor = ({ currentImg, handleChangeNewImg, handleChange
             {...register(ERegisterFieldPassword, {
               required: 'This input is required.',
               maxLength: {
-                value: 255,
-                message: 'This input must not exceed 255 characters',
+                value: 32,
+                message: 'This input must not exceed 32 characters',
               },
             })}
           />
-          <span className="eye" onClick={togglePass}></span>
+          <span className="eye" onClick={togglePass}><svg className="icon" aria-label="open theme select icon">
+            <use href={sprite + "#icon-eye"}></use>
+          </svg></span>
         </div>
         {errors?.ERegisterFieldPassword && (
           <span className="error">{errors.ERegisterFieldPassword.message}</span>
