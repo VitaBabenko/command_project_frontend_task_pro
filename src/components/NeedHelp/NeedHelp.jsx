@@ -1,10 +1,10 @@
 import spriteIcon from '../../images/sprite.svg';
 import './style.css';
-import { Modal } from '../Modal';
-import { EditProfile } from '../EditProfile';
-import { useState } from 'react';
-import { Wrapper, Img, Text, Button, BtnTitle, Icon } from './needHelp.styled'
-import { NeedHelpPop } from './NeedHelpPop';
+// import { Modal } from '../Modal';
+// import { EditProfile } from '../EditProfile';
+// import { useState } from 'react';
+import { Wrapper, Img, Text, Button, BtnTitle, Icon } from './needHelp.styled';
+// import { NeedHelpPop } from './NeedHelpPop';
 import { useDispatch } from 'react-redux';
 import { setNameModal } from 'redux/modal';
 import { MODAL_NEED_HELP } from 'components/Modal/ModalMapContainer/enums';
@@ -30,11 +30,7 @@ export const NeedHelp = () => {
       Need help?
         </CustomButton> */}
       <Button onClick={toggle}>
-        <Icon
-          aria-label="icon close"
-          width="18"
-          height="18"
-        >
+        <Icon aria-label="icon close" width="18" height="18">
           <use href={spriteIcon + '#icon-help-circle'}></use>
         </Icon>
         <BtnTitle>Need help?</BtnTitle>
