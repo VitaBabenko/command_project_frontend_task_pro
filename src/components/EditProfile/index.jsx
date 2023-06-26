@@ -58,7 +58,7 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
   return (
     // <EditProfileWrapper>
     <div className='edit-profile-wrapper'>
-      {HeaderRender && HeaderRender('Edit profile')}
+      {HeaderRender('Edit profile')}
       <FormProvider {...methods}>
 
         <div className={isEditAvatarOperation ? 'display-block' : 'display-none'}>

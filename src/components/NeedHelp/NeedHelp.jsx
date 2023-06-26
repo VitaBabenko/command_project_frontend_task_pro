@@ -5,13 +5,17 @@ import { EditProfile } from '../EditProfile';
 import { useState } from 'react';
 import { Wrapper, Img, Text, Button, BtnTitle, Icon } from './needHelp.styled'
 import { NeedHelpPop } from './NeedHelpPop';
-
+import { useDispatch } from 'react-redux';
+import { setNameModal } from 'redux/modal';
+import { MODAL_NEED_HELP } from 'components/Modal/ModalMapContainer/enums';
 
 export const NeedHelp = () => {
-  const [open, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+
   const toggle = () => {
-    setIsOpen(prev => !prev);
+    dispatch(setNameModal(MODAL_NEED_HELP));
   };
+
   return (
     <Wrapper>
       <Img
@@ -25,7 +29,7 @@ export const NeedHelp = () => {
       {/* <CustomButton onClick={toggle}>
       Need help?
         </CustomButton> */}
-      <Button  onClick={toggle}>
+      <Button onClick={toggle}>
         <Icon
           aria-label="icon close"
           width="18"
