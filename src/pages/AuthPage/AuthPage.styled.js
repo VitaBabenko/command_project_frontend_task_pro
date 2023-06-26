@@ -37,7 +37,7 @@ letter-spacing: -0.36px;
 text-decoration: none;
 
   ${(props) =>
-    props.isActive &&
+    props.isactive &&
     css`
       color: #FFF;
  

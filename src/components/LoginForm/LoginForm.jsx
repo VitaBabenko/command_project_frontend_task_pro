@@ -2,7 +2,7 @@ import { Button, Form, Icon, Input } from "components/RegisterForm/RegisterForm.
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { loginUser } from "redux/Auth/operestions";
+import { loginUser } from "redux/Auth/operations";
 import sprite from "../../images/sprite.svg";
 
 
@@ -17,9 +17,15 @@ export const LoginForm = () => {
   };
   
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (e) => {
+    
+    console.log(e.email);
+    
     try {
-      dispatch(loginUser(data));
+      dispatch(loginUser({
+        email: e.email,
+        password: e.password,
+      }));
      
       
     } catch (error) {
@@ -43,7 +49,7 @@ export const LoginForm = () => {
         </div>
         <div>
           
-          <Input placeholder="Confirm a password" type="password" name="password" {...register('password',{ required: true })} />
+          <Input placeholder="Confirm a password" type={showPassword ? "text" : "password"} name="password" {...register('password',{ required: true })} />
 
           {errors.password && <span>Password is required</span>}
           <div onClick={togglePasswordVisibility}>
