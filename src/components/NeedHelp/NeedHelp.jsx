@@ -3,40 +3,48 @@ import './style.css';
 import { Modal } from '../Modal';
 import { EditProfile } from '../EditProfile';
 import { useState } from 'react';
+import { Wrapper, Img, Text, Button, BtnTitle, Icon } from './needHelp.styled'
+import { NeedHelpPop } from './NeedHelpPop';
+import { useDispatch } from 'react-redux';
+import { setNameModal } from 'redux/modal';
+import { MODAL_NEED_HELP } from 'components/Modal/ModalMapContainer/enums';
 
 export const NeedHelp = () => {
-  const [open, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+
   const toggle = () => {
-    setIsOpen(prev => !prev);
+    dispatch(setNameModal(MODAL_NEED_HELP));
   };
+
   return (
-    <div className="need-help__wrapper">
-      <img
-        className="need-help__img"
+    <Wrapper>
+      <Img
         src="https://res.cloudinary.com/dxhypjavs/image/upload/v1687412198/command_project_task_pro_images/additionally/flowerpot.png"
-        alt=""
+        alt="cactus"
       />
-      <p className="need-help__text">
+      <Text>
         If you need help with <a href="*">TaskPro</a>, check out our support
         resources or reach out to our customer support team.
-      </p>
-      <button className="need-help__btn" onClick={toggle}>
-        <svg
-          className="modal-header__icon-help-circle"
+      </Text>
+      {/* <CustomButton onClick={toggle}>
+      Need help?
+        </CustomButton> */}
+      <Button onClick={toggle}>
+        <Icon
           aria-label="icon close"
           width="18"
           height="18"
         >
           <use href={spriteIcon + '#icon-help-circle'}></use>
-        </svg>
-        <span className="need-help__btn-title">Need help?</span>
-      </button>
+        </Icon>
+        <BtnTitle>Need help?</BtnTitle>
+      </Button>
 
-      {open && (
+      {/* {open && (
         <Modal {...{ open, toggle }}>
-          <EditProfile />
+          <NeedHelpPop />
         </Modal>
-      )}
-    </div>
+      )} */}
+    </Wrapper>
   );
 };

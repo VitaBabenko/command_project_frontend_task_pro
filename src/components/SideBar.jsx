@@ -1,13 +1,14 @@
-import { useState } from "react";
-import { EditProfile } from "./EditProfile";
-import { Modal } from "./Modal";
 import { NeedHelp } from "./NeedHelp/NeedHelp";
+import { useDispatch } from 'react-redux';
+import { setNameModal } from 'redux/modal';
+import { MODAL_EDIT_PROFILE } from '../components/Modal/ModalMapContainer/enums';
 import "../assets/index.css";
 
 export const SideBar = () => {
-  const [open, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+
   const toggle = () => {
-    setIsOpen((prev) => !prev);
+    dispatch(setNameModal(MODAL_EDIT_PROFILE));
   };
 
   return (
@@ -16,11 +17,11 @@ export const SideBar = () => {
       <h1>TaskPro</h1>
       <NeedHelp></NeedHelp>
 
-      {open && (
+      {/* {open && (
         <Modal {...{ open, toggle }}>
           <EditProfile />
         </Modal>
-      )}
+      )} */}
     </>
   );
 };

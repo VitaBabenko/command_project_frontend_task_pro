@@ -96,7 +96,7 @@ span.error:last-child {
   min-height: 48px;
 }
 
-.toggle_pass .eye {
+/* .toggle_pass .eye {
   display: block;
   width: 16px;
   height: 16px;
@@ -108,4 +108,4 @@ span.error:last-child {
   margin: -8px 0 0;
   padding: 0;
   background: white;
-}
+} */

@@ -29,7 +29,8 @@
   padding: 0;
   width: 18px;
   height: 18px; 
- 
+  background-color: transparent;
+  border: none;
 }
 .modal-header__icon-close{
   width: 18px;
