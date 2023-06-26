@@ -8,13 +8,15 @@ import {
 } from './util';
 import './style.css';
 import { AvatarEditorContainer } from './AvatarEditor';
-import user from '../../images/user.svg'
+import user from '../../images/user.svg';
 import { ProfileDataEditor } from './ProfileDataEditor';
 import { CustomButtonSend } from 'components/Button/CustomButton';
-import { EditProfileWrapper, } from './ProfileDataEditor.styled'
+// import { EditProfileWrapper, } from './ProfileDataEditor.styled'
 
 export const EditProfile = ({ toggle, open, HeaderRender }) => {
-  const [currentEditOperation, setCurrentEditOperation] = useState(ECurrentEditOperationEditData);
+  const [currentEditOperation, setCurrentEditOperation] = useState(
+    ECurrentEditOperationEditData
+  );
   const [currentImg, setCurrentImg] = useState(user);
   const [uploadImg, setUploadImg] = useState('');
 
@@ -24,8 +26,12 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
     defaultValues: getDefaultValuesForm(),
   });
 
-  const { handleSubmit, formState: { dirtyFields, errors } } = methods;
-  const isEditAvatarOperation = currentEditOperation === ECurrentEditOperationEditAvatar;
+  const {
+    handleSubmit,
+    formState: { dirtyFields, errors },
+  } = methods;
+  const isEditAvatarOperation =
+    currentEditOperation === ECurrentEditOperationEditAvatar;
 
   console.log(isEditAvatarOperation);
   const isFetching = false;
@@ -38,17 +44,17 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
     console.log(data);
   };
 
-  const handleChangeNewImg = (e) => {
+  const handleChangeNewImg = e => {
     setUploadImg(e.target.files[0]);
   };
 
-  const handleSetCurrentImg = (img) => {
+  const handleSetCurrentImg = img => {
     setCurrentImg(img);
-  }
+  };
 
-  const handleChangeCurrentOperation = (currentOperation) => {
+  const handleChangeCurrentOperation = currentOperation => {
     setCurrentEditOperation(currentOperation);
-  }
+  };
 
   const handleCloseEditAvatar = () => {
     setCurrentEditOperation(ECurrentEditOperationEditData);
@@ -57,26 +63,43 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
 
   return (
     // <EditProfileWrapper>
-    <div className='edit-profile-wrapper'>
+    <div className="edit-profile-wrapper">
       {HeaderRender('Edit profile')}
       <FormProvider {...methods}>
-
-        <div className={isEditAvatarOperation ? 'display-block' : 'display-none'}>
-          <AvatarEditorContainer {...{ image: uploadImg, handleSetCurrentImg, handleClose: handleCloseEditAvatar }} />
+        <div
+          className={isEditAvatarOperation ? 'display-block' : 'display-none'}
+        >
+          <AvatarEditorContainer
+            {...{
+              image: uploadImg,
+              handleSetCurrentImg,
+              handleClose: handleCloseEditAvatar,
+            }}
+          />
         </div>
 
-        <div className={!isEditAvatarOperation ? 'display-block' : 'display-none'}>
-
-          <div >
-            <ProfileDataEditor {...{ currentImg, handleChangeNewImg, handleChangeCurrentOperation }} />
+        <div
+          className={!isEditAvatarOperation ? 'display-block' : 'display-none'}
+        >
+          <div>
+            <ProfileDataEditor
+              {...{
+                currentImg,
+                handleChangeNewImg,
+                handleChangeCurrentOperation,
+              }}
+            />
 
             {/* <button disabled={isDisabledSubmitBtn} onClick={handleSubmit(onSubmit)}>
               Save
             </button> */}
-            <CustomButtonSend disabled={isDisabledSubmitBtn} onClick={handleSubmit(onSubmit)} >
+            <CustomButtonSend
+              disabled={isDisabledSubmitBtn}
+              onClick={handleSubmit(onSubmit)}
+            >
               Send
             </CustomButtonSend>
-          </div >
+          </div>
         </div>
       </FormProvider>
     </div>
