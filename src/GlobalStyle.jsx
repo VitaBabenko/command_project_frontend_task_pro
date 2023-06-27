@@ -19,12 +19,14 @@ const GlobalStyle = createGlobalStyle`
 
   font-family: "Poppins", sans-serif;
   ${'' /* background-color: var(--sidebarBgColor); */}
-    ${'' /* background-image: linear-gradient(
+    ${
+      '' /* background-image: linear-gradient(
     180deg,
     rgba(196, 196, 196, 0) 25%,
     #bedbb0 92.19%
   );
-   background-repeat: no-repeat; */}
+   background-repeat: no-repeat; */
+    }
   transition: 0.3s ease;
 
 
@@ -83,6 +85,9 @@ body[data-theme="dark"] {
   --themeTitleTextColor: rgba(255, 255, 255, 0.8);
 
   --passiveBorderColor: rgb(190, 219, 176, 0.4);
+  --modalGorizontalBorderColor: rgba(255, 255, 255, 0.1);
+  --modalBorderColor: rgba(190, 219, 176, 0.5);
+ 
 }
 
 body[data-theme="light"] {
@@ -106,6 +111,8 @@ body[data-theme="light"] {
   --themeTitleTextColor: rgba(22, 22, 22, 0.8);
 
   --passiveBorderColor: rgb(190, 219, 176, 0.4);
+  --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
+  --modalBorderColor: transparent;
 }
 
 body[data-theme="violet"] {
@@ -129,6 +136,8 @@ body[data-theme="violet"] {
   --themeTitleTextColor: rgba(22, 22, 22, 0.8);
 
   --passiveBorderColor: rgba(82, 85, 188, 0.4);
+  --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
+  --modalBorderColor: transparent;
 }
 `;
 
