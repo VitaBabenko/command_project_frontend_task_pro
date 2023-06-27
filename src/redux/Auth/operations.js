@@ -46,7 +46,7 @@ export const updateThema = createAsyncThunk(
   async (thema, { rejectWithValue }) => {
     try {
       setAuthHeader(
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OThhNjQ4YjIzZTc4OTZhMDY5MTJmYSIsImlhdCI6MTY4NzgxMjQ2NCwiZXhwIjoxNjg3ODk1MjY0fQ.FNB7MkPzISfHVwecpYecc_qdgvwA5VN7LSDhop_1bNM'
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OThhNjQ4YjIzZTc4OTZhMDY5MTJmYSIsImlhdCI6MTY4NzgxNTc3NywiZXhwIjoxNjg3ODk4NTc3fQ.hzBL4pomYz8EUc6dDnEzmFbjBLK9t9jSIAv5mCVYm8w'
       );
       const res = await axios.patch('/auth/thema', { thema });
 
