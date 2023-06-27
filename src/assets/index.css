@@ -5,16 +5,15 @@
 .wrapper-input {
   display: block;
   width: 100%;
-  margin: 14px 0;
+  margin-bottom: 14px;
+}
+ input:first-child {
+  margin-top: 25px;
 }
 
-.wrapper-input:first-child {
-  margin-top: 0;
-}
-
-.wrapper-input:last-child {
+/* .wrapper-input:last-child {
   margin-bottom: 0;
-}
+}  */
 
 input {
   display: block;
@@ -78,12 +77,11 @@ input:disabled {
 span.error {
   color: #CC0022;
   display: block;
-  font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   overflow: hidden;
   width: calc(100% - 18px);
-  margin: 4px 9px;
+  /* margin: 4px 9px; */
 }
 
 span.error:last-child {
@@ -91,7 +89,7 @@ span.error:last-child {
 }
 
 .toggle_pass {
-  margin: 4px 0;
+  /* margin: 4px 0; */
   position: relative;
   min-height: 48px;
 }

@@ -17,11 +17,6 @@ export const SideBar = () => {
       <h1>TaskPro</h1>
       <NeedHelp></NeedHelp>
 
-      {/* {open && (
-        <Modal {...{ open, toggle }}>
-          <EditProfile />
-        </Modal>
-      )} */}
     </>
   );
 };

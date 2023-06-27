@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { WrapperPopUp } from './needHelp.styled'
+import { WrapperPopUp, Input, WrapperInput } from './needHelp.styled'
 import { CustomButtonSend } from "components/Button/CustomButton";
 import { regExpEmail } from '../../utils.js/regex';
 import {ERegisterFieldEmail} from '../EditProfile/util'
@@ -19,7 +19,8 @@ export const NeedHelpPop = ({ HeaderRender }) => {
   return (
     <WrapperPopUp>
      {HeaderRender('Need help')}
-     <input
+     <WrapperInput>
+     <Input
           autoComplete="off"
           placeholder='Email address'
          
@@ -36,8 +37,9 @@ export const NeedHelpPop = ({ HeaderRender }) => {
             },
           })}
         />
-      <input {...register("exampleRequired", { required: true })} placeholder='Comment'/>
+      <Input {...register("exampleRequired", { required: true })} placeholder='Comment'/>
       {errors.exampleRequired && <p>This field is required</p>}
+      </WrapperInput>
       <CustomButtonSend onClick={handleSubmit(onSubmit)}>Send</CustomButtonSend>
     </WrapperPopUp>
 

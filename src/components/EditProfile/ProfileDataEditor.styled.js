@@ -27,4 +27,5 @@ height: auto;
 max-width: 100%;
 max-height: 100%;
 margin: 0 auto;
+border-radius: 8px;
 `

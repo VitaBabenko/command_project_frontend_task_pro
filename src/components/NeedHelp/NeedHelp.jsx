@@ -1,13 +1,9 @@
-import spriteIcon from '../../images/sprite.svg';
-import './style.css';
-import { Modal } from '../Modal';
-import { EditProfile } from '../EditProfile';
-import { useState } from 'react';
-import { Wrapper, Img, Text, Button, BtnTitle, Icon } from './needHelp.styled'
-import { NeedHelpPop } from './NeedHelpPop';
+import { MODAL_NEED_HELP } from 'components/Modal/ModalMapContainer/enums';
 import { useDispatch } from 'react-redux';
 import { setNameModal } from 'redux/modal';
-import { MODAL_NEED_HELP } from 'components/Modal/ModalMapContainer/enums';
+import spriteIcon from '../../images/sprite.svg';
+import { Wrapper, Img, Text, Button, BtnTitle, Icon } from './needHelp.styled'
+import './style.css';
 
 export const NeedHelp = () => {
   const dispatch = useDispatch();
@@ -23,7 +19,7 @@ export const NeedHelp = () => {
         alt="cactus"
       />
       <Text>
-        If you need help with <a href="*">TaskPro</a>, check out our support
+        If you need help with <a href="*"><span>TaskPro</span></a>, check out our support
         resources or reach out to our customer support team.
       </Text>
       {/* <CustomButton onClick={toggle}>

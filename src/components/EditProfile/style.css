@@ -48,9 +48,20 @@
   margin: 0;
 }
 
+.btn{
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+
+}
+
+.iconEditAvatar{
+  color: white;
+}
 /* .avatar-wrapper {
   display: flex;
   justify-content: center;
+
   align-items: center;
   margin: 25px 0;
 } */
