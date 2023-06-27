@@ -1,7 +1,7 @@
 import { RegisterForm } from "../../components/RegisterForm/RegisterForm";
 import { LoginForm } from "../../components/LoginForm/LoginForm";
 import {  useParams } from "react-router-dom";
-import { useState } from "react";
+
 import { AuthPageContainer, ContentWrapper, Navlink, NavWrapper } from "./AuthPage.styled";
 
 
@@ -10,7 +10,7 @@ import { AuthPageContainer, ContentWrapper, Navlink, NavWrapper } from "./AuthPa
 
 const AuthPage = () => {
   const { id } = useParams();
-  const [currentForm, setCurrentForm] = useState(id);
+ 
 
  
 
@@ -19,15 +19,15 @@ const AuthPage = () => {
       
       <ContentWrapper>
         <NavWrapper>
-        <Navlink to="/auth/register" isactive={currentForm === 'register'} onClick={() => setCurrentForm('register')} >
+        <Navlink to="/auth/register"  >
           Register
         </Navlink>
-        <Navlink to="/auth/login" isactive={currentForm === 'login'} onClick={() => setCurrentForm('login')} >
+        <Navlink to="/auth/login"  >
           Log In
         </Navlink>
         </NavWrapper>
-      {currentForm === 'register' && <RegisterForm  />}
-      {currentForm === 'login' && <LoginForm  />}
+      {id === 'register' && <RegisterForm  />}
+      {id === 'login' && <LoginForm  />}
       </ContentWrapper>
     </AuthPageContainer>
   );

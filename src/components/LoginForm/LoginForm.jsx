@@ -1,7 +1,11 @@
+
+import { useAuth } from "components/hooks";
 import { Button, Form, Icon, Input } from "components/RegisterForm/RegisterForm.syled";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import { loginUser } from "redux/Auth/operations";
 import sprite from "../../images/sprite.svg";
 
@@ -11,6 +15,13 @@ export const LoginForm = () => {
   const dispatch = useDispatch()
   const { register, handleSubmit,reset,  formState: { errors } } = useForm();
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
+    if (isLoggedIn) {
+      navigate('/home', { replace: true });
+  }
+  
+ 
   
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -19,7 +30,7 @@ export const LoginForm = () => {
 
   const onSubmit = async (e) => {
     
-    console.log(e.email);
+    
     
     try {
       dispatch(loginUser({
@@ -31,6 +42,7 @@ export const LoginForm = () => {
     } catch (error) {
       console.log(error);
     }
+   
     reset()
   };
 

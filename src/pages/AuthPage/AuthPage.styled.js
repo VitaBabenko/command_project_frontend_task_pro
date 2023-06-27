@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 // import { NavLink } from 'react-router-dom';
 
 export const AuthPageContainer = styled.div`
@@ -29,18 +29,17 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Navlink = styled(NavLink)`
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 18px;
-  font-family: Poppins;
-  font-weight: 500;
-  letter-spacing: -0.36px;
-  text-decoration: none;
+  color: rgba(255, 255, 255, 0.30);
+font-size: 18px;
+font-family: Poppins;
+font-weight: 500;
+letter-spacing: -0.36px;
+text-decoration: none;
 
-  ${props =>
-    props.isactive &&
-    css`
-      color: #fff;
-    `}
+  &.active{
+    color: #ffff;
+  }
+  
 `;
 export const NavWrapper = styled.div`
   display: flex;
