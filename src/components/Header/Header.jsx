@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.sass';
+// import './styles.sass';
 import ThemeSelect from '../ThemeSelect/ThemeSelect';
 import { UserInfo } from '../Header/Components/UserInfo/UserInfo';
 

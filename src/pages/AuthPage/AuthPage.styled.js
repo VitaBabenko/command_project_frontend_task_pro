@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 // import { NavLink } from 'react-router-dom';
 
 
@@ -36,12 +36,9 @@ font-weight: 500;
 letter-spacing: -0.36px;
 text-decoration: none;
 
-  ${(props) =>
-    props.isactive &&
-    css`
-      color: #FFF;
- 
-    `}
+  &.active{
+    color: #ffff;
+  }
   
 `;
 export const NavWrapper = styled.div`
