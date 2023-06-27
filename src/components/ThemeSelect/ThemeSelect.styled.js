@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const ThemetWrapper = styled.div`
+  position: relative;
+`;
+
 export const ThemeSelectTitle = styled.div`
   display: flex;
   align-items: center;
