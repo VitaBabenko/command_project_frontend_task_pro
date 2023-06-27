@@ -5,6 +5,11 @@ const GlobalStyle = createGlobalStyle`
 
 :root {
   --boxShadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+  --authBgGradient: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
 }
 
   body {

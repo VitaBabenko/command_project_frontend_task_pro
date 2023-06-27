@@ -2,11 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const WelcomeWrapper = styled.h1`
-  background-image: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0) 25%,
-    #bedbb0 92.19%
-  );
+  background-image: var(--authBgGradient);
 `;
 
 export const Title = styled.h1`
