@@ -30,7 +30,7 @@ export const App = () => {
                 element={
                   <RestrictedRoute
                     redirectTo="/home"
-                    components={<RegisterForm />}
+                    component={<RegisterForm />}
                   />
                 }
               />
@@ -39,7 +39,7 @@ export const App = () => {
                 element={
                   <RestrictedRoute
                     redirectTo="/home"
-                    components={<LoginForm />}
+                    component={<LoginForm />}
                   />
                 }
               />
