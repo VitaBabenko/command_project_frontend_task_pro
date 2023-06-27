@@ -1,7 +1,8 @@
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
+import { Layout } from './Layout';
 // import Container from '../components/Container/Container';
 import { RegisterForm } from './RegisterForm/RegisterForm';
 import { LoginForm } from './LoginForm/LoginForm';
@@ -20,46 +21,34 @@ export const App = () => {
       <ModalContainer />
       <GlobalStyle />
 
-      <Suspense fallback={<div>Loading...</div>}>
-        {/* <Container> */}
-          <Routes>
-            <Route path="/" element={<WelcomePage />} />
-            <Route path="/auth/:id" element={<AuthPage />}>
-              <Route
-                path="register"
-                element={
-                  <RestrictedRoute
-                    redirectTo="/home"
-                    component={<RegisterForm />}
-                  />
-                }
-              />
-              <Route
-                path="login"
-                element={
-                  <RestrictedRoute
-                    redirectTo="/home"
-                    component={<LoginForm />}
-                  />
-                }
-              />
-            </Route>
+      {/* <Container> */}
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={
+              <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
+            }
+          />
 
-            <Route
-              path="/home"
-              element={
-                <PrivateRoute
-                  redirectTo="/auth/login"
-                  component={<HomePage />}
-                />
-              }
-            >
-              <Route path=":boardName" element={<ScreensPage />} />
-            </Route>
-            <Route path="*" element={<WelcomePage />} />
-          </Routes>
-        {/* </Container> */}
-      </Suspense>
+          <Route path="/welcome" element={<WelcomePage />} />
+          <Route
+            path="/auth/:id"
+            element={
+              <RestrictedRoute redirectTo="/home" component={<AuthPage />} />
+            }
+          >
+            <Route path="register" element={<RegisterForm />} />
+            <Route path="login" element={<LoginForm />} />
+          </Route>
+
+          <Route path="/home" element={<HomePage />}>
+            <Route path=":boardName" element={<ScreensPage />} />
+          </Route>
+          <Route path="*" element={<WelcomePage />} />
+        </Route>
+      </Routes>
+      {/* </Container> */}
     </>
   );
 };
