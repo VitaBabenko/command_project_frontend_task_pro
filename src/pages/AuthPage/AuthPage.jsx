@@ -19,10 +19,10 @@ const AuthPage = () => {
       
       <ContentWrapper>
         <NavWrapper>
-        <Navlink to="/auth/register" isActive={currentForm === 'register'} onClick={() => setCurrentForm('register')} >
+        <Navlink to="/auth/register" isactive={currentForm === 'register'} onClick={() => setCurrentForm('register')} >
           Register
         </Navlink>
-        <Navlink to="/auth/login" isActive={currentForm === 'login'} onClick={() => setCurrentForm('login')} >
+        <Navlink to="/auth/login" isactive={currentForm === 'login'} onClick={() => setCurrentForm('login')} >
           Log In
         </Navlink>
         </NavWrapper>

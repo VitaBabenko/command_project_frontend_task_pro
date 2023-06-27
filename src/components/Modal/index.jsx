@@ -1,6 +1,9 @@
 import React, { Children } from 'react';
 import { ModalBodyWrapper } from './ModalBodyWrapper';
 import { ModalHeader } from './ModalHeader';
+import { useSelector, useDispatch } from 'react-redux';
+import { setNameModal } from 'redux/modal';
+import { getModalMapData } from './ModalMapContainer';
 import './style.css';
 
 export const Modal = ({
@@ -30,3 +33,17 @@ export const Modal = ({
   );
 };
 
+export const ModalContainer = () => {
+  const modalName = useSelector((state) => state.modal.modalName);
+  const dispatch = useDispatch();
+
+  const toggle = () => {
+    dispatch(setNameModal(''));
+  };
+
+  return (
+    <Modal {...{ open: modalName, toggle }}>
+      {getModalMapData(modalName)}
+    </Modal>
+  );
+};

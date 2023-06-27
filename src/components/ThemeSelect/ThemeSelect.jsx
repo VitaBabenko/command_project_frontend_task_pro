@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setTheme } from '../../redux/theme/themeSlice';
-import sprite from '../../images/sprite.svg';
 import { useSelector } from 'react-redux';
-// console.log("sprite: ", Sprite);
-
+import { selectThema } from '../../redux/Auth/selectors';
+import { updateThema } from '../../redux/Auth/operations';
+import sprite from '../../images/sprite.svg';
 import {
   ThemeSelectWrapper,
   ThemeSelects,
@@ -16,19 +15,14 @@ const ThemeSelect = () => {
   const dispatch = useDispatch();
   const [isListOpen, setIsListOpen] = useState(false);
 
-
-  const currentTheme = useSelector(state => state.theme.themeColor);
-  console.log('currentTheme: ', currentTheme);
-
-    const [selectedTheme, setSelectedTheme] = useState(currentTheme);
+  const [selectedTheme, setSelectedTheme] = useState(useSelector(selectThema));
 
   useEffect(() => {
-    // console.log("useEffect", selectedTheme);
     document.body.setAttribute('data-theme', selectedTheme);
   }, [selectedTheme]);
 
   const handleThemeToggle = theme => {
-    dispatch(setTheme(theme));
+    dispatch(updateThema(theme));
     setSelectedTheme(theme);
     setIsListOpen(false);
   };

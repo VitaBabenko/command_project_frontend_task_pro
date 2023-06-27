@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Button, Form, Icon, Input } from './RegisterForm.syled';
 import sprite from "../../images/sprite.svg";
 import { useDispatch } from 'react-redux';
-import { registerUser } from 'redux/Auth/operestions';
+import { registerUser } from 'redux/Auth/operations';
 
 
 
@@ -27,8 +27,8 @@ export const RegisterForm = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-   dispatch(registerUser( data))
+  const onSubmit = (data,token) => {
+   dispatch(registerUser( data,token))
   console.log(data);
     
     reset();

@@ -7,6 +7,7 @@ import { RegisterForm } from './RegisterForm/RegisterForm';
 import { LoginForm } from './LoginForm/LoginForm';
 import Container from './Container/Container';
 import GlobalStyle from 'GlobalStyle';
+import { ModalContainer } from './Modal';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
@@ -16,7 +17,9 @@ const ScreensPage = lazy(() => import('../pages/ScreensPage'));
 export const App = () => {
   return (
     <>
+      <ModalContainer />
       <GlobalStyle />
+
       <Suspense fallback={<div>Loading...</div>}>
         <Container>
           <Routes>
