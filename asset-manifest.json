@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/command_project_frontend_task_pro/static/css/main.bf9214f8.css",
-    "main.js": "/command_project_frontend_task_pro/static/js/main.529ce696.js",
+    "main.js": "/command_project_frontend_task_pro/static/js/main.b7d62742.js",
     "static/js/198.bad3f919.chunk.js": "/command_project_frontend_task_pro/static/js/198.bad3f919.chunk.js",
     "static/js/486.b2239d53.chunk.js": "/command_project_frontend_task_pro/static/js/486.b2239d53.chunk.js",
     "static/css/277.a2133524.chunk.css": "/command_project_frontend_task_pro/static/css/277.a2133524.chunk.css",
@@ -18,7 +18,7 @@
     "static/media/logout.svg": "/command_project_frontend_task_pro/static/media/logout.3c6371574e2dbef9c044dbf437450472.svg",
     "static/media/icon2.svg": "/command_project_frontend_task_pro/static/media/icon2.9fd4f5a5065c027dbdc609964c385272.svg",
     "main.bf9214f8.css.map": "/command_project_frontend_task_pro/static/css/main.bf9214f8.css.map",
-    "main.529ce696.js.map": "/command_project_frontend_task_pro/static/js/main.529ce696.js.map",
+    "main.b7d62742.js.map": "/command_project_frontend_task_pro/static/js/main.b7d62742.js.map",
     "198.bad3f919.chunk.js.map": "/command_project_frontend_task_pro/static/js/198.bad3f919.chunk.js.map",
     "486.b2239d53.chunk.js.map": "/command_project_frontend_task_pro/static/js/486.b2239d53.chunk.js.map",
     "277.a2133524.chunk.css.map": "/command_project_frontend_task_pro/static/css/277.a2133524.chunk.css.map",
@@ -28,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.bf9214f8.css",
-    "static/js/main.529ce696.js"
+    "static/js/main.b7d62742.js"
   ]
 }
