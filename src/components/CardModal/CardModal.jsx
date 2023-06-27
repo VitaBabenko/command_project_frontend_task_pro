@@ -25,7 +25,7 @@ export const CardModal = ({ isOpen, onClose, children }) => {
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
-  }, [isOpen]);
+  }, [isOpen, handleOutsideClick]);
 
   if (!isOpen) {
     return null;
