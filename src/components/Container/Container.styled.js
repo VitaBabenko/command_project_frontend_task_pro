@@ -12,7 +12,7 @@ export const StyleContainer = styled.div`
     width: 768px;
   }
 
-  @media screen and (min-width: 1280px) {
-    width: 1280px;
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
   }
 `;
