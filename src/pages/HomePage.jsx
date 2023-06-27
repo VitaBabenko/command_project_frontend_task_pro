@@ -1,16 +1,12 @@
-import ProjectOffice from "components/ProjectOffice/ProjectOffice";
-
-import { Header } from "../components/Header";
-import { SideBar } from "../components/SideBar";
-
+import ProjectOffice from 'components/ProjectOffice/ProjectOffice';
+import { Header } from '../components/Header/Header';
+import { Sidebar } from '../components/Sidebar/Sidebar';
 
 const HomePage = () => {
-  
- 
   return (
     <>
       <Header />
-      <SideBar />
+      <Sidebar />
       <ProjectOffice />
     </>
   );
