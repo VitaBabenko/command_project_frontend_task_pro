@@ -9,11 +9,7 @@ export const AuthPageContainer = styled.div`
   align-items: center;
   height: 100vh;
 
-  background-image: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0) 25%,
-    #bedbb0 92.19%
-  );
+  background-image: var(--authBgGradient);
 `;
 
 export const ContentWrapper = styled.div`
@@ -29,17 +25,16 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Navlink = styled(NavLink)`
-  color: rgba(255, 255, 255, 0.30);
-font-size: 18px;
-font-family: Poppins;
-font-weight: 500;
-letter-spacing: -0.36px;
-text-decoration: none;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 18px;
+  font-family: Poppins;
+  font-weight: 500;
+  letter-spacing: -0.36px;
+  text-decoration: none;
 
-  &.active{
+  &.active {
     color: #ffff;
   }
-  
 `;
 export const NavWrapper = styled.div`
   display: flex;

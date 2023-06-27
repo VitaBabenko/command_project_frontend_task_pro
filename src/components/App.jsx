@@ -5,7 +5,7 @@ import { RestrictedRoute } from './RestrictedRoute';
 // import Container from '../components/Container/Container';
 import { RegisterForm } from './RegisterForm/RegisterForm';
 import { LoginForm } from './LoginForm/LoginForm';
-import Container from './Container/Container';
+// import Container from './Container/Container';
 import GlobalStyle from 'GlobalStyle';
 import { ModalContainer } from './Modal';
 
@@ -21,7 +21,7 @@ export const App = () => {
       <GlobalStyle />
 
       <Suspense fallback={<div>Loading...</div>}>
-        <Container>
+        {/* <Container> */}
           <Routes>
             <Route path="/" element={<WelcomePage />} />
             <Route path="/auth/:id" element={<AuthPage />}>
@@ -58,7 +58,7 @@ export const App = () => {
             </Route>
             <Route path="*" element={<WelcomePage />} />
           </Routes>
-        </Container>
+        {/* </Container> */}
       </Suspense>
     </>
   );

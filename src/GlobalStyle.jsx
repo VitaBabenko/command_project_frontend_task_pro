@@ -5,29 +5,30 @@ const GlobalStyle = createGlobalStyle`
 
 :root {
   --boxShadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
-}
-
-  body {
-  margin: 0;
-  ${
-    '' /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
-  }
-
-  font-family: "Poppins", sans-serif;
-  ${'' /* background-color: var(--sidebarBgColor); */}
-    ${
-      '' /* background-image: linear-gradient(
+  --authBgGradient: linear-gradient(
     180deg,
     rgba(196, 196, 196, 0) 25%,
     #bedbb0 92.19%
   );
-   background-repeat: no-repeat; */
-    }
+}
+
+  body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
   transition: 0.3s ease;
+${
+  '' /* 
+   background-image: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  ); 
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat; */
+}
+
+  background-color: var(--boardBgColor);
 
 
   ul,
