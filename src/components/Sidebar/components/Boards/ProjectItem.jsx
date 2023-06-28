@@ -1,11 +1,15 @@
 import React from 'react';
-import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
-import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
-import classNames from 'classnames';
+// import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
+// import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
+// import classNames from 'classnames';
 
-export const ProjectItem = ({ title, id, handleDashboardClick, background, dashboardIcon }) => {
-
-
+export const ProjectItem = ({
+  title,
+  id,
+  handleDashboardClick,
+  // background,
+  // dashboardIcon,
+}) => {
   // const handleEdit = () => {
   //   console.log('Edit project board');
   // }
@@ -27,11 +31,10 @@ export const ProjectItem = ({ title, id, handleDashboardClick, background, dashb
 
       {/* {isSelected && (
         <ul className="project-actions-list"> */}
-          {/* <li onClick={handleEdit}><EditIcon /></li>
+      {/* <li onClick={handleEdit}><EditIcon /></li>
           <li onClick={handleDelete}><DeleteIcon /></li> */}
-        {/* </ul> */}
+      {/* </ul> */}
       {/* )} */}
-
     </li>
   );
 };
