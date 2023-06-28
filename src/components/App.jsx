@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
@@ -9,6 +9,9 @@ import { LoginForm } from './LoginForm/LoginForm';
 // import Container from './Container/Container';
 import GlobalStyle from 'GlobalStyle';
 import { ModalContainer } from './Modal';
+import { useDispatch } from 'react-redux';
+import { useAuth } from './hooks';
+import { refreshUser } from 'redux/Auth/operations';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
@@ -16,7 +19,18 @@ const HomePage = lazy(() => import('../pages/HomePage'));
 const ScreensPage = lazy(() => import('../pages/ScreensPage'));
 
 export const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  
+    
+
+  return isRefreshing ?(
+    <b>Refreshing user...</b>) :(
     <>
       <ModalContainer />
       <GlobalStyle />
