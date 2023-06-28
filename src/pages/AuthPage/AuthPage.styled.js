@@ -13,15 +13,25 @@ export const AuthPageContainer = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  /* width: 424px;
-  height: 332px; */
-  padding: 40px;
+  width: 100%;
+ 
+  padding: 24px;
   background: #151515;
   border-radius: 8px;
 
   text-align: center;
   color: white;
   margin: 0 auto;
+
+  @media (min-width: 375px) {
+    width: 424px;
+  }
+
+  @media (min-width: 768px) {
+    border: 1px solid black;
+    padding: 40px;
+   
+  }
 `;
 
 export const Navlink = styled(NavLink)`
