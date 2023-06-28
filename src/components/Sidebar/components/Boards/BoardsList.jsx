@@ -1,5 +1,6 @@
 import React from 'react';
 import { ProjectItem } from './ProjectItem';
+import { SidebarPrjctList } from './Board.styled';
 import { useSelector } from 'react-redux';
 // import { useEffect } from 'react';
 // import { fetchUserDashboards } from 'redux/dashboards/operation';
@@ -24,7 +25,7 @@ export const BoardsList = () => {
   };
 
   return (
-    <ul className="sidebar-projects-list">
+    <SidebarPrjctList>
       {dashboards &&
         dashboards.map(dashboard => {
           return (
@@ -38,6 +39,6 @@ export const BoardsList = () => {
             />
           );
         })}
-    </ul>
+    </SidebarPrjctList>
   );
 };

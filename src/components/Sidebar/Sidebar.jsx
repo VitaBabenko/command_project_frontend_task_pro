@@ -1,15 +1,12 @@
 import React from 'react';
-// import './styles.sass';
 import { Logo } from './components/Logo/Logo';
 import { Boards } from './components/Boards/Boards';
 import { NeedHelp } from '../NeedHelp/NeedHelp';
 import { Logout } from './components/Logout/Logout';
 import { useNavigate } from 'react-router-dom';
+import { SidebarMain, Inn } from './Sidebar.styled';
 import { useDispatch } from 'react-redux';
 import { addUserBoard } from 'redux/dashboards/operation';
-// import { selectDashboards } from 'redux/dashboards/selectors';
-
-// 
 
 
 export const Sidebar = ({
@@ -47,8 +44,8 @@ export const Sidebar = ({
   }
 
   return (
-    <div className="sidebar-main">
-      <div className="inn">
+    <SidebarMain>
+      <Inn>
 
         <Logo
           goHome={handleHome}
@@ -64,7 +61,7 @@ export const Sidebar = ({
         <Logout
           onLogout={handleLogout}
         />
-      </div>
-    </div>
+      </Inn>
+    </SidebarMain>
   );
 };
