@@ -1,7 +1,8 @@
 import React from 'react';
-// import './styles.sass';
 import ThemeSelect from '../ThemeSelect/ThemeSelect';
 import { UserInfo } from '../Header/Components/UserInfo/UserInfo';
+import { HeaderMain, Inn } from './Components/UserInfo/UserInfoHead.styled';
+
 
 import AVATAR_URL from '../../images/PNG/avatar.png'
 
@@ -13,15 +14,15 @@ const MOCK_USER_DATA = {
 
 export const Header = (props) => {
   return (
-    <div className="header-main">
-      <div className="inn">
+    <HeaderMain>
+      <Inn>
         <ThemeSelect />
 
         <UserInfo
           {...MOCK_USER_DATA}
         />
-      </div>
-    </div>
+      </Inn>
+    </HeaderMain>
   );
 };
 

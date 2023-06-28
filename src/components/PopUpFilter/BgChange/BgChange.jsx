@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 import sprite from '../../../images/sprite.svg';
 import {
   Button,
@@ -87,20 +89,54 @@ const buttonsImg = [
 ];
 
 export const BgChange = () => {
+  const [loadedImages, setLoadedImages] = useState([]);
+
+  useEffect(() => {
+    const loadImage = async imageUrl => {
+      try {
+        const response = await fetch(imageUrl);
+        if (response.ok) {
+          return await response.blob();
+        }
+        throw new Error('Image loading failed.');
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const loadImages = async () => {
+      const promises = buttonsImg.map(button =>
+        loadImage(button.backgroundImage)
+      );
+      try {
+        const images = await Promise.all(promises);
+        setLoadedImages(images);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    loadImages();
+  }, []);
+
   return (
     <>
       <Title>Background</Title>
       <ButtonContainer>
         <ButtonNoneBg type="button">
-          <SvgIcons aria-label="close modal select icon" width={18} height={18}>
-            <use href={`${sprite}#icon-image`}></use>
+          <SvgIcons aria-label="no background" width={18} height={18}>
+            <use href={`${sprite}#icon-img-default`}></use>
           </SvgIcons>
         </ButtonNoneBg>
-        {buttonsImg.map(button => (
+        {buttonsImg.map((button, index) => (
           <Button
             key={button.id}
             type="button"
-            style={{ backgroundImage: `url(${button.backgroundImage})` }}
+            style={{
+              backgroundImage: loadedImages[index]
+                ? `url(${URL.createObjectURL(loadedImages[index])})`
+                : '',
+            }}
           ></Button>
         ))}
       </ButtonContainer>

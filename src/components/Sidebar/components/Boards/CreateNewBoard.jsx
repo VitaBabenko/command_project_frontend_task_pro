@@ -1,12 +1,14 @@
 import React from 'react';
+import { SidebarCreateNew, NewBoardBtn } from './Board.styled';
+
 
 export const CreateNewBoard = ({
   onCreateNew
 }) => {
   return (
-    <div className="sidebar-create-new-board">
+    <SidebarCreateNew>
       <h3>Create a <br/> new board</h3>
-      <div className="new-board-btn" onClick={onCreateNew}>+</div>
-    </div>
+      <NewBoardBtn onClick={onCreateNew}>+</NewBoardBtn>
+    </SidebarCreateNew>
   );
 };

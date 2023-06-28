@@ -5,29 +5,30 @@ const GlobalStyle = createGlobalStyle`
 
 :root {
   --boxShadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
-}
-
-  body {
-  margin: 0;
-  ${
-    '' /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
-  }
-
-  font-family: "Poppins", sans-serif;
-  ${'' /* background-color: var(--sidebarBgColor); */}
-    ${
-      '' /* background-image: linear-gradient(
+  --authBgGradient: linear-gradient(
     180deg,
     rgba(196, 196, 196, 0) 25%,
     #bedbb0 92.19%
   );
-   background-repeat: no-repeat; */
-    }
+}
+
+  body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
   transition: 0.3s ease;
+${
+  '' /* 
+   background-image: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  ); 
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat; */
+}
+
+  background-color: var(--boardBgColor);
 
 
   ul,
@@ -87,6 +88,7 @@ body[data-theme="dark"] {
   --passiveBorderColor: rgb(190, 219, 176, 0.4);
   --modalGorizontalBorderColor: rgba(255, 255, 255, 0.1);
   --modalBorderColor: rgba(190, 219, 176, 0.5);
+  --defaultImgColor: rgba(255, 255, 255, 0.7)
  
 }
 
@@ -113,6 +115,7 @@ body[data-theme="light"] {
   --passiveBorderColor: rgb(190, 219, 176, 0.4);
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
   --modalBorderColor: transparent;
+  --defaultImgColor: rgba(22, 22, 22, 0.7);
 }
 
 body[data-theme="violet"] {
@@ -138,6 +141,7 @@ body[data-theme="violet"] {
   --passiveBorderColor: rgba(82, 85, 188, 0.4);
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
   --modalBorderColor: transparent;
+  --defaultImgColor: rgba(22, 22, 22, 0.7);
 }
 `;
 

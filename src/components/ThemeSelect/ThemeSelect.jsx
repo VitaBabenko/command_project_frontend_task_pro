@@ -5,6 +5,7 @@ import { selectThema } from '../../redux/Auth/selectors';
 import { updateThema } from '../../redux/Auth/operations';
 import sprite from '../../images/sprite.svg';
 import {
+  ThemetWrapper,
   ThemeSelectWrapper,
   ThemeSelects,
   ThemeSelectIcon,
@@ -28,7 +29,7 @@ const ThemeSelect = () => {
   };
 
   return (
-    <>
+    <ThemetWrapper>
       <ThemeSelectTitle onClick={() => setIsListOpen(!isListOpen)}>
         Theme
         <ThemeSelectIcon aria-label="theme-select icon">
@@ -57,7 +58,7 @@ const ThemeSelect = () => {
           </ThemeSelects>
         </ThemeSelectWrapper>
       )}
-    </>
+    </ThemetWrapper>
   );
 };
 

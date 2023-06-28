@@ -2,15 +2,19 @@ import React from 'react';
 import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
 import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
 import classNames from 'classnames';
+import { FlexElems, IconWrap} from './Board.styled';
 
 export const ProjectItem = ({
-  name = '',
+  title,
+  id,
+  handleDashboardClick,
+  background,
+  dashboardIcon,
   icon: Icon,
   isSelected,
 }) => {
-
   const handleEdit = () => {
-    console.log('Edit project board');
+    console.log('Edit projects board');
   }
 
   const handleDelete = () => {
@@ -23,18 +27,17 @@ export const ProjectItem = ({
 
   return (
     <div className={classes}>
-      <div className="flex-elems">
-        {Icon && <div className="icon-wrap"><Icon /></div>}
-        <p>{name}</p>
-      </div>
+      <FlexElems>
+        {Icon && <IconWrap><Icon /></IconWrap>}
+        <p>{title}</p>
+        </FlexElems>
 
       {isSelected && (
         <ul className="project-actions-list">
-          <li onClick={handleEdit}><EditIcon /></li>
+      <li onClick={handleEdit}><EditIcon /></li>
           <li onClick={handleDelete}><DeleteIcon /></li>
-        </ul>
-      )}
-
+      </ul> 
+      )} 
     </div>
   );
 };

@@ -16,7 +16,7 @@ const dashboardSlice = createSlice({
       })
       .addCase(fetchUserDashboards.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
+        // console.log(action.payload);
         state.dashboards = action.payload.map(board => ({
           ...board,
           columns: [],

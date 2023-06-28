@@ -2,6 +2,8 @@ import React from 'react';
 
 import { CreateNewBoard } from './CreateNewBoard';
 import { BoardsList } from './BoardsList';
+import { SidebarBoards, TitleMin } from './Board.styled';
+
 
 import { ReactComponent as ICON_1 } from '../../../../images/SVG/Project.svg'
 import { ReactComponent as ICON_2 } from '../../../../images/SVG/icon2.svg'
@@ -24,11 +26,10 @@ export const Boards = ({
   onCreateNew
 }) => {
   return (
-    <div className="sidebar-boards">
-      <div className="inn">
+    <SidebarBoards>
+      <div>
 
-        <span className="title-min">My boards</span>
-
+        <TitleMin>My boards</TitleMin>
         <CreateNewBoard
           onCreateNew={onCreateNew}
         />
@@ -38,6 +39,6 @@ export const Boards = ({
         />
 
       </div>
-    </div>
+    </SidebarBoards>
   );
 };
