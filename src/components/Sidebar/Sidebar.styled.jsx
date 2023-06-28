@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const SidebarMain = styled.div`
  position: fixed;
   left: 0;

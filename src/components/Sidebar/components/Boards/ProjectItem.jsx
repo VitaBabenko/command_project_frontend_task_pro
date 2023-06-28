@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
 import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
 import classNames from 'classnames';
@@ -15,22 +16,28 @@ export const ProjectItem = ({
 }) => {
   const handleEdit = () => {
     console.log('Edit projects board');
-  }
+  };
 
   const handleDelete = () => {
     console.log('Delete project board');
-  }
+  };
 
   const classes = classNames('project-item-main', {
     selected: isSelected,
-  })
+  });
 
   return (
     <div className={classes}>
-      <FlexElems>
-        {Icon && <IconWrap><Icon /></IconWrap>}
-        <Text>{title}</Text>
+      <NavLink to={id}>
+        <FlexElems>
+          {Icon && (
+            <IconWrap>
+              <Icon />
+            </IconWrap>
+          )}
+           <Text>{title}</Text>
         </FlexElems>
+      </NavLink>
 
       {isSelected && (
         <PrjctActionList>

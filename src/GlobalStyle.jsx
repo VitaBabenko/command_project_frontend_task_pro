@@ -69,7 +69,7 @@ body[data-theme="dark"] {
   --greenGreenBlueColor: #bedbb0;
   --sidebarBgColor: #121212;
   --helpBgColor: #1f1f1f;
-  --headerBgColor: #1f1f1f;
+  --headerBgColor: #161616;
   --boardBgColor: #1f1f1f;
   --taskBgColor: #121212;
   --currentProjBgColor: #1f1f1f;
@@ -88,6 +88,7 @@ body[data-theme="dark"] {
   --passiveBorderColor: rgb(190, 219, 176, 0.4);
   --modalGorizontalBorderColor: rgba(255, 255, 255, 0.1);
   --modalBorderColor: rgba(190, 219, 176, 0.5);
+  --defaultImgColor: rgba(255, 255, 255, 0.7)
  
 }
 
@@ -96,7 +97,7 @@ body[data-theme="light"] {
   --sidebarBgColor: #f6f6f7;
   --helpBgColor: #fcfcfc;
   --headerBgColor: #fcfcfc;
-  --boardBgColor: #fcfcfc;
+  --boardBgColor: #F6F6F7;
   --taskBgColor: #f6f6f7;
   --currentProjBgColor: #f6f6f7;
   --themeListBgColor: #fcfcfc;
@@ -114,6 +115,7 @@ body[data-theme="light"] {
   --passiveBorderColor: rgb(190, 219, 176, 0.4);
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
   --modalBorderColor: transparent;
+  --defaultImgColor: rgba(22, 22, 22, 0.7);
 }
 
 body[data-theme="violet"] {
@@ -139,6 +141,7 @@ body[data-theme="violet"] {
   --passiveBorderColor: rgba(82, 85, 188, 0.4);
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
   --modalBorderColor: transparent;
+  --defaultImgColor: rgba(22, 22, 22, 0.7);
 }
 `;
 

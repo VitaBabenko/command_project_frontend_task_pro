@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const HeaderMain = styled.div`
   width: 100%;
   position: fixed;
@@ -28,6 +29,4 @@ export const ImgWrap = styled.div`
     border-radius: 4px;
     overflow: hidden;
     margin-left: 8px;
-
-
 `;
