@@ -3,38 +3,35 @@ import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg'
 import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
 import classNames from 'classnames';
 
-export const ProjectItem = ({
-  name = '',
-  icon: Icon,
-  isSelected,
-}) => {
+export const ProjectItem = ({ title, id, handleDashboardClick, background, dashboardIcon }) => {
 
-  const handleEdit = () => {
-    console.log('Edit project board');
-  }
 
-  const handleDelete = () => {
-    console.log('Delete project board');
-  }
+  // const handleEdit = () => {
+  //   console.log('Edit project board');
+  // }
 
-  const classes = classNames('project-item-main', {
-    selected: isSelected,
-  })
+  // const handleDelete = () => {
+  //   console.log('Delete project board');
+  // }
+
+  // const classes = classNames('project-item-main', {
+  //   selected: isSelected,
+  // })
 
   return (
-    <div className={classes}>
+    <li onClick={() => handleDashboardClick(id)}>
       <div className="flex-elems">
-        {Icon && <div className="icon-wrap"><Icon /></div>}
-        <p>{name}</p>
+        {/* {Icon && <div className="icon-wrap"><Icon /></div>} */}
+        <p>{title}</p>
       </div>
 
-      {isSelected && (
-        <ul className="project-actions-list">
-          <li onClick={handleEdit}><EditIcon /></li>
-          <li onClick={handleDelete}><DeleteIcon /></li>
-        </ul>
-      )}
+      {/* {isSelected && (
+        <ul className="project-actions-list"> */}
+          {/* <li onClick={handleEdit}><EditIcon /></li>
+          <li onClick={handleDelete}><DeleteIcon /></li> */}
+        {/* </ul> */}
+      {/* )} */}
 
-    </div>
+    </li>
   );
 };

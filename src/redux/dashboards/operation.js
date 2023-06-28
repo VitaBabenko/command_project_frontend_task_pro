@@ -9,7 +9,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchUserDashboards = createAsyncThunk('dashboards/fethUserDashboards', async (_, { rejectWithValue }) => { 
     try {
         const resp = await axios.get('/boards')
-        console.log(resp)
+        // console.log(resp)
         return resp.data
     } catch (error) {
         return console.log(error)

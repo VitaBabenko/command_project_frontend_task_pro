@@ -26,9 +26,6 @@ export const Boards = ({
   return (
     <div className="sidebar-boards">
       <div className="inn">
-
-        <span className="title-min">My boards</span>
-
         <CreateNewBoard
           onCreateNew={onCreateNew}
         />
