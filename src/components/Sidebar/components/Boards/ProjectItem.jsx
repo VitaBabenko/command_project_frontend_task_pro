@@ -10,6 +10,7 @@ export const ProjectItem = ({
   handleDashboardClick,
   background,
   dashboardIcon,
+  icon: Icon,
   isSelected,
 }) => {
   const handleEdit = () => {

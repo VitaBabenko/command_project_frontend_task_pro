@@ -40,7 +40,7 @@ export const NewBoardBtn = styled.div`
       color: #121212
 `;
 
-export const SidebarPrjctList = styled.div`
+export const SidebarPrjctList = styled.ul`
   margin-top: 40px
     margin-bottom: 40px
 `;
