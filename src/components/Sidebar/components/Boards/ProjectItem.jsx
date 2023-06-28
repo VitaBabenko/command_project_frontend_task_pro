@@ -2,7 +2,7 @@ import React from 'react';
 import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
 import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
 import classNames from 'classnames';
-import { FlexElems, IconWrap, PrjctActionList} from './Board.styled';
+import { FlexElems, IconWrap, PrjctActionList, Text} from './Board.styled';
 
 export const ProjectItem = ({
   title,
@@ -29,7 +29,7 @@ export const ProjectItem = ({
     <div className={classes}>
       <FlexElems>
         {Icon && <IconWrap><Icon /></IconWrap>}
-        <p>{title}</p>
+        <Text>{title}</Text>
         </FlexElems>
 
       {isSelected && (

@@ -5,7 +5,7 @@ export const HeaderMain = styled.div`
   left: 0;
   top: 0;
   padding: 18px 24px;
-  background-color: #161616;
+  background-color: var(--headerBgColor);
 `;
 
 export const Inn = styled.div`
@@ -18,7 +18,7 @@ export const Inn = styled.div`
 export const HeaderUserInfo = styled.div`
   display: flex;
     align-items: center;
-    color: #FFFFFF;
+    color: var(--primaryTextColor);
     font-size: 14px;
     margin-left: 14px;
 

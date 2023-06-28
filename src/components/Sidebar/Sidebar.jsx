@@ -10,7 +10,7 @@ import { addUserBoard } from 'redux/dashboards/operation';
 
 
 export const Sidebar = ({
-  isNeedHelp = false
+  isNeedHelp = true
 }) => {
   const navigate = useNavigate();
   // 

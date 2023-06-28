@@ -5,7 +5,7 @@ export const SidebarMain = styled.div`
   top: 0;
   width: 260px;
   height: 100%;
-  background-color: #121212;
+  background-color: var(--sidebarBgColor);
   color: #fff;
 `;
 
