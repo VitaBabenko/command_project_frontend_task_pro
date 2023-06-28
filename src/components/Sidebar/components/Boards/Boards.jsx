@@ -30,7 +30,6 @@ export const Boards = ({
       <div>
 
         <TitleMin>My boards</TitleMin>
-
         <CreateNewBoard
           onCreateNew={onCreateNew}
         />

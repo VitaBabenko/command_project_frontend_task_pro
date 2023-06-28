@@ -4,13 +4,14 @@ import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
 import classNames from 'classnames';
 import { FlexElems, IconWrap} from './Board.styled';
 
-
 export const ProjectItem = ({
-  name = '',
-  icon: Icon,
+  title,
+  id,
+  handleDashboardClick,
+  background,
+  dashboardIcon,
   isSelected,
 }) => {
-
   const handleEdit = () => {
     console.log('Edit project board');
   }
@@ -27,16 +28,15 @@ export const ProjectItem = ({
     <div className={classes}>
       <FlexElems>
         {Icon && <IconWrap><Icon /></IconWrap>}
-        <p>{name}</p>
-      </FlexElems>
+        <p>{title}</p>
+        </FlexElems>
 
       {isSelected && (
         <ul className="project-actions-list">
-          <li onClick={handleEdit}><EditIcon /></li>
+      <li onClick={handleEdit}><EditIcon /></li>
           <li onClick={handleDelete}><DeleteIcon /></li>
-        </ul>
-      )}
-
+      </ul> 
+      )} 
     </div>
   );
 };
