@@ -5,12 +5,14 @@ import Container from 'components/Container/Container';
 import { Header } from '../components/Header/Header';
 import { Sidebar } from '../components/Sidebar/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectDashboards } from 'redux/dashboards/selectors';
+// import { selectDashboards } from 'redux/dashboards/selectors';
 import { useEffect, Suspense } from 'react';
 import { fetchUserDashboards } from 'redux/dashboards/operation';
 
 const HomePage = () => {
-  const dashboards = useSelector(selectDashboards);
+  // const dashboards = useSelector(selectDashboards);
+  // const token = useSelector(state => state.auth.token);
+  // console.log(token)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,7 +21,7 @@ const HomePage = () => {
     };
     fetchDashboards();
   }, [dispatch]);
-  console.log(dashboards);
+  // console.log(dashboards);
 
   return (
     <Container>

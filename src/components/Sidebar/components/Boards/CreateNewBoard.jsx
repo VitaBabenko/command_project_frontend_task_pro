@@ -8,7 +8,7 @@ export const CreateNewBoard = ({
   return (
     <SidebarCreateNew>
       <h3>Create a <br/> new board</h3>
-      <NewBoardBtn onClick={onCreateNew}>+</NewBoardBtn>
+      <NewBoardBtn onClick={onCreateNew} type='button'>+</NewBoardBtn>
     </SidebarCreateNew>
   );
 };

@@ -19,7 +19,7 @@ export const Sidebar = ({
   // console.log(dashboard)
 
   const newBoard = {
-    title: "test dshboard1",
+    title: "test dshboard2",
     background: 'testUrl',
     dashboardIcon: 'testIcon',
   };
