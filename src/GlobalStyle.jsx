@@ -69,7 +69,7 @@ body[data-theme="dark"] {
   --greenGreenBlueColor: #bedbb0;
   --sidebarBgColor: #121212;
   --helpBgColor: #1f1f1f;
-  --headerBgColor: #1f1f1f;
+  --headerBgColor: #161616;
   --boardBgColor: #1f1f1f;
   --taskBgColor: #121212;
   --currentProjBgColor: #1f1f1f;
@@ -97,7 +97,7 @@ body[data-theme="light"] {
   --sidebarBgColor: #f6f6f7;
   --helpBgColor: #fcfcfc;
   --headerBgColor: #fcfcfc;
-  --boardBgColor: #fcfcfc;
+  --boardBgColor: #F6F6F7;
   --taskBgColor: #f6f6f7;
   --currentProjBgColor: #f6f6f7;
   --themeListBgColor: #fcfcfc;
