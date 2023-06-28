@@ -30,7 +30,7 @@ export const RegisterForm = () => {
 
   const onSubmit = (data,token) => {
    dispatch(registerUser( data,token))
-  console.log(data);
+  
     
     reset();
     
