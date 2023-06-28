@@ -37,7 +37,7 @@ export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, h
               id='avatar'
               type="file"
               accept="/image/*"
-              value={''}
+              // value={''}
               onChange={(e) => {
                 console.log(e);
                 handleChangeCurrentOperation(ECurrentEditOperationEditAvatar);

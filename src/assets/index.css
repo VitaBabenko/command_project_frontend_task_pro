@@ -37,7 +37,7 @@ input.error {
 }
 
 input.error:focus {
-  border-color: #CC0022;
+  border-color:#ff5252;
 }
 
 input::-webkit-input-placeholder {
@@ -75,9 +75,9 @@ input:disabled {
 }
 
 span.error {
-  color: #CC0022;
+  color: #FF5252;
   display: block;
-  font-size: 14px;
+  font-size: 10px;
   line-height: 20px;
   overflow: hidden;
   width: calc(100% - 18px);

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
 width: 212px;
-height: 272px;
+min-height: 272px;
 border-radius: 8px;
 background: #1F1F1F;
 padding: 20px;
@@ -56,7 +56,9 @@ box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
 export const Icon =  styled.svg `
 stroke: #FFFFFF;
 `
-
+export const Logo = styled.span`
+color: rgb(190, 219, 176);
+`
 export const Input = styled.input`
 display: flex;
 width: 344px;
@@ -91,5 +93,25 @@ box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 export const WrapperInput = styled.div `
 &:last-child {
   margin-bottom: 45px;
+}
+`
+
+export const Textarea = styled.textarea `
+width: 100%;
+height: 120px;
+margin-bottom: 24px;
+padding-top: 14px;
+padding-bottom: 14px;
+padding-left: 18px;
+border-radius: 8px;
+border: 1px solid #BEDBB0;
+opacity: 0.4000000059604645;
+color: #FFF;
+background-color: transparent;
+resize: none;
+&::placeholder {
+  color: #fff;
+  font-size: 14px;
+  font-family: Poppins;
 }
 `
