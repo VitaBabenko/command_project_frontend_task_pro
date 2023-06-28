@@ -14,7 +14,7 @@ export const ProjectItem = ({
   isSelected,
 }) => {
   const handleEdit = () => {
-    console.log('Edit project board');
+    console.log('Edit projects board');
   }
 
   const handleDelete = () => {
