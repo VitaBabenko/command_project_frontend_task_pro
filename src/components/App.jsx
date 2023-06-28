@@ -9,6 +9,9 @@ import { LoginForm } from './LoginForm/LoginForm';
 // import Container from './Container/Container';
 import GlobalStyle from 'GlobalStyle';
 import { ModalContainer } from './Modal';
+import { Calendar } from './Calendar/Calendar';
+import { CardModal } from './CardModal/CardModal';
+import { CardPopUp } from './CardPopUp/CardPopUp';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
@@ -46,6 +49,14 @@ export const App = () => {
             <Route path=":boardName" element={<ScreensPage />} />
           </Route>
           <Route path="*" element={<WelcomePage />} />
+          <Route
+            path="/s"
+            element={
+              <CardModal isOpen={true}>
+                <CardPopUp />
+              </CardModal>
+            }
+          />
         </Route>
       </Routes>
       {/* </Container> */}
