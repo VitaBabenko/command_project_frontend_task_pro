@@ -2,6 +2,8 @@ import React from 'react';
 import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
 import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
 import classNames from 'classnames';
+import { FlexElems, IconWrap} from './Board.styled';
+
 
 export const ProjectItem = ({
   name = '',
@@ -23,10 +25,10 @@ export const ProjectItem = ({
 
   return (
     <div className={classes}>
-      <div className="flex-elems">
-        {Icon && <div className="icon-wrap"><Icon /></div>}
+      <FlexElems>
+        {Icon && <IconWrap><Icon /></IconWrap>}
         <p>{name}</p>
-      </div>
+      </FlexElems>
 
       {isSelected && (
         <ul className="project-actions-list">

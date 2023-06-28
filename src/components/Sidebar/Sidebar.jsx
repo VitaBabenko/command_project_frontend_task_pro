@@ -1,10 +1,11 @@
 import React from 'react';
-// import './styles.sass';
 import { Logo } from './components/Logo/Logo';
 import { Boards } from './components/Boards/Boards';
 import { NeedHelp } from '../NeedHelp/NeedHelp';
 import { Logout } from './components/Logout/Logout';
 import { useNavigate } from 'react-router-dom';
+import { SidebarMain, Inn } from './Sidebar.styled';
+
 
 export const Sidebar = ({
   isNeedHelp = false
@@ -27,8 +28,8 @@ export const Sidebar = ({
   }
 
   return (
-    <div className="sidebar-main">
-      <div className="inn">
+    <SidebarMain>
+      <Inn>
 
         <Logo
           goHome={handleHome}
@@ -43,7 +44,7 @@ export const Sidebar = ({
         <Logout
           onLogout={handleLogout}
         />
-      </div>
-    </div>
+      </Inn>
+    </SidebarMain>
   );
 };

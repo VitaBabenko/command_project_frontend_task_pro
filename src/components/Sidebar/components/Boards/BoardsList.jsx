@@ -1,12 +1,14 @@
 import React from 'react';
 import { ProjectItem } from './ProjectItem';
+import { SidebarPrjctList } from './Board.styled';
+
 
 export const BoardsList = ({
   projects = [],
 }) => {
   return (
-    <div className="sidebar-projects-list">
+    <SidebarPrjctList>
       {projects && projects.map((project) => <ProjectItem {...project} />)}
-    </div>
+    </SidebarPrjctList>
   );
 };

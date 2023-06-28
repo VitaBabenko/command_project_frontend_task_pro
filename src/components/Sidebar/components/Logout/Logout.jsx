@@ -1,13 +1,15 @@
 import React from 'react';
 import { ReactComponent as LogoutIcon } from '../../../../images/SVG/logout.svg';
+import { SidebarLogout, IconWrap } from './Logout.styled';
+
 
 export const Logout = ({
   onLogout,
 }) => {
   return (
-    <div className="sidebar-logout" onClick={onLogout}>
-      <div className="icon-wrap"><LogoutIcon /></div>
+    <SidebarLogout onClick={onLogout}>
+      <IconWrap><LogoutIcon /></IconWrap>
       <p>Log out</p>
-    </div>
+    </SidebarLogout>
   );
 };

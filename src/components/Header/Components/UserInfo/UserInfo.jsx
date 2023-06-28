@@ -1,14 +1,15 @@
 import React from 'react';
+import { HeaderUserInfo, ImgWrap } from './UserInfoHead.styled';
 
 export const UserInfo = ({ name, avatarUrl }) => {
   return (
-    <div className="header-user-info">
+    <HeaderUserInfo>
       <p>{name}</p>
       {avatarUrl && (
-        <div className="img-wrap">
+        <ImgWrap>
           <img src={avatarUrl} alt="user avatar" />
-        </div>
+        </ImgWrap>
       )}
-    </div>
+    </HeaderUserInfo>
   );
 };

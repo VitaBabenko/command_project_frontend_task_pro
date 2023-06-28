@@ -1,11 +1,13 @@
 import React from 'react';
 import LogoImage from '../../../../images/logo.svg';
+import { SidebarLogo, LogoImg } from './Logo.styled';
+
 
 export const Logo = ({ goHome }) => (
-  <div className="sidebar-logo" onClick={goHome}>
-    <div className="logo-img">
+  <SidebarLogo onClick={goHome}>
+    <LogoImg>
       <img src={LogoImage} alt="sidebar logo" />
-    </div>
+    </LogoImg>
     <h3>Task Pro</h3>
-  </div>
+  </SidebarLogo>
 );
