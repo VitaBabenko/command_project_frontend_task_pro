@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const HeaderMain = styled.div`
   width: 100%;
   position: fixed;
@@ -18,7 +19,7 @@ export const Inn = styled.div`
 export const HeaderUserInfo = styled.div`
   display: flex;
     align-items: center;
-    color: #FFFFFF;
+    color: var(--primaryTextColor);
     font-size: 14px;
     margin-left: 14px;
 
@@ -28,6 +29,4 @@ export const ImgWrap = styled.div`
     border-radius: 4px;
     overflow: hidden;
     margin-left: 8px;
-
-
 `;

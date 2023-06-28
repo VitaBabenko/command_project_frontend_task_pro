@@ -54,6 +54,24 @@ export const PrjctItemMain = styled.div`
     color: rgba(255,255,255,0.5);
     position: relative;
     overflow: hidden;
+    path{
+      stroke: rgba(255,255,255,0.5);
+    };
+    path.selected{
+      color: rgba(255,255,255,1);
+      stroke: rgba(255,255,255,1);
+    };
+    :after{
+      content: "";
+        width: 4px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #BEDBB0;
+        border-bottom-left-radius: 2px;
+        border-top-left-radius: 2px;
+    }
 `;
 
 export const FlexElems = styled.div`
@@ -65,4 +83,20 @@ export const IconWrap = styled.div`
  margin-right: 8px;
       display: inline-block;
 `;
+
+export const PrjctActionList = styled.ul`
+ display: flex;
+      align-items: center;
+      li{
+        cursor:pointer;
+      }
+      li:last-child{
+        margin-left: 8px;
+      }
+`;
+
+export const Text = styled.p`
+ line-height: 1;
+`;
+
 
