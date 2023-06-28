@@ -1,6 +1,6 @@
 import React from 'react';
 import LogoImage from '../../../../images/logo.svg';
-import { SidebarLogo, LogoImg } from './Logo.styled';
+import { SidebarLogo, LogoImg, Text } from './Logo.styled';
 
 
 export const Logo = ({ goHome }) => (
@@ -8,6 +8,6 @@ export const Logo = ({ goHome }) => (
     <LogoImg>
       <img src={LogoImage} alt="sidebar logo" />
     </LogoImg>
-    <h3>Task Pro</h3>
+    <Text>Task Pro</Text>
   </SidebarLogo>
 );

@@ -69,7 +69,7 @@ body[data-theme="dark"] {
   --greenGreenBlueColor: #bedbb0;
   --sidebarBgColor: #121212;
   --helpBgColor: #1f1f1f;
-  --headerBgColor: #1f1f1f;
+  --headerBgColor: #161616;
   --boardBgColor: #1f1f1f;
   --taskBgColor: #121212;
   --currentProjBgColor: #1f1f1f;
@@ -93,7 +93,7 @@ body[data-theme="dark"] {
 
 body[data-theme="light"] {
   --greenGreenBlueColor: #bedbb0;
-  --sidebarBgColor: #f6f6f7;
+  --sidebarBgColor: #FFFFFF;
   --helpBgColor: #fcfcfc;
   --headerBgColor: #fcfcfc;
   --boardBgColor: #fcfcfc;
@@ -128,7 +128,7 @@ body[data-theme="violet"] {
   --defaultAvatarBgColor: #ecedfd;
 
   --createNewBoardIconBgColor: #b8bcfd;
-  --addAnotherColumnIconBgColor: #5255bc;
+  --addAnotherColumnIconBgColor: #FFFFFF;
   --addAvatarIconBgColor: #ecedfd;
 
   --primaryTextColor: #161616;

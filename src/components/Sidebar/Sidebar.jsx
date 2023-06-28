@@ -4,9 +4,10 @@ import { Boards } from './components/Boards/Boards';
 import { NeedHelp } from '../NeedHelp/NeedHelp';
 import { Logout } from './components/Logout/Logout';
 import { useNavigate } from 'react-router-dom';
-import { SidebarMain, Inn } from './Sidebar.styled';
+import { SidebarMain, Inn, Text } from './Sidebar.styled';
 import { useDispatch } from 'react-redux';
 import { addUserBoard } from 'redux/dashboards/operation';
+import {logout} from '../../redux/Auth/slice'
 
 
 export const Sidebar = ({
@@ -29,6 +30,7 @@ export const Sidebar = ({
   const handleLogout = () => {
     console.log('Logout');
     console.log('Await for connect auth slices to react project');
+    dispatch(logout())
 
   }
 
@@ -50,7 +52,6 @@ export const Sidebar = ({
         <Logo
           goHome={handleHome}
         />
-        <p>My boards</p>
 
         <Boards
           onCreateNew={handleCreateNewProject}
@@ -58,9 +59,9 @@ export const Sidebar = ({
 
         {isNeedHelp && (<NeedHelp />)}
 
-        <Logout
+        {/* <Logout
           onLogout={handleLogout}
-        />
+        /> */}
       </Inn>
     </SidebarMain>
   );
