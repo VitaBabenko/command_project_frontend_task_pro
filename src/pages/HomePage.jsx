@@ -7,9 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectDashboards } from 'redux/dashboards/selectors';
 import { useEffect } from 'react';
 import { fetchUserDashboards } from 'redux/dashboards/operation';
+import ScreensPage from './ScreensPage';
+import { Outlet, Route, Routes } from 'react-router-dom';
 
 const HomePage = () => {
-  const dashboards = useSelector(selectDashboards);
+ 
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,20 +19,23 @@ const HomePage = () => {
     fetchDashboards();
 
   }, []);
+  
+  const dashboards = useSelector(selectDashboards);
   console.log(dashboards)
+  
   
   return (
     <Container>
       <Header />
-      {/* <Routes>
-        { dashboards && dashboards.map(dashboard => {
-          return (<Route key={dashboard._id} path={`/boards/${dashboard._id}`} element={<ScreensPage dashboard={dashboard} />} />);
+      <Routes>
+        {dashboards.length > 1 && dashboards.map(dashboard => {
+          return (<Route key={dashboard._id} path={`/boards/${dashboard._id}`} element={<ScreensPage board={dashboard} />} />);
         })}
-
-      </Routes> */}
+      </Routes>
       {/* <TestBg /> */}
       <Sidebar />
-      <ProjectOffice />
+      {/* <Outlet /> */}
+      {/* <ScreensPage /> */}
     </Container>
   );
 };

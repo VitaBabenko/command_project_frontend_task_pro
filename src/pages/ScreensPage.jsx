@@ -1,9 +1,12 @@
 import ProjectOffice from "../components/ProjectOffice/ProjectOffice";
 
-const ScreensPage = () => {
+const ScreensPage = ({ board }) => {
+  console.log(board)
   return (
     <>
-      <ProjectOffice />
+      <ProjectOffice board={board}>
+
+      </ProjectOffice>
     </>
   );
 };
