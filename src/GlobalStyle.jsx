@@ -96,7 +96,7 @@ body[data-theme="light"] {
   --sidebarBgColor: #f6f6f7;
   --helpBgColor: #fcfcfc;
   --headerBgColor: #fcfcfc;
-  --boardBgColor: #fcfcfc;
+  --boardBgColor: #F6F6F7;
   --taskBgColor: #f6f6f7;
   --currentProjBgColor: #f6f6f7;
   --themeListBgColor: #fcfcfc;
