@@ -12,9 +12,9 @@ import './style.css';
 // import { Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import sprite from "../../images/sprite.svg";
-import {Avatar,AvatarImg}  from './ProfileDataEditor.styled'
+import { Avatar, AvatarImg } from './ProfileDataEditor.styled'
 
-export const ProfileDataEditor = ({ currentImg, handleChangeNewImg, handleChangeCurrentOperation }) => {
+export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, handleChangeCurrentOperation }) => {
   const { register, control, formState: { errors } } = useFormContext();
   const [isShowPassword, setIsShowPassword] = useState(false);
 
@@ -23,6 +23,7 @@ export const ProfileDataEditor = ({ currentImg, handleChangeNewImg, handleChange
     setIsShowPassword(prev => !prev);
   };
 
+  console.log('uploadImg', uploadImg);
   return (
     <>
       <div className="file">
@@ -31,32 +32,25 @@ export const ProfileDataEditor = ({ currentImg, handleChangeNewImg, handleChange
             <AvatarImg src={currentImg} alt='Avatar' />
           </Avatar>
 
-          <Controller
-            name={ERegisterFieldAvatar}
-            control={control}
-            render={({ field }) => (
-              <label>
-                <input
-                  type="file"
-                  accept="/image/*"
-                  onChange={(e) => {
-                    field.onChange(e);
-                    handleChangeCurrentOperation(ECurrentEditOperationEditAvatar);
-                    handleChangeNewImg(e)
-                  }}
-                // {...register(ERegisterFieldAvatar, {
-                //   onChange: (e) => {
-                //     handleChangeCurrentOperation(ECurrentEditOperationEditAvatar);
-                //     handleChangeNewImg(e);
-                //     // return e;
-                //   }
-                // })}
-                />
-                <AddIcon />
-              </label>
-            )}
-          />
+          <label htmlFor='avatar'>
+            <input
+              id='avatar'
+              type="file"
+              accept="/image/*"
+              value={''}
+              onChange={(e) => {
+                console.log(e);
+                handleChangeCurrentOperation(ECurrentEditOperationEditAvatar);
+                handleChangeNewImg(e);
+              }}
+            />
+            <AddIcon />
+          </label>
+
         </div>
+        {errors?.ERegisterFieldAvatar && (
+          <span className="error">{errors.ERegisterFieldAvatar.message}</span>
+        )}
       </div>
 
       <div className="wrapper-input">

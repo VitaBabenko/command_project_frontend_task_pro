@@ -22,6 +22,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .file>div {
@@ -48,16 +49,17 @@
   margin: 0;
 }
 
-.btn{
+.btn {
   background-color: transparent;
   border: none;
   padding: 10px;
 
 }
 
-.iconEditAvatar{
+.iconEditAvatar {
   color: white;
 }
+
 /* .avatar-wrapper {
   display: flex;
   justify-content: center;
@@ -89,19 +91,20 @@
   display: block;
 }
 
-.icon{
+.icon {
   position: absolute;
-width: 18px;
-height: 18px;
-stroke:#FFFFFF;
-display: block;
-right: 18px;
-top: 50%;
-z-index: 1;
-cursor: pointer;
-margin: -8px 0 0;
-padding: 0;
+  width: 18px;
+  height: 18px;
+  stroke: #FFFFFF;
+  display: block;
+  right: 18px;
+  top: 50%;
+  z-index: 1;
+  cursor: pointer;
+  margin: -8px 0 0;
+  padding: 0;
 }
+
 /* .edit-profile__btnClose{
   display: flex;
   position: absolute;

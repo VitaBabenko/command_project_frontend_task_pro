@@ -3,15 +3,16 @@ import { FormProvider, useForm } from 'react-hook-form';
 import {
   ECurrentEditOperationEditAvatar,
   ECurrentEditOperationEditData,
+  ERegisterFieldAvatar,
   getDefaultValuesForm,
   isAllRequiredFieldsDirty,
+  isTypeFileImg,
 } from './util';
 import './style.css';
 import { AvatarEditorContainer } from './AvatarEditor';
 import user from '../../images/user.svg'
 import { ProfileDataEditor } from './ProfileDataEditor';
 import { CustomButtonSend } from 'components/Button/CustomButton';
-import { EditProfileWrapper, } from './ProfileDataEditor.styled'
 
 export const EditProfile = ({ toggle, open, HeaderRender }) => {
   const [currentEditOperation, setCurrentEditOperation] = useState(ECurrentEditOperationEditData);
@@ -24,10 +25,9 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
     defaultValues: getDefaultValuesForm(),
   });
 
-  const { handleSubmit, formState: { dirtyFields, errors } } = methods;
+  const { handleSubmit, formState: { dirtyFields, errors }, setError } = methods;
   const isEditAvatarOperation = currentEditOperation === ECurrentEditOperationEditAvatar;
 
-  console.log(isEditAvatarOperation);
   const isFetching = false;
   const isDisabledSubmitBtn =
     !isAllRequiredFieldsDirty(dirtyFields) ||
@@ -38,8 +38,25 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
     console.log(data);
   };
 
+  const setFormFieldsError = (registerName, message) => {
+    setError(registerName, {
+      type: 'custom', message
+    });
+  };
+
+  const setFormFieldFieldAvatarError = (message) => {
+    setFormFieldsError(ERegisterFieldAvatar, message)
+  };
+
   const handleChangeNewImg = (e) => {
-    setUploadImg(e.target.files[0]);
+    console.log('dasdaD');
+    const file = e.target?.files?.[0];
+    if (!(file && isTypeFileImg(file?.type))) {
+      setCurrentEditOperation(ECurrentEditOperationEditData)
+      setFormFieldFieldAvatarError('Invalid format');
+      return;
+    }
+    setUploadImg(e.target);
   };
 
   const handleSetCurrentImg = (img) => {
@@ -54,25 +71,19 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
     setCurrentEditOperation(ECurrentEditOperationEditData);
     setUploadImg('');
   };
-
+  console.log(currentEditOperation);
   return (
-    // <EditProfileWrapper>
     <div className='edit-profile-wrapper'>
       {HeaderRender('Edit profile')}
       <FormProvider {...methods}>
 
-        <div className={isEditAvatarOperation ? 'display-block' : 'display-none'}>
-          <AvatarEditorContainer {...{ image: uploadImg, handleSetCurrentImg, handleClose: handleCloseEditAvatar }} />
-        </div>
+        {uploadImg && <AvatarEditorContainer {...{ image: uploadImg, handleSetCurrentImg, handleClose: handleCloseEditAvatar }} />}
 
         <div className={!isEditAvatarOperation ? 'display-block' : 'display-none'}>
 
           <div >
-            <ProfileDataEditor {...{ currentImg, handleChangeNewImg, handleChangeCurrentOperation }} />
+            <ProfileDataEditor {...{ currentImg, uploadImg, handleChangeNewImg, handleChangeCurrentOperation }} />
 
-            {/* <button disabled={isDisabledSubmitBtn} onClick={handleSubmit(onSubmit)}>
-              Save
-            </button> */}
             <CustomButtonSend disabled={isDisabledSubmitBtn} onClick={handleSubmit(onSubmit)} >
               Send
             </CustomButtonSend>
@@ -80,6 +91,5 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
         </div>
       </FormProvider>
     </div>
-    // </EditProfileWrapper >
   );
 };

@@ -11,8 +11,8 @@ import { styled } from '@mui/material/styles';
 import Slider from '@mui/material/Slider';
 
 const CustomSlider = styled(Slider)({
-  color: '#BEDBB0'  
-  })
+  color: '#BEDBB0'
+})
 
 export const AvatarEditorContainer = ({ image, handleSetCurrentImg, handleClose }) => {
   const editor = useRef(null);
@@ -38,7 +38,8 @@ export const AvatarEditorContainer = ({ image, handleSetCurrentImg, handleClose 
     handleClose();
   }
 
-  return (    
+  console.log('asdasdasdasda');
+  return (
     <>
       <AvatarEditor
         ref={editor}
@@ -51,21 +52,20 @@ export const AvatarEditorContainer = ({ image, handleSetCurrentImg, handleClose 
         borderRadius={borderRadius}
         image={image}
       />
-       <Box width={200}>
-      <CustomSlider
-      {...defaultInputTypeRangeProps} onChange={handleScale}
-        size="small"
-        defaultValue={50}
-        aria-label="Small"
-        valueLabelDisplay="auto"
-        color="secondary"
-      />
-    </Box>
-      {/* <input type='range' {...defaultInputTypeRangeProps} onChange={handleScale} /> */}
-      <button className="btn" onClick={() => handleRotate(rotate + rotateValue)}><RotateLeftIcon  className="iconEditAvatar" /></button>
-      <button className="btn" onClick={() => handleRotate(rotate - rotateValue)}><RotateRightIcon  className="iconEditAvatar"/></button>
-      <button className="btn" onClick={handleSave}><DoneIcon  className="iconEditAvatar" /></button>
-      <button className="btn" onClick={handleClose}><CloseIcon  className="iconEditAvatar"/></button>
+      <Box width={200}>
+        <CustomSlider
+          {...defaultInputTypeRangeProps} onChange={handleScale}
+          size="small"
+          defaultValue={50}
+          aria-label="Small"
+          valueLabelDisplay="auto"
+          color="secondary"
+        />
+      </Box>
+      <button className="btn" onClick={() => handleRotate(rotate + rotateValue)}><RotateLeftIcon className="iconEditAvatar" /></button>
+      <button className="btn" onClick={() => handleRotate(rotate - rotateValue)}><RotateRightIcon className="iconEditAvatar" /></button>
+      <button className="btn" onClick={handleSave}><DoneIcon className="iconEditAvatar" /></button>
+      <button className="btn" onClick={handleClose}><CloseIcon className="iconEditAvatar" /></button>
     </>
   )
 };

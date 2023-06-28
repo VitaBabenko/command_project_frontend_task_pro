@@ -3,8 +3,9 @@ export const ERegisterFieldEmail = 'ERegisterFieldEmail';
 export const ERegisterFieldPassword = 'ERegisterFieldPassword';
 export const ERegisterFieldAvatar = 'ERegisterFieldAvatar';
 
-export const getDefaultValuesForm = (name, email, password) => {
+export const getDefaultValuesForm = (name, email, password, avatar) => {
   return {
+    [ERegisterFieldAvatar]: avatar ?? '',
     [ERegisterFieldName]: name ?? '',
     [ERegisterFieldEmail]: email ?? '',
     [ERegisterFieldPassword]: password ?? '',
@@ -37,3 +38,8 @@ export const defaultInputTypeRangeProps = {
 }
 
 export const rotateValue = 90;
+
+export const isTypeFileImg = (type) => {
+  console.log(type);
+  return type.startsWith('image/');
+};
