@@ -8,12 +8,11 @@ export const ModalContainer = styled.div`
   box-sizing: border-box;
 
   border-radius: 8px;
-  border: 1px solid rgba(190, 219, 176, 0.5);
+  border: 1px solid var(--modalBorderColor);
   background: var(--themeListBgColor);
   padding: 24px;
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.05);
 `;
-/* var(--themeTitleTextColor); */
 
 export const CloseButton = styled.button`
   position: absolute;
