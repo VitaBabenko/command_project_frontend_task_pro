@@ -13,12 +13,13 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchDashboards = async () => { dispatch(fetchUserDashboards()) };
+    const fetchDashboards = async () => {
+      dispatch(fetchUserDashboards());
+    };
     fetchDashboards();
+  }, [dispatch]);
+  console.log(dashboards);
 
-  }, []);
-  console.log(dashboards)
-  
   return (
     <Container>
       <Header />
