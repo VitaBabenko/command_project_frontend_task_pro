@@ -16,10 +16,9 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const [shouldShowSidebar, setShouldShowSidebar] = useState(true);
 
-
   const handleBurgerClick = () => {
-    setShouldShowSidebar(!shouldShowSidebar)
-  }
+    setShouldShowSidebar(!shouldShowSidebar);
+  };
 
   useEffect(() => {
     const fetchDashboards = async () => {
@@ -31,13 +30,9 @@ const HomePage = () => {
 
   return (
     <Container>
-      <Sidebar
-        shouldShowSidebar={shouldShowSidebar}
-      />
-      <div style={{width: "100%"}}>
-        <Header
-          onBurgerClick={handleBurgerClick}
-        />
+      <Sidebar shouldShowSidebar={shouldShowSidebar} />
+      <div style={{ width: '100%' }}>
+        <Header onBurgerClick={handleBurgerClick} />
         {/* <Routes>
         { dashboards && dashboards.map(dashboard => {
           return (<Route key={dashboard._id} path={`/boards/${dashboard._id}`} element={<ScreensPage dashboard={dashboard} />} />);

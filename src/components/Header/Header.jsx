@@ -1,18 +1,21 @@
 import React from 'react';
 import ThemeSelect from '../ThemeSelect/ThemeSelect';
 import { HeaderMain } from './Header.styled';
+import { ReactComponent as BurgerIcon } from '../../images/SVG/burger.svg';
 
 import { HeaderUserInfo } from 'components/HeaderUserInfo/HeaderUserInfo';
 
-const onBurgerClick = () => {
-  console.log('click on burger');
-};
+// const onBurgerClick = () => {
+//   console.log('click on burger');
+// };
 
-export const Header = () => {
+export const Header = ({
+  onBurgerClick,
+}) => {
   return (
     <HeaderMain>
       <div className="header-burger" onClick={onBurgerClick}>
-        {/* <BurgerIcon /> */}
+        <BurgerIcon />
       </div>
 
       <ThemeSelect />

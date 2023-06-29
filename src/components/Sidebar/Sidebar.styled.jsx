@@ -9,7 +9,6 @@ export const SidebarMain = styled.div`
   background-color: var(--sidebarBgColor);
   color: #fff;
   transition: left cubic-bezier(0.15, 0.84, 1, 1) 0.219s;
-
   @media screen and (max-width: 768px) {
     left: -260px;
     &.visible {
