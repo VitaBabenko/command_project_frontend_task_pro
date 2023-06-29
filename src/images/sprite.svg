@@ -5,7 +5,7 @@
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M16 21.333l5.333-5.333-5.333-5.333"></path>
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M2.667 16h18.667"></path>
 </symbol>
-<symbol id="icon-arrow-down" viewBox="0 0 32 32">
+<symbol id="icon-arrow-down" viewBox="0 0 32 32" fill='none'>
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.3684" d="M8.421 12.211l7.579 7.579 7.579-7.579"></path>
 </symbol>
 <symbol id="icon-arrow-left" viewBox="0 0 32 32">

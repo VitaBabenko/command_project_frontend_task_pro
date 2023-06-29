@@ -98,3 +98,31 @@ export const Text = styled.span`
   font-size: 12px;
   margin-bottom: 4px;
 `;
+
+export const CalendarWrapp = styled.div`
+  display: flex;
+
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  transition: opacity var(--transition_data);
+
+  &:hover {
+    opacity: 0.7;
+  }
+  &:focus {
+    opacity: 0.7;
+  }
+`;
+export const CalendarText = styled.span`
+  color: var(--greenGreenBlueColor);
+`;
+
+export const CalendarArrow = styled.svg`
+  width: 18px;
+  height: 18px;
+
+  /* stroke: var(--greenGreenBlueColor); */
+  stroke: red;
+`;

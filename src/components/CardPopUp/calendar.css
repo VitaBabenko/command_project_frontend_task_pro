@@ -1,3 +1,59 @@
-/* .react-datepicker__input-container {
-  display: none;
+.react-datepicker {
+  position: absolute;
+  z-index: 100;
+  bottom: -130px;
+}
+
+.react-datepicker__month-container {
+  /* background-color: #1f1f1f; */
+  background-color: grey;
+  color: red;
+}
+.react-datepicker__header {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+.react-datepicker__day-names {
+  color: #fff;
+}
+
+/* кнопка ліва */
+.react-datepicker__navigation-icon--previous:before {
+  border-color: rgba(255, 255, 255, 0.8);
+  width: 8px;
+  height: 8px;
+}
+/* кнопка права */
+.react-datepicker__navigation-icon--next:before {
+  border-color: rgba(255, 255, 255, 0.8);
+  width: 8px;
+  height: 8px;
+}
+
+.react-datepicker__navigation-icon {
+  border-color: red;
+  background-color: red;
+  color: red;
+}
+
+/* .react-datepicker__day {
+  color: #fff;
 } */
+
+.react-datepicker__input-container input {
+  opacity: 0;
+  pointer-events: auto;
+  cursor: pointer;
+  height: 18px;
+  width: 150px;
+}
+
+.react-datepicker__day--selected {
+  background-color: var(--accentColor);
+  color: var(--helpColor);
+  border-radius: 50%;
+}
+.react-datepicker__day--disabled {
+  color: red;
+  background-color: red;
+}

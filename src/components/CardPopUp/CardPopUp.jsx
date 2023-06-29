@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import Calendar from 'react-datepicker';
-import DatePicker from 'react-datepicker';
-import { format } from 'date-fns';
+import sprite from '../../images/sprite.svg';
+import { formatDate } from 'helpers/formatDate';
 import 'react-datepicker/dist/react-datepicker.css';
 import './calendar.css';
 import {
@@ -15,6 +15,9 @@ import {
   RadioLabel,
   Wrap,
   Text,
+  CalendarWrapp,
+  CalendarText,
+  CalendarArrow,
 } from './CardPopUp.styled';
 
 import { CustomButton } from 'components/Button/CustomButton';
@@ -33,53 +36,20 @@ export const CardPopUp = ({ title }) => {
   };
 
   /* =============================================================================== */
-  // const [date, setDate] = useState(new Date());
-  // const [formattedDate, setFormattedDate] = useState('');
-
-  // const hendleSubmitCalendar = selectedDate => {
-  //   setDate(selectedDate);
-  // };
 
   const [startDate, setStartDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
-  // function formatTodayDate(date) {
-  //   const day = date.getDate();
-
-  //   return `Today, ${day} `;
-  // }
-  function formatDate(date) {
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-
-    if (isSameDay(date, today)) {
-      return `Today, ${date.getDate()}`;
-    } else if (isSameDay(date, tomorrow)) {
-      return `Tomorrow, ${date.getDate()}`;
-    } else {
-      const options = { weekday: 'long', day: 'numeric' };
-      const formattedDate = date.toLocaleDateString('en-US', options);
-      return formattedDate;
-    }
-  }
-
-  function isSameDay(date1, date2) {
-    return (
-      date1.getDate() === date2.getDate() &&
-      date1.getMonth() === date2.getMonth() &&
-      date1.getFullYear() === date2.getFullYear()
-    );
-  }
 
   const handleDateInputChange = date => {
     setStartDate(date);
-    setValue('deadline', formatDate(date));
+    setValue('deadline', startDate);
     setShowDatePicker(false);
   };
 
   const toggleDatePicker = () => {
     setShowDatePicker(prevState => !prevState);
   };
+
   /* =============================================================================== */
 
   return (
@@ -151,36 +121,30 @@ export const CardPopUp = ({ title }) => {
         </Wrap>
       </RadioGroup>
       <Text>Deadline</Text>
-      {/* <span style={{ marginBottom: 40 }}>Today, March 8</span> */}
       {/* =============================================================================== */}
+      {/* <input value={formatDate(startDate)} onClick={toggleDatePicker} /> */}
+      <CalendarWrapp onClick={toggleDatePicker}>
+        <CalendarText>{formatDate(startDate)}</CalendarText>
+        <CalendarArrow
+          style={{ width: 18, height: 18 }}
+          aria-label="open theme select icon"
+        >
+          <use href={sprite + '#icon-arrow-down'}></use>
+        </CalendarArrow>
+      </CalendarWrapp>
       <input
-        // {...register('deadline')}
-        value={formatDate(startDate)}
-        onClick={toggleDatePicker}
+        {...register('deadline', { value: startDate })}
+        style={{ display: 'none' }}
       />
-      <input {...register('deadline')} />
 
       {showDatePicker && (
-        <DatePicker
+        <Calendar
           selected={startDate}
           onChange={handleDateInputChange}
           dateFormat="dd/MM/yyyy"
           inline
         />
       )}
-
-      {/* <Calendar /> */}
-      {/* <DatePicker
-        selected={startDate}
-        onChange={date => setStartDate(date)}
-        dateFormat="dd/MM/yyyy"
-      /> */}
-      {/* <button
-          type="button"
-          style={{ width: 30, height: 30 }}
-          onClick={() => setValue('deadline', '111')}
-        ></button> */}
-      {/* <StyleErrorMessage name="deadline" component="div" /> */}
 
       {/* =============================================================================== */}
       {errors.exampleRequired && <span>This field is required</span>}
