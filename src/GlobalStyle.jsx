@@ -95,7 +95,7 @@ body[data-theme="dark"] {
 
 body[data-theme="light"] {
   --greenGreenBlueColor: #bedbb0;
-  --sidebarBgColor: #f6f6f7;
+  --sidebarBgColor: #FFFFFF;
   --helpBgColor: #fcfcfc;
   --headerBgColor: #fcfcfc;
   --boardBgColor: #F6F6F7;
@@ -131,7 +131,7 @@ body[data-theme="violet"] {
   --defaultAvatarBgColor: #ecedfd;
 
   --createNewBoardIconBgColor: #b8bcfd;
-  --addAnotherColumnIconBgColor: #5255bc;
+  --addAnotherColumnIconBgColor: #FFFFFF;
   --addAvatarIconBgColor: #ecedfd;
 
   --primaryTextColor: #161616;

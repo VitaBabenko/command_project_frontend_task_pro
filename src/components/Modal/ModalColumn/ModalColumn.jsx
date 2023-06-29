@@ -5,10 +5,10 @@ import { CustomDialog, StyleInput } from "./ModalColumn.styled";
 import { useState } from "react";
 
 export const ModalColumn = ({ isOpen, onClose, type = "create", initialState = '', onRemove }) => {
-  const [columnName, setColumnName] = useState(initialState);
+  const [title, setTitle] = useState(initialState);
 
   const reset = () => {
-    setColumnName('');
+    setTitle('');
   }
 
   const handleClose = () => { 
@@ -17,7 +17,7 @@ export const ModalColumn = ({ isOpen, onClose, type = "create", initialState = '
   }
 
   const handleChange = ({ target }) => { 
-    setColumnName(target.value);
+    setTitle(target.value);
   }
 
   return (
@@ -67,10 +67,10 @@ export const ModalColumn = ({ isOpen, onClose, type = "create", initialState = '
           fullWidth
           variant="outlined"
           InputLabelProps={{ shrink: false }}
-          value={columnName}
+          value={title}
           onChange={handleChange}
         />
-        <CustomButton onClick={() => { onRemove(columnName);  handleClose()}}>
+        <CustomButton onClick={() => { onRemove(title);  handleClose()}}>
                   Add
         </CustomButton>
       </DialogContent>
