@@ -46,7 +46,7 @@ letter-spacing: -0.24px;
 
 export const WrapperPopUp = styled.div `
 width: 100%;
-height: 355px;
+min-height: 355px;
 padding: 24px;
 border-radius: 8px;
 border: 1px solid rgba(190, 219, 176, 0.50);
@@ -114,4 +114,14 @@ resize: none;
   font-size: 14px;
   font-family: Poppins;
 }
+`;
+
+export const ErrorText= styled.p `
+color: #FF5252;
+    display: block;
+    font-size: 10px;
+    line-height: 20px;
+    overflow: hidden;
+    width: calc(100% - 18px);
+
 `

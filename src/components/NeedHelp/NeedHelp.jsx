@@ -22,9 +22,6 @@ export const NeedHelp = () => {
         If you need help with <Logo>TaskPro</Logo>, check out our support
         resources or reach out to our customer support team.
       </Text>
-      {/* <CustomButton onClick={toggle}>
-      Need help?
-        </CustomButton> */}
       <Button onClick={toggle}>
         <Icon
           aria-label="icon close"
