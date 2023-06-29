@@ -8,11 +8,11 @@ import {
   ERegisterFieldName,
   ERegisterFieldPassword,
 } from './util';
-import './style.css';
+import '../../assets/index.css';
 // import { Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import sprite from "../../images/sprite.svg";
-import { Avatar, AvatarImg } from './ProfileDataEditor.styled'
+import { Avatar, AvatarImg ,InputField} from './ProfileDataEditor.styled'
 
 export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, handleChangeCurrentOperation }) => {
   const { register, control, formState: { errors } } = useFormContext();
