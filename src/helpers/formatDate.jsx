@@ -23,7 +23,6 @@ export const formatDate = date => {
   } else if (isSameDay(date, tomorrow)) {
     return `Tomorrow, ${optionsNearestDays} ${date.getDate()}`;
   } else {
-    // const formattedDate = date.toLocaleDateString('en-US', optionsAllDays);
     const formattedDate = `${optionsAllDays} ${date.getDate()}`;
     return formattedDate;
   }

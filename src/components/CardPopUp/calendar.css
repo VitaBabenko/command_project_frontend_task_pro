@@ -1,7 +1,7 @@
 .react-datepicker {
   position: absolute;
   z-index: 100;
-  bottom: -225px;
+  bottom: -190px;
   border: none;
 }
 
@@ -20,9 +20,8 @@
 .react-datepicker__current-month {
   color: #fff;
   font-size: 16px;
-
-  font-style: normal;
   font-weight: 500;
+  margin-bottom: 14px;
 }
 .react-datepicker__header {
   background-color: #1f1f1f;
@@ -48,6 +47,10 @@
   width: 8px;
   height: 8px;
   top: 18px;
+}
+.react-datepicker__navigation {
+  top: 10px;
+  margin-bottom: 14px;
 }
 
 .react-datepicker__navigation-icon {
@@ -99,4 +102,11 @@
 }
 .react-datepicker__day--disabled {
   color: rgba(255, 255, 255, 0.2);
+}
+
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected,
+.react-datepicker__year-text--keyboard-selected {
+  background-color: inherit;
 }

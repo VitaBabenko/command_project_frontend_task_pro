@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-import Calendar from 'react-datepicker';
 import DatePicker from 'react-datepicker';
 import sprite from '../../images/sprite.svg';
 import { formatDate } from 'helpers/formatDate';
@@ -35,9 +34,6 @@ export const CardPopUp = ({ title }) => {
     console.log(data);
     reset();
   };
-
-  /* =============================================================================== */
-
   const [startDate, setStartDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
 
@@ -50,9 +46,6 @@ export const CardPopUp = ({ title }) => {
   const toggleDatePicker = () => {
     setShowDatePicker(prevState => !prevState);
   };
-
-  /* =============================================================================== */
-
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <FormText>{title}</FormText>
@@ -122,8 +115,6 @@ export const CardPopUp = ({ title }) => {
         </Wrap>
       </RadioGroup>
       <Text>Deadline</Text>
-      {/* =============================================================================== */}
-      {/* <input value={formatDate(startDate)} onClick={toggleDatePicker} /> */}
       <CalendarWrapp onClick={toggleDatePicker}>
         <CalendarText>{formatDate(startDate)}</CalendarText>
         <CalendarArrow
@@ -147,8 +138,6 @@ export const CardPopUp = ({ title }) => {
           minDate={new Date()}
         />
       )}
-
-      {/* =============================================================================== */}
       {errors.exampleRequired && <span>This field is required</span>}
       <CustomButton type="submit">{'Add another card'}</CustomButton>
     </Form>
