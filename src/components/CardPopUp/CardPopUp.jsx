@@ -1,8 +1,10 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import Calendar from 'react-datepicker';
+import DatePicker from 'react-datepicker';
 import { format } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
+import './calendar.css';
 import {
   Form,
   FormText,
@@ -14,12 +16,7 @@ import {
   Wrap,
   Text,
 } from './CardPopUp.styled';
-import {
-  ButtonDate,
-  CalendarContainer,
-  ChevronDown,
-  BtnName,
-} from '../Calendar/Calendar.styled';
+
 import { CustomButton } from 'components/Button/CustomButton';
 
 export const CardPopUp = ({ title }) => {
@@ -36,36 +33,65 @@ export const CardPopUp = ({ title }) => {
   };
 
   /* =============================================================================== */
-  const [date, setDate] = useState(new Date());
-  const [formattedDate, setFormattedDate] = useState('');
+  // const [date, setDate] = useState(new Date());
+  // const [formattedDate, setFormattedDate] = useState('');
 
-  const hendleSubmitCalendar = selectedDate => {
-    setDate(selectedDate);
-  };
+  // const hendleSubmitCalendar = selectedDate => {
+  //   setDate(selectedDate);
+  // };
 
-  const isToday = date => {
+  const [startDate, setStartDate] = useState(new Date());
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  // function formatTodayDate(date) {
+  //   const day = date.getDate();
+
+  //   return `Today, ${day} `;
+  // }
+  function formatDate(date) {
     const today = new Date();
-    return (
-      date.getDate() === today.getDate() &&
-      date.getMonth() === today.getMonth() &&
-      date.getFullYear() === today.getFullYear()
-    );
-  };
-  const formattedDateForBtn = date => {
-    if (isToday(date)) {
-      return 'Today, ' + format(date, 'MMMM dd');
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    if (isSameDay(date, today)) {
+      return `Today, ${date.getDate()}`;
+    } else if (isSameDay(date, tomorrow)) {
+      return `Tomorrow, ${date.getDate()}`;
+    } else {
+      const options = { weekday: 'long', day: 'numeric' };
+      const formattedDate = date.toLocaleDateString('en-US', options);
+      return formattedDate;
     }
-    return format(date, 'MMMM dd');
+  }
+
+  function isSameDay(date1, date2) {
+    return (
+      date1.getDate() === date2.getDate() &&
+      date1.getMonth() === date2.getMonth() &&
+      date1.getFullYear() === date2.getFullYear()
+    );
+  }
+
+  const handleDateInputChange = date => {
+    setStartDate(date);
+    setValue('deadline', formatDate(date));
+    setShowDatePicker(false);
+  };
+
+  const toggleDatePicker = () => {
+    setShowDatePicker(prevState => !prevState);
   };
   /* =============================================================================== */
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <FormText>{title}</FormText>
-      <FromInput {...register('title', { minLength: 3 })} placeholder="Title" />
+      <FromInput
+        {...register('title', { minLength: 3, required: false })}
+        placeholder="Title"
+      />
       <FormTextarea
         placeholder="Description"
-        {...register('description', { minLength: 3 })}
+        {...register('description', { minLength: 3, required: false })}
       ></FormTextarea>
       <Text>Label color</Text>
       <RadioGroup>
@@ -127,27 +153,35 @@ export const CardPopUp = ({ title }) => {
       <Text>Deadline</Text>
       {/* <span style={{ marginBottom: 40 }}>Today, March 8</span> */}
       {/* =============================================================================== */}
+      <input
+        // {...register('deadline')}
+        value={formatDate(startDate)}
+        onClick={toggleDatePicker}
+      />
       <input {...register('deadline')} />
-      <CalendarContainer>
-        <ButtonDate type="button">
-          <BtnName>
-            {formattedDate}
-            <ChevronDown />
-          </BtnName>
-        </ButtonDate>
-        <Calendar
-          selected={date}
-          click={hendleSubmitCalendar}
-          setValue={setValue}
+
+      {showDatePicker && (
+        <DatePicker
+          selected={startDate}
+          onChange={handleDateInputChange}
           dateFormat="dd/MM/yyyy"
+          inline
         />
-        {/* <button
+      )}
+
+      {/* <Calendar /> */}
+      {/* <DatePicker
+        selected={startDate}
+        onChange={date => setStartDate(date)}
+        dateFormat="dd/MM/yyyy"
+      /> */}
+      {/* <button
           type="button"
           style={{ width: 30, height: 30 }}
           onClick={() => setValue('deadline', '111')}
         ></button> */}
-        {/* <StyleErrorMessage name="deadline" component="div" /> */}
-      </CalendarContainer>
+      {/* <StyleErrorMessage name="deadline" component="div" /> */}
+
       {/* =============================================================================== */}
       {errors.exampleRequired && <span>This field is required</span>}
       <CustomButton type="submit">{'Add another card'}</CustomButton>
