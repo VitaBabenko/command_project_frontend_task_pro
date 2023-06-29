@@ -4,7 +4,7 @@ import Container from 'components/Container/Container';
 // import { TestBg } from 'components/TestBg/TestBg';
 import { Header } from '../components/Header/Header';
 import { Sidebar } from '../components/Sidebar/Sidebar';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { selectDashboards } from 'redux/dashboards/selectors';
 import { useEffect, Suspense } from 'react';
 import { fetchUserDashboards } from 'redux/dashboards/operation';
@@ -27,14 +27,14 @@ const HomePage = () => {
     <Container>
       <Sidebar />
       <div>
-      <Header />
-      {/* <Routes>
+        <Header />
+        {/* <Routes>
         { dashboards && dashboards.map(dashboard => {
           return (<Route key={dashboard._id} path={`/boards/${dashboard._id}`} element={<ScreensPage dashboard={dashboard} />} />);
         })}
 
       </Routes> */}
-      {/* <TestBg /> */}
+        {/* <TestBg /> */}
         {/* <ProjectOffice /> */}
       </div>
       <Suspense fallback={<div>Loading</div>}>

@@ -4,16 +4,18 @@ import { useState } from 'react';
 import { StackWrapper } from '../ProjectOfficeStyle';
 
 import { ModalColumn } from 'components/Modal/ModalColumn/ModalColumn';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
-const AddColumnButton = ({handleAddColumn}) => {
+const AddColumnButton = ({ handleAddColumn }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const columns = [{ columnName: 'one', id: 1 }, { columnName: 'two', id: 2 }];
-  
+  // const columns = [
+  //   { columnName: 'one', id: 1 },
+  //   { columnName: 'two', id: 2 },
+  // ];
 
   const handleToggleModal = () => {
-      setIsOpen((prevstate) => !prevstate )
-  }
+    setIsOpen(prevstate => !prevstate);
+  };
 
   // const handleCreateColumn = (columnName) => {
   //   //   const newArr = [...columns, { id: 4, columnName: columnName }];
