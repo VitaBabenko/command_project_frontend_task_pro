@@ -18,6 +18,12 @@ export const ThemeSelectTitle = styled.div`
   font-weight: 500;
   letter-spacing: -0.28px;
   cursor: pointer;
+
+  transition: opacity var(--transition_data);
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export const ThemeSelectWrapper = styled.ul`
@@ -42,9 +48,11 @@ export const ThemeSelects = styled.li`
   color: var(
     --${props => (props.theme === props.children.toLowerCase() ? 'greenGreenBlueColor' : 'popupTextColor')}
   );
+  transition: opacity var(--transition_data);
 
   &:hover {
-    color: orange;
+    /* color: orange; */
+    opacity: 0.7;
   }
 `;
 
