@@ -5,8 +5,8 @@ height: 100vh;
 
   /* background-color: var(--sidebarBgColor); */
 
-  @media screen and (min-width: 320px) {
-    width: 320px;
+  @media screen and (min-width: 375px) {
+    width: 375px;
     margin: 0 auto;
   }
 

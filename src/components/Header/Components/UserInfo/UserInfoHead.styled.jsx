@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const HeaderMain = styled.div`
   width: 1180px;
   height: 68px;

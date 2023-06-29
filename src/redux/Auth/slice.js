@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { loginUser, registerUser, updateThema } from './operations';
+import { loginUser, logOut, refreshUser, registerUser, updateThema } from './operations';
 
 const initialState = {
-  user: { name: null, email: null, thema: 'dark' },
+  user: { name: null, email: null, thema: 'dark', avatar: null },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -31,22 +31,23 @@ const authSlice = createSlice({
           state.token = action.payload.token;
           state.isLoggedIn = true;
         })
-        // .addCase(logOut.fulfilled, (state) => {
-        //   state.user = { name: null, email: null };
-        //   state.token = null;
-        //   state.isLoggedIn = false;
-        // })
-        // .addCase(refreshUser.pending, (state) => {
-        //   state.isRefreshing = true;
-        // })
-        // .addCase(refreshUser.fulfilled, (state, action) => {
-        //   state.user = action.payload;
-        //   state.isLoggedIn = true;
-        //   state.isRefreshing = false;
-        // })
-        // .addCase(refreshUser.rejected, (state) => {
-        //   state.isRefreshing = false;
-        // });
+        .addCase(logOut.fulfilled, (state) => {
+          state.user = { name: null, email: null };
+          state.token = null;
+          state.isLoggedIn = false;
+        })
+        .addCase(refreshUser.pending, (state) => {
+          state.isRefreshing = true;
+        })
+        .addCase(refreshUser.fulfilled, (state, action) => {
+          state.user = action.payload;
+          state.isLoggedIn = true;
+          state.isRefreshing = false;
+        })
+        .addCase(refreshUser.rejected, (state) => {
+          state.isRefreshing = false;
+        })
+    
         .addCase(updateThema.pending, state => {
           // console.log('pending');
           state.loading = true;
