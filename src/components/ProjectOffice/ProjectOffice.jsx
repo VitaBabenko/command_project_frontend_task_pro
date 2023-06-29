@@ -16,30 +16,24 @@ const ProjectOffice = () => {
 
   const dispatch = useDispatch();
 
-
-
-  const handleAddColumn = (columnName) => {
-    dispatch(addColumn({ title: columnName, boardId: boardName}));
+  const handleAddColumn = columnName => {
+    dispatch(addColumn({ title: columnName, boardId: boardName }));
   };
 
   useEffect(() => {
     dispatch(getColumnsForBoard(boardName));
-  }, [boardName]);
+  }, [dispatch, boardName]);
 
-  console.log(columns)
-
+  console.log(columns);
 
   return (
     <>
       <ProjectOfficeHeader />
       <AddColumnButton handleAddColumn={handleAddColumn} />
-      {columns.length > 0 && columns.map(column => {
-        return (
-          <ProjectOfficeItem
-          column={column} key={column._id}
-          />
-        );
-      })}
+      {columns.length > 0 &&
+        columns.map(column => {
+          return <ProjectOfficeItem column={column} key={column._id} />;
+        })}
       {/* <ProjectOfficeItem column={columns} /> */}
     </>
   );

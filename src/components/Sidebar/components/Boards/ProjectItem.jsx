@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
 import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
-import classNames from 'classnames';
-import { FlexElems, IconWrap, PrjctActionList, Text} from './Board.styled';
+// import classNames from 'classnames';
+import { FlexElems, IconWrap, PrjctActionList, Text } from './Board.styled';
 
 export const ProjectItem = ({
   title,
@@ -22,9 +22,9 @@ export const ProjectItem = ({
     console.log('Delete project board');
   };
 
-  const classes = classNames('project-item-main', {
-    selected: isSelected,
-  });
+  // const classes = classNames('project-item-main', {
+  //   selected: isSelected,
+  // });
 
   return (
     <div>
@@ -41,10 +41,14 @@ export const ProjectItem = ({
 
       {isSelected && (
         <PrjctActionList>
-      <li onClick={handleEdit}><EditIcon /></li>
-          <li onClick={handleDelete}><DeleteIcon /></li>
-      </PrjctActionList> 
-      )} 
+          <li onClick={handleEdit}>
+            <EditIcon />
+          </li>
+          <li onClick={handleDelete}>
+            <DeleteIcon />
+          </li>
+        </PrjctActionList>
+      )}
     </div>
   );
 };
