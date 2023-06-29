@@ -26,11 +26,9 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  
-    
-
-  return isRefreshing ?(
-    <b>Refreshing user...</b>) :(
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <>
       <ModalContainer />
       <GlobalStyle />
@@ -45,7 +43,12 @@ export const App = () => {
             }
           />
 
-          <Route path="/welcome" element={<WelcomePage />} />
+          <Route
+            path="/welcome"
+            element={
+              <RestrictedRoute redirectTo="/home" component={<WelcomePage />} />
+            }
+          />
           <Route
             path="/auth/:id"
             element={
@@ -56,7 +59,12 @@ export const App = () => {
             <Route path="login" element={<LoginForm />} />
           </Route>
 
-          <Route path="/home" element={<HomePage />}>
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
+            }
+          >
             <Route path=":boardName" element={<ScreensPage />} />
           </Route>
           <Route path="*" element={<WelcomePage />} />
