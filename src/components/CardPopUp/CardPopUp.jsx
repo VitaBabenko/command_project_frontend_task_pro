@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import Calendar from 'react-datepicker';
+import DatePicker from 'react-datepicker';
 import sprite from '../../images/sprite.svg';
 import { formatDate } from 'helpers/formatDate';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -138,11 +139,12 @@ export const CardPopUp = ({ title }) => {
       />
 
       {showDatePicker && (
-        <Calendar
+        <DatePicker
           selected={startDate}
           onChange={handleDateInputChange}
           dateFormat="dd/MM/yyyy"
           inline
+          minDate={new Date()}
         />
       )}
 

@@ -9,7 +9,9 @@ function isSameDay(date1, date2) {
 export const formatDate = date => {
   const today = new Date();
   const tomorrow = new Date(today);
-  const optionsAllDays = { weekday: 'long', day: 'numeric' };
+  const optionsAllDays = date.toLocaleDateString('en-US', {
+    weekday: 'long',
+  });
   const optionsNearestDays = date.toLocaleDateString('en-US', {
     month: 'long',
   });
@@ -21,7 +23,8 @@ export const formatDate = date => {
   } else if (isSameDay(date, tomorrow)) {
     return `Tomorrow, ${optionsNearestDays} ${date.getDate()}`;
   } else {
-    const formattedDate = date.toLocaleDateString('en-US', optionsAllDays);
+    // const formattedDate = date.toLocaleDateString('en-US', optionsAllDays);
+    const formattedDate = `${optionsAllDays} ${date.getDate()}`;
     return formattedDate;
   }
 };

@@ -9,7 +9,7 @@ import { LoginForm } from './LoginForm/LoginForm';
 // import Container from './Container/Container';
 import GlobalStyle from 'GlobalStyle';
 import { ModalContainer } from './Modal';
-import { Calendar } from './Calendar/Calendar';
+
 import { CardModal } from './CardModal/CardModal';
 import { CardPopUp } from './CardPopUp/CardPopUp';
 
