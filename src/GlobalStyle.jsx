@@ -89,7 +89,8 @@ body[data-theme="dark"] {
   --passiveBorderColor: rgb(190, 219, 176, 0.4);
   --modalGorizontalBorderColor: rgba(255, 255, 255, 0.1);
   --modalBorderColor: rgba(190, 219, 176, 0.5);
-  --defaultImgColor: rgba(255, 255, 255, 0.7)
+  --defaultImgColor: rgba(255, 255, 255, 0.7);
+  --defaultUserColor: #151515;
  
 }
 
@@ -117,6 +118,7 @@ body[data-theme="light"] {
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
   --modalBorderColor: transparent;
   --defaultImgColor: rgba(22, 22, 22, 0.7);
+    --defaultUserColor: #FFFFFF;
 }
 
 body[data-theme="violet"] {
@@ -143,6 +145,7 @@ body[data-theme="violet"] {
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
   --modalBorderColor: transparent;
   --defaultImgColor: rgba(22, 22, 22, 0.7);
+    --defaultUserColor: #FFFFFF;
 }
 `;
 

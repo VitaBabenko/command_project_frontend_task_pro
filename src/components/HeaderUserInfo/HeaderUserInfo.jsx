@@ -1,15 +1,23 @@
 import React from 'react';
-import { ImgWrap, Img, Wrapper } from './HeaderUserInfo.styled';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/Auth/selectors';
+import { ImgWrap, Img, Wrapper, Svg } from './HeaderUserInfo.styled';
+import sprite from '../../images/sprite.svg';
 
-export const HeaderUserInfo = ({ name, avatarUrl }) => {
+export const HeaderUserInfo = () => {
+  const { name, avatarURL } = useSelector(selectUser);
   return (
     <Wrapper>
       <p>{name}</p>
-      {avatarUrl && (
-        <ImgWrap>
-          <Img src={avatarUrl} alt="user avatar" />
-        </ImgWrap>
-      )}
+      <ImgWrap>
+        {avatarURL ? (
+          <Img src={avatarURL} alt="user avatar" />
+        ) : (
+          <Svg aria-label="user-default icon">
+            <use href={sprite + '#icon-user-default'}></use>
+          </Svg>
+        )}
+      </ImgWrap>
     </Wrapper>
   );
 };
