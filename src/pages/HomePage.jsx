@@ -6,7 +6,7 @@ import { Header } from '../components/Header/Header';
 import { Sidebar } from '../components/Sidebar/Sidebar';
 import { useDispatch } from 'react-redux';
 // import { selectDashboards } from 'redux/dashboards/selectors';
-import { useEffect, Suspense } from 'react';
+import { useEffect, Suspense, useState } from 'react';
 import { fetchUserDashboards } from 'redux/dashboards/operation';
 
 const HomePage = () => {
@@ -14,6 +14,12 @@ const HomePage = () => {
   // const token = useSelector(state => state.auth.token);
   // console.log(token)
   const dispatch = useDispatch();
+  const [shouldShowSidebar, setShouldShowSidebar] = useState(true);
+
+
+  const handleBurgerClick = () => {
+    setShouldShowSidebar(!shouldShowSidebar)
+  }
 
   useEffect(() => {
     const fetchDashboards = async () => {
@@ -25,9 +31,13 @@ const HomePage = () => {
 
   return (
     <Container>
-      <Sidebar />
+      <Sidebar
+        shouldShowSidebar={shouldShowSidebar}
+      />
       <div style={{width: "100%"}}>
-        <Header />
+        <Header
+          onBurgerClick={handleBurgerClick}
+        />
         {/* <Routes>
         { dashboards && dashboards.map(dashboard => {
           return (<Route key={dashboard._id} path={`/boards/${dashboard._id}`} element={<ScreensPage dashboard={dashboard} />} />);

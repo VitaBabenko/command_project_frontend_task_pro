@@ -10,13 +10,17 @@ import DEFAULT_AVATAR_URL from '../../images/PNG/avatar.png';
 import { HeaderUserInfo } from 'components/HeaderUserInfo/HeaderUserInfo';
 // import { HeaderUserInfo } from 'components/HeaderUserInfo/HeaderUserInfo.styled';
 
+import { ReactComponent as BurgerIcon } from '../../images/SVG/burger.svg';
+
 // Remove after implement user data
 // const MOCK_USER_DATA = {
 //   name: 'Ivetta',
 //   avatarUrl: AVATAR_URL,
 // };
 
-export const Header = () => {
+export const Header = ({
+  onBurgerClick,
+}) => {
   const isUserLogin = useSelector(selectUser);
   console.log('isUserLogin: ', isUserLogin);
 
@@ -25,6 +29,10 @@ export const Header = () => {
 
   return (
     <HeaderMain>
+      <div className="header-burger" onClick={onBurgerClick}>
+        <BurgerIcon />
+      </div>
+
       <ThemeSelect />
       <HeaderUserInfo name={currentUserName} avatarUrl={currentUserAvatar} />
     </HeaderMain>
