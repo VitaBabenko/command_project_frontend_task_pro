@@ -8,8 +8,12 @@ import { SidebarMain, Inn } from './Sidebar.styled';
 import { useDispatch } from 'react-redux';
 import { addUserBoard } from 'redux/dashboards/operation';
 import { logOut } from '../../redux/Auth/operations';
+import classNames from 'classnames';
 
-export const Sidebar = ({ isNeedHelp = true }) => {
+export const Sidebar = ({
+  isNeedHelp = true,
+  shouldShowSidebar = true,
+}) => {
   const navigate = useNavigate();
   //
   const dispatch = useDispatch();
@@ -38,8 +42,12 @@ export const Sidebar = ({ isNeedHelp = true }) => {
     navigate('/home');
   };
 
+  const classes = classNames('', {
+    'visible': shouldShowSidebar
+  })
+
   return (
-    <SidebarMain>
+    <SidebarMain className={classes}>
       <Inn>
         <Logo goHome={handleHome} />
 
