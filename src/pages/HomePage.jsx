@@ -25,6 +25,8 @@ const HomePage = () => {
 
   return (
     <Container>
+      <Sidebar />
+      <div>
       <Header />
       {/* <Routes>
         { dashboards && dashboards.map(dashboard => {
@@ -33,8 +35,8 @@ const HomePage = () => {
 
       </Routes> */}
       {/* <TestBg /> */}
-      <Sidebar />
-      {/* <ProjectOffice /> */}
+        {/* <ProjectOffice /> */}
+      </div>
       <Suspense fallback={<div>Loading</div>}>
         <Outlet />
       </Suspense>
