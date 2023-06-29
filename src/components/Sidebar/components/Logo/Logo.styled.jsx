@@ -10,3 +10,7 @@ export const SidebarLogo = styled.div`
 export const LogoImg = styled.div`
  margin-right: 8px;
 `;
+
+export const Text = styled.h3`
+ color: var(--addAnotherColumnIconBgColor)
+`;

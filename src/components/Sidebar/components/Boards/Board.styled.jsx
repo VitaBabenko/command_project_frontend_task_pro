@@ -10,21 +10,21 @@ export const SidebarBoards = styled.div`
 
 export const TitleMin = styled.span`
   margin-bottom: 8px;
-      color: rgba(255, 255, 255, 0.50);
+      color: var(--addAnotherColumnIconBgColor);
       font-size: 12px;
       display: block;
 `;
 
 export const SidebarCreateNew = styled.div`
- color: #FFFFFF;
+ color: var(--addAnotherColumnIconBgColor);
     margin-right: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 14px 0;
     font-size: 14px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid var(--currentProjBgColor);
+    border-bottom: 1px solid var(--currentProjBgColor);
 `;
 
 export const NewBoardBtn = styled.div`
