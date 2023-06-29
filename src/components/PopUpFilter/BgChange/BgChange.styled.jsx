@@ -24,6 +24,10 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Button = styled.button`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
   width: 28px;
   height: 28px;
   border-radius: 6px;
@@ -31,7 +35,20 @@ export const Button = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  background-size: cover;
+  padding: 0;
+  transition: opacity var(--transition_data);
+
+  &:hover,
+  &:focus {
+    opacity: 0.7;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 6px;
+  }
 `;
 
 export const ButtonNoneBg = styled.button`
@@ -49,6 +66,12 @@ export const ButtonNoneBg = styled.button`
   cursor: pointer;
   background-image: url();
   background-size: cover;
+  transition: opacity var(--transition_data);
+
+  &:hover,
+  &:focus {
+    opacity: 0.7;
+  }
 `;
 
 export const SvgIcons = styled.svg`

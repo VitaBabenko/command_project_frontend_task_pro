@@ -24,11 +24,21 @@ export const Filter = () => {
     setSelectedValue('');
   };
 
+  const handleShowAll = () => {
+    console.log('Show all selected');
+    handleReset();
+  };
+
+  const handleRadioButtonChange = event => {
+    console.log(`Selected priority: ${event.target.value}`);
+    setSelectedValue(event.target.value);
+  };
+
   return (
     <>
       <FilterContainer>
         <Title>Label color</Title>
-        <BtnShowAll type="button" onClick={handleReset}>
+        <BtnShowAll type="button" onClick={handleShowAll}>
           Show all
         </BtnShowAll>
       </FilterContainer>
@@ -37,7 +47,7 @@ export const Filter = () => {
           aria-labelledby="priority"
           name="radio-buttons-group"
           value={selectedValue}
-          onChange={handleChange}
+          onChange={handleRadioButtonChange}
         >
           {radioButtons.map(button => (
             <FormControlLabel

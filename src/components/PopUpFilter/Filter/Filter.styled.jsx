@@ -33,7 +33,6 @@ export const BtnShowAll = styled.button`
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
-
   letter-spacing: -0.02em;
   text-decoration-line: underline;
 
