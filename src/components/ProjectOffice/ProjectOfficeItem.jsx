@@ -5,6 +5,7 @@ import ProjectCardAddButton from './ProjectCardAddButton/ProjectCardAddButton';
 
 
 const ProjectOfficeItem = ({ column: { title } }) => {
+  console.log(title)
   return (
     <>
         <Wrapper>
@@ -13,11 +14,11 @@ const ProjectOfficeItem = ({ column: { title } }) => {
                 <ProjectOfficeColumns />
             </ActionsButton>
             <ActionsButton>
-                In progress
+          { title}
                 <ProjectOfficeColumns />
             </ActionsButton>
             <ActionsButton>
-                Done
+          { title}
                 <ProjectOfficeColumns />
             </ActionsButton>
         </Wrapper>

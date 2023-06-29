@@ -17,7 +17,7 @@ export const Sidebar = ({ isNeedHelp = true }) => {
   // console.log(dashboard)
 
   const newBoard = {
-    title: 'test dshboard1',
+    title: "test dshboard2",
     background: 'testUrl',
     dashboardIcon: 'testIcon',
   };

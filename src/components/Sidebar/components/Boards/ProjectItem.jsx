@@ -27,7 +27,7 @@ export const ProjectItem = ({
   });
 
   return (
-    <div className={classes}>
+    <div>
       <NavLink to={id}>
         <FlexElems>
           {Icon && (
@@ -35,7 +35,7 @@ export const ProjectItem = ({
               <Icon />
             </IconWrap>
           )}
-           <Text>{title}</Text>
+          <Text>{title}</Text>
         </FlexElems>
       </NavLink>
 

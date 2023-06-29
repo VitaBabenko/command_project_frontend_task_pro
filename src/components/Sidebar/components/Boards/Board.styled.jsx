@@ -27,7 +27,7 @@ export const SidebarCreateNew = styled.div`
     border-bottom: 1px solid var(--currentProjBgColor);
 `;
 
-export const NewBoardBtn = styled.div`
+export const NewBoardBtn = styled.button`
  width: 40px;
       height: 36px;
       display: flex;

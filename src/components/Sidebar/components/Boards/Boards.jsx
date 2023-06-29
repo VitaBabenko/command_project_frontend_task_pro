@@ -35,7 +35,7 @@ export const Boards = ({
         />
 
         <BoardsList
-          projects={MOCK_BOARDS_LIST}
+
         />
 
       </div>
