@@ -38,7 +38,6 @@ export const AvatarEditorContainer = ({ image, handleSetCurrentImg, handleClose 
     handleClose();
   }
 
-  console.log('asdasdasdasda');
   return (
     <>
       <AvatarEditor

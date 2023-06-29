@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import {
   ECurrentEditOperationEditAvatar,
@@ -13,16 +13,20 @@ import { AvatarEditorContainer } from './AvatarEditor';
 import user from '../../images/user.svg'
 import { ProfileDataEditor } from './ProfileDataEditor';
 import { CustomButtonSend } from 'components/Button/CustomButton';
+import { useSelector } from 'react-redux';
 
 export const EditProfile = ({ toggle, open, HeaderRender }) => {
+  const { user: { name, email, avatar } } = useSelector((state) => state.auth);
   const [currentEditOperation, setCurrentEditOperation] = useState(ECurrentEditOperationEditData);
-  const [currentImg, setCurrentImg] = useState(user);
+  const [currentImg, setCurrentImg] = useState(avatar);
   const [uploadImg, setUploadImg] = useState('');
+  const inputRef = useRef(null);
 
+  console.log(user);
   const methods = useForm({
     shouldUnregister: true,
     mode: 'onChange',
-    defaultValues: getDefaultValuesForm(),
+    defaultValues: getDefaultValuesForm(name, email),
   });
 
   const { handleSubmit, formState: { dirtyFields, errors }, setError } = methods;
@@ -49,14 +53,13 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
   };
 
   const handleChangeNewImg = (e) => {
-    console.log('dasdaD');
     const file = e.target?.files?.[0];
     if (!(file && isTypeFileImg(file?.type))) {
       setCurrentEditOperation(ECurrentEditOperationEditData)
       setFormFieldFieldAvatarError('Invalid format');
       return;
     }
-    setUploadImg(e.target);
+    setUploadImg(file);
   };
 
   const handleSetCurrentImg = (img) => {
@@ -70,19 +73,24 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
   const handleCloseEditAvatar = () => {
     setCurrentEditOperation(ECurrentEditOperationEditData);
     setUploadImg('');
+    inputRef.current.value = null;
   };
-  console.log(currentEditOperation);
+
   return (
     <div className='edit-profile-wrapper'>
       {HeaderRender('Edit profile')}
       <FormProvider {...methods}>
 
-        {uploadImg && <AvatarEditorContainer {...{ image: uploadImg, handleSetCurrentImg, handleClose: handleCloseEditAvatar }} />}
+        {uploadImg &&
+          <AvatarEditorContainer {...{
+            image: uploadImg, handleSetCurrentImg,
+            handleClose: handleCloseEditAvatar,
+          }} />}
 
         <div className={!isEditAvatarOperation ? 'display-block' : 'display-none'}>
 
           <div >
-            <ProfileDataEditor {...{ currentImg, uploadImg, handleChangeNewImg, handleChangeCurrentOperation }} />
+            <ProfileDataEditor {...{ currentImg, uploadImg, handleChangeNewImg, handleChangeCurrentOperation, inputRef }} />
 
             <CustomButtonSend disabled={isDisabledSubmitBtn} onClick={handleSubmit(onSubmit)} >
               Send

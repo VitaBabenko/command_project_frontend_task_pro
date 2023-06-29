@@ -2,8 +2,8 @@
   padding: 24px;
   width: 400px;
   min-height: 440px;
-  background: #151515;
-  /* border: 1px solid rgba(190, 219, 176, 0.5); */
+  background: var(--themeListBgColor);
+  border: 1px solid rgba(190, 219, 176, 0.5);
   border-radius: 8px;
 }
 
@@ -33,7 +33,7 @@
   position: absolute;
   width: 24px;
   height: 24px;
-  background: #BEDBB0;
+  background: var(--brPlus);
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);

@@ -63,6 +63,7 @@ export const CustomButtonSend = ({
   styleOptions = {},
     type = "button",
   isWhiteBackground = false,
+  
 }) => {
     
     

@@ -3,7 +3,6 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { regExpEmail } from '../../utils.js/regex';
 import {
   ECurrentEditOperationEditAvatar,
-  ERegisterFieldAvatar,
   ERegisterFieldEmail,
   ERegisterFieldName,
   ERegisterFieldPassword,
@@ -12,9 +11,9 @@ import '../../assets/index.css';
 // import { Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import sprite from "../../images/sprite.svg";
-import { Avatar, AvatarImg ,InputField} from './ProfileDataEditor.styled'
+import { Avatar, AvatarImg, InputField, Icon, IconUser, AvatarImgCurrent } from './ProfileDataEditor.styled'
 
-export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, handleChangeCurrentOperation }) => {
+export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, handleChangeCurrentOperation, inputRef }) => {
   const { register, control, formState: { errors } } = useFormContext();
   const [isShowPassword, setIsShowPassword] = useState(false);
 
@@ -23,23 +22,30 @@ export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, h
     setIsShowPassword(prev => !prev);
   };
 
-  console.log('uploadImg', uploadImg);
   return (
     <>
       <div className="file">
         <div>
           <Avatar>
-            <AvatarImg src={currentImg} alt='Avatar' />
+            {currentImg ?
+              <AvatarImgCurrent src={currentImg} /> :
+              <AvatarImg
+                aria-label="icon eye"
+                width="68"
+                height="68"
+              >
+                <IconUser href={sprite + '#icon-user-default'}></IconUser>
+              </AvatarImg>
+            }
           </Avatar>
 
           <label htmlFor='avatar'>
-            <input
+            <InputField
               id='avatar'
               type="file"
               accept="/image/*"
-              // value={''}
+              ref={inputRef}
               onChange={(e) => {
-                console.log(e);
                 handleChangeCurrentOperation(ECurrentEditOperationEditAvatar);
                 handleChangeNewImg(e);
               }}
@@ -54,12 +60,12 @@ export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, h
       </div>
 
       <div className="wrapper-input">
-        <input
+        <InputField
           autoComplete="off"
           disabled={isFetching}
           className={errors?.ERegisterFieldName && 'error'}
           type="text"
-          placeholder=''
+          placeholder="Enter your name"
           {...register(ERegisterFieldName, {
             required: 'This input is required.',
             maxLength: {
@@ -74,10 +80,11 @@ export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, h
       </div>
 
       <div className="wrapper-input">
-        <input
+        <InputField
           autoComplete="off"
           disabled={isFetching}
           className={errors?.ERegisterFieldEmail && 'error'}
+          placeholder="Enter your email"
           type="text"
           {...register(ERegisterFieldEmail, {
             required: 'This input is required.',
@@ -98,10 +105,11 @@ export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, h
 
       <div className="wrapper-input">
         <div className="toggle_pass">
-          <input
+          <InputField
             autoComplete="off"
             disabled={isFetching}
             className={errors?.ERegisterFieldPassword && 'error'}
+            placeholder="Confirm a password"
             type={isShowPassword ? 'text' : 'password'}
             {...register(ERegisterFieldPassword, {
               required: 'This input is required.',
@@ -111,9 +119,15 @@ export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, h
               },
             })}
           />
-          <span className="eye" onClick={togglePass}><svg className="icon" aria-label="open theme select icon">
-            <use href={sprite + "#icon-eye"}></use>
-          </svg></span>
+          <span onClick={togglePass}>
+            <Icon
+              aria-label="icon eye"
+              width="18"
+              height="18"
+            >
+              <use href={sprite + '#icon-eye'}></use>
+            </Icon>
+          </span>
         </div>
         {errors?.ERegisterFieldPassword && (
           <span className="error">{errors.ERegisterFieldPassword.message}</span>

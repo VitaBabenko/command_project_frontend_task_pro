@@ -79,6 +79,7 @@ body[data-theme="dark"] {
   --createNewBoardIconBgColor: #bedbb0;
   --addAnotherColumnIconBgColor: #ffffff;
   --addAvatarIconBgColor: #bedbb0;
+ 
 
   --primaryTextColor: #ffffff;
   --secondaryTextColor: rgba(255, 255, 255, 0.5);
@@ -89,13 +90,17 @@ body[data-theme="dark"] {
   --modalGorizontalBorderColor: rgba(255, 255, 255, 0.1);
   --modalBorderColor: rgba(190, 219, 176, 0.5);
   --defaultImgColor: rgba(255, 255, 255, 0.7)
- 
-}
+  --boxShadowColor: rgba(22, 22, 22, 0.05);
+  --needHelpBtn: #FFFFFF;
+  --placeholder:rgba(255, 255, 255, 1);
+  --userSvgFill: #161616;
+  --brPlus:#BEDBB0;
+  --iconEyeColor:#FFFFFF
 
 body[data-theme="light"] {
   --greenGreenBlueColor: #bedbb0;
   --sidebarBgColor: #FFFFFF;
-  --helpBgColor: #fcfcfc;
+  --helpBgColor: #F6F6F7;
   --headerBgColor: #fcfcfc;
   --boardBgColor: #F6F6F7;
   --taskBgColor: #f6f6f7;
@@ -116,6 +121,12 @@ body[data-theme="light"] {
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
   --modalBorderColor: transparent;
   --defaultImgColor: rgba(22, 22, 22, 0.7);
+  --boxShadowColor: rgba(22, 22, 22, 0.05);
+  --needHelpBtn: #161616;
+  --placeholder: rgba(22, 22, 22, 1);
+  --userSvgFill: #FFFFFF;
+  --brPlus:#BEDBB0;
+  --iconEyeColor:#161616
 }
 
 body[data-theme="violet"] {
@@ -142,6 +153,12 @@ body[data-theme="violet"] {
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
   --modalBorderColor: transparent;
   --defaultImgColor: rgba(22, 22, 22, 0.7);
+  --boxShadowColor: rgba(22, 22, 22, 0.05);
+  --needHelpBtn: #FFFFFF;
+  --placeholder:#161616;
+  --userSvgFill: #FFFFFF;
+  --brPlus:#ECEDFD;
+  --iconEyeColor:#161616
 }
 `;
 
