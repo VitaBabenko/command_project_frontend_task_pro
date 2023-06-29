@@ -21,7 +21,7 @@ export const addUserBoard = createAsyncThunk('dashboards/addUserBoard', async (b
     try {
         const resp = await axios.post('/boards', board);
         console.log(resp.data)
-        return resp.data.boards
+        return resp.data.board
     } catch (error) {
        return console.log(error) 
     }
@@ -31,7 +31,7 @@ export const addColumn = createAsyncThunk('dashboards/createColumn', async ({ bo
     try {
         const resp = await axios.post(`/boards/${boardId}/columns`, { title });
         console.log(resp)
-        return resp.data
+        return resp.data.column
     } catch (error) {
         return console.log(error);
     }
@@ -41,7 +41,7 @@ export const getColumnsForBoard = createAsyncThunk('dashboards/getColumnsForBoar
     try {
         const resp = await axios.get(`/boards/${boardId}/columns`);
         console.log(resp.data);
-        return resp.data;
+        return resp.data.columns;
     } catch (error) {
         return console.log(error);
     }
