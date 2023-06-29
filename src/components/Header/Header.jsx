@@ -7,6 +7,10 @@ import { HeaderUserInfo } from 'components/HeaderUserInfo/HeaderUserInfo';
 export const Header = () => {
   return (
     <HeaderMain>
+      <div className="header-burger" onClick={onBurgerClick}>
+        <BurgerIcon />
+      </div>
+
       <ThemeSelect />
       <HeaderUserInfo />
     </HeaderMain>
