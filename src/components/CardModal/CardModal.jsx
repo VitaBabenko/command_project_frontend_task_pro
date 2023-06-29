@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import {
   ModalWrapper,
   ModalContent,
@@ -9,23 +9,38 @@ import sprite from '../../images/sprite.svg';
 export const CardModal = ({ isOpen, onClose, children }) => {
   const modalRef = useRef(null);
 
-  const handleOutsideClick = event => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
-      onClose();
-    }
-  };
+  const handleOutsideClick = useCallback(
+    event => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        onClose();
+      }
+    },
+    [onClose]
+  );
+
+  const handleEscKey = useCallback(
+    event => {
+      if (event.keyCode === 27) {
+        onClose();
+      }
+    },
+    [onClose]
+  );
 
   useEffect(() => {
     if (isOpen) {
       document.addEventListener('mousedown', handleOutsideClick);
+      document.addEventListener('keydown', handleEscKey);
     } else {
       document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('keydown', handleEscKey);
     }
 
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('keydown', handleEscKey);
     };
-  }, [isOpen, handleOutsideClick]);
+  }, [isOpen, handleOutsideClick, handleEscKey]);
 
   if (!isOpen) {
     return null;

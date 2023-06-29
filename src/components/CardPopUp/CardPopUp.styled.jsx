@@ -77,7 +77,7 @@ export const RadioButton = styled.input`
       width: 14px;
       height: 14px;
       background-color: transparent;
-      border: 2px solid var(--radio-background-color);
+      border: 1px solid var(--radio-background-color);
       border-radius: 50%;
     }
   }
@@ -97,4 +97,33 @@ export const Text = styled.span`
   color: rgba(22, 22, 22, 0.5);
   font-size: 12px;
   margin-bottom: 4px;
+`;
+
+export const CalendarWrapp = styled.div`
+  display: flex;
+
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  transition: opacity var(--transition_data);
+
+  &:hover {
+    opacity: 0.7;
+  }
+  &:focus {
+    opacity: 0.7;
+  }
+`;
+export const CalendarText = styled.span`
+  color: var(--greenGreenBlueColor);
+  margin-right: 4px;
+`;
+
+export const CalendarArrow = styled.svg`
+  width: 18px;
+  height: 18px;
+
+  /* stroke: var(--greenGreenBlueColor); */
+  stroke: red;
 `;
