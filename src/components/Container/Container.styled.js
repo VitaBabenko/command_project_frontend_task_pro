@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 export const StyleContainer = styled.div`
+height: 100vh;
+
   /* background-color: var(--sidebarBgColor); */
 
-  @media screen and (min-width: 320px) {
-    width: 320px;
+  @media screen and (min-width: 375px) {
+    width: 375px;
     margin: 0 auto;
   }
 
@@ -12,7 +14,8 @@ export const StyleContainer = styled.div`
     width: 768px;
   }
 
-  @media screen and (min-width: 1280px) {
-    width: 1280px;
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    display: flex;
   }
 `;

@@ -13,7 +13,7 @@ position: relative;
 
 export const Input = styled.input`
  display: flex;
-width: 344px;
+/* width: 344px; */
 padding: 14px 14px 14px 18px;
 align-items: center;
 
@@ -23,7 +23,16 @@ border: 1px solid #BEDBB0;
 opacity: 0.4000000059604645;
 background: #1F1F1F;
 box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+@media (min-width: 375px) {
+    width: 344px;
+    padding:  14px 15px 14px 18px;
+  }
 
+  @media (min-width: 768px) {
+   
+    padding:14px 14px 14px 18px;
+    width: 344px;
+  }
 
 &::placeholder {
     color: #fff;
@@ -44,13 +53,24 @@ stroke:#FFFFFF;
 export const Button = styled.button`
 margin-top:10px;
  display: flex;
-width: 344px;
+width: 100%;
 padding: 14px 0px;
 justify-content: center;
 align-items: center;
 border-radius: 8px;
 background: #BEDBB0;
   cursor: pointer;
+  @media (min-width: 375px) {
+    width: 344px;
+    padding:  14px 15px 14px 18px;
+  }
+
+  @media (min-width: 768px) {
+   
+    width: 344px;
+  }
+
+
 `;
 
 export const ErrorMessage = styled.span`

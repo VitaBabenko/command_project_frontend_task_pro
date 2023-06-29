@@ -1,13 +1,17 @@
-import { lazy, Suspense, useState } from 'react';
+import { lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
+import { Layout } from './Layout';
 // import Container from '../components/Container/Container';
 import { RegisterForm } from './RegisterForm/RegisterForm';
 import { LoginForm } from './LoginForm/LoginForm';
-import Container from './Container/Container';
+// import Container from './Container/Container';
 import GlobalStyle from 'GlobalStyle';
 import { ModalContainer } from './Modal';
+import { useDispatch } from 'react-redux';
+import { useAuth } from './hooks';
+import { refreshUser } from 'redux/Auth/operations';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
@@ -15,51 +19,50 @@ const HomePage = lazy(() => import('../pages/HomePage'));
 const ScreensPage = lazy(() => import('../pages/ScreensPage'));
 
 export const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  
+    
+
+  return isRefreshing ?(
+    <b>Refreshing user...</b>) :(
     <>
       <ModalContainer />
       <GlobalStyle />
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <Container>
-          <Routes>
-            <Route path="/" element={<WelcomePage />} />
-            <Route path="/auth/:id" element={<AuthPage />}>
-              <Route
-                path="register"
-                element={
-                  <RestrictedRoute
-                    redirectTo="/home"
-                    components={<RegisterForm />}
-                  />
-                }
-              />
-              <Route
-                path="login"
-                element={
-                  <RestrictedRoute
-                    redirectTo="/home"
-                    components={<LoginForm />}
-                  />
-                }
-              />
-            </Route>
+      {/* <Container> */}
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={
+              <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
+            }
+          />
 
-            <Route
-              path="/home"
-              element={
-                <PrivateRoute
-                  redirectTo="/auth/login"
-                  component={<HomePage />}
-                />
-              }
-            >
-              <Route path=":boardName" element={<ScreensPage />} />
-            </Route>
-            <Route path="*" element={<WelcomePage />} />
-          </Routes>
-        </Container>
-      </Suspense>
+          <Route path="/welcome" element={<WelcomePage />} />
+          <Route
+            path="/auth/:id"
+            element={
+              <RestrictedRoute redirectTo="/home" component={<AuthPage />} />
+            }
+          >
+            <Route path="register" element={<RegisterForm />} />
+            <Route path="login" element={<LoginForm />} />
+          </Route>
+
+          <Route path="/home" element={<HomePage />}>
+            <Route path=":boardName" element={<ScreensPage />} />
+          </Route>
+          <Route path="*" element={<WelcomePage />} />
+        </Route>
+      </Routes>
+      {/* </Container> */}
     </>
   );
 };

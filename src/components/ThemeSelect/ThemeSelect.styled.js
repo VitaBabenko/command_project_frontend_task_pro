@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const ThemetWrapper = styled.div`
+  position: relative;
+`;
+
 export const ThemeSelectTitle = styled.div`
   display: flex;
   align-items: center;
@@ -17,7 +21,7 @@ export const ThemeSelectTitle = styled.div`
 `;
 
 export const ThemeSelectWrapper = styled.ul`
-position: absolute;
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
