@@ -26,7 +26,7 @@ const HomePage = () => {
   return (
     <Container>
       <Sidebar />
-      <div>
+      <div style={{width: "100%"}}>
         <Header />
         {/* <Routes>
         { dashboards && dashboards.map(dashboard => {
