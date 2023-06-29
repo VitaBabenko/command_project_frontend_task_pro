@@ -6,6 +6,7 @@ export const HeaderMain = styled.div`
   align-items: center;
   height: 68px;
   background-color: var(--headerBgColor);
+
   position: relative;
 
   .header-burger {
