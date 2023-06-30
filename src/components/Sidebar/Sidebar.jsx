@@ -6,14 +6,11 @@ import { Logout } from './components/Logout/Logout';
 import { useNavigate } from 'react-router-dom';
 import { SidebarMain, Inn } from './Sidebar.styled';
 import { useDispatch } from 'react-redux';
-import { addUserBoard } from 'redux/dashboards/operation';
+// import { addUserBoard } from 'redux/dashboards/operation';
 import { logOut } from '../../redux/Auth/operations';
 import classNames from 'classnames';
 
-export const Sidebar = ({
-  isNeedHelp = true,
-  shouldShowSidebar = true,
-}) => {
+export const Sidebar = ({ isNeedHelp = true, shouldShowSidebar = true }) => {
   const navigate = useNavigate();
   //
   const dispatch = useDispatch();
@@ -43,8 +40,8 @@ export const Sidebar = ({
   };
 
   const classes = classNames('', {
-    'visible': shouldShowSidebar
-  })
+    visible: shouldShowSidebar,
+  });
 
   return (
     <SidebarMain className={classes}>

@@ -11,7 +11,7 @@ export const ModalAddBoard = ({ isOpen, onClose, type = 'create' }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    // formState: { errors },
     reset,
   } = useForm();
   const dispatch = useDispatch();
