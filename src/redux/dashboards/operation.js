@@ -6,11 +6,12 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // axios.defaults.headers.common.Authorization = `Bearer ${TOKEN}`;
 
-export const fetchUserDashboards = createAsyncThunk('dashboards/fethUserDashboards', async (_, { rejectWithValue }) => { 
+export const fetchUserDashboards = createAsyncThunk('dashboards/fetchUserDashboards', async (_, { rejectWithValue }) => { 
     try {
         const resp = await axios.get('/boards')
-        // console.log(resp)
-        return resp.data
+        console.log(resp.data.boards)
+        return resp.data.boards
+        
     } catch (error) {
         return console.log(error)
     }
@@ -19,19 +20,29 @@ export const fetchUserDashboards = createAsyncThunk('dashboards/fethUserDashboar
 export const addUserBoard = createAsyncThunk('dashboards/addUserBoard', async (board, { rejectWithValue }) => { 
     try {
         const resp = await axios.post('/boards', board);
-        console.log(resp)
-        return resp.data
+        console.log(resp.data.board)
+        return resp.data.board
     } catch (error) {
        return console.log(error) 
     }
 });
 
-export const addColumn = createAsyncThunk('dashboards/createColumn', async ({ boardId, columnName }, { rejectWithValue }) => { 
+export const addColumn = createAsyncThunk('dashboards/createColumn', async ({ boardId, title }, { rejectWithValue }) => {
     try {
-        const resp = await axios.post(`/boards/${boardId}/columns`, columnName);
+        const resp = await axios.post(`/boards/${boardId}/columns`, { title });
         console.log(resp)
-        return resp.data
+        return resp.data.column
     } catch (error) {
-        return console.log(error);   
+        return console.log(error);
     }
-})
+});
+
+export const getColumnsForBoard = createAsyncThunk('dashboards/getColumnsForBoard', async (boardId, { rejectWithValue }) => {
+    try {
+        const resp = await axios.get(`/boards/${boardId}/columns`);
+        console.log(resp.data);
+        return resp.data.columns;
+    } catch (error) {
+        return console.log(error);
+    }
+});

@@ -90,6 +90,12 @@ export const StyledNavLinkReg = styled(NavLink)`
   border-radius: 8px;
   background: #161616;
   color: #fff;
+
+  transition: opacity var(--transition_data);
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export const StyledNavLinkLog = styled(NavLink)`

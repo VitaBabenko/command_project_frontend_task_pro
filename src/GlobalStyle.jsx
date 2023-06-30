@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     rgba(196, 196, 196, 0) 25%,
     #bedbb0 92.19%
   );
+  --transition_data: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
   body {
@@ -89,7 +90,9 @@ body[data-theme="dark"] {
   --passiveBorderColor: rgb(190, 219, 176, 0.4);
   --modalGorizontalBorderColor: rgba(255, 255, 255, 0.1);
   --modalBorderColor: rgba(190, 219, 176, 0.5);
-  --defaultImgColor: rgba(255, 255, 255, 0.7)
+  --defaultImgColor: rgba(255, 255, 255, 0.7);
+  --defaultUserColor: #151515;
+
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #FFFFFF;
   --placeholder:rgba(255, 255, 255, 1);
@@ -121,6 +124,7 @@ body[data-theme="light"] {
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
   --modalBorderColor: transparent;
   --defaultImgColor: rgba(22, 22, 22, 0.7);
+    --defaultUserColor: #FFFFFF;
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #161616;
   --placeholder: rgba(22, 22, 22, 1);
@@ -153,6 +157,7 @@ body[data-theme="violet"] {
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
   --modalBorderColor: transparent;
   --defaultImgColor: rgba(22, 22, 22, 0.7);
+    --defaultUserColor: #FFFFFF;
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #FFFFFF;
   --placeholder:#161616;

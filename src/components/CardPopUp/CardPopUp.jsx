@@ -1,5 +1,10 @@
 import { useForm } from 'react-hook-form';
-
+import { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import sprite from '../../images/sprite.svg';
+import { formatDate } from 'helpers/formatDate';
+import 'react-datepicker/dist/react-datepicker.css';
+import './calendar.css';
 import {
   Form,
   FormText,
@@ -10,13 +15,18 @@ import {
   RadioLabel,
   Wrap,
   Text,
+  CalendarWrapp,
+  CalendarText,
+  CalendarArrow,
 } from './CardPopUp.styled';
+
 import { CustomButton } from 'components/Button/CustomButton';
 
-export const CardPopUp = ({ title }) => {
+export const CardPopUp = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     reset,
     formState: { errors },
   } = useForm();
@@ -24,15 +34,30 @@ export const CardPopUp = ({ title }) => {
     console.log(data);
     reset();
   };
+  const [startDate, setStartDate] = useState(new Date());
+  const [showDatePicker, setShowDatePicker] = useState(false);
+
+  const handleDateInputChange = date => {
+    setStartDate(date);
+    setValue('deadline', startDate);
+    setShowDatePicker(false);
+  };
+
+  const toggleDatePicker = () => {
+    setShowDatePicker(prevState => !prevState);
+  };
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <FormText>{title}</FormText>
-      <FromInput {...register('title', { minLength: 3 })} placeholder="Title" />
+      <FormText>{'title'}</FormText>
+      <FromInput
+        {...register('title', { minLength: 3, required: true })}
+        placeholder="Title"
+      />
       <FormTextarea
         placeholder="Description"
-        {...register('description', { minLength: 3 })}
+        {...register('description', { minLength: 3, required: true })}
       ></FormTextarea>
-      <Text>Lable color</Text>
+      <Text>Label color</Text>
       <RadioGroup>
         <Wrap>
           <RadioButton
@@ -79,7 +104,7 @@ export const CardPopUp = ({ title }) => {
           <RadioButton
             type="radio"
             id="without"
-            {...register('priority')}
+            {...register('priority', { required: true })}
             value="without"
           />
           <RadioLabel
@@ -90,7 +115,29 @@ export const CardPopUp = ({ title }) => {
         </Wrap>
       </RadioGroup>
       <Text>Deadline</Text>
-      <span style={{ marginBottom: 40 }}>Today, March 8</span>
+      <CalendarWrapp onClick={toggleDatePicker}>
+        <CalendarText>{formatDate(startDate)}</CalendarText>
+        <CalendarArrow
+          style={{ width: 18, height: 18 }}
+          aria-label="open theme select icon"
+        >
+          <use href={sprite + '#icon-arrow-down'}></use>
+        </CalendarArrow>
+      </CalendarWrapp>
+      <input
+        {...register('deadline', { value: startDate })}
+        style={{ display: 'none' }}
+      />
+
+      {showDatePicker && (
+        <DatePicker
+          selected={startDate}
+          onChange={handleDateInputChange}
+          dateFormat="dd/MM/yyyy"
+          inline
+          minDate={new Date()}
+        />
+      )}
       {errors.exampleRequired && <span>This field is required</span>}
       <CustomButton type="submit">{'Add another card'}</CustomButton>
     </Form>

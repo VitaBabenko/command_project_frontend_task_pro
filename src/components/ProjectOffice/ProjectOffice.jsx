@@ -1,40 +1,39 @@
 // import { useState } from 'react';
 
-// import ProjectOfficeItem from './ProjectOfficeItem';
-// import { useEffect } from 'react';
+import ProjectOfficeItem from './ProjectOfficeItem';
+import { useEffect } from 'react';
 // import { getColumns } from 'services/fetchColumn';
 import ProjectOfficeHeader from './ProjectOfficeHeader/ProjectOfficeHeader';
 import AddColumnButton from './AddColumnsButton/AddColumnsButton';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addColumn, getColumnsForBoard } from 'redux/dashboards/operation';
+import { selectColumnsForBoard } from 'redux/dashboards/selectors';
 
 const ProjectOffice = () => {
-  // const [columns, setColumns] = useState([]);
-  // const id = '9a5c9bf5-64d7-42dc-9279-d22fde663db5';
+  const { boardName } = useParams();
+  const columns = useSelector(state => selectColumnsForBoard(state, boardName));
 
-  // useEffect(() => {
-  //   const getBoardColumn = async () => {
-  //     try {
-  //       const boardColumns = await getColumns(id);
-  //       setColumns(boardColumns);
-  //     } catch (error) {
-  //       console.log(error.message);
-  //     }
-  //   };
-  //   getBoardColumn();
-  // }, [id]);
+  const dispatch = useDispatch();
 
-  // console.log(columns);
+  const handleAddColumn = columnName => {
+    dispatch(addColumn({ title: columnName, boardId: boardName }));
+  };
+
+  useEffect(() => {
+    dispatch(getColumnsForBoard(boardName));
+  }, [dispatch, boardName]);
+
+  console.log(columns);
 
   return (
     <>
       <ProjectOfficeHeader />
-      <AddColumnButton />
-      {/* {columns.map(column => {
-        return (
-          <ProjectOfficeItem
-          column={column} key={column.id}
-          />
-        );
-      })} */}
+      <AddColumnButton handleAddColumn={handleAddColumn} />
+      {columns.length > 0 &&
+        columns.map(column => {
+          return <ProjectOfficeItem column={column} key={column._id} />;
+        })}
       {/* <ProjectOfficeItem column={columns} /> */}
     </>
   );

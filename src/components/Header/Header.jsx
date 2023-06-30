@@ -1,28 +1,25 @@
 import React from 'react';
 import ThemeSelect from '../ThemeSelect/ThemeSelect';
-import { UserInfo } from '../Header/Components/UserInfo/UserInfo';
-import { HeaderMain, Inn } from './Components/UserInfo/UserInfoHead.styled';
+import { HeaderMain } from './Header.styled';
+import { ReactComponent as BurgerIcon } from '../../images/SVG/burger.svg';
 
+import { HeaderUserInfo } from 'components/HeaderUserInfo/HeaderUserInfo';
 
-import AVATAR_URL from '../../images/PNG/avatar.png'
+// const onBurgerClick = () => {
+//   console.log('click on burger');
+// };
 
-// Remove after implement user data
-const MOCK_USER_DATA = {
-  name: 'Ivetta',
-  avatarUrl: AVATAR_URL
-}
-
-export const Header = (props) => {
+export const Header = ({
+  onBurgerClick,
+}) => {
   return (
     <HeaderMain>
-      <Inn>
-        <ThemeSelect />
+      <div className="header-burger" onClick={onBurgerClick}>
+        <BurgerIcon />
+      </div>
 
-        <UserInfo
-          {...MOCK_USER_DATA}
-        />
-      </Inn>
+      <ThemeSelect />
+      <HeaderUserInfo />
     </HeaderMain>
   );
 };
-

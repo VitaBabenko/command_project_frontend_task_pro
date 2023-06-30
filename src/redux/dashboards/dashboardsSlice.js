@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addColumn, addUserBoard, fetchUserDashboards } from './operation';
+import { addColumn, addUserBoard, fetchUserDashboards, getColumnsForBoard } from './operation';
 
 const dashboardSlice = createSlice({
   name: 'dashboard',
@@ -36,6 +36,22 @@ const dashboardSlice = createSlice({
       .addCase(addUserBoard.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
+      }).addCase(getColumnsForBoard.pending, state => { 
+        state.isLoading = true;
+        state.error = null;
+      }).addCase(getColumnsForBoard.fulfilled, (state, action) => {
+        state.isLoading = false;
+        const owner  = action.meta.arg;
+        console.log(owner)
+        const columns = action.payload;
+        console.log(columns)
+        const targetBoard = state.dashboards.find(board => board._id === owner);
+        if (targetBoard) {
+          targetBoard.columns = columns;
+        }
+      }).addCase(getColumnsForBoard.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
       })
       .addCase(addColumn.pending, state => {
         state.isLoading = true;
@@ -43,9 +59,13 @@ const dashboardSlice = createSlice({
       })
       .addCase(addColumn.fulfilled, (state, action) => {
         state.isLoading = false;
-        const { boardId, newColumn } = action.payload;
+        console.log(action.payload);
+        const { owner } = action.payload;
+        console.log(owner)
+        const newColumn = action.payload;
+        console.log(newColumn)
 
-        const targetBoard = state.dashboards.find(board => board.id === boardId);
+        const targetBoard = state.dashboards.find(board => board._id === owner);
         if (targetBoard) {
           targetBoard.columns.push(newColumn);
         };
@@ -57,5 +77,6 @@ const dashboardSlice = createSlice({
       });
   },
 });
+
 
 export const dashboardReducer = dashboardSlice.reducer;

@@ -1,16 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
-import sprite from '../../../images/sprite.svg';
-import {
-  Button,
-  ButtonNoneBg,
-  ButtonContainer,
-  Title,
-  SvgIcons,
-  BgContainer,
-} from './BgChange.styled';
-
-const buttonsImg = [
+export const images = [
   {
     id: 1,
     backgroundImage:
@@ -118,70 +106,3 @@ const buttonsImg = [
       'https://res.cloudinary.com/dxhypjavs/image/upload/c_scale,h_56/c_crop,h_56,w_56/v1687378707/command_project_task_pro_images/desktop/bg-image-15_2x.jpg',
   },
 ];
-
-export const BgChange = () => {
-  const [loadedImages, setLoadedImages] = useState([]);
-
-  useEffect(() => {
-    const loadImage = async imageUrl => {
-      try {
-        const response = await fetch(imageUrl);
-        if (response.ok) {
-          return await response.blob();
-        }
-        throw new Error('Image loading failed.');
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    const loadImages = async () => {
-      const promises = buttonsImg.map(button =>
-        loadImage(button.backgroundImage)
-      );
-      try {
-        const images = await Promise.all(promises);
-        setLoadedImages(images);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    loadImages();
-  }, []);
-
-  const handleButtonClick = id => {
-    console.log(`Button clicked with ID: ${id}`);
-  };
-
-  return (
-    <BgContainer>
-      <Title>Background</Title>
-      <ButtonContainer>
-        <ButtonNoneBg type="button" onClick={() => handleButtonClick(0)}>
-          <SvgIcons>
-            <use xlinkHref={`${sprite}#icon-image`} />
-          </SvgIcons>
-        </ButtonNoneBg>
-        {buttonsImg.map((button, index) => (
-          <Button
-            key={button.id}
-            type="button"
-            style={{
-              backgroundImage: `url(${button.backgroundImage})`,
-              backgroundSize: 'cover',
-            }}
-            onClick={() => handleButtonClick(button.id)}
-          >
-            {loadedImages[index] && (
-              <img
-                srcSet={`${button.backgroundImage} 1x, ${button.retinaBackgroundImage} 2x`}
-                alt=""
-              />
-            )}
-          </Button>
-        ))}
-      </ButtonContainer>
-    </BgContainer>
-  );
-};

@@ -9,14 +9,15 @@ import { useNavigate } from 'react-router-dom';
 
 export const BoardsList = () => {
   const dashboards = useSelector(selectDashboards);
+  const isLoading = useSelector(state => state.dashboard.isLoading);
+  // console.log(isLoading)
+  // console.log(dashboards)
   // const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const fetchDashboards = async () => { dispatch(fetchUserDashboards()) };
-  //   fetchDashboards();
-
-  // }, [dispatch]);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   // console.log(dashboards);
 
@@ -28,6 +29,7 @@ export const BoardsList = () => {
     <SidebarPrjctList>
       {dashboards &&
         dashboards.map(dashboard => {
+          console.log(dashboard)
           return (
             <ProjectItem
               key={dashboard._id}
