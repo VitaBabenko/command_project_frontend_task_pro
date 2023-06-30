@@ -14,7 +14,7 @@ const HomePage = () => {
   // const token = useSelector(state => state.auth.token);
   // console.log(token)
   const dispatch = useDispatch();
-  const [shouldShowSidebar, setShouldShowSidebar] = useState(true);
+  const [shouldShowSidebar, setShouldShowSidebar] = useState(false);
 
   const handleBurgerClick = () => {
     setShouldShowSidebar(!shouldShowSidebar);
@@ -31,7 +31,7 @@ const HomePage = () => {
   return (
     <Container>
       <Sidebar shouldShowSidebar={shouldShowSidebar} />
-      <div style={{ width: '100%' }}>
+      <div>
         <Header onBurgerClick={handleBurgerClick} />
         {/* <Routes>
         { dashboards && dashboards.map(dashboard => {
