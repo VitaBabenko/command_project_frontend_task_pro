@@ -1,4 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const hoverFocusStyles = css`
+  border: 1px solid var(--greenGreenBlueColor);
+  opacity: 0.7;
+`;
 
 export const Form = styled.form`
   display: flex;
@@ -6,29 +11,49 @@ export const Form = styled.form`
   min-width: 302px;
 `;
 export const FormText = styled.label`
+  color: var(--primaryTextColor);
   text-align: start;
   margin-bottom: 24px;
   font-size: 18px;
   font-weight: 500;
 `;
 export const FromInput = styled.input`
+  background-color: var(--themeListBgColor);
   padding: 14px 18px;
   margin-bottom: 24px;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
-  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+  border: 1px solid var(--passiveBorderColor);
+  outline: none;
+  transition: opacity var(--transition_data);
+  &:hover {
+    ${hoverFocusStyles};
+  }
+  &:focus {
+    ${hoverFocusStyles};
+  }
+  &::placeholder {
+    color: var(--calendarSecondTextColor);
+  }
 `;
 
 export const FormTextarea = styled.textarea`
+  background-color: var(--themeListBgColor);
   vertical-align: text-top;
   resize: none;
-  min-height: 100px;
+  min-height: 154px;
   padding: 14px 18px;
   margin-bottom: 24px;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
-  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+  border: 1px solid var(--passiveBorderColor);
+  outline: none;
+  transition: opacity var(--transition_data);
   &::placeholder {
+  }
+  &:hover {
+    ${hoverFocusStyles};
+  }
+  &:focus {
+    ${hoverFocusStyles};
   }
 `;
 
@@ -48,7 +73,7 @@ export const RadioLabel = styled.label`
       case 'high':
         return '#BEDBB0';
       case 'without':
-        return '#1616164d';
+        return ' var(--calendarWithoutColor)';
       default:
         return '#000000';
     }
@@ -94,9 +119,9 @@ export const Wrap = styled.div`
 `;
 
 export const Text = styled.span`
-  color: rgba(22, 22, 22, 0.5);
+  color: var(--calendarSecondTextColor);
   font-size: 12px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 `;
 
 export const CalendarWrapp = styled.div`
@@ -107,7 +132,6 @@ export const CalendarWrapp = styled.div`
   font-weight: 500;
   margin-bottom: 40px;
   transition: opacity var(--transition_data);
-
   &:hover {
     opacity: 0.7;
   }
@@ -123,7 +147,5 @@ export const CalendarText = styled.span`
 export const CalendarArrow = styled.svg`
   width: 18px;
   height: 18px;
-
-  /* stroke: var(--greenGreenBlueColor); */
-  stroke: red;
+  stroke: var(--greenGreenBlueColor);
 `;

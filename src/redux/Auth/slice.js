@@ -5,6 +5,7 @@ import {
   refreshUser,
   registerUser,
   updateThema,
+  updateUser,
 } from './operations';
 
 const initialState = {
@@ -59,6 +60,20 @@ const authSlice = createSlice({
       .addCase(updateThema.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(updateUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+        state.user = null;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload.data;
+        state.token = action.payload.token;
+      })
+      .addCase(updateUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
       });
   },
 });

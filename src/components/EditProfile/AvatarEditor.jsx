@@ -6,6 +6,17 @@ import {
   rotateValue,
 } from './util';
 import './style.css';
+import RotateLeftIcon from '@mui/icons-material/RotateLeft';
+import RotateRightIcon from '@mui/icons-material/RotateRight';
+import DoneIcon from '@mui/icons-material/Done';
+import CloseIcon from '@mui/icons-material/Close';
+import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
+import Slider from '@mui/material/Slider';
+
+const CustomSlider = styled(Slider)({
+  color: 'var(--greenGreenBlueColor)',
+});
 
 export const AvatarEditorContainer = ({
   image,
@@ -48,15 +59,47 @@ export const AvatarEditorContainer = ({
         borderRadius={borderRadius}
         image={image}
       />
-      <input
-        type="range"
-        {...defaultInputTypeRangeProps}
-        onChange={handleScale}
-      />
-      <button onClick={() => handleRotate(rotate + rotateValue)}>Left</button>
-      <button onClick={() => handleRotate(rotate - rotateValue)}>Right</button>
-      <button onClick={handleSave}>save</button>
-      <button onClick={handleClose}>close</button>
+      <Box width={200}>
+        <CustomSlider
+          {...defaultInputTypeRangeProps}
+          onChange={handleScale}
+          size="small"
+          defaultValue={50}
+          aria-label="Small"
+          valueLabelDisplay="auto"
+          color="secondary"
+        />
+      </Box>
+      <button
+        className="btn"
+        onClick={() => handleRotate(rotate + rotateValue)}
+      >
+        <RotateLeftIcon
+          sx={{ color: 'var(--greenGreenBlueColor)' }}
+          className="iconEditAvatar"
+        />
+      </button>
+      <button
+        className="btn"
+        onClick={() => handleRotate(rotate - rotateValue)}
+      >
+        <RotateRightIcon
+          sx={{ color: 'var(--greenGreenBlueColor)' }}
+          className="iconEditAvatar"
+        />
+      </button>
+      <button className="btn" onClick={handleSave}>
+        <DoneIcon
+          sx={{ color: 'var(--greenGreenBlueColor)' }}
+          className="iconEditAvatar"
+        />
+      </button>
+      <button className="btn" onClick={handleClose}>
+        <CloseIcon
+          sx={{ color: 'var(--greenGreenBlueColor)' }}
+          className="iconEditAvatar"
+        />
+      </button>
     </>
   );
 };

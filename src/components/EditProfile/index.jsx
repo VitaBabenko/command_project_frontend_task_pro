@@ -1,39 +1,37 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import {
   ECurrentEditOperationEditAvatar,
   ECurrentEditOperationEditData,
+  ERegisterFieldAvatar,
   getDefaultValuesForm,
   isAllRequiredFieldsDirty,
+  isTypeFileImg,
 } from './util';
 import './style.css';
 import { AvatarEditorContainer } from './AvatarEditor';
-import user from '../../images/user.svg';
+import user from '../../images/user.svg'
 import { ProfileDataEditor } from './ProfileDataEditor';
 import { CustomButtonSend } from 'components/Button/CustomButton';
-// import { EditProfileWrapper, } from './ProfileDataEditor.styled'
+import { useSelector } from 'react-redux';
 
 export const EditProfile = ({ toggle, open, HeaderRender }) => {
-  const [currentEditOperation, setCurrentEditOperation] = useState(
-    ECurrentEditOperationEditData
-  );
-  const [currentImg, setCurrentImg] = useState(user);
+  const { user: { name, email, avatar } } = useSelector((state) => state.auth);
+  const [currentEditOperation, setCurrentEditOperation] = useState(ECurrentEditOperationEditData);
+  const [currentImg, setCurrentImg] = useState(avatar);
   const [uploadImg, setUploadImg] = useState('');
+  const inputRef = useRef(null);
 
+  console.log(user);
   const methods = useForm({
     shouldUnregister: true,
     mode: 'onChange',
-    defaultValues: getDefaultValuesForm(),
+    defaultValues: getDefaultValuesForm(name, email),
   });
 
-  const {
-    handleSubmit,
-    formState: { dirtyFields, errors },
-  } = methods;
-  const isEditAvatarOperation =
-    currentEditOperation === ECurrentEditOperationEditAvatar;
+  const { handleSubmit, formState: { dirtyFields, errors }, setError } = methods;
+  const isEditAvatarOperation = currentEditOperation === ECurrentEditOperationEditAvatar;
 
-  console.log(isEditAvatarOperation);
   const isFetching = false;
   const isDisabledSubmitBtn =
     !isAllRequiredFieldsDirty(dirtyFields) ||
@@ -44,65 +42,62 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
     console.log(data);
   };
 
-  const handleChangeNewImg = e => {
-    setUploadImg(e.target.files[0]);
+  const setFormFieldsError = (registerName, message) => {
+    setError(registerName, {
+      type: 'custom', message
+    });
   };
 
-  const handleSetCurrentImg = img => {
+  const setFormFieldFieldAvatarError = (message) => {
+    setFormFieldsError(ERegisterFieldAvatar, message)
+  };
+
+  const handleChangeNewImg = (e) => {
+    const file = e.target?.files?.[0];
+    if (!(file && isTypeFileImg(file?.type))) {
+      setCurrentEditOperation(ECurrentEditOperationEditData)
+      setFormFieldFieldAvatarError('Invalid format');
+      return;
+    }
+    setUploadImg(file);
+  };
+
+  const handleSetCurrentImg = (img) => {
     setCurrentImg(img);
-  };
+  }
 
-  const handleChangeCurrentOperation = currentOperation => {
+  const handleChangeCurrentOperation = (currentOperation) => {
     setCurrentEditOperation(currentOperation);
-  };
+  }
 
   const handleCloseEditAvatar = () => {
     setCurrentEditOperation(ECurrentEditOperationEditData);
     setUploadImg('');
+    inputRef.current.value = null;
   };
 
   return (
-    // <EditProfileWrapper>
-    <div className="edit-profile-wrapper">
+    <div className='edit-profile-wrapper'>
       {HeaderRender('Edit profile')}
       <FormProvider {...methods}>
-        <div
-          className={isEditAvatarOperation ? 'display-block' : 'display-none'}
-        >
-          <AvatarEditorContainer
-            {...{
-              image: uploadImg,
-              handleSetCurrentImg,
-              handleClose: handleCloseEditAvatar,
-            }}
-          />
-        </div>
 
-        <div
-          className={!isEditAvatarOperation ? 'display-block' : 'display-none'}
-        >
-          <div>
-            <ProfileDataEditor
-              {...{
-                currentImg,
-                handleChangeNewImg,
-                handleChangeCurrentOperation,
-              }}
-            />
+        {uploadImg &&
+          <AvatarEditorContainer {...{
+            image: uploadImg, handleSetCurrentImg,
+            handleClose: handleCloseEditAvatar,
+          }} />}
 
-            {/* <button disabled={isDisabledSubmitBtn} onClick={handleSubmit(onSubmit)}>
-              Save
-            </button> */}
-            <CustomButtonSend
-              disabled={isDisabledSubmitBtn}
-              onClick={handleSubmit(onSubmit)}
-            >
+        <div className={!isEditAvatarOperation ? 'display-block' : 'display-none'}>
+
+          <div >
+            <ProfileDataEditor {...{ currentImg, uploadImg, handleChangeNewImg, handleChangeCurrentOperation, inputRef }} />
+
+            <CustomButtonSend disabled={isDisabledSubmitBtn} onClick={handleSubmit(onSubmit)} >
               Send
             </CustomButtonSend>
-          </div>
+          </div >
         </div>
       </FormProvider>
     </div>
-    // </EditProfileWrapper >
   );
 };

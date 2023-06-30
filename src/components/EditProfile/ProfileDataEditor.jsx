@@ -1,21 +1,36 @@
 import { useState } from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import { regExpEmail } from '../../utils.js/regex';
 import {
   ECurrentEditOperationEditAvatar,
-  ERegisterFieldAvatar,
   ERegisterFieldEmail,
   ERegisterFieldName,
   ERegisterFieldPassword,
 } from './util';
-import './style.css';
+import '../../assets/index.css';
 // import { Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import sprite from "../../images/sprite.svg";
-import {Avatar,AvatarImg}  from './ProfileDataEditor.styled'
+import sprite from '../../images/sprite.svg';
+import {
+  Avatar,
+  AvatarImg,
+  InputField,
+  Icon,
+  IconUser,
+  AvatarImgCurrent,
+} from './ProfileDataEditor.styled';
 
-export const ProfileDataEditor = ({ currentImg, handleChangeNewImg, handleChangeCurrentOperation }) => {
-  const { register, control, formState: { errors } } = useFormContext();
+export const ProfileDataEditor = ({
+  currentImg,
+  uploadImg,
+  handleChangeNewImg,
+  handleChangeCurrentOperation,
+  inputRef,
+}) => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   const isFetching = false;
@@ -28,44 +43,46 @@ export const ProfileDataEditor = ({ currentImg, handleChangeNewImg, handleChange
       <div className="file">
         <div>
           <Avatar>
-            <AvatarImg src={currentImg} alt='Avatar' />
+            {currentImg ? (
+              <AvatarImgCurrent src={currentImg} />
+            ) : (
+              <AvatarImg
+                aria-label="icon eye"
+                width="68"
+                height="68"
+                viewBox="0 -3 68 68"
+              >
+                <IconUser href={sprite + '#icon-user-default'}></IconUser>
+              </AvatarImg>
+            )}
           </Avatar>
 
-          <Controller
-            name={ERegisterFieldAvatar}
-            control={control}
-            render={({ field }) => (
-              <label>
-                <input
-                  type="file"
-                  accept="/image/*"
-                  onChange={(e) => {
-                    field.onChange(e);
-                    handleChangeCurrentOperation(ECurrentEditOperationEditAvatar);
-                    handleChangeNewImg(e)
-                  }}
-                // {...register(ERegisterFieldAvatar, {
-                //   onChange: (e) => {
-                //     handleChangeCurrentOperation(ECurrentEditOperationEditAvatar);
-                //     handleChangeNewImg(e);
-                //     // return e;
-                //   }
-                // })}
-                />
-                <AddIcon />
-              </label>
-            )}
-          />
+          <label htmlFor="avatar">
+            <InputField
+              id="avatar"
+              type="file"
+              accept="/image/*"
+              ref={inputRef}
+              onChange={e => {
+                handleChangeCurrentOperation(ECurrentEditOperationEditAvatar);
+                handleChangeNewImg(e);
+              }}
+            />
+            <AddIcon />
+          </label>
         </div>
+        {errors?.ERegisterFieldAvatar && (
+          <span className="error">{errors.ERegisterFieldAvatar.message}</span>
+        )}
       </div>
 
       <div className="wrapper-input">
-        <input
+        <InputField
           autoComplete="off"
           disabled={isFetching}
           className={errors?.ERegisterFieldName && 'error'}
           type="text"
-          placeholder=''
+          placeholder="Enter your name"
           {...register(ERegisterFieldName, {
             required: 'This input is required.',
             maxLength: {
@@ -80,10 +97,11 @@ export const ProfileDataEditor = ({ currentImg, handleChangeNewImg, handleChange
       </div>
 
       <div className="wrapper-input">
-        <input
+        <InputField
           autoComplete="off"
           disabled={isFetching}
           className={errors?.ERegisterFieldEmail && 'error'}
+          placeholder="Enter your email"
           type="text"
           {...register(ERegisterFieldEmail, {
             required: 'This input is required.',
@@ -104,10 +122,11 @@ export const ProfileDataEditor = ({ currentImg, handleChangeNewImg, handleChange
 
       <div className="wrapper-input">
         <div className="toggle_pass">
-          <input
+          <InputField
             autoComplete="off"
             disabled={isFetching}
             className={errors?.ERegisterFieldPassword && 'error'}
+            placeholder="Confirm a password"
             type={isShowPassword ? 'text' : 'password'}
             {...register(ERegisterFieldPassword, {
               required: 'This input is required.',
@@ -117,14 +136,16 @@ export const ProfileDataEditor = ({ currentImg, handleChangeNewImg, handleChange
               },
             })}
           />
-          <span className="eye" onClick={togglePass}><svg className="icon" aria-label="open theme select icon">
-            <use href={sprite + "#icon-eye"}></use>
-          </svg></span>
+          <span onClick={togglePass}>
+            <Icon aria-label="icon eye" width="18" height="18">
+              <use href={sprite + '#icon-eye'}></use>
+            </Icon>
+          </span>
         </div>
         {errors?.ERegisterFieldPassword && (
           <span className="error">{errors.ERegisterFieldPassword.message}</span>
         )}
       </div>
-    </ >
+    </>
   );
 };

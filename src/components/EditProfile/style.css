@@ -1,9 +1,9 @@
 .edit-profile-wrapper {
   padding: 24px;
   width: 400px;
-  height: 440px;
-  background: #151515;
-  /* border: 1px solid rgba(190, 219, 176, 0.5); */
+  min-height: 440px;
+  background: var(--themeListBgColor);
+  border: 1px solid rgba(190, 219, 176, 0.5);
   border-radius: 8px;
 }
 
@@ -22,6 +22,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .file>div {
@@ -32,7 +33,7 @@
   position: absolute;
   width: 24px;
   height: 24px;
-  background: #BEDBB0;
+  background: var(--bgPlus);
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -48,9 +49,21 @@
   margin: 0;
 }
 
+.btn {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+
+}
+
+.iconEditAvatar {
+  color: white;
+}
+
 /* .avatar-wrapper {
   display: flex;
   justify-content: center;
+
   align-items: center;
   margin: 25px 0;
 } */
@@ -78,19 +91,20 @@
   display: block;
 }
 
-.icon{
+.icon {
   position: absolute;
-width: 18px;
-height: 18px;
-stroke:#FFFFFF;
-display: block;
-right: 18px;
-top: 50%;
-z-index: 1;
-cursor: pointer;
-margin: -8px 0 0;
-padding: 0;
+  width: 18px;
+  height: 18px;
+  stroke: #FFFFFF;
+  display: block;
+  right: 18px;
+  top: 50%;
+  z-index: 1;
+  cursor: pointer;
+  margin: -8px 0 0;
+  padding: 0;
 }
+
 /* .edit-profile__btnClose{
   display: flex;
   position: absolute;
@@ -104,92 +118,3 @@ padding: 0;
  
 } */
 
-
-/* .sidebar-header {
-  width: 100%;
-  height: auto;
-  padding: 0 0 16px;
-
-  order: 0;
-  flex: 0 1 auto;
-  align-self: auto;
-
-  h1 {
-    padding: 0 32px 0 0;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 32px;
-    color: $black;
-    position: relative;
-    margin: 0;
-
-    >span {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-content: stretch;
-      align-items: flex-start;
-
-      >.header-part {
-        order: 0;
-        flex: 0 1 auto;
-        align-self: auto;
-
-        &:nth-child(2) {
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-        }
-      }
-    }
-
-    .close {
-      position: absolute;
-      width: 32px;
-      height: 32px;
-      outline: none;
-      background: none;
-      cursor: pointer;
-      border: 0 none;
-      bottom: 0;
-      right: -8px;
-      margin: 0;
-      padding: 0;
-      border-radius: 4px;
-
-      svg {
-        display: block;
-        width: 14px;
-        height: 14px;
-        margin: 0 auto;
-      }
-
-      &:hover {
-        opacity: 0.75;
-      }
-
-      &:focus-visible {
-        box-shadow: 0px 0px 0px 2px rgba($black, 0.2) inset;
-
-        outline: none;
-      }
-    }
-  }
-
-  .arrow_left~h1 {
-    padding: 0;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 28px;
-    color: $black;
-    margin: 8px 0 0;
-  }
-} */
