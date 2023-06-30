@@ -12,6 +12,8 @@ import { ModalContainer } from './Modal';
 import { useDispatch } from 'react-redux';
 import { useAuth } from './hooks';
 import { refreshUser } from 'redux/Auth/operations';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
@@ -30,6 +32,17 @@ export const App = () => {
     <b>Refreshing user...</b>
   ) : (
     <>
+      <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light" />
       <ModalContainer />
       <GlobalStyle />
 

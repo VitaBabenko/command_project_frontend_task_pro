@@ -1,6 +1,6 @@
 
 import { useAuth } from "components/hooks";
-import { Button, Form, Icon, Input } from "components/RegisterForm/RegisterForm.syled";
+import { Button, Form, FormContainer, IconLogin, Input } from "components/RegisterForm/RegisterForm.syled";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -47,7 +47,8 @@ export const LoginForm = () => {
   };
 
   return (
-    <div>
+    <FormContainer>
+    
       
       <Form onSubmit={handleSubmit(onSubmit)}>
         <div>
@@ -65,15 +66,17 @@ export const LoginForm = () => {
 
           {errors.password && <span>Password is required</span>}
           <div onClick={togglePasswordVisibility}>
-    {showPassword ? (<Icon aria-label="open theme select icon">
+    {showPassword ? (<IconLogin aria-label="open theme select icon">
    <use href={sprite + "#icon-eye"}></use> 
-</Icon>):<Icon aria-label="open theme select icon">
+</IconLogin>):<IconLogin aria-label="open theme select icon">
    <use href={sprite + "#icon-eye"}></use> 
-</Icon>}
+</IconLogin>}
   </div>
         </div>
         <Button type="submit">Log In Now</Button>
       </Form>
-    </div>
+      
+    
+    </FormContainer>
   );
 };
