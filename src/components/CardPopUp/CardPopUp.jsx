@@ -48,7 +48,7 @@ export const CardPopUp = () => {
   };
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <FormText>{'title'}</FormText>
+      <FormText>{'Add card'}</FormText>
       <FromInput
         {...register('title', { minLength: 3, required: true })}
         placeholder="Title"
