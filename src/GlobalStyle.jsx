@@ -16,20 +16,10 @@ const GlobalStyle = createGlobalStyle`
   body {
   margin: 0;
   font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
   transition: 0.3s ease;
-${
-  '' /* 
-   background-image: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0) 25%,
-    #bedbb0 92.19%
-  ); 
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat; */
-}
-
-  background-color: var(--boardBgColor);
+  ${'' /* background-color: var(--boardBgColor); */}
 
 
   ul,
@@ -92,6 +82,10 @@ body[data-theme="dark"] {
   --modalBorderColor: rgba(190, 219, 176, 0.5);
   --defaultImgColor: rgba(255, 255, 255, 0.7);
   --defaultUserColor: #151515;
+  --cardHeaderText: #ffffff;
+  --actionsButton: #121212;
+  --cardItem: #121212;
+  --cardItemText: #888888;
 
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #FFFFFF;
@@ -100,13 +94,6 @@ body[data-theme="dark"] {
   --bgPlus:#BEDBB0;
   --iconEyeColor:#FFFFFF;
   --btnColorHover: #d8e9cf;
-  
-//   --calendarSelectDay: #1F1F1F;
-//   --calendarDisabled:rgba(22, 22, 22, 0.20);
-//   --calendarBorderTop: rgba(255, 255, 255, 0.2);
-//   --calendarSecondTextColor:rgba(22, 22, 22, 0.50);
-//   --calendarWithoutColor: rgba(255, 255, 255, 0.30);
-
 }
 
 body[data-theme="light"] {
@@ -134,6 +121,10 @@ body[data-theme="light"] {
   --modalBorderColor: transparent;
   --defaultImgColor: rgba(22, 22, 22, 0.7);
     --defaultUserColor: #FFFFFF;
+    --cardHeaderText: #161616;
+    --actionsButton: #FFFFFF;
+    --cardItem: #FFFFFF;
+    --cardItemText: ##5C5C5C;
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #161616;
   --placeholder: rgba(22, 22, 22, 1);
@@ -141,13 +132,6 @@ body[data-theme="light"] {
   --bgPlus:#BEDBB0;
   --iconEyeColor:#161616;
   --btnColorHover: #d8e9cf;
-
-//   --calendarSelectDay: #161616;
-//   --calendarDisabled:rgba(22, 22, 22, 0.20);
-//   --calendarBorderTop: rgba(22, 22, 22, 0.2);
-//   --calendarSecondTextColor:rgba(22, 22, 22, 0.50);
-//   --calendarWithoutColor: rgba(22, 22, 22, 0.30);
-
 }
 
 body[data-theme="violet"] {
@@ -182,13 +166,6 @@ body[data-theme="violet"] {
   --bgPlus:#ECEDFD;
   --iconEyeColor:#161616;
   --btnColorHover: #b8bcfd;
-
-//   --calendarSelectDay: #FCFCFC;
-//   --calendarDisabled:rgba(22, 22, 22, 0.20);
-//   --calendarBorderTop:rgba(22, 22, 22, 0.2);
-//   --calendarSecondTextColor: rgba(22, 22, 22, 0.50);
-//   --calendarWithoutColor: rgba(22, 22, 22, 0.30);
-
 }
 `;
 

@@ -96,7 +96,16 @@ export const PrjctActionList = styled.ul`
 `;
 
 export const Text = styled.p`
- line-height: 1;
+ line-height: 21px;
+ font-weight: 500;
+ font-size: 14px;
 `;
+
+export const Title = styled.h3`
+ line-height: 21px;
+ font-weight: 500;
+ font-size: 14px;
+`;
+
 
 

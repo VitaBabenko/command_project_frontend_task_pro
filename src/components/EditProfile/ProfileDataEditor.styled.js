@@ -1,68 +1,65 @@
 import styled from 'styled-components';
 
-
 export const EditProfileWrapper = styled.div`
-padding: 24px;
-width: 400px;
-min-height: 440px;
-background: var(--themeListBgColor);
-border: 1px solid rgba(190, 219, 176, 0.5);
-box-shadow: 0px 4px 16px 0px var(--boxShadowColor);
-border-radius: 8px;
+  padding: 24px;
+  width: 400px;
+  min-height: 440px;
+  background: var(--themeListBgColor);
+  border: 1px solid rgba(190, 219, 176, 0.5);
+  box-shadow: 0px 4px 16px 0px var(--boxShadowColor);
+  border-radius: 8px;
 `;
 
 export const Input = styled.input`
-display: none;
+  display: none;
 `;
 
 export const Avatar = styled.div`
-width: 68px;
+  width: 68px;
   height: 68px;
   overflow: hidden;
 `;
 
 export const AvatarImg = styled.svg`
-display: inline-block;
-width: auto;
-height: auto;
-max-width: 100%;
-max-height: 100%;
-margin: 0 auto;
-border-radius: 8px;
-background-color: var(--defaultAvatarBgColor);
-fill: var(--userSvgFill);
+  display: inline-block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+  border-radius: 8px;
+  background-color: var(--defaultAvatarBgColor);
+  fill: var(--userSvgFill);
 `;
 
 export const IconUser = styled.use`
- border-radius: 8px;
- 
- `;
+  border-radius: 8px;
+`;
 export const InputField = styled.input`
-display: block;
-width: 100%;
-background: var(--themeListBgColor);
-border: 1px solid var(--passiveBorderColor);
-border-radius: 8px;
-height: 48px;
-line-height: 18px;
-font-size: 14px;
-
-color: var(--primaryTextColor);
-padding: 14px 18px;
-outline: none;
-letter-spacing: -0.28px;
-background-color: transparent;
-// opacity: 0.4000000059604645;
-box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
-
-
-@media screen and (min-width: 768px) {
+  display: block;
   width: 100%;
-  height: 49px;
-}
+  background: var(--themeListBgColor);
+  border: 1px solid var(--passiveBorderColor);
+  border-radius: 8px;
+  height: 48px;
+  line-height: 18px;
+  font-size: 14px;
 
-&::placeholder {
-  color: var(--placeholder);
+  color: var(--primaryTextColor);
+  padding: 14px 18px;
+  outline: none;
+  letter-spacing: -0.28px;
+  background-color: transparent;
+  // opacity: 0.4000000059604645;
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    height: 49px;
+  }
+
+  &::placeholder {
+    color: var(--placeholder);
     font-size: 14px;
     font-family: Poppins;
   }
@@ -73,9 +70,7 @@ box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 
   &:last-child {
     margin-bottom: 24px;
-   
   }
-}
 `;
 
 export const Icon = styled.svg`
