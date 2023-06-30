@@ -98,7 +98,8 @@ body[data-theme="dark"] {
   --placeholder:rgba(255, 255, 255, 1);
   --userSvgFill: #161616;
   --brPlus:#BEDBB0;
-  --iconEyeColor:#FFFFFF
+  --iconEyeColor:#FFFFFF;
+}
 
 body[data-theme="light"] {
   --greenGreenBlueColor: #bedbb0;
