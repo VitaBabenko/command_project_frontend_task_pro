@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 // import { selectDashboards } from 'redux/dashboards/selectors';
 import { useEffect, Suspense, useState } from 'react';
 import { fetchUserDashboards } from 'redux/dashboards/operation';
+import { Loader } from '../components/Loader/Loader';
 
 const HomePage = () => {
   // const dashboards = useSelector(selectDashboards);
@@ -42,7 +43,13 @@ const HomePage = () => {
         {/* <TestBg /> */}
         {/* <ProjectOffice /> */}
       </div>
-      <Suspense fallback={<div>Loading</div>}>
+      <Suspense
+        fallback={
+          <div>
+            <Loader />
+          </div>
+        }
+      >
         <Outlet />
       </Suspense>
     </Container>

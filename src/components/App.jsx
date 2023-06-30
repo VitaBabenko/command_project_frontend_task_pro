@@ -12,6 +12,7 @@ import { ModalContainer } from './Modal';
 import { useDispatch } from 'react-redux';
 import { useAuth } from './hooks';
 import { refreshUser } from 'redux/Auth/operations';
+import { Loader } from '../components/Loader/Loader';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
@@ -27,8 +28,11 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <div>
+      <Loader />
+    </div>
   ) : (
+    // <b>Refreshing user...</b>
     <>
       <ModalContainer />
       <GlobalStyle />
