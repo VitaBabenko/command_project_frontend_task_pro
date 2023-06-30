@@ -20,21 +20,21 @@ export const Sidebar = ({
   // const dashboard = useSelector(selectDashboards);
   // console.log(dashboard)
 
-  const newBoard = {
-    title: 'test dshboard2',
-    background: 'testUrl',
-    dashboardIcon: 'testIcon',
-  };
+  // const newBoard = {
+  //   title: 'test dshboard2',
+  //   background: 'testUrl',
+  //   dashboardIcon: 'testIcon',
+  // };
 
   const handleLogout = () => {
     console.log('Logout');
     dispatch(logOut());
   };
 
-  const handleCreateNewProject = () => {
-    dispatch(addUserBoard(newBoard));
-    console.log('Create new project');
-  };
+  // const handleCreateNewProject = () => {
+  //   dispatch(addUserBoard(newBoard));
+  //   console.log('Create new project');
+  // };
 
   const handleHome = e => {
     e.stopPropagation();
@@ -51,7 +51,7 @@ export const Sidebar = ({
       <Inn>
         <Logo goHome={handleHome} />
 
-        <Boards onCreateNew={handleCreateNewProject} />
+        <Boards />
 
         {isNeedHelp && <NeedHelp />}
 
