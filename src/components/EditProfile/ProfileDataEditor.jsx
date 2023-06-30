@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import { regExpEmail } from '../../utils.js/regex';
 import {
   ECurrentEditOperationEditAvatar,
@@ -10,11 +10,27 @@ import {
 import '../../assets/index.css';
 // import { Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import sprite from "../../images/sprite.svg";
-import { Avatar, AvatarImg, InputField, Icon, IconUser, AvatarImgCurrent } from './ProfileDataEditor.styled'
+import sprite from '../../images/sprite.svg';
+import {
+  Avatar,
+  AvatarImg,
+  InputField,
+  Icon,
+  IconUser,
+  AvatarImgCurrent,
+} from './ProfileDataEditor.styled';
 
-export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, handleChangeCurrentOperation, inputRef }) => {
-  const { register, control, formState: { errors } } = useFormContext();
+export const ProfileDataEditor = ({
+  currentImg,
+  uploadImg,
+  handleChangeNewImg,
+  handleChangeCurrentOperation,
+  inputRef,
+}) => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   const isFetching = false;
@@ -27,8 +43,9 @@ export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, h
       <div className="file">
         <div>
           <Avatar>
-            {currentImg ?
-              <AvatarImgCurrent src={currentImg} /> :
+            {currentImg ? (
+              <AvatarImgCurrent src={currentImg} />
+            ) : (
               <AvatarImg
                 aria-label="icon eye"
                 width="68"
@@ -37,23 +54,22 @@ export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, h
               >
                 <IconUser href={sprite + '#icon-user-default'}></IconUser>
               </AvatarImg>
-            }
+            )}
           </Avatar>
 
-          <label htmlFor='avatar'>
+          <label htmlFor="avatar">
             <InputField
-              id='avatar'
+              id="avatar"
               type="file"
               accept="/image/*"
               ref={inputRef}
-              onChange={(e) => {
+              onChange={e => {
                 handleChangeCurrentOperation(ECurrentEditOperationEditAvatar);
                 handleChangeNewImg(e);
               }}
             />
             <AddIcon />
           </label>
-
         </div>
         {errors?.ERegisterFieldAvatar && (
           <span className="error">{errors.ERegisterFieldAvatar.message}</span>
@@ -121,11 +137,7 @@ export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, h
             })}
           />
           <span onClick={togglePass}>
-            <Icon
-              aria-label="icon eye"
-              width="18"
-              height="18"
-            >
+            <Icon aria-label="icon eye" width="18" height="18">
               <use href={sprite + '#icon-eye'}></use>
             </Icon>
           </span>
@@ -134,6 +146,6 @@ export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, h
           <span className="error">{errors.ERegisterFieldPassword.message}</span>
         )}
       </div>
-    </ >
+    </>
   );
 };
