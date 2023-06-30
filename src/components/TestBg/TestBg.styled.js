@@ -29,42 +29,41 @@ export const TestBgImage = styled.div`
 
   /* background-image: url("https://res.cloudinary.com/dxhypjavs/image/upload/c_scale,h_28/c_crop,h_28,w_28/v1687378707/command_project_task_pro_images/desktop/bg-image-1.jpg") */
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 374px) {
     background-image: ${props =>
       `url(${baseBgUrl}mobile/bg-image-${props.bgnumber}.jpg)`};
   }
 
-  @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
-    screen and (min-resolution: 192dpi) and (max-width: 767px),
-    screen and (min-resolution: 2dppx) and (max-width: 767px) {
+  @media screen and (min-device-pixel-ratio: 2) and (max-width: 374px),
+    screen and (min-resolution: 192dpi) and (max-width: 374px),
+    screen and (min-resolution: 2dppx) and (max-width: 374px) {
     background-image: ${props =>
       `url(
       ${baseBgUrl}mobile/bg-image-${props.bgnumber}_2x.jpg)`};
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 375px) {
     background-image: ${props =>
       `url(
       ${baseBgUrl}tablet/bg-image-${props.bgnumber}.jpg)`};
   }
 
-  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
-    screen and (min-resolution: 192dpi) and (min-width: 768px),
-    screen and (min-resolution: 2dppx) and (min-width: 768px) {
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 375px),
+    screen and (min-resolution: 192dpi) and (min-width: 375px),
+    screen and (min-resolution: 2dppx) and (min-width: 375px) {
     background-image: ${props =>
       `url(
       ${baseBgUrl}tablet/bg-image-${props.bgnumber}_2x.jpg)`};
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     background-image: ${props =>
       `url(
       ${baseBgUrl}desktop/bg-image-${props.bgnumber}.jpg)`};
   }
-  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
-    screen and (min-resolution: 192dpi) and (min-width: 1280px),
-    screen and (min-resolution: 2dppx) and (min-width: 1280px) {
-    max-width: 1600px;
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+    screen and (min-resolution: 192dpi) and (min-width: 768px),
+    screen and (min-resolution: 2dppx) and (min-width: 768px) {
     background-image: ${props =>
       `url(
       ${baseBgUrl}desktop/bg-image-${props.bgnumber}_2x.jpg)`};

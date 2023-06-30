@@ -17,19 +17,8 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   font-family: "Poppins", sans-serif;
   transition: 0.3s ease;
-${
-  '' /* 
-   background-image: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0) 25%,
-    #bedbb0 92.19%
-  ); 
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat; */
-}
-
-  background-color: var(--boardBgColor);
+  font-weight: 400;
+  ${'' /* background-color: var(--boardBgColor); */}
 
 
   ul,
