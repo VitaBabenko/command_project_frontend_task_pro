@@ -20,7 +20,7 @@ export const fetchUserDashboards = createAsyncThunk('dashboards/fetchUserDashboa
 export const addUserBoard = createAsyncThunk('dashboards/addUserBoard', async (board, { rejectWithValue }) => { 
     try {
         const resp = await axios.post('/boards', board);
-        console.log(resp.data)
+        console.log(resp.data.board)
         return resp.data.board
     } catch (error) {
        return console.log(error) 
