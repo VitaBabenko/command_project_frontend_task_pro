@@ -41,7 +41,7 @@ export const CustomButton = ({
         letterSpacing: "-0.02em",
         display: "flex",
         alignItems: "center",
-        background: isWhiteBackground? "#121212" : "#BEDBB0",
+        background: 'var(--greenGreenBlueColor)',
         borderRadius: "8px",
         color: isWhiteBackground? "#FFFFFF" : "#161616",
         textTransform: "none",
@@ -62,7 +62,7 @@ export const CustomButtonSend = ({
   onClick,
   styleOptions = {},
     type = "button",
-  isWhiteBackground = false,
+    isWhiteBackground = false,
 }) => {
     
     
@@ -82,12 +82,12 @@ export const CustomButtonSend = ({
         letterSpacing: "-0.02em",
         display: "flex",
         alignItems: "center",
-        background: isWhiteBackground? "#121212" : "#BEDBB0",
+        background: 'var(--greenGreenBlueColor)',
         borderRadius: "8px",
         color: isWhiteBackground? "#FFFFFF" : "#161616",
         textTransform: "none",
         "&:hover": {
-          background: isWhiteBackground ? "#121212" : "#BEDBB0",
+          background: 'var(--btnColorHover)',
         },
         ...styleOptions,
       }}

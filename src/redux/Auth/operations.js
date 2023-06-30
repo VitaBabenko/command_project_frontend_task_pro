@@ -33,7 +33,7 @@ export const loginUser = createAsyncThunk(
       const res = await axios.post('/auth/login', userData);
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.token);
-     
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -89,3 +89,28 @@ export const refreshUser = createAsyncThunk(
       return thunkAPI.rejectWithValue(error.message);
     }
   });
+
+export const updateUser = createAsyncThunk(
+  'auth/user',
+  async (userData, thunkAPI) => {
+    try {
+      const res = await axios.put('/auth/user', userData);
+      // After successful login, add the token to the HTTP header
+      setAuthHeader(res.data.token);
+      return res.data;
+    } catch (error) {
+
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+)
+
+export const technicalSupportRequest = async (userData, callback) => {
+  callback({ isFetching: true, init: false, data: null, error: null });
+  try {
+    const response = await axios.post('/auth/support', userData);
+    callback({ isFetching: false, init: true, data: response.data.message, error: false });
+  } catch (error) {
+    callback({ isFetching: false, init: true, data: null, error: error.message });
+  }
+};

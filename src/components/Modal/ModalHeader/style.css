@@ -1,7 +1,7 @@
 .modal-header {
   width: 100%;
   height: auto;
-  padding: 0 0 16px;
+  /* padding: 0 0 16px; */
 
   order: 0;
   flex: 0 1 auto;

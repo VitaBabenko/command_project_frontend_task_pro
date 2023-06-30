@@ -37,3 +37,8 @@ export const defaultInputTypeRangeProps = {
 }
 
 export const rotateValue = 90;
+
+export const isTypeFileImg = (type) => {
+  console.log(type);
+  return type.startsWith('image/');
+};
