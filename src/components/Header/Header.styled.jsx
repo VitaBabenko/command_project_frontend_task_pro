@@ -17,6 +17,12 @@ export const HeaderMain = styled.div`
   @media screen and (max-width: 768px) {
     .header-burger {
       display: block;
+      fill: #161616;
+
     }
   }
+`;
+
+export const Icon = styled.div`
+  
 `;

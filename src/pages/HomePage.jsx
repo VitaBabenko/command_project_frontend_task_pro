@@ -15,7 +15,7 @@ const HomePage = () => {
   // const token = useSelector(state => state.auth.token);
   // console.log(token)
   const dispatch = useDispatch();
-  const [shouldShowSidebar, setShouldShowSidebar] = useState(true);
+  const [shouldShowSidebar, setShouldShowSidebar] = useState(false);
 
   const handleBurgerClick = () => {
     setShouldShowSidebar(!shouldShowSidebar);
