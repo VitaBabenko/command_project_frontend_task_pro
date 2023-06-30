@@ -16,9 +16,9 @@ export const Filter = () => {
 
   const primaryTextColor = `var(--primaryTextColor)`;
 
-  const handleChange = event => {
-    setSelectedValue(event.target.value);
-  };
+  // const handleChange = event => {
+  //   setSelectedValue(event.target.value);
+  // };
 
   const handleReset = () => {
     setSelectedValue('');
