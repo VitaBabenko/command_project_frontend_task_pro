@@ -16,8 +16,9 @@ const GlobalStyle = createGlobalStyle`
   body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  transition: 0.3s ease;
+  font-style: normal;
   font-weight: 400;
+  transition: 0.3s ease;
   ${'' /* background-color: var(--boardBgColor); */}
 
 
