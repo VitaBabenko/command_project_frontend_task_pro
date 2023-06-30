@@ -91,7 +91,10 @@ body[data-theme="dark"] {
   --modalBorderColor: rgba(190, 219, 176, 0.5);
   --defaultImgColor: rgba(255, 255, 255, 0.7);
   --defaultUserColor: #151515;
- 
+  --cardHeaderText: #ffffff;
+  --actionsButton: #121212;
+  --cardItem: #121212;
+  --cardItemText: #888888;
 }
 
 body[data-theme="light"] {
@@ -119,6 +122,10 @@ body[data-theme="light"] {
   --modalBorderColor: transparent;
   --defaultImgColor: rgba(22, 22, 22, 0.7);
     --defaultUserColor: #FFFFFF;
+    --cardHeaderText: #161616;
+    --actionsButton: #FFFFFF;
+    --cardItem: #FFFFFF;
+    --cardItemText: ##5C5C5C;
 }
 
 body[data-theme="violet"] {

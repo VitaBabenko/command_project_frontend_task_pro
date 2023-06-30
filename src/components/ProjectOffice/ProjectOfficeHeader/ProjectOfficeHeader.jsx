@@ -1,5 +1,6 @@
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import { FilterWrapper, Title, Wrapper, Text } from '../ProjectOfficeStyle';
+import { FilterWrapper, Wrapper } from '../ProjectOfficeStyle';
+import { FilterText, Title } from './ProjectOfficeHeaderStyle';
 
 
 const ProjectOfficeHeader = () => {
@@ -8,8 +9,8 @@ const ProjectOfficeHeader = () => {
         <Wrapper>
             <Title>Project</Title>
             <FilterWrapper>
-                <FilterAltIcon />
-                <Text>Filters</Text>
+                <FilterAltIcon sx={{color: '#D2D2D2'}}  />
+                <FilterText>Filters</FilterText>
             </FilterWrapper>
         </Wrapper>
     </> 
