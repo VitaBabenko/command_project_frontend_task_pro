@@ -97,8 +97,9 @@ body[data-theme="dark"] {
   --needHelpBtn: #FFFFFF;
   --placeholder:rgba(255, 255, 255, 1);
   --userSvgFill: #161616;
-  --brPlus:#BEDBB0;
+  --bgPlus:#BEDBB0;
   --iconEyeColor:#FFFFFF;
+  --btnColorHover: #d8e9cf;
 }
 
 body[data-theme="light"] {
@@ -130,8 +131,9 @@ body[data-theme="light"] {
   --needHelpBtn: #161616;
   --placeholder: rgba(22, 22, 22, 1);
   --userSvgFill: #FFFFFF;
-  --brPlus:#BEDBB0;
-  --iconEyeColor:#161616
+  --bgPlus:#BEDBB0;
+  --iconEyeColor:#161616;
+  --btnColorHover: #d8e9cf;
 }
 
 body[data-theme="violet"] {
@@ -163,8 +165,9 @@ body[data-theme="violet"] {
   --needHelpBtn: #FFFFFF;
   --placeholder:#161616;
   --userSvgFill: #FFFFFF;
-  --brPlus:#ECEDFD;
-  --iconEyeColor:#161616
+  --bgPlus:#ECEDFD;
+  --iconEyeColor:#161616;
+  --btnColorHover: #b8bcfd;
 }
 `;
 

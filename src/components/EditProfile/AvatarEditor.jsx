@@ -11,7 +11,7 @@ import { styled } from '@mui/material/styles';
 import Slider from '@mui/material/Slider';
 
 const CustomSlider = styled(Slider)({
-  color: '#BEDBB0'
+  color: 'var(--greenGreenBlueColor)'
 })
 
 export const AvatarEditorContainer = ({ image, handleSetCurrentImg, handleClose }) => {
@@ -61,10 +61,10 @@ export const AvatarEditorContainer = ({ image, handleSetCurrentImg, handleClose 
           color="secondary"
         />
       </Box>
-      <button className="btn" onClick={() => handleRotate(rotate + rotateValue)}><RotateLeftIcon className="iconEditAvatar" /></button>
-      <button className="btn" onClick={() => handleRotate(rotate - rotateValue)}><RotateRightIcon className="iconEditAvatar" /></button>
-      <button className="btn" onClick={handleSave}><DoneIcon className="iconEditAvatar" /></button>
-      <button className="btn" onClick={handleClose}><CloseIcon className="iconEditAvatar" /></button>
+      <button className="btn" onClick={() => handleRotate(rotate + rotateValue)}><RotateLeftIcon sx={{ color: 'var(--greenGreenBlueColor)'}} className="iconEditAvatar" /></button>
+      <button className="btn" onClick={() => handleRotate(rotate - rotateValue)}><RotateRightIcon sx={{ color: 'var(--greenGreenBlueColor)'}} className="iconEditAvatar" /></button>
+      <button className="btn" onClick={handleSave}><DoneIcon sx={{ color: 'var(--greenGreenBlueColor)'}} className="iconEditAvatar" /></button>
+      <button className="btn" onClick={handleClose}><CloseIcon sx={{ color: 'var(--greenGreenBlueColor)'}} className="iconEditAvatar" /></button>
     </>
   )
 };

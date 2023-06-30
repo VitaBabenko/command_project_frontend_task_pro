@@ -121,9 +121,26 @@ resize: none;
 export const ErrorText = styled.p`
 color: #FF5252;
     display: block;
-    font-size: 10px;
+    font-size: 14px;
     line-height: 20px;
     overflow: hidden;
     width: calc(100% - 18px);
+`;
 
+export const ErrorMsg = styled.div`
+color: #FF5252;
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+    overflow: hidden;
+    width: calc(100% - 18px);
+`;
+
+export const SuccessMsg = styled.div`
+color:#BEDBB0 ;
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+    overflow: hidden;
+    width: calc(100% - 18px);
 `

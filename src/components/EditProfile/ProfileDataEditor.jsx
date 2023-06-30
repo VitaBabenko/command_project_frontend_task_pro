@@ -33,6 +33,7 @@ export const ProfileDataEditor = ({ currentImg, uploadImg, handleChangeNewImg, h
                 aria-label="icon eye"
                 width="68"
                 height="68"
+                viewBox="0 -3 68 68"
               >
                 <IconUser href={sprite + '#icon-user-default'}></IconUser>
               </AvatarImg>

@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { WrapperPopUp, Input, WrapperInput, Textarea, ErrorText } from './needHelp.styled'
+import { WrapperPopUp, Input, WrapperInput, Textarea, ErrorText, ErrorMsg , SuccessMsg} from './needHelp.styled'
 import { CustomButtonSend } from "components/Button/CustomButton";
 import { regExpEmail } from '../../utils.js/regex';
 import { ERegisterFieldEmail } from '../EditProfile/util'
@@ -35,7 +35,7 @@ export const NeedHelpPop = ({ HeaderRender }) => {
   return (
     <WrapperPopUp>
       {HeaderRender('Need help')}
-      {init ? (data ? JSON.stringify(data) : JSON.stringify(error)) : ''}
+      {init ? (data ? <SuccessMsg>{data}</SuccessMsg> : <ErrorMsg>{error}</ErrorMsg>) : ''}
       <WrapperInput>
         <Input
           autoComplete="off"
@@ -55,7 +55,7 @@ export const NeedHelpPop = ({ HeaderRender }) => {
           })}
         />
         {errors?.ERegisterFieldEmail && (
-          <span className="error">{errors.ERegisterFieldEmail.message}</span>
+          <ErrorMsg>{errors.ERegisterFieldEmail.message}</ErrorMsg>
         )}
         <Textarea
           autoComplete="off"

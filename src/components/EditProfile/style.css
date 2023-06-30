@@ -33,7 +33,7 @@
   position: absolute;
   width: 24px;
   height: 24px;
-  background: var(--brPlus);
+  background: var(--bgPlus);
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
