@@ -1,5 +1,5 @@
 body {
-  background-color: #1F1F1F;
+  background-color: var(--boardBgColor);
 }
 
 .wrapper-input {

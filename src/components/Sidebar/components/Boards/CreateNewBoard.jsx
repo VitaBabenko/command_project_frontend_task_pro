@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SidebarCreateNew, NewBoardBtn } from './Board.styled';
+import { SidebarCreateNew, NewBoardBtn, Title } from './Board.styled';
 import { ModalAddBoard } from 'components/Modal/ModalAddBoard/ModalAddBoard';
 
 
@@ -14,7 +14,7 @@ export const CreateNewBoard = ({
 
   return (
     <SidebarCreateNew>
-      <h3>Create a <br/> new board</h3>
+      <Title>Create a <br/> new board</Title>
       <NewBoardBtn onClick={handleToggleModal} type='button'>+</NewBoardBtn>
       <ModalAddBoard isOpen={isOpen} onClose={handleToggleModal}/>
     </SidebarCreateNew>

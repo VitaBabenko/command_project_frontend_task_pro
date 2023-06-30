@@ -12,5 +12,7 @@ export const LogoImg = styled.div`
 `;
 
 export const Text = styled.h3`
- color: var(--addAnotherColumnIconBgColor)
+ color: var(--addAnotherColumnIconBgColor);
+ font-size: 16px;
+ font-weight: 600;
 `;
