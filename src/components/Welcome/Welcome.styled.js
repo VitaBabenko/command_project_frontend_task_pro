@@ -33,15 +33,23 @@ export const Icon = styled.svg`
 `;
 
 export const Container = styled.div`
-  margin: auto;
+margin: auto;
   gap: 24px;
   display: flex;
-  width: 473px;
+  width:100%;
   height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-size: cover;
+@media (min-width: 375px) {
+  width: 335px;
+}
+
+@media (min-width: 768px) {
+  width: 473px;
+}
+  
   /* background-color: #f6f6f7; */
 `;
 
@@ -55,9 +63,10 @@ export const ContainerTitle = styled.div`
 export const Text = styled.p`
   text-align: center;
   font-size: 14px;
-  font-family: Poppins;
+  
   line-height: 18px;
-  letter-spacing: 0.28px;
+  letter-spacing: -0.28px;
+  font-weight: 400;
 
   color: #161616;
 `;
@@ -72,13 +81,17 @@ export const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-items: center;
   gap: 14px;
+  width: 100%;
 `;
 
 export const StyledNavLinkReg = styled(NavLink)`
+
+
   display: flex;
-  width: 344px;
-  padding: 14px 0px;
+  width: 100%;
+  padding: 14px 0;
   justify-content: center;
   align-items: center;
 
@@ -93,7 +106,12 @@ export const StyledNavLinkReg = styled(NavLink)`
   color: #fff;
 
   transition: opacity var(--transition_data);
-
+  @media (min-width: 375px) {
+  width: 335px;;
+}
+@media (min-width: 768px) {
+  width: 344px;
+}
   &:hover {
     opacity: 0.7;
   }
@@ -102,9 +120,12 @@ export const StyledNavLinkReg = styled(NavLink)`
 export const StyledNavLinkLog = styled(NavLink)`
   text-decoration: none;
   font-size: 14px;
+  padding: 14px 0px;
   font-family: Poppins;
   font-weight: 500;
-  letter-spacing: 0.28px;
+  letter-spacing: -0.28px;
+  justify-content: center;
+  align-items: center;
 
   color: #161616;
 `;

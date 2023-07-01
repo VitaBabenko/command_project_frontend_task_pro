@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Button, Form, Icon, Input } from './RegisterForm.syled';
+import { Button, ErrorContainer, ErrorMessage, Form, FormContainer, Icon, Input } from './RegisterForm.syled';
 import sprite from '../../images/sprite.svg';
 import { useDispatch } from 'react-redux';
 import { registerUser } from 'redux/auth/operations';
@@ -28,8 +28,10 @@ export const RegisterForm = () => {
   };
 
   return (
+    <FormContainer>
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <div>
+      
+      <ErrorContainer>
         <Input
           type="text"
           name="name"
@@ -52,9 +54,9 @@ export const RegisterForm = () => {
             },
           })}
         />
-        {errors.name && <div>{errors.name.message}</div>}
-      </div>
-      <div>
+        {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
+        </ErrorContainer>
+      <ErrorContainer>
         <Input
           variant="filled"
           size="md"
@@ -70,9 +72,9 @@ export const RegisterForm = () => {
             },
           })}
         />
-        {errors.email && <div>{errors.email.message}</div>}
-      </div>
-      <div>
+        {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+        </ErrorContainer>
+        <ErrorContainer>
         <Input
           type={showPassword ? 'text' : 'password'}
           name="password"
@@ -94,7 +96,8 @@ export const RegisterForm = () => {
             },
           })}
         />
-        {errors.password && <div>{errors.password.message}</div>}
+        {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+        
         <div onClick={togglePasswordVisibility}>
           {showPassword ? (
             <Icon aria-label="open theme select icon">
@@ -106,8 +109,10 @@ export const RegisterForm = () => {
             </Icon>
           )}
         </div>
-      </div>
+        </ErrorContainer>  
       <Button type="submit">Register Now</Button>
+     
     </Form>
+    </FormContainer>
   );
 };

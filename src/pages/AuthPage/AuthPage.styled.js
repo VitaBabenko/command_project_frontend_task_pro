@@ -24,16 +24,18 @@ export const ContentWrapper = styled.div`
   margin: 0 auto;
 
   @media (min-width: 375px) {
-    width: 424px;
+    width: 335px;
   }
 
   @media (min-width: 768px) {
+    width: 424px;
     border: 1px solid black;
     padding: 40px;
   }
 `;
 
 export const Navlink = styled(NavLink)`
+  margin-bottom: 40px;
   color: rgba(255, 255, 255, 0.3);
   font-size: 18px;
   font-family: Poppins;
@@ -48,5 +50,5 @@ export const Navlink = styled(NavLink)`
 export const NavWrapper = styled.div`
   display: flex;
   gap: 10px;
-  margin-bottom: 40px;
+  
 `;

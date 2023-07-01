@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://taskproapi.onrender.com/api';
 
@@ -21,6 +22,15 @@ export const registerUser = createAsyncThunk(
 
       return response.data;
     } catch (error) {
+      if (error.response) {
+        if (error.response.status === 400) {
+          
+          toast.error('Такий користувач вже зареєстрований');
+        } else {
+          
+          toast.error('Сталася помилка при реєстрації')
+        }
+      } 
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -36,6 +46,15 @@ export const loginUser = createAsyncThunk(
 
       return res.data;
     } catch (error) {
+      if (error.response) {
+        if (error.response.status === 401) {
+          
+          toast.error('Логін або пароль не вірні');
+        } else {
+          
+          toast.error('Сталася помилка сервера')
+        }
+      } 
       return thunkAPI.rejectWithValue(error.message);
     }
   }
