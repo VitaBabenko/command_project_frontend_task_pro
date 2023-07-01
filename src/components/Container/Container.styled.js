@@ -11,7 +11,7 @@ export const StyleContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     margin: 0 auto;
-    width: 1440px;
+    width: 100%;
     display: flex;
   }
 `;
