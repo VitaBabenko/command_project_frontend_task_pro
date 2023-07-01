@@ -12,6 +12,7 @@ import { selectColumnsForBoard } from 'redux/dashboards/selectors';
 import { Box } from '@mui/material';
 
 const ProjectOffice = () => {
+  const isLoading = useSelector(state => state.dashboard.isLoading);
   const { boardName } = useParams();
   const columns = useSelector(state => selectColumnsForBoard(state, boardName));
 
@@ -25,18 +26,19 @@ const ProjectOffice = () => {
     dispatch(getColumnsForBoard(boardName));
   }, [dispatch, boardName]);
 
-  console.log(columns);
-
   return (
     <Box sx={{marginLeft: '20%'}}>
       <ProjectOfficeHeader />
-      {columns.length < 0 &&
+      {!isLoading &&
         <AddColumnButton handleAddColumn={handleAddColumn} />
       }
-      {columns.length > 0 &&
-        columns.map(column => {
-          return <ProjectOfficeItem column={column} key={column._id} />;
-        })}
+      {columns ? (
+  columns.map(column => (
+    <ProjectOfficeItem column={column} key={column._id} />
+  ))
+) : (
+  <p>Loading...</p>
+)}
       {/* <ProjectOfficeItem column={columns} /> */}
     </Box>
   );
