@@ -38,6 +38,8 @@ export const NewBoardBtn = styled.button`
       background: #BEDBB0;
       line-height: 1;
       color: #121212;
+      border: none;
+      outline: none;
 `;
 
 export const SidebarPrjctList = styled.ul`
