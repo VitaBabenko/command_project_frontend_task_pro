@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
-import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
+// import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
+// import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
 // import classNames from 'classnames';
-import { EditDelBtn, FlexElems, IconServBtn, LinkWrapper, ListIcon, PrjctActionList, Text } from './Board.styled';
+import {
+  EditDelBtn,
+  FlexElems,
+  IconServBtn,
+  LinkWrapper,
+  ListIcon,
+  PrjctActionList,
+  Text,
+} from './Board.styled';
 import sprite from '../../../../images/sprite.svg';
 import { ModalAddBoard } from 'components/Modal/ModalAddBoard/ModalAddBoard';
 
@@ -56,7 +64,7 @@ export const ProjectItem = ({
         <PrjctActionList>
           <li onClick={handleEdit}>
             <EditDelBtn type="button" onClick={handleToggleModal}>
-              <IconServBtn width={16} height={16} >
+              <IconServBtn width={16} height={16}>
                 <use href={sprite + '#icon-pencil'} />
               </IconServBtn>
             </EditDelBtn>
@@ -69,7 +77,7 @@ export const ProjectItem = ({
           </li>
           <li>
             <EditDelBtn type="button" onClick={() => onDelete(id)}>
-              <IconServBtn width={16} height={16} >
+              <IconServBtn width={16} height={16}>
                 <use href={sprite + '#icon-trash'} />
               </IconServBtn>
             </EditDelBtn>
