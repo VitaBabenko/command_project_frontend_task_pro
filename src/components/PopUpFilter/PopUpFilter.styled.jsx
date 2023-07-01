@@ -38,7 +38,6 @@ export const SvgIcons = styled.svg`
 export const ModalHeader = styled.h4`
   color: var(--primaryTextColor);
   font-size: 18px;
-  font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.36px;
   padding-bottom: 14px;
