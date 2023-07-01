@@ -1,13 +1,18 @@
 import { useForm } from 'react-hook-form';
-import { icons } from 'utils.js/icons';
+import { icons } from 'utils/icons';
 import sprite from '../../../images/sprite.svg';
-import { images } from 'utils.js/bgImgPreview';
+import { images } from 'utils/bgImgPreview';
 import { useDispatch } from 'react-redux';
 import { addUserBoard } from 'redux/dashboards/operation';
 
 const { CustomDialog } = require('./ModalAddBoard.styled');
 
-export const ModalAddBoard = ({ isOpen, onClose, type = 'create', handleUpdateBoard }) => {
+export const ModalAddBoard = ({
+  isOpen,
+  onClose,
+  type = 'create',
+  handleUpdateBoard,
+}) => {
   const {
     register,
     handleSubmit,
@@ -19,9 +24,9 @@ export const ModalAddBoard = ({ isOpen, onClose, type = 'create', handleUpdateBo
   const onSubmit = data => {
     if (type === 'create') {
       dispatch(addUserBoard(data));
-    } else if (type === 'edit') { 
-      console.log('update')
-      console.log(data)
+    } else if (type === 'edit') {
+      console.log('update');
+      console.log(data);
       handleUpdateBoard(data);
     }
     reset();
@@ -72,7 +77,7 @@ export const ModalAddBoard = ({ isOpen, onClose, type = 'create', handleUpdateBo
               );
             })}
           </div>
-          <button type="submit">{type === 'create' ? 'Create' : 'Edit' }</button>
+          <button type="submit">{type === 'create' ? 'Create' : 'Edit'}</button>
         </form>
       </div>
     </CustomDialog>

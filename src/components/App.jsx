@@ -11,7 +11,7 @@ import GlobalStyle from 'GlobalStyle';
 import { ModalContainer } from './Modal';
 import { useDispatch } from 'react-redux';
 import { useAuth } from './hooks';
-import { refreshUser } from 'redux/Auth/operations';
+import { refreshUser } from 'redux/auth/operations';
 import { Loader } from '../components/Loader/Loader';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
@@ -32,7 +32,6 @@ export const App = () => {
       <Loader />
     </div>
   ) : (
-    // <b>Refreshing user...</b>
     <>
       <ModalContainer />
       <GlobalStyle />
