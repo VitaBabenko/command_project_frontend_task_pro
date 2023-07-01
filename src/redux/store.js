@@ -1,6 +1,7 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import modalNameReducer from './modal';
 import { authReducer } from './auth/slice';
+
 import { dashboardReducer } from './dashboards/dashboardsSlice';
 
 import {
