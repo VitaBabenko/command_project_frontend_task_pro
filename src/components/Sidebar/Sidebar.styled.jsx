@@ -22,12 +22,11 @@ export const SidebarMain = styled.div`
 `;
 
 export const Inn = styled.div`
-display: flex;
-    flex-direction: column;
-    height: 100%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 `;
 
 export const Text = styled.p`
- margin-top: 60px;
+  margin-top: 60px;
 `;

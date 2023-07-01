@@ -5,11 +5,12 @@ export const BtnLogOut = styled.button`
   margin-top: 24px;
   display: flex;
   align-items: center;
-  bottom: 24px;
-  left: 24px;
+  margin-left: 24px;
   cursor: pointer;
   border: none;
   background-color: inherit;
+  font-size: 16px;
+  font-weight: 500;
 `;
 
 export const SvgIcon = styled.svg`
@@ -17,7 +18,3 @@ export const SvgIcon = styled.svg`
   stroke: var(--iconLogOut);
   fill: transparent;
 `;
-
-// export const IconWrap = styled.div`
-//   margin-right: 14px;
-// `;
