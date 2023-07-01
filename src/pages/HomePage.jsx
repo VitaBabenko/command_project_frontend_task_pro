@@ -4,14 +4,15 @@ import Container from 'components/Container/Container';
 // import { TestBg } from 'components/TestBg/TestBg';
 import { Header } from '../components/Header/Header';
 import { Sidebar } from '../components/Sidebar/Sidebar';
-import { useDispatch } from 'react-redux';
-// import { selectDashboards } from 'redux/dashboards/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectDashboards } from 'redux/dashboards/selectors';
 import { useEffect, Suspense, useState } from 'react';
 import { fetchUserDashboards } from 'redux/dashboards/operation';
 import { Loader } from '../components/Loader/Loader';
+import { DefaultScreen } from 'components/DefaultScreen/DefaultScreen';
 
 const HomePage = () => {
-  // const dashboards = useSelector(selectDashboards);
+  const dashboards = useSelector(selectDashboards);
   // const token = useSelector(state => state.auth.token);
   // console.log(token)
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ const HomePage = () => {
       </Routes> */}
         {/* <TestBg /> */}
         {/* <ProjectOffice /> */}
-
+        {dashboards && dashboards.length <= 0 && <DefaultScreen />} 
         <Suspense
           fallback={
             <div>

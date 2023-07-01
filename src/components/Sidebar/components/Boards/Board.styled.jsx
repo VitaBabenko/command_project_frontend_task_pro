@@ -5,11 +5,17 @@ export const LogoLink = styled.div`
 `;
 
 export const SidebarBoards = styled.div`
-  margin-top: 64px;
+  margin-bottom: auto;
+  min-width: 100%;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 export const TitleMin = styled.span`
   margin-bottom: 8px;
+  margin-right: auto;
+  margin-left: 24px;
       color: var(--addAnotherColumnIconBgColor);
       font-size: 12px;
       display: block;
@@ -17,14 +23,15 @@ export const TitleMin = styled.span`
 
 export const SidebarCreateNew = styled.div`
  color: var(--addAnotherColumnIconBgColor);
-    margin-right: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 40px;
     padding: 14px 0;
     font-size: 14px;
     border-top: 1px solid var(--currentProjBgColor);
     border-bottom: 1px solid var(--currentProjBgColor);
+    width: 212px;
 `;
 
 export const NewBoardBtn = styled.button`
@@ -40,10 +47,11 @@ export const NewBoardBtn = styled.button`
       color: #121212;
       border: none;
       outline: none;
+      cursor: pointer;
 `;
 
 export const SidebarPrjctList = styled.ul`
-  margin-top: 40px;
+width: 100%;
     margin-bottom: 40px;
 `;
 
@@ -79,6 +87,7 @@ export const PrjctItemMain = styled.div`
 export const FlexElems = styled.div`
  display: flex;
       align-items: center;
+      margin-left: 24px;
 `;
 
 export const IconWrap = styled.div`
@@ -91,16 +100,19 @@ export const PrjctActionList = styled.ul`
       align-items: center;
       li{
         cursor:pointer;
-      }
+      };
       li:last-child{
         margin-left: 8px;
-      }
+      };
+      margin-right: 24px;
+
 `;
 
 export const Text = styled.p`
  line-height: 21px;
  font-weight: 500;
  font-size: 14px;
+ text-decoration: none;
 `;
 
 export const Title = styled.h3`
@@ -109,5 +121,30 @@ export const Title = styled.h3`
  font-size: 14px;
 `;
 
+export const ListIcon = styled.svg`
+width: 18px;
+height: 18px;
+margin-right: 8px;
+stroke: rgba(255, 255, 255, 0.5);
+`
 
+export const LinkWrapper = styled.div`
+  height: 61px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
 
+export const EditDelBtn = styled.button`
+padding: 0;
+    line-height: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+`
+export const IconServBtn = styled.svg`
+width: 16px;
+height: 16px;
+stroke: var(--passiveBorderColor);
+fill: transparent;
+`

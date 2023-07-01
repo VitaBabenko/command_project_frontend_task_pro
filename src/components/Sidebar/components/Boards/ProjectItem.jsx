@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
 import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
 // import classNames from 'classnames';
-import { FlexElems, PrjctActionList, Text } from './Board.styled';
+import { EditDelBtn, FlexElems, IconServBtn, LinkWrapper, ListIcon, PrjctActionList, Text } from './Board.styled';
 import sprite from '../../../../images/sprite.svg';
 import { ModalAddBoard } from 'components/Modal/ModalAddBoard/ModalAddBoard';
 
@@ -42,12 +42,12 @@ export const ProjectItem = ({
   // });
 
   return (
-    <div className={isActive ? 'active' : ''}>
+    <LinkWrapper className={isActive ? 'active' : ''}>
       <NavLink to={id}>
         <FlexElems onClick={handleClick}>
-          <svg width={18} height={18} stroke="rgba(255, 255, 255, 0.5)">
+          <ListIcon>
             <use href={sprite + dashboardIcon} />
-          </svg>
+          </ListIcon>
           <Text>{title}</Text>
         </FlexElems>
       </NavLink>
@@ -55,9 +55,11 @@ export const ProjectItem = ({
       {isActive && (
         <PrjctActionList>
           <li onClick={handleEdit}>
-            <button type="button" onClick={handleToggleModal}>
-              <EditIcon />
-            </button>
+            <EditDelBtn type="button" onClick={handleToggleModal}>
+              <IconServBtn width={16} height={16} >
+                <use href={sprite + '#icon-pencil'} />
+              </IconServBtn>
+            </EditDelBtn>
             <ModalAddBoard
               isOpen={isOpen}
               onClose={handleToggleModal}
@@ -66,12 +68,14 @@ export const ProjectItem = ({
             />
           </li>
           <li>
-            <button type="button" onClick={() => onDelete(id)}>
-              <DeleteIcon />
-            </button>
+            <EditDelBtn type="button" onClick={() => onDelete(id)}>
+              <IconServBtn width={16} height={16} >
+                <use href={sprite + '#icon-trash'} />
+              </IconServBtn>
+            </EditDelBtn>
           </li>
         </PrjctActionList>
       )}
-    </div>
+    </LinkWrapper>
   );
 };
