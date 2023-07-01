@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 212px;
+  margin-left: 24px;
   min-height: 272px;
   border-radius: 8px;
   background: var(--helpBgColor);
@@ -16,7 +17,6 @@ export const Img = styled.img`
 export const Text = styled.p`
   color: var(--primaryTextColor);
   font-size: 14px;
-  font-family: Poppins;
   line-height: 20px;
   letter-spacing: -0.28px;
   margin-top: 14px;
@@ -25,8 +25,8 @@ export const Text = styled.p`
 export const Button = styled.button`
   margin-top: 19px;
   display: inline-flex;
-  justify-content: center;
   align-items: center;
+  padding: 0;
   gap: 8px;
   background-color: transparent;
   color: var(--primaryTextColor);
@@ -38,7 +38,6 @@ export const Button = styled.button`
 export const BtnTitle = styled.span`
   color: var(--needHelpBtn);
   font-size: 12px;
-  font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.24px;
 `;
