@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const WelcomeWrapper = styled.h1`
+background-color: #ffffff;
   background-image: var(--authBgGradient);
 `;
 

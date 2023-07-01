@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
   font-weight: 400;
   transition: 0.3s ease;
-  ${'' /* background-color: var(--boardBgColor); */}
+  background-color: var(--boardBgColor);
 
 
   ul,
