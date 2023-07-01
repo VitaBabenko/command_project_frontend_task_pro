@@ -3,6 +3,7 @@
   z-index: 100;
   top: 80px;
   border: none;
+  font-family: Poppins;
 }
 
 .react-datepicker__month-container {
@@ -13,7 +14,6 @@
 }
 .react-datepicker__day-name {
   color: var(--secondaryTextColor);
-  font-size: 14px;
   font-weight: 500;
 }
 .react-datepicker__current-month {
@@ -64,13 +64,6 @@
   width: 150px;
 }
 
-/* .react-datepicker__day--selected {
-  background-color: var(--greenGreenBlueColor);
-  color: var(--primaryTextColor);
-  color: red;
-  border-radius: 50%;
-} */
-
 /* дні */
 .react-datepicker__day-names {
   padding-top: 14px;
@@ -81,7 +74,6 @@
 }
 .react-datepicker__day {
   color: var(--primaryTextColor);
-  font-size: 14px;
   transition: opacity var(--transition_data);
 }
 

@@ -95,6 +95,15 @@ body[data-theme="dark"] {
   --bgPlus:#BEDBB0;
   --iconEyeColor:#FFFFFF;
   --btnColorHover: #d8e9cf;
+
+  --calendarWithoutColor: rgba(255, 255, 255, 0.30);
+
+  --calendarSecondTextColor: rgba(255, 255, 255, 0.50);
+  --calendarDisabled: rgba(255, 255, 255, 0.20);
+  --calendarDisabled: rgba(255, 255, 255, 0.20);
+  --calendarSelectDay: rgba(31, 31, 31, 1);
+  --calendarBorderTop: rgba(255, 255, 255, 0.2);
+
 }
 
 body[data-theme="light"] {
@@ -134,6 +143,15 @@ body[data-theme="light"] {
   --bgPlus:#BEDBB0;
   --iconEyeColor:#161616;
   --btnColorHover: #d8e9cf;
+
+  --calendarWithoutColor: rgba(22, 22, 22, 0.30);
+
+  --calendarSecondTextColor: rgba(22, 22, 22, 0.50);
+  --calendarDisabled: rgba(22, 22, 22, 0.20);
+  --calendarSelectDay: rgba(22, 22, 22, 1);
+  --calendarBorderTop: rgba(22, 22, 22, 0.2);
+
+
 }
 
 body[data-theme="violet"] {
@@ -169,6 +187,14 @@ body[data-theme="violet"] {
   --bgPlus:#ECEDFD;
   --iconEyeColor:#161616;
   --btnColorHover: #b8bcfd;
+
+  --calendarWithoutColor: rgba(22, 22, 22, 0.30);
+
+  --calendarSecondTextColor: rgba(22, 22, 22, 0.50);
+  --calendarDisabled: rgba(22, 22, 22, 0.20);
+  --calendarSelectDay: rgba(252, 252, 252, 1);
+  --calendarBorderTop: rgba(22, 22, 22, 0.2);
+
 }
 `;
 
