@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { selectThema } from '../../redux/auth/selectors';
-import { updateThema } from '../../redux/auth/operations';
+import { selectThema } from '../../redux/authorization/selectors';
+import { updateThema } from '../../redux/authorization/operations';
 import sprite from '../../images/sprite.svg';
 import {
   ThemetWrapper,

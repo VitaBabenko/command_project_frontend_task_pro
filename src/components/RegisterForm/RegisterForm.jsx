@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Button, ErrorContainer, ErrorMessage, Form, FormContainer, Icon, Input } from './RegisterForm.syled';
 import sprite from '../../images/sprite.svg';
 import { useDispatch } from 'react-redux';
-import { registerUser } from 'redux/auth/operations';
+import { registerUser } from 'redux/authorization/operations';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
