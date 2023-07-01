@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 // import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
 // import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
 // import classNames from 'classnames';
@@ -10,6 +10,7 @@ import {
   LinkWrapper,
   ListIcon,
   PrjctActionList,
+  StyledLink,
   Text,
 } from './Board.styled';
 import sprite from '../../../../images/sprite.svg';
@@ -51,14 +52,14 @@ export const ProjectItem = ({
 
   return (
     <LinkWrapper className={isActive ? 'active' : ''}>
-      <NavLink to={id}>
+      <StyledLink to={id}>
         <FlexElems onClick={handleClick}>
           <ListIcon>
             <use href={sprite + dashboardIcon} />
           </ListIcon>
           <Text>{title}</Text>
         </FlexElems>
-      </NavLink>
+      </StyledLink>
 
       {isActive && (
         <PrjctActionList>
