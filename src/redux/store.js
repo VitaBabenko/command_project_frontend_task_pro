@@ -1,7 +1,5 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import modalNameReducer from './modal';
-
-
 import { dashboardReducer } from './dashboards/dashboardsSlice';
 
 import {
