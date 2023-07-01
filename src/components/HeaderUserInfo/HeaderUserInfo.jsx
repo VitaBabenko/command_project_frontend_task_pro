@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUser } from '../../redux/auth/selectors';
+import { selectUser } from '../../redux/authorization/selectors';
 import { ImgWrap, Img, Wrapper, Svg } from './HeaderUserInfo.styled';
 import sprite from '../../images/sprite.svg';
 import { setNameModal } from 'redux/modal';

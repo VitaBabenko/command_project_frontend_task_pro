@@ -11,7 +11,7 @@ import {
 import { CustomButtonSend } from 'components/Button/CustomButton';
 import { regExpEmail } from '../../utils/regex';
 import { ERegisterFieldEmail } from '../EditProfile/util';
-import { technicalSupportRequest } from 'redux/auth/operations';
+import { technicalSupportRequest } from 'redux/authorization/operations';
 import { useState } from 'react';
 import { defaultResponseData } from './util';
 

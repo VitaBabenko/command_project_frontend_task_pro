@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 
-import { loginUser } from "redux/auth/operations";
+import { loginUser } from "redux/authorization/operations";
 import sprite from "../../images/sprite.svg";
 
 
