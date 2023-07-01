@@ -14,6 +14,7 @@ import { useAuth } from './hooks';
 import { refreshUser } from 'redux/auth/operations';
 import { Loader } from '../components/Loader/Loader';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
