@@ -15,8 +15,6 @@ export const FilterContainer = styled.div`
 `;
 
 export const Title = styled.h3`
-  font-family: 'Poppins';
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
@@ -27,10 +25,6 @@ export const Title = styled.h3`
 export const BtnShowAll = styled.button`
   border: none;
   background: inherit;
-
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.02em;

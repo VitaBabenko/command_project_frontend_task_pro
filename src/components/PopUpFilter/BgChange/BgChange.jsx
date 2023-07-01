@@ -159,7 +159,7 @@ export const BgChange = () => {
       <Title>Background</Title>
       <ButtonContainer>
         <ButtonNoneBg type="button" onClick={() => handleButtonClick(0)}>
-          <SvgIcons>
+          <SvgIcons width={18} height={18}>
             <use xlinkHref={`${sprite}#icon-image`} />
           </SvgIcons>
         </ButtonNoneBg>
