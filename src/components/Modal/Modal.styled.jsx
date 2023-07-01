@@ -18,6 +18,7 @@ export const ModalDiv = styled.div`
   z-index: 2000;
   width: 100%;
   height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
   top: 0;
   left: 0;
   margin: 0;

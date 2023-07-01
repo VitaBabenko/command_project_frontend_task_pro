@@ -102,3 +102,9 @@ export const AvatarImgCurrent = styled.img`
   outline: none;
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 `;
+
+export const BtnEditPhoto = styled.button `
+ background-color: transparent;
+  border: none;
+  padding: 10px;
+`;

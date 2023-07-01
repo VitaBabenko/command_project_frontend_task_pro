@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const ModalHeaderWrapper = styled.div`
 width: 100%;
   height: auto;
-  /* padding: 0 0 16px; */
   order: 0;
   flex: 0 1 auto;
   align-self: auto;
@@ -19,7 +18,7 @@ display: flex;
   margin: 0;
 `;
 
-export const ModalHeaderTittle = styled.span`
+export const ModalHeaderTittle = styled.h2`
 width: 100%;
 overflow: hidden;
 white-space: nowrap;
@@ -28,12 +27,9 @@ display: flex;
 flex-direction: row;
 flex-wrap: nowrap;
 justify-content: flex-start;
-/* align-content: stretch;
-align-items: flex-start; */
 
 color: var(--primaryTextColor);
 font-size: 18px;
-font-family: Poppins;
 font-weight: 500;
 letter-spacing: -0.36px;
 `;

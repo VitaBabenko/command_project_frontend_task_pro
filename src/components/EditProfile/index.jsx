@@ -10,7 +10,7 @@ import {
 } from './util';
 import './style.css';
 import { AvatarEditorContainer } from './AvatarEditor';
-import user from '../../images/user.svg'
+
 import { ProfileDataEditor } from './ProfileDataEditor';
 import { CustomButtonSend } from 'components/Button/CustomButton';
 import { useSelector } from 'react-redux';
