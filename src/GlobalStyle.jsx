@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     #bedbb0 92.19%
   );
   --transition_data: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --colorError:#FF5252;
 }
 
   body {
@@ -94,6 +95,9 @@ body[data-theme="dark"] {
   --bgPlus:#BEDBB0;
   --iconEyeColor:#FFFFFF;
   --btnColorHover: #d8e9cf;
+
+  --activeBorder:#BEDBB0;
+  --disabledBgColor: #b4adad;
 }
 
 body[data-theme="light"] {
@@ -132,6 +136,9 @@ body[data-theme="light"] {
   --bgPlus:#BEDBB0;
   --iconEyeColor:#161616;
   --btnColorHover: #d8e9cf;
+
+  --activeBorder:#BEDBB0;
+  --disabledBgColor: #b4adad;
 }
 
 body[data-theme="violet"] {
@@ -166,6 +173,9 @@ body[data-theme="violet"] {
   --bgPlus:#ECEDFD;
   --iconEyeColor:#161616;
   --btnColorHover: #b8bcfd;
+
+  --disabledBgColor: #b4adad;
+  --activeBorder:#5255BC;
 }
 `;
 

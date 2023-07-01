@@ -1,47 +1,73 @@
 import { useForm } from "react-hook-form";
-import { WrapperPopUp, Input, WrapperInput, Textarea, ErrorText, ErrorMsg , SuccessMsg} from './needHelp.styled'
+import {
+  WrapperPopUp, Input, WrapperInput, Textarea, ErrorMsg,
+  ErrorResponseMessage, SuccessResponseMessage, ResponseMessageWrapper, ResponseMessage
+} from './needHelp.styled'
 import { CustomButtonSend } from "components/Button/CustomButton";
 import { regExpEmail } from '../../utils.js/regex';
-import { ERegisterFieldEmail } from '../EditProfile/util'
 import { technicalSupportRequest } from "redux/Auth/operations";
 import { useState } from "react";
-import { defaultResponseData } from "./util";
+import { defaultResponseData, ERegisterFieldEmail, ERegisterFieldComment, defaultValues, checkResponse } from "./util";
+import ErrorIcon from '@mui/icons-material/Error';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
+export const ResponseMessages = ({ init, data, error }) => {
+  if (!init) {
+    return <></>;
+  }
+  return (
+    <ResponseMessageWrapper>
+      {data ?
+        <SuccessResponseMessage>
+          <CheckCircleIcon />
+          <ResponseMessage>{data}</ResponseMessage>
+        </SuccessResponseMessage > :
+
+        <ErrorResponseMessage>
+          <ErrorIcon />
+          <ResponseMessage>{error}</ResponseMessage>
+        </ErrorResponseMessage>}
+    </ResponseMessageWrapper>
+  );
+}
 
 export const NeedHelpPop = ({ HeaderRender }) => {
   const [responseData, setResponseData] = useState(defaultResponseData);
-  const { register, handleSubmit, formState: { errors } } = useForm(
+  const { register, handleSubmit, formState: { errors }, reset } = useForm(
     {
       shouldUnregister: true,
       mode: 'onChange',
+      defaultValues,
     });
 
-  const { isFetching, init, data, error } = responseData;
+  const { isFetching } = responseData;
 
   const handleResponse = (response) => {
     setResponseData((prevState) => {
       return { ...prevState, ...response };
     });
+    checkResponse(response.data, reset);
   }
 
   const onSubmit = async (data) => {
-    console.log(data);
     const userData = {
       email: data[ERegisterFieldEmail],
-      comment: data['exampleRequired'],
+      comment: data[ERegisterFieldComment],
     }
     await technicalSupportRequest(userData, handleResponse);
   };
-  console.log(JSON.stringify(data), JSON.stringify(error));
+
   return (
     <WrapperPopUp>
       {HeaderRender('Need help')}
-      {init ? (data ? <SuccessMsg>{data}</SuccessMsg> : <ErrorMsg>{error}</ErrorMsg>) : ''}
+      <ResponseMessages {...{ ...responseData }} />
       <WrapperInput>
         <Input
           autoComplete="off"
           placeholder='Email address'
           type="email"
           disabled={isFetching}
+          error={errors?.ERegisterFieldEmail}
           {...register(ERegisterFieldEmail, {
             required: 'This field is required.',
             pattern: {
@@ -57,13 +83,16 @@ export const NeedHelpPop = ({ HeaderRender }) => {
         {errors?.ERegisterFieldEmail && (
           <ErrorMsg>{errors.ERegisterFieldEmail.message}</ErrorMsg>
         )}
+      </WrapperInput>
+      <WrapperInput>
         <Textarea
           autoComplete="off"
-          className={errors?.ERegisterFieldName && 'error'}
+          className={errors?.ERegisterFieldComment && 'error'}
           type="text"
           placeholder='Comment'
           disabled={isFetching}
-          {...register('exampleRequired', {
+          error={errors?.ERegisterFieldComment}
+          {...register(ERegisterFieldComment, {
             required: 'This field is required.',
             maxLength: {
               value: 255,
@@ -71,11 +100,11 @@ export const NeedHelpPop = ({ HeaderRender }) => {
             },
           })}
         />
-        {errors.exampleRequired && <ErrorText>This field is required</ErrorText>}
+        {errors?.ERegisterFieldComment && (
+          <ErrorMsg>{errors.ERegisterFieldComment.message}</ErrorMsg>
+        )}
       </WrapperInput>
       <CustomButtonSend disabled={isFetching} onClick={handleSubmit(onSubmit)}>Send</CustomButtonSend>
     </WrapperPopUp>
-
-
   )
 }

@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { setNameModal } from 'redux/modal';
 import spriteIcon from '../../images/sprite.svg';
 import { Wrapper, Img, Text, Button, BtnTitle, Icon, Logo } from './needHelp.styled'
-import './style.css';
 
 export const NeedHelp = () => {
   const dispatch = useDispatch();

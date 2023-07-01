@@ -22,7 +22,6 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
   const [uploadImg, setUploadImg] = useState('');
   const inputRef = useRef(null);
 
-  console.log(user);
   const methods = useForm({
     shouldUnregister: true,
     mode: 'onChange',

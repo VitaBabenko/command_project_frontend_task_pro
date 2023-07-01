@@ -23,9 +23,6 @@ export const ModalHeaderTittle = styled.span`
 width: 100%;
 overflow: hidden;
 white-space: nowrap;
-/* text-overflow: ellipsis; */
-/* display: -ms-flexbox;
-display: -webkit-flex; */
 
 display: flex;
 flex-direction: row;
