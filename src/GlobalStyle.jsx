@@ -95,6 +95,8 @@ body[data-theme="dark"] {
   --bgPlus:#BEDBB0;
   --iconEyeColor:#FFFFFF;
   --btnColorHover: #d8e9cf;
+  --iconColor: rgba(255, 255, 255, 0.5);
+
 
   --calendarWithoutColor: rgba(255, 255, 255, 0.30);
 
@@ -143,6 +145,8 @@ body[data-theme="light"] {
   --bgPlus:#BEDBB0;
   --iconEyeColor:#161616;
   --btnColorHover: #d8e9cf;
+  --iconColor: rgba(22, 22, 22, 0.5);
+
 
   --calendarWithoutColor: rgba(22, 22, 22, 0.30);
 
@@ -187,6 +191,7 @@ body[data-theme="violet"] {
   --bgPlus:#ECEDFD;
   --iconEyeColor:#161616;
   --btnColorHover: #b8bcfd;
+  --iconColor: rgba(255, 255, 255, 0.5);
 
   --calendarWithoutColor: rgba(22, 22, 22, 0.30);
 
