@@ -1,6 +1,5 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import modalNameReducer from './modal';
-import { authReducer } from './auth/slice';
 import { dashboardReducer } from './dashboards/dashboardsSlice';
 
 import {
@@ -14,6 +13,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { authReducer } from './auth/slice';
 
 const middleware = [
   ...getDefaultMiddleware({
