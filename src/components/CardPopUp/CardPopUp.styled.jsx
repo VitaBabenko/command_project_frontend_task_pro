@@ -31,7 +31,7 @@ export const FromInput = styled.input`
   &:focus {
     ${hoverFocusStyles};
   }
-  &::placeholder {
+  &:placeholder {
     color: var(--calendarSecondTextColor);
   }
 `;
@@ -54,6 +54,9 @@ export const FormTextarea = styled.textarea`
   }
   &:focus {
     ${hoverFocusStyles};
+  }
+  &:placeholder {
+    color: var(--calendarSecondTextColor);
   }
 `;
 

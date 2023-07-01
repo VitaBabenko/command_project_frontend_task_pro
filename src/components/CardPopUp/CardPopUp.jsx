@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import sprite from '../../images/sprite.svg';
-import { formatDate } from 'helpers/formatDate';
+import { formatDate } from 'utils.js/formatDate';
 import 'react-datepicker/dist/react-datepicker.css';
 import './calendar.css';
 import {
@@ -21,6 +21,7 @@ import {
 } from './CardPopUp.styled';
 
 import { CustomButton } from 'components/Button/CustomButton';
+import { pureFinalPropsSelectorFactory } from 'react-redux/es/connect/selectorFactory';
 
 export const CardPopUp = () => {
   const {
@@ -34,15 +35,20 @@ export const CardPopUp = () => {
     console.log(data);
     reset();
   };
-  const [startDate, setStartDate] = useState(new Date());
+  const [unixFromat, setUnixFormat] = useState(
+    new Date(new Date().toUTCString()).getTime() / 1000
+  );
+  const [dateBtn, setDateBtn] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
 
   const handleDateInputChange = date => {
-    setStartDate(date);
-    setValue('deadline', startDate);
+    const UTC = date.toUTCString();
+    const UNIX = new Date(UTC).getTime() / 1000;
+    setDateBtn(date);
+    setUnixFormat(UNIX);
+    setValue('deadline', UNIX.toString());
     setShowDatePicker(false);
   };
-
   const toggleDatePicker = () => {
     setShowDatePicker(prevState => !prevState);
   };
@@ -50,12 +56,15 @@ export const CardPopUp = () => {
     <Form onSubmit={handleSubmit(onSubmit)}>
       <FormText>{'Add card'}</FormText>
       <FromInput
-        {...register('title', { minLength: 3, required: true })}
+        {...register('title', {
+          minLength: 3,
+          required: pureFinalPropsSelectorFactory,
+        })}
         placeholder="Title"
       />
       <FormTextarea
         placeholder="Description"
-        {...register('description', { minLength: 3, required: true })}
+        {...register('description', { minLength: 3, required: false })}
       ></FormTextarea>
       <Text>Label color</Text>
       <RadioGroup>
@@ -104,8 +113,9 @@ export const CardPopUp = () => {
           <RadioButton
             type="radio"
             id="without"
-            {...register('priority', { required: true })}
+            {...register('priority', { required: false })}
             value="without"
+            checked={true}
           />
           <RadioLabel
             htmlFor="without"
@@ -116,7 +126,7 @@ export const CardPopUp = () => {
       </RadioGroup>
       <Text>Deadline</Text>
       <CalendarWrapp onClick={toggleDatePicker}>
-        <CalendarText>{formatDate(startDate)}</CalendarText>
+        <CalendarText>{formatDate(dateBtn)}</CalendarText>
         <CalendarArrow
           style={{ width: 18, height: 18 }}
           aria-label="open theme select icon"
@@ -125,13 +135,12 @@ export const CardPopUp = () => {
         </CalendarArrow>
       </CalendarWrapp>
       <input
-        {...register('deadline', { value: startDate })}
+        {...register('deadline', { value: unixFromat.toString() })}
         style={{ display: 'none' }}
       />
-
       {showDatePicker && (
         <DatePicker
-          selected={startDate}
+          selected={new Date()}
           onChange={handleDateInputChange}
           dateFormat="dd/MM/yyyy"
           inline
