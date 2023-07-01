@@ -8,13 +8,13 @@ export const AuthPageContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-
+  background-color: #ffffff;
   background-image: var(--authBgGradient);
 `;
 
 export const ContentWrapper = styled.div`
   width: 100%;
- 
+
   padding: 24px;
   background: #151515;
   border-radius: 8px;
@@ -30,7 +30,6 @@ export const ContentWrapper = styled.div`
   @media (min-width: 768px) {
     border: 1px solid black;
     padding: 40px;
-   
   }
 `;
 
