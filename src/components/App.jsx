@@ -11,7 +11,7 @@ import GlobalStyle from 'GlobalStyle';
 import { ModalContainer } from './Modal';
 import { useDispatch } from 'react-redux';
 import { useAuth } from './hooks';
-import { refreshUser } from 'redux/auth/operations';
+import { refreshUser } from '../redux/auth/operations';
 import { Loader } from '../components/Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 
@@ -35,16 +35,17 @@ export const App = () => {
   ) : (
     <>
       <ToastContainer
-      position="top-right"
-      autoClose={3000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-      theme="light" />
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <ModalContainer />
       <GlobalStyle />
 

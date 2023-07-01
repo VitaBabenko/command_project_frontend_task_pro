@@ -11,11 +11,8 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-
-import { loginUser } from "redux/auth/operations";
-import sprite from "../../images/sprite.svg";
-
-
+import { loginUser } from '../../redux/auth/operations';
+import sprite from '../../images/sprite.svg';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -52,9 +49,7 @@ export const LoginForm = () => {
   };
 
   return (
-   
     <FormContainer>
-      
       <Form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <Input
@@ -75,17 +70,19 @@ export const LoginForm = () => {
 
           {errors.password && <span>Password is required</span>}
           <div onClick={togglePasswordVisibility}>
-    {showPassword ? (<IconLogin aria-label="open theme select icon">
-   <use href={sprite + "#icon-eye"}></use> 
-</IconLogin>):(<IconLogin aria-label="open theme select icon">
-   <use href={sprite + "#icon-eye"}></use> 
-</IconLogin>)}
-  </div>
+            {showPassword ? (
+              <IconLogin aria-label="open theme select icon">
+                <use href={sprite + '#icon-eye'}></use>
+              </IconLogin>
+            ) : (
+              <IconLogin aria-label="open theme select icon">
+                <use href={sprite + '#icon-eye'}></use>
+              </IconLogin>
+            )}
+          </div>
         </div>
         <Button type="submit">Log In Now</Button>
       </Form>
-      
-      </FormContainer>
-    
+    </FormContainer>
   );
 };

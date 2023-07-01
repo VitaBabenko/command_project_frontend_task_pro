@@ -22,7 +22,6 @@ import {
 
 export const ProfileDataEditor = ({
   currentImg,
-  uploadImg,
   handleChangeNewImg,
   handleChangeCurrentOperation,
   inputRef,
