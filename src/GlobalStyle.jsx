@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
   font-weight: 400;
   transition: 0.3s ease;
-  ${'' /* background-color: var(--boardBgColor); */}
+  background-color: var(--boardBgColor);
 
 
   ul,
@@ -89,6 +89,7 @@ body[data-theme="dark"] {
 
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #FFFFFF;
+  --iconLogOut: #bedbb0;
   --placeholder:rgba(255, 255, 255, 1);
   --userSvgFill: #161616;
   --bgPlus:#BEDBB0;
@@ -127,6 +128,7 @@ body[data-theme="light"] {
     --cardItemText: ##5C5C5C;
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #161616;
+   --iconLogOut: #bedbb0;
   --placeholder: rgba(22, 22, 22, 1);
   --userSvgFill: #FFFFFF;
   --bgPlus:#BEDBB0;
@@ -161,6 +163,7 @@ body[data-theme="violet"] {
     --defaultUserColor: #FFFFFF;
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #FFFFFF;
+  --iconLogOut: #FFFFFF;
   --placeholder:#161616;
   --userSvgFill: #FFFFFF;
   --bgPlus:#ECEDFD;

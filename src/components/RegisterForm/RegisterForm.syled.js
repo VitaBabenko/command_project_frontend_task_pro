@@ -41,14 +41,14 @@ box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 &::placeholder {
     color: #fff;
     font-size: 14px;
-    font-family: Poppins;
+   
   }
 `;
 
 export const Icon = styled.svg`
 position: absolute;
 right: 50px;
-bottom: 90px;
+bottom: 15px;
 width: 18px;
 height: 18px;
 stroke:#FFFFFF;

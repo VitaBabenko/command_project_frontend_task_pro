@@ -12,6 +12,7 @@ export const CreateNewBoard = ({
     setIsOpen(prevstate => !prevstate);
   };
 
+
   return (
     <SidebarCreateNew>
       <Title>Create a <br/> new board</Title>

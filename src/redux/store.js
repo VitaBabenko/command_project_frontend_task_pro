@@ -1,6 +1,7 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import modalNameReducer from './modal';
-import { authReducer } from './Auth/slice';
+import { authReducer } from './auth/slice';
+
 import { dashboardReducer } from './dashboards/dashboardsSlice';
 
 import {
@@ -15,8 +16,6 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-
-
 const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: {
@@ -28,7 +27,7 @@ const middleware = [
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: [ 'token' ],
+  whitelist: ['token'],
 };
 
 const persistedReducer = persistReducer(authPersistConfig, authReducer);
@@ -37,14 +36,11 @@ export const store = configureStore({
   reducer: {
     auth: persistedReducer,
     modal: modalNameReducer,
-    
+
     dashboard: dashboardReducer,
-  }, middleware,
+  },
+  middleware,
   devTools: process.env.NODE_ENV === 'development',
 });
 
 export const persistor = persistStore(store);
-
-
-
-

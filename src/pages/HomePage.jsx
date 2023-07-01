@@ -42,16 +42,17 @@ const HomePage = () => {
       </Routes> */}
         {/* <TestBg /> */}
         {/* <ProjectOffice /> */}
+
+        <Suspense
+          fallback={
+            <div>
+              <Loader />
+            </div>
+          }
+        >
+          <Outlet />
+        </Suspense>
       </div>
-      <Suspense
-        fallback={
-          <div>
-            <Loader />
-          </div>
-        }
-      >
-        <Outlet />
-      </Suspense>
     </Container>
   );
 };

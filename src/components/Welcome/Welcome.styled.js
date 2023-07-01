@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const WelcomeWrapper = styled.h1`
+background-color: #ffffff;
   background-image: var(--authBgGradient);
 `;
 
@@ -62,7 +63,7 @@ export const ContainerTitle = styled.div`
 export const Text = styled.p`
   text-align: center;
   font-size: 14px;
-  font-family: Poppins;
+  
   line-height: 18px;
   letter-spacing: -0.28px;
   font-weight: 400;

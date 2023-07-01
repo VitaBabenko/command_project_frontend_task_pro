@@ -1,13 +1,18 @@
 import { useForm } from 'react-hook-form';
-import { icons } from 'utils.js/icons';
+import { icons } from 'utils/icons';
 import sprite from '../../../images/sprite.svg';
-import { images } from 'utils.js/bgImgPreview';
+import { images } from 'utils/bgImgPreview';
 import { useDispatch } from 'react-redux';
 import { addUserBoard } from 'redux/dashboards/operation';
 
 const { CustomDialog } = require('./ModalAddBoard.styled');
 
-export const ModalAddBoard = ({ isOpen, onClose, type = 'create' }) => {
+export const ModalAddBoard = ({
+  isOpen,
+  onClose,
+  type = 'create',
+  handleUpdateBoard,
+}) => {
   const {
     register,
     handleSubmit,
@@ -17,8 +22,15 @@ export const ModalAddBoard = ({ isOpen, onClose, type = 'create' }) => {
   const dispatch = useDispatch();
 
   const onSubmit = data => {
-    dispatch(addUserBoard(data));
+    if (type === 'create') {
+      dispatch(addUserBoard(data));
+    } else if (type === 'edit') {
+      console.log('update');
+      console.log(data);
+      handleUpdateBoard(data);
+    }
     reset();
+    onClose();
   };
 
   return (
@@ -40,7 +52,7 @@ export const ModalAddBoard = ({ isOpen, onClose, type = 'create' }) => {
                     {...register('dashboardIcon')}
                     style={{ display: 'none' }}
                   />
-                  <svg width={18} height={18} stroke="white">
+                  <svg width={18} height={18} stroke="rgba(255, 255, 255, 0.5)">
                     <use href={sprite + icon} width={18} height={18} />
                   </svg>
                 </label>
@@ -65,7 +77,7 @@ export const ModalAddBoard = ({ isOpen, onClose, type = 'create' }) => {
               );
             })}
           </div>
-          <button type="submit"> ADD</button>
+          <button type="submit">{type === 'create' ? 'Create' : 'Edit'}</button>
         </form>
       </div>
     </CustomDialog>

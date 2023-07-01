@@ -1,25 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
 import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
 // import classNames from 'classnames';
-import { FlexElems, IconWrap, PrjctActionList, Text } from './Board.styled';
+import { FlexElems, PrjctActionList, Text } from './Board.styled';
+import sprite from '../../../../images/sprite.svg';
+import { ModalAddBoard } from 'components/Modal/ModalAddBoard/ModalAddBoard';
 
 export const ProjectItem = ({
   title,
   id,
-  handleDashboardClick,
   background,
   dashboardIcon,
   icon: Icon,
-  isSelected,
+  onUpdate,
+  activeBoardId,
+  setActiveBoardId,
+  onDelete,
 }) => {
+  const isActive = activeBoardId === id;
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggleModal = () => {
+    setIsOpen(prevstate => !prevstate);
+  };
+
+  const handleClick = () => {
+    setActiveBoardId(id);
+  };
+
   const handleEdit = () => {
     console.log('Edit projects board');
   };
 
-  const handleDelete = () => {
-    console.log('Delete project board');
+  const handleUpdateBoard = data => {
+    onUpdate(id, data);
   };
 
   // const classes = classNames('project-item-main', {
@@ -27,25 +42,33 @@ export const ProjectItem = ({
   // });
 
   return (
-    <div>
+    <div className={isActive ? 'active' : ''}>
       <NavLink to={id}>
-        <FlexElems>
-          {Icon && (
-            <IconWrap>
-              <Icon />
-            </IconWrap>
-          )}
+        <FlexElems onClick={handleClick}>
+          <svg width={18} height={18} stroke="rgba(255, 255, 255, 0.5)">
+            <use href={sprite + dashboardIcon} />
+          </svg>
           <Text>{title}</Text>
         </FlexElems>
       </NavLink>
 
-      {isSelected && (
+      {isActive && (
         <PrjctActionList>
           <li onClick={handleEdit}>
-            <EditIcon />
+            <button type="button" onClick={handleToggleModal}>
+              <EditIcon />
+            </button>
+            <ModalAddBoard
+              isOpen={isOpen}
+              onClose={handleToggleModal}
+              type="edit"
+              handleUpdateBoard={handleUpdateBoard}
+            />
           </li>
-          <li onClick={handleDelete}>
-            <DeleteIcon />
+          <li>
+            <button type="button" onClick={() => onDelete(id)}>
+              <DeleteIcon />
+            </button>
           </li>
         </PrjctActionList>
       )}
