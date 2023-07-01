@@ -3,8 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Button, Form, Icon, Input } from './RegisterForm.syled';
 import sprite from '../../images/sprite.svg';
 import { useDispatch } from 'react-redux';
-import { registerUser } from 'redux/Auth/operations';
-
+import { registerUser } from 'redux/auth/operations';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -22,11 +21,8 @@ export const RegisterForm = () => {
     reset,
   } = useForm();
 
-
-  const onSubmit = (data,token) => {
-   dispatch(registerUser( data,token))
-  
-    
+  const onSubmit = (data, token) => {
+    dispatch(registerUser(data, token));
 
     reset();
   };
@@ -38,37 +34,41 @@ export const RegisterForm = () => {
           type="text"
           name="name"
           placeholder="Enter your name"
-          {...register('name', { 
+          {...register('name', {
             required: 'This field is required',
-          pattern: {
-            value:  /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
-            message: 'Name can only contain Latin letters, digits, and some special characters'
-          },
-          minLength: {
-            value: 2,
-            message: 'Name must be at least 2 characters long'
-          },
-          maxLength: {
-            value: 32,
-            message: 'Name can be maximum 32 characters long' }})}
+            pattern: {
+              value:
+                /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
+              message:
+                'Name can only contain Latin letters, digits, and some special characters',
+            },
+            minLength: {
+              value: 2,
+              message: 'Name must be at least 2 characters long',
+            },
+            maxLength: {
+              value: 32,
+              message: 'Name can be maximum 32 characters long',
+            },
+          })}
         />
         {errors.name && <div>{errors.name.message}</div>}
       </div>
       <div>
         <Input
-           variant="filled"
-           size="md"
+          variant="filled"
+          size="md"
           type="email"
           name="email"
           placeholder="Enter your email"
-          {...register('email'
-          , { 
-          required: 'This field is required',
-          pattern: {
-            value: "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",
-            message: 'Please enter a valid email'
-          } }
-          )}
+          {...register('email', {
+            required: 'This field is required',
+            pattern: {
+              value:
+                '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$',
+              message: 'Please enter a valid email',
+            },
+          })}
         />
         {errors.email && <div>{errors.email.message}</div>}
       </div>
@@ -81,16 +81,18 @@ export const RegisterForm = () => {
             required: 'This field is required',
             pattern: {
               value: /^[A-Za-z0-9!@#$%^&*()_]+$/,
-              message: 'Password can only contain Latin letters, digits, and some special characters'
-          },
+              message:
+                'Password can only contain Latin letters, digits, and some special characters',
+            },
             minLength: {
-             value: 8,
-             message: 'Password must be at least 8 characters long'
-          },
+              value: 8,
+              message: 'Password must be at least 8 characters long',
+            },
             maxLength: {
               value: 64,
-              message: 'Password can be maximum 64 characters long'
-          }})}
+              message: 'Password can be maximum 64 characters long',
+            },
+          })}
         />
         {errors.password && <div>{errors.password.message}</div>}
         <div onClick={togglePasswordVisibility}>

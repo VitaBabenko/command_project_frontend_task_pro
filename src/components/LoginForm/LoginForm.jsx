@@ -1,76 +1,84 @@
+import { useAuth } from 'components/hooks';
+import {
+  Button,
+  Form,
+  Icon,
+  Input,
+} from 'components/RegisterForm/RegisterForm.syled';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import { useAuth } from "components/hooks";
-import { Button, Form, Icon, Input } from "components/RegisterForm/RegisterForm.syled";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-
-import { loginUser } from "redux/Auth/operations";
-import sprite from "../../images/sprite.svg";
-
-
+import { loginUser } from 'redux/auth/operations';
+import sprite from '../../images/sprite.svg';
 
 export const LoginForm = () => {
-  const dispatch = useDispatch()
-  const { register, handleSubmit,reset,  formState: { errors } } = useForm();
+  const dispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { isLoggedIn } = useAuth();
-    if (isLoggedIn) {
-      navigate('/home', { replace: true });
+  if (isLoggedIn) {
+    navigate('/home', { replace: true });
   }
-  
- 
-  
-  const togglePasswordVisibility = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
-  };
-  
 
-  const onSubmit = async (e) => {
-    
-    
-    
+  const togglePasswordVisibility = () => {
+    setShowPassword(prevShowPassword => !prevShowPassword);
+  };
+
+  const onSubmit = async e => {
     try {
-      dispatch(loginUser({
-        email: e.email,
-        password: e.password,
-      }));
-     
-      
+      dispatch(
+        loginUser({
+          email: e.email,
+          password: e.password,
+        })
+      );
     } catch (error) {
       console.log(error);
     }
-   
-    reset()
+
+    reset();
   };
 
   return (
     <div>
-      
       <Form onSubmit={handleSubmit(onSubmit)}>
         <div>
-        <Input
-        type="email"
-        name="email"
-        placeholder='Enter your email'
-        {...register('email',{ required: true })}
-      />
-      {errors.email && <span>Email is required</span>}
+          <Input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            {...register('email', { required: true })}
+          />
+          {errors.email && <span>Email is required</span>}
         </div>
         <div>
-          
-          <Input placeholder="Confirm a password" type={showPassword ? "text" : "password"} name="password" {...register('password',{ required: true })} />
+          <Input
+            placeholder="Confirm a password"
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+            {...register('password', { required: true })}
+          />
 
           {errors.password && <span>Password is required</span>}
           <div onClick={togglePasswordVisibility}>
-    {showPassword ? (<Icon aria-label="open theme select icon">
-   <use href={sprite + "#icon-eye"}></use> 
-</Icon>):<Icon aria-label="open theme select icon">
-   <use href={sprite + "#icon-eye"}></use> 
-</Icon>}
-  </div>
+            {showPassword ? (
+              <Icon aria-label="open theme select icon">
+                <use href={sprite + '#icon-eye'}></use>
+              </Icon>
+            ) : (
+              <Icon aria-label="open theme select icon">
+                <use href={sprite + '#icon-eye'}></use>
+              </Icon>
+            )}
+          </div>
         </div>
         <Button type="submit">Log In Now</Button>
       </Form>
