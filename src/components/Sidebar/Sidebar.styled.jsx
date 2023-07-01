@@ -22,7 +22,10 @@ export const SidebarMain = styled.div`
 `;
 
 export const Inn = styled.div`
- margin-left: 24px;
+display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
 `;
 
 export const Text = styled.p`

@@ -24,12 +24,12 @@ import { SidebarBoards, TitleMin } from './Board.styled';
 export const Boards = ({ onCreateNew }) => {
   return (
     <SidebarBoards>
-      <div>
+
         <TitleMin>My boards</TitleMin>
         <CreateNewBoard onCreateNew={onCreateNew} />
 
         <BoardsList />
-      </div>
+
     </SidebarBoards>
   );
 };
