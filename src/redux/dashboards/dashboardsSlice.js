@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addColumn, addUserBoard, fetchUserDashboards, getColumnsForBoard } from './operation';
+import { addColumn, addUserBoard, deleteUserBoard, fetchUserDashboards, getColumnsForBoard, updateUserBoard } from './operation';
 
 const dashboardSlice = createSlice({
   name: 'dashboard',
@@ -34,6 +34,34 @@ const dashboardSlice = createSlice({
         state.dashboards.push(action.payload);
       })
       .addCase(addUserBoard.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      }).addCase(updateUserBoard.pending, state => { 
+        state.isLoading = true;
+        state.error = null;
+      }).addCase(updateUserBoard.fulfilled, (state, action) => { 
+        state.isLoading = false;
+        console.log(action.payload);
+        const updateBoard = action.payload;
+        const index = state.dashboards.findIndex(board => board._id === updateBoard._id);
+        if (index !== -1) { 
+          state.dashboards[index] = updateBoard;
+        }
+      }).addCase(updateUserBoard.rejected, (state, action) => { 
+        state.isLoading = false;
+        state.error = action.error.message;
+      }).addCase(deleteUserBoard.pending, state => { 
+        state.isLoading = true;
+        state.error = null;
+      }).addCase(deleteUserBoard.fulfilled, (state, action) => { 
+        state.isLoading = false;
+        const deleteBoardId = action.payload;
+        const index = state.dashboards.findIndex(board => board._id === deleteBoardId);
+        if (index !== -1) { 
+          state.dashboards.splice(index, 1);
+          state.error = null;
+        }
+      }).addCase(deleteUserBoard.rejected, (state, action) => { 
         state.isLoading = false;
         state.error = action.error.message;
       }).addCase(getColumnsForBoard.pending, state => { 
