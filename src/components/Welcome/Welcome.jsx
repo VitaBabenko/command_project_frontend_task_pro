@@ -1,7 +1,8 @@
 // import ThemeSelect from "components/ThemeSelect/ThemeSelect";
-import sprite from "../../images/sprite.svg"
+import sprite from '../../images/sprite.svg';
 import {
-  WelcomeWrapper, Container,
+  WelcomeWrapper,
+  Container,
   ContainerTitle,
   Icon,
   IconContainer,
@@ -12,8 +13,6 @@ import {
   Text,
   Title,
 } from './Welcome.styled';
-
-
 
 export const Welcome = () => {
   return (
@@ -30,7 +29,7 @@ export const Welcome = () => {
 
           <Text>
             Supercharge your productivity and take control of your tasks with
-            Task Pro - Dont wait, start achieving your goals now!
+            Task <br /> Pro - Don`t wait, start achieving your goals now!
           </Text>
         </ContainerTitle>
         <Nav>
