@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { regExpEmail } from '../../utils/regex';
 import {
   ECurrentEditOperationEditAvatar,
   ERegisterFieldEmail,
@@ -110,8 +109,9 @@ export const ProfileDataEditor = ({
           {...register(ERegisterFieldEmail, {
             required: 'This input is required.',
             pattern: {
-              value: regExpEmail,
-              message: 'Invalid email address',
+              value:
+                '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$',
+              message: 'Please enter a valid email',
             },
             maxLength: {
               value: 32,

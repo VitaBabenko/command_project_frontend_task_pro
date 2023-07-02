@@ -4,8 +4,7 @@ import {
   ErrorResponseMessage, SuccessResponseMessage, ResponseMessageWrapper, ResponseMessage, WrapperBox
 } from './needHelp.styled'
 import { CustomButtonSend } from "components/Button/CustomButton";
-import { regExpEmail } from '../../utils.js/regex';
-import { technicalSupportRequest } from "redux/Auth/operations";
+import { technicalSupportRequest } from "redux/authorization/operations";
 import { useState } from "react";
 import { defaultResponseData, ERegisterFieldEmail, ERegisterFieldComment, defaultValues, checkResponse } from "./util";
 import ErrorIcon from '@mui/icons-material/Error';
@@ -72,8 +71,9 @@ export const NeedHelpPop = ({ HeaderRender }) => {
             {...register(ERegisterFieldEmail, {
               required: 'This field is required.',
               pattern: {
-                value: regExpEmail,
-                message: 'Invalid email address',
+                value:
+                  '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$',
+                message: 'Please enter a valid email',
               },
               maxLength: {
                 value: 32,
