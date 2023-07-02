@@ -50,7 +50,7 @@ export const ModalColumn = ({ isOpen, onClose, type = "create", initialState = '
       >
         <DialogTitle
           sx={{
-            color: "white",
+            color: "var(--primaryTextColor)",
             padding: "0",
             fontFamily: "Poppins, sans-serif",
             fontSize: "18px",
@@ -62,7 +62,7 @@ export const ModalColumn = ({ isOpen, onClose, type = "create", initialState = '
         <CloseIcon
           onClick={handleClose}
           sx={{
-            color: "white",
+            color: "var(--primaryTextColor)",
             position: "absolute",
             top: "14px",
             right: "14px",
@@ -85,7 +85,7 @@ export const ModalColumn = ({ isOpen, onClose, type = "create", initialState = '
           value={title}
           onChange={handleChange}
         />
-        <CustomButton onClick={() => handleButtonClick(title)}>
+        <CustomButton onClick={() => handleButtonClick(title)} style={{height: '49px !important'}}>
           {type === 'create' ? 'Add' : 'Edit'}
         </CustomButton>
       </DialogContent>

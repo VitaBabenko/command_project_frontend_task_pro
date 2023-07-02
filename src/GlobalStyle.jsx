@@ -107,6 +107,7 @@ body[data-theme="dark"] {
   --calendarSelectDay: rgba(31, 31, 31, 1);
   --calendarBorderTop: rgba(255, 255, 255, 0.2);
 
+  --currentLinkBgColor: rgba(31, 31, 31, 0.4);
 
   --activeBorder:#BEDBB0;
   --disabledBgColor: #b4adad;
@@ -159,6 +160,7 @@ body[data-theme="light"] {
   --calendarSelectDay: rgba(22, 22, 22, 1);
   --calendarBorderTop: rgba(22, 22, 22, 0.2);
 
+  --currentLinkBgColor: rgba(246, 246, 247, 0.4)
 
 
   --activeBorder:#BEDBB0;
@@ -207,9 +209,6 @@ body[data-theme="violet"] {
   --calendarSelectDay: rgba(252, 252, 252, 1);
   --calendarBorderTop: rgba(22, 22, 22, 0.2);
 
-
-  --disabledBgColor: #b4adad;
-  --activeBorder:#5255BC;
 }
 `;
 
