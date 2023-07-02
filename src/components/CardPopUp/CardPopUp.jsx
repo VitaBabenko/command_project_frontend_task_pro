@@ -18,12 +18,16 @@ import {
   CalendarWrapp,
   CalendarText,
   CalendarArrow,
+  CustomDialog,
+  CloseButton,
 } from './CardPopUp.styled';
 
 import { CustomButton } from 'components/Button/CustomButton';
 import { pureFinalPropsSelectorFactory } from 'react-redux/es/connect/selectorFactory';
 
-export const CardPopUp = () => {
+import CloseIcon from '@mui/icons-material/Close';
+
+export const CardPopUp = ({ isOpen, onClose }) => {
   const {
     register,
     handleSubmit,
@@ -53,102 +57,107 @@ export const CardPopUp = () => {
     setShowDatePicker(prevState => !prevState);
   };
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-      <FormText>{'Add card'}</FormText>
-      <FromInput
-        {...register('title', {
-          minLength: 3,
-          required: pureFinalPropsSelectorFactory,
-        })}
-        placeholder="Title"
-      />
-      <FormTextarea
-        placeholder="Description"
-        {...register('description', { minLength: 3, required: false })}
-      ></FormTextarea>
-      <Text>Label color</Text>
-      <RadioGroup>
-        <Wrap>
-          <RadioButton
-            type="radio"
-            id="low"
-            {...register('priority')}
-            value="low"
-          />
-          <RadioLabel
-            htmlFor="low"
-            value="low"
-            checked={register('priority').value === 'low'}
-          />
-        </Wrap>
-        <Wrap>
-          <RadioButton
-            type="radio"
-            id="medium"
-            {...register('priority')}
-            value="medium"
-          />
-          <RadioLabel
-            htmlFor="medium"
-            value="medium"
-            checked={register('priority').value === 'medium'}
-          />
-        </Wrap>
-
-        <Wrap>
-          <RadioButton
-            type="radio"
-            id="high"
-            {...register('priority')}
-            value="high"
-          />
-          <RadioLabel
-            htmlFor="high"
-            value="high"
-            checked={register('priority').value === 'high'}
-          />
-        </Wrap>
-
-        <Wrap>
-          <RadioButton
-            type="radio"
-            id="without"
-            {...register('priority', { required: false })}
-            value="without"
-            checked={true}
-          />
-          <RadioLabel
-            htmlFor="without"
-            value="without"
-            checked={register('priority').value === 'without'}
-          />
-        </Wrap>
-      </RadioGroup>
-      <Text>Deadline</Text>
-      <CalendarWrapp onClick={toggleDatePicker}>
-        <CalendarText>{formatDate(dateBtn)}</CalendarText>
-        <CalendarArrow
-          style={{ width: 18, height: 18 }}
-          aria-label="open theme select icon"
-        >
-          <use href={sprite + '#icon-arrow-down'}></use>
-        </CalendarArrow>
-      </CalendarWrapp>
-      <input
-        {...register('deadline', { value: unixFromat.toString() })}
-        style={{ display: 'none' }}
-      />
-      {showDatePicker && (
-        <DatePicker
-          selected={new Date()}
-          onChange={handleDateInputChange}
-          dateFormat="dd/MM/yyyy"
-          inline
-          minDate={new Date()}
+    <CustomDialog open={isOpen} onClose={onClose}>
+      <CloseButton type="button" onClick={onClose}>
+        <CloseIcon sx={{ fontSize: 'medium' }} style={{ marginTop: '14px' }} />
+      </CloseButton>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <FormText>{'Add card'}</FormText>
+        <FromInput
+          {...register('title', {
+            minLength: 3,
+            required: pureFinalPropsSelectorFactory,
+          })}
+          placeholder="Title"
         />
-      )}
-      {errors.exampleRequired && <span>This field is required</span>}
-      <CustomButton type="submit">{'Add another card'}</CustomButton>
-    </Form>
+        <FormTextarea
+          placeholder="Description"
+          {...register('description', { minLength: 3, required: false })}
+        ></FormTextarea>
+        <Text>Label color</Text>
+        <RadioGroup>
+          <Wrap>
+            <RadioButton
+              type="radio"
+              id="low"
+              {...register('priority')}
+              value="low"
+            />
+            <RadioLabel
+              htmlFor="low"
+              value="low"
+              checked={register('priority').value === 'low'}
+            />
+          </Wrap>
+          <Wrap>
+            <RadioButton
+              type="radio"
+              id="medium"
+              {...register('priority')}
+              value="medium"
+            />
+            <RadioLabel
+              htmlFor="medium"
+              value="medium"
+              checked={register('priority').value === 'medium'}
+            />
+          </Wrap>
+
+          <Wrap>
+            <RadioButton
+              type="radio"
+              id="high"
+              {...register('priority')}
+              value="high"
+            />
+            <RadioLabel
+              htmlFor="high"
+              value="high"
+              checked={register('priority').value === 'high'}
+            />
+          </Wrap>
+
+          <Wrap>
+            <RadioButton
+              type="radio"
+              id="without"
+              {...register('priority', { required: false })}
+              value="without"
+              checked={true}
+            />
+            <RadioLabel
+              htmlFor="without"
+              value="without"
+              checked={register('priority').value === 'without'}
+            />
+          </Wrap>
+        </RadioGroup>
+        <Text>Deadline</Text>
+        <CalendarWrapp onClick={toggleDatePicker}>
+          <CalendarText>{formatDate(dateBtn)}</CalendarText>
+          <CalendarArrow
+            style={{ width: 18, height: 18 }}
+            aria-label="open theme select icon"
+          >
+            <use href={sprite + '#icon-arrow-down'}></use>
+          </CalendarArrow>
+        </CalendarWrapp>
+        <input
+          {...register('deadline', { value: unixFromat.toString() })}
+          style={{ display: 'none' }}
+        />
+        {showDatePicker && (
+          <DatePicker
+            selected={new Date()}
+            onChange={handleDateInputChange}
+            dateFormat="dd/MM/yyyy"
+            inline
+            minDate={new Date()}
+          />
+        )}
+        {errors.exampleRequired && <span>This field is required</span>}
+        <CustomButton type="submit">{'Edit'}</CustomButton>
+      </Form>
+    </CustomDialog>
   );
 };

@@ -1,8 +1,60 @@
 import styled, { css } from 'styled-components';
+import { Dialog } from '@mui/material';
+
+export const CustomDialog = styled(Dialog)({
+  '& .MuiPaper-root': {
+    backgroundColor: 'var(--themeListBgColor)',
+    maxWidth: '350px',
+    padding: '24px',
+    margin: '0px',
+    border: '1px solid var(--modalBorderColor)',
+    borderRadius: '8px',
+    overflow: 'hidden',
+  },
+
+  '& .MuiDialogContent-root': {
+    padding: '0px',
+  },
+});
+
+export const WrapperPopUp = styled.div`
+  width: 100%;
+  min-height: 355px;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--modalBorderColor);
+  background: var(--themeListBgColor);
+  box-shadow: 0px 4px 16px 0px var(--boxShadowColor);
+
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 340px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+  }
+`;
 
 const hoverFocusStyles = css`
   border: 1px solid var(--greenGreenBlueColor);
   opacity: 0.7;
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 7px;
+  margin-right: 14px;
+  /* font-size: 10px; */
+  line-height: 0;
+  color: var(--primaryTextColor);
+  /* color: red; */
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 `;
 
 export const Form = styled.form`
