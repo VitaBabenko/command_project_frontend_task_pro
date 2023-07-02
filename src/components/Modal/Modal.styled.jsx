@@ -35,3 +35,7 @@ export const ModalContentDiv = styled.div`
   transition: 0.4s all;
   ${props => props.active && activeStyleModalContentDiv}
 `;
+
+export const ModalBodyWrapperDiv = styled.div`
+
+`

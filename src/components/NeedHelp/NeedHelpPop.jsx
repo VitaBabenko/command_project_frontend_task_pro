@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import {
   WrapperPopUp, Input, WrapperInput, Textarea, ErrorMsg,
-  ErrorResponseMessage, SuccessResponseMessage, ResponseMessageWrapper, ResponseMessage
+  ErrorResponseMessage, SuccessResponseMessage, ResponseMessageWrapper, ResponseMessage, WrapperBox
 } from './needHelp.styled'
 import { CustomButtonSend } from "components/Button/CustomButton";
 import { regExpEmail } from '../../utils.js/regex';
@@ -61,50 +61,52 @@ export const NeedHelpPop = ({ HeaderRender }) => {
     <WrapperPopUp>
       {HeaderRender('Need help')}
       <ResponseMessages {...{ ...responseData }} />
-      <WrapperInput>
-        <Input
-          autoComplete="off"
-          placeholder='Email address'
-          type="email"
-          disabled={isFetching}
-          error={errors?.ERegisterFieldEmail}
-          {...register(ERegisterFieldEmail, {
-            required: 'This field is required.',
-            pattern: {
-              value: regExpEmail,
-              message: 'Invalid email address',
-            },
-            maxLength: {
-              value: 32,
-              message: 'This field must not exceed 32 characters',
-            },
-          })}
-        />
-        {errors?.ERegisterFieldEmail && (
-          <ErrorMsg>{errors.ERegisterFieldEmail.message}</ErrorMsg>
-        )}
-      </WrapperInput>
-      <WrapperInput>
-        <Textarea
-          autoComplete="off"
-          className={errors?.ERegisterFieldComment && 'error'}
-          type="text"
-          placeholder='Comment'
-          disabled={isFetching}
-          error={errors?.ERegisterFieldComment}
-          {...register(ERegisterFieldComment, {
-            required: 'This field is required.',
-            maxLength: {
-              value: 255,
-              message: 'This input must not exceed 255 characters',
-            },
-          })}
-        />
-        {errors?.ERegisterFieldComment && (
-          <ErrorMsg>{errors.ERegisterFieldComment.message}</ErrorMsg>
-        )}
-      </WrapperInput>
+      <WrapperBox>
+        <WrapperInput>
+          <Input
+            autoComplete="off"
+            placeholder='Email address'
+            type="email"
+            disabled={isFetching}
+            error={errors?.ERegisterFieldEmail}
+            {...register(ERegisterFieldEmail, {
+              required: 'This field is required.',
+              pattern: {
+                value: regExpEmail,
+                message: 'Invalid email address',
+              },
+              maxLength: {
+                value: 32,
+                message: 'This field must not exceed 32 characters',
+              },
+            })}
+          />
+          {errors?.ERegisterFieldEmail && (
+            <ErrorMsg>{errors.ERegisterFieldEmail.message}</ErrorMsg>
+          )}
+        </WrapperInput>
+        <WrapperInput>
+          <Textarea
+            autoComplete="off"
+            className={errors?.ERegisterFieldComment && 'error'}
+            type="text"
+            placeholder='Comment'
+            disabled={isFetching}
+            error={errors?.ERegisterFieldComment}
+            {...register(ERegisterFieldComment, {
+              required: 'This field is required.',
+              maxLength: {
+                value: 255,
+                message: 'This input must not exceed 255 characters',
+              },
+            })}
+          />
+          {errors?.ERegisterFieldComment && (
+            <ErrorMsg>{errors.ERegisterFieldComment.message}</ErrorMsg>
+          )}
+        </WrapperInput>
+      </WrapperBox>
       <CustomButtonSend disabled={isFetching} onClick={handleSubmit(onSubmit)}>Send</CustomButtonSend>
-    </WrapperPopUp>
+    </WrapperPopUp >
   )
 }

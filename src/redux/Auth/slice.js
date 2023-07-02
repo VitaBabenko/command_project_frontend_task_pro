@@ -40,10 +40,13 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        const { email, name, thema, avatarURL } = action.payload.user;
+        state.user.name = name;
+        state.user.email = email;
+        state.user.thema = thema;
+        state.user.avatar = avatarURL;
         state.isLoggedIn = true;
         state.isRefreshing = false;
-        // state.user.thema = action.payload.user.thema;
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
@@ -64,16 +67,22 @@ const authSlice = createSlice({
       .addCase(updateUser.pending, (state) => {
         state.loading = true;
         state.error = null;
-        state.user = null;
+        state.init = false;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
+        const { email, name, thema, avatarURL, token } = action.payload.user;
+        state.user.name = name;
+        state.user.email = email;
+        state.user.thema = thema;
+        state.user.avatar = avatarURL;
+        state.token = token;
         state.loading = false;
-        state.user = action.payload.data;
-        state.token = action.payload.token;
+        state.init = true;
       })
       .addCase(updateUser.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        state.error = action.payload;
+        state.init = true;
       });
   },
 });

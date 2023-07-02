@@ -23,6 +23,7 @@ export const AvatarEditorContainer = ({
   image,
   handleSetCurrentImg,
   handleClose,
+  isFetching,
 }) => {
   const editor = useRef(null);
   const [editorValues, setEditorValues] = useState(defaultAvatarEditorValue);

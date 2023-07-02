@@ -7,40 +7,43 @@ import {
   ERegisterFieldName,
   ERegisterFieldPassword,
 } from './util';
-import '../../assets/index.css';
 import AddIcon from '@mui/icons-material/Add';
 import sprite from '../../images/sprite.svg';
 import {
   Avatar,
   AvatarImg,
-  InputField,
   Icon,
   IconUser,
   AvatarImgCurrent,
+  WrapperPass,
+  IconPassword,
+  WrapperAvatar,
+  WrapperAvatarBody,
 } from './ProfileDataEditor.styled';
+import { WrapperInput, Input, ErrorMsg, InputLabel } from 'components/NeedHelp/needHelp.styled';
 
 export const ProfileDataEditor = ({
   currentImg,
-  uploadImg,
   handleChangeNewImg,
   handleChangeCurrentOperation,
   inputRef,
+  isFetching,
 }) => {
   const {
     register,
-    formState: { errors },
+    formState: { errors }, watch,
   } = useFormContext();
   const [isShowPassword, setIsShowPassword] = useState(false);
+  const watchPass = watch(ERegisterFieldPassword);
 
-  const isFetching = false;
   const togglePass = () => {
     setIsShowPassword(prev => !prev);
   };
 
   return (
     <>
-      <div className="file">
-        <div>
+      <WrapperAvatar>
+        <WrapperAvatarBody>
           <Avatar>
             {currentImg ? (
               <AvatarImgCurrent src={currentImg} />
@@ -51,13 +54,13 @@ export const ProfileDataEditor = ({
                 height="68"
                 viewBox="0 -3 68 68"
               >
-                <IconUser href={sprite + '#icon-user-default'}></IconUser>
+                <IconUser href={sprite + '#icon-user-default'} ></IconUser>
               </AvatarImg>
             )}
           </Avatar>
 
-          <label htmlFor="avatar">
-            <InputField
+          <InputLabel htmlFor="avatar">
+            <Input
               id="avatar"
               type="file"
               accept="/image/*"
@@ -67,21 +70,23 @@ export const ProfileDataEditor = ({
                 handleChangeNewImg(e);
               }}
             />
-            <AddIcon />
-          </label>
-        </div>
-        {errors?.ERegisterFieldAvatar && (
-          <span className="error">{errors.ERegisterFieldAvatar.message}</span>
-        )}
-      </div>
+            <AddIcon disabled={isFetching} />
+          </InputLabel>
+        </WrapperAvatarBody>
 
-      <div className="wrapper-input">
-        <InputField
+        {errors?.ERegisterFieldAvatar && (
+          <ErrorMsg>{errors.ERegisterFieldAvatar.message}</ErrorMsg>
+        )}
+
+      </WrapperAvatar>
+
+      <WrapperInput>
+        <Input
           autoComplete="off"
-          disabled={isFetching}
-          className={errors?.ERegisterFieldName && 'error'}
-          type="text"
           placeholder="Enter your name"
+          type="text"
+          disabled={isFetching}
+          error={errors?.ERegisterFieldName}
           {...register(ERegisterFieldName, {
             required: 'This input is required.',
             maxLength: {
@@ -91,17 +96,17 @@ export const ProfileDataEditor = ({
           })}
         />
         {errors?.ERegisterFieldName && (
-          <span className="error">{errors.ERegisterFieldName.message}</span>
+          <ErrorMsg>{errors.ERegisterFieldName.message}</ErrorMsg>
         )}
-      </div>
+      </WrapperInput>
 
-      <div className="wrapper-input">
-        <InputField
+      <WrapperInput>
+        <Input
           autoComplete="off"
-          disabled={isFetching}
-          className={errors?.ERegisterFieldEmail && 'error'}
           placeholder="Enter your email"
           type="text"
+          disabled={isFetching}
+          error={errors?.ERegisterFieldEmail}
           {...register(ERegisterFieldEmail, {
             required: 'This input is required.',
             pattern: {
@@ -115,36 +120,40 @@ export const ProfileDataEditor = ({
           })}
         />
         {errors?.ERegisterFieldEmail && (
-          <span className="error">{errors.ERegisterFieldEmail.message}</span>
+          <ErrorMsg>{errors.ERegisterFieldEmail.message}</ErrorMsg>
         )}
-      </div>
+      </WrapperInput>
 
-      <div className="wrapper-input">
-        <div className="toggle_pass">
-          <InputField
+      <WrapperInput>
+        <WrapperPass>
+          < Input
             autoComplete="off"
-            disabled={isFetching}
-            className={errors?.ERegisterFieldPassword && 'error'}
-            placeholder="Confirm a password"
+            placeholder="Enter a password"
             type={isShowPassword ? 'text' : 'password'}
+            disabled={isFetching}
+            error={errors?.ERegisterFieldPassword}
             {...register(ERegisterFieldPassword, {
               required: 'This input is required.',
               maxLength: {
                 value: 32,
-                message: 'This input must not exceed 32 characters',
+                message: 'This input must not exceed 255 characters',
               },
             })}
           />
-          <span onClick={togglePass}>
-            <Icon aria-label="icon eye" width="18" height="18">
-              <use href={sprite + '#icon-eye'}></use>
-            </Icon>
-          </span>
-        </div>
+          {watchPass &&
+            <>
+              <IconPassword onClick={togglePass}>
+                <Icon aria-label="icon eye" width="18" height="18">
+                  <use href={sprite + '#icon-eye'}></use>
+                </Icon>
+              </IconPassword>
+            </>
+          }
+        </WrapperPass>
         {errors?.ERegisterFieldPassword && (
-          <span className="error">{errors.ERegisterFieldPassword.message}</span>
+          <ErrorMsg>{errors.ERegisterFieldPassword.message}</ErrorMsg>
         )}
-      </div>
+      </WrapperInput>
     </>
   );
 };

@@ -94,9 +94,13 @@ export const updateUser = createAsyncThunk(
   'auth/user',
   async (userData, thunkAPI) => {
     try {
-      const res = await axios.put('/auth/user', userData);
+      const res = await axios.put('/auth/user', userData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        }
+      });
       // After successful login, add the token to the HTTP header
-      setAuthHeader(res.data.token);
+      setAuthHeader(res.data.user.token);
       return res.data;
     } catch (error) {
 
