@@ -47,6 +47,11 @@ export const Button = styled.button`
     max-height: 100%;
     border-radius: 6px;
   }
+
+  &.active {
+    border: 2px solid rgba(190, 219, 176, 1);
+    /* transform: scale(0.95); */
+  }
 `;
 
 export const ButtonNoneBg = styled.button`
@@ -74,5 +79,5 @@ export const ButtonNoneBg = styled.button`
 
 export const SvgIcons = styled.svg`
   stroke: var(--defaultImgColor);
-  fill:none;
+  fill: none;
 `;
