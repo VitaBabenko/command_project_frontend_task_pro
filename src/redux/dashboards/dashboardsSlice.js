@@ -42,6 +42,7 @@ const dashboardSlice = createSlice({
       }).addCase(updateUserBoard.fulfilled, (state, action) => {
         state.isLoading = false;
         const updateBoard = action.payload;
+        console.log(action.payload)
         const index = state.dashboards.findIndex(board => board._id === updateBoard._id);
         if (index !== -1) {
           state.dashboards[index] = updateBoard;
