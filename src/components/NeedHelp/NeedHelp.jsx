@@ -2,16 +2,7 @@ import { MODAL_NEED_HELP } from 'components/Modal/ModalMapContainer/enums';
 import { useDispatch } from 'react-redux';
 import { setNameModal } from 'redux/modal';
 import spriteIcon from '../../images/sprite.svg';
-import {
-  Wrapper,
-  Img,
-  Text,
-  Button,
-  BtnTitle,
-  Icon,
-  Logo,
-} from './needHelp.styled';
-import './style.css';
+import { Wrapper, Img, Text, Button, BtnTitle, Icon, Logo } from './needHelp.styled'
 
 export const NeedHelp = () => {
   const dispatch = useDispatch();

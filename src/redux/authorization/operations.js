@@ -113,9 +113,13 @@ export const updateUser = createAsyncThunk(
   'auth/user',
   async (userData, thunkAPI) => {
     try {
-      const res = await axios.put('/auth/user', userData);
+      const res = await axios.put('/auth/user', userData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        }
+      });
       // After successful login, add the token to the HTTP header
-      setAuthHeader(res.data.token);
+      setAuthHeader(res.data.user.token);
       return res.data;
     } catch (error) {
 
@@ -127,7 +131,9 @@ export const updateUser = createAsyncThunk(
 export const technicalSupportRequest = async (userData, callback) => {
   callback({ isFetching: true, init: false, data: null, error: null });
   try {
-    const response = await axios.post('/auth/support', userData);
+    const response = await axios.post('/auth/support', userData, {
+      headers: { 'accept': 'application/json', 'content-type': 'application/json', }
+    });
     callback({ isFetching: false, init: true, data: response.data.message, error: false });
   } catch (error) {
     callback({ isFetching: false, init: true, data: null, error: error.message });

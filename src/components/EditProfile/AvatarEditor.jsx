@@ -5,7 +5,7 @@ import {
   defaultInputTypeRangeProps,
   rotateValue,
 } from './util';
-import './style.css';
+
 import RotateLeftIcon from '@mui/icons-material/RotateLeft';
 import RotateRightIcon from '@mui/icons-material/RotateRight';
 import DoneIcon from '@mui/icons-material/Done';
@@ -13,6 +13,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import Slider from '@mui/material/Slider';
+import { BtnEditPhoto, } from "./ProfileDataEditor.styled";
 
 const CustomSlider = styled(Slider)({
   color: 'var(--greenGreenBlueColor)',
@@ -22,6 +23,7 @@ export const AvatarEditorContainer = ({
   image,
   handleSetCurrentImg,
   handleClose,
+  isFetching,
 }) => {
   const editor = useRef(null);
   const [editorValues, setEditorValues] = useState(defaultAvatarEditorValue);
@@ -70,36 +72,31 @@ export const AvatarEditorContainer = ({
           color="secondary"
         />
       </Box>
-      <button
-        className="btn"
+      <BtnEditPhoto
         onClick={() => handleRotate(rotate + rotateValue)}
       >
         <RotateLeftIcon
           sx={{ color: 'var(--greenGreenBlueColor)' }}
-          className="iconEditAvatar"
         />
-      </button>
-      <button
-        className="btn"
+      </BtnEditPhoto>
+      <BtnEditPhoto
         onClick={() => handleRotate(rotate - rotateValue)}
       >
         <RotateRightIcon
           sx={{ color: 'var(--greenGreenBlueColor)' }}
-          className="iconEditAvatar"
         />
-      </button>
-      <button className="btn" onClick={handleSave}>
+      </BtnEditPhoto>
+      <BtnEditPhoto onClick={handleSave}>
         <DoneIcon
           sx={{ color: 'var(--greenGreenBlueColor)' }}
           className="iconEditAvatar"
         />
-      </button>
-      <button className="btn" onClick={handleClose}>
+      </BtnEditPhoto>
+      <BtnEditPhoto onClick={handleClose}>
         <CloseIcon
           sx={{ color: 'var(--greenGreenBlueColor)' }}
-          className="iconEditAvatar"
         />
-      </button>
+      </BtnEditPhoto>
     </>
   );
 };
