@@ -35,21 +35,25 @@ const ProjectOffice = () => {
   }, [dispatch, boardName]);
 
   return (
-    <BackgroundContainer bgnumber={currentBoard ? currentBoard.background : ''}>
-      {/* <Box sx={{marginLeft: '20%'}}> */}
+    // <Box sx={{ marginLeft: '20%' }}>
+    <Box sx={{ marginLeft: 3 }}>
       <ProjectOfficeHeader />
       {!isLoading && <AddColumnButton handleAddColumn={handleAddColumn} />}
-      {columns ? (
-        columns.map(column => (
-          <ProjectOfficeItem
-            column={column}
-            key={column._id}
-            boardId={boardName}
-          />
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
+      {/* <div style={{ display: 'flex', flexDirection: 'row' }}> */}
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        {columns ? (
+          columns.map(column => (
+            <ProjectOfficeItem
+              column={column}
+              boardId={boardName}
+              key={column._id}
+            />
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
+      {/* </div> */}
       {/* <ProjectOfficeItem column={columns} /> */}
       {/* </Box> */}
     </BackgroundContainer>
