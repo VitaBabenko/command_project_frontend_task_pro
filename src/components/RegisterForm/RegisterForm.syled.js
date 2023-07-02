@@ -55,6 +55,7 @@ export const Button = styled.button`
   align-items: center;
   font-weight: 500;
   border-radius: 8px;
+  border: none;
   background: #bedbb0;
   cursor: pointer;
   @media (min-width: 375px) {
