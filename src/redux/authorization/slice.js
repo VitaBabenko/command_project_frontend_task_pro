@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import {
+  registerUser,
   loginUser,
   logOut,
   refreshUser,
-  registerUser,
-  updateThema,
   updateUser,
+  updateThema,
 } from './operations';
 
 const initialState = {
@@ -64,7 +65,7 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      .addCase(updateUser.pending, (state) => {
+      .addCase(updateUser.pending, state => {
         state.loading = true;
         state.error = null;
         state.init = false;

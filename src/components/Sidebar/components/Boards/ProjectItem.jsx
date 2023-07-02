@@ -1,25 +1,49 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
-import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
+import React, { useState } from 'react';
+// import { NavLink } from 'react-router-dom';
+// import { ReactComponent as DeleteIcon } from '../../../../images/SVG/delete.svg';
+// import { ReactComponent as EditIcon } from '../../../../images/SVG/edit.svg';
 // import classNames from 'classnames';
-import { FlexElems, IconWrap, PrjctActionList, Text } from './Board.styled';
+import {
+  EditDelBtn,
+  FlexElems,
+  IconServBtn,
+  LinkWrapper,
+  ListIcon,
+  PrjctActionList,
+  StyledLink,
+  Text,
+} from './Board.styled';
+import sprite from '../../../../images/sprite.svg';
+import { ModalAddBoard } from 'components/Modal/ModalAddBoard/ModalAddBoard';
 
 export const ProjectItem = ({
   title,
   id,
-  handleDashboardClick,
   background,
   dashboardIcon,
   icon: Icon,
-  isSelected,
+  onUpdate,
+  activeBoardId,
+  setActiveBoardId,
+  onDelete,
 }) => {
+  const isActive = activeBoardId === id;
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggleModal = () => {
+    setIsOpen(prevstate => !prevstate);
+  };
+
+  const handleClick = () => {
+    setActiveBoardId(id);
+  };
+
   const handleEdit = () => {
     console.log('Edit projects board');
   };
 
-  const handleDelete = () => {
-    console.log('Delete project board');
+  const handleUpdateBoard = data => {
+    onUpdate(id, data);
   };
 
   // const classes = classNames('project-item-main', {
@@ -27,28 +51,40 @@ export const ProjectItem = ({
   // });
 
   return (
-    <div>
-      <NavLink to={id}>
-        <FlexElems>
-          {Icon && (
-            <IconWrap>
-              <Icon />
-            </IconWrap>
-          )}
+    <LinkWrapper className={isActive ? 'active' : ''}>
+      <StyledLink to={id}>
+        <FlexElems onClick={handleClick}>
+          <ListIcon>
+            <use href={sprite + dashboardIcon} />
+          </ListIcon>
           <Text>{title}</Text>
         </FlexElems>
-      </NavLink>
+      </StyledLink>
 
-      {isSelected && (
+      {isActive && (
         <PrjctActionList>
           <li onClick={handleEdit}>
-            <EditIcon />
+            <EditDelBtn type="button" onClick={handleToggleModal}>
+              <IconServBtn width={16} height={16}>
+                <use href={sprite + '#icon-pencil'} />
+              </IconServBtn>
+            </EditDelBtn>
+            <ModalAddBoard
+              isOpen={isOpen}
+              onClose={handleToggleModal}
+              type="edit"
+              handleUpdateBoard={handleUpdateBoard}
+            />
           </li>
-          <li onClick={handleDelete}>
-            <DeleteIcon />
+          <li>
+            <EditDelBtn type="button" onClick={() => onDelete(id)}>
+              <IconServBtn width={16} height={16}>
+                <use href={sprite + '#icon-trash'} />
+              </IconServBtn>
+            </EditDelBtn>
           </li>
         </PrjctActionList>
       )}
-    </div>
+    </LinkWrapper>
   );
 };

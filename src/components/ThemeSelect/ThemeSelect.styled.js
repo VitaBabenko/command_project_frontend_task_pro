@@ -61,5 +61,5 @@ export const ThemeSelectIcon = styled.svg`
   width: 16px;
   height: 16px;
   stroke: var(--themeTitleTextColor);
-  fill: none;
+  fill: var(--passiveBorderColor);
 `;

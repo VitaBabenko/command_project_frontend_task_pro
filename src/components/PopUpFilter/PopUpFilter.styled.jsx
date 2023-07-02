@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ModalContainer = styled.div`
   position: relative;
+
   width: 302px;
   height: auto;
 
@@ -23,8 +24,8 @@ export const CloseButton = styled.button`
   align-items: center;
   justify-content: center;
 
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   padding: 0;
   margin: 0;
   background: transparent;
@@ -38,10 +39,16 @@ export const SvgIcons = styled.svg`
 export const ModalHeader = styled.h4`
   color: var(--primaryTextColor);
   font-size: 18px;
-  font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.36px;
   padding-bottom: 14px;
   border-bottom: 1px solid var(--modalGorizontalBorderColor);
   margin: 0 0 14px 0;
+`;
+
+export const Wraper = styled.div`
+  position: absolute;
+  z-index: 999;
+  top: 32px;
+  right: 0;
 `;

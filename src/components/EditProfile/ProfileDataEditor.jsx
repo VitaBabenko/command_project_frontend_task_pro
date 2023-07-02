@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { regExpEmail } from '../../utils.js/regex';
+import { regExpEmail } from '../../utils/regex';
 import {
   ECurrentEditOperationEditAvatar,
   ERegisterFieldEmail,

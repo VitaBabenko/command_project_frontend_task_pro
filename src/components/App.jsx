@@ -11,8 +11,11 @@ import GlobalStyle from 'GlobalStyle';
 import { ModalContainer } from './Modal';
 import { useDispatch } from 'react-redux';
 import { useAuth } from './hooks';
-import { refreshUser } from 'redux/Auth/operations';
+
 import { Loader } from '../components/Loader/Loader';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { refreshUser } from 'redux/authorization/operations';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
@@ -32,8 +35,18 @@ export const App = () => {
       <Loader />
     </div>
   ) : (
-    // <b>Refreshing user...</b>
     <>
+      <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light" />
       <ModalContainer />
       <GlobalStyle />
 

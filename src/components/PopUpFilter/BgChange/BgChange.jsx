@@ -159,8 +159,8 @@ export const BgChange = () => {
       <Title>Background</Title>
       <ButtonContainer>
         <ButtonNoneBg type="button" onClick={() => handleButtonClick(0)}>
-          <SvgIcons>
-            <use xlinkHref={`${sprite}#icon-image`} />
+          <SvgIcons width={18} height={18}>
+            <use href={sprite + '#icon-bg-default'} />
           </SvgIcons>
         </ButtonNoneBg>
         {buttonsImg.map((button, index) => (

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { SidebarMain, Inn } from './Sidebar.styled';
 import { useDispatch } from 'react-redux';
 // import { addUserBoard } from 'redux/dashboards/operation';
-import { logOut } from '../../redux/Auth/operations';
+import { logOut } from '../../redux/authorization/operations';
 import classNames from 'classnames';
 
 export const Sidebar = ({ isNeedHelp = true, shouldShowSidebar = true }) => {

@@ -19,14 +19,10 @@ export const NeedHelp = () => {
       />
       <Text>
         If you need help with <Logo>TaskPro</Logo>, check out our support
-        resources or reach out to our customer support team.
+        resources or <br /> reach out to our <br /> customer support team.
       </Text>
       <Button onClick={toggle}>
-        <Icon
-          aria-label="icon close"
-          width="18"
-          height="18"
-        >
+        <Icon aria-label="icon close" width="18" height="18">
           <use href={spriteIcon + '#icon-help-circle'}></use>
         </Icon>
         <BtnTitle>Need help?</BtnTitle>

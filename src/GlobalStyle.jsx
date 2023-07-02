@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
   font-weight: 400;
   transition: 0.3s ease;
-  ${'' /* background-color: var(--boardBgColor); */}
+  background-color: var(--boardBgColor);
 
 
   ul,
@@ -90,11 +90,23 @@ body[data-theme="dark"] {
 
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #FFFFFF;
+  --iconLogOut: #bedbb0;
   --placeholder:rgba(255, 255, 255, 1);
   --userSvgFill: #161616;
   --bgPlus:#BEDBB0;
   --iconEyeColor:#FFFFFF;
   --btnColorHover: #d8e9cf;
+  --iconColor: rgba(255, 255, 255, 0.5);
+
+
+  --calendarWithoutColor: rgba(255, 255, 255, 0.30);
+
+  --calendarSecondTextColor: rgba(255, 255, 255, 0.50);
+  --calendarDisabled: rgba(255, 255, 255, 0.20);
+  --calendarDisabled: rgba(255, 255, 255, 0.20);
+  --calendarSelectDay: rgba(31, 31, 31, 1);
+  --calendarBorderTop: rgba(255, 255, 255, 0.2);
+
 
   --activeBorder:#BEDBB0;
   --disabledBgColor: #b4adad;
@@ -131,11 +143,23 @@ body[data-theme="light"] {
     --cardItemText: ##5C5C5C;
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #161616;
+   --iconLogOut: #bedbb0;
   --placeholder: rgba(22, 22, 22, 1);
   --userSvgFill: #FFFFFF;
   --bgPlus:#BEDBB0;
   --iconEyeColor:#161616;
   --btnColorHover: #d8e9cf;
+  --iconColor: rgba(22, 22, 22, 0.5);
+
+
+  --calendarWithoutColor: rgba(22, 22, 22, 0.30);
+
+  --calendarSecondTextColor: rgba(22, 22, 22, 0.50);
+  --calendarDisabled: rgba(22, 22, 22, 0.20);
+  --calendarSelectDay: rgba(22, 22, 22, 1);
+  --calendarBorderTop: rgba(22, 22, 22, 0.2);
+
+
 
   --activeBorder:#BEDBB0;
   --disabledBgColor: #b4adad;
@@ -168,11 +192,21 @@ body[data-theme="violet"] {
     --defaultUserColor: #FFFFFF;
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #FFFFFF;
+  --iconLogOut: #FFFFFF;
   --placeholder:#161616;
   --userSvgFill: #FFFFFF;
   --bgPlus:#ECEDFD;
   --iconEyeColor:#161616;
   --btnColorHover: #b8bcfd;
+  --iconColor: rgba(255, 255, 255, 0.5);
+
+  --calendarWithoutColor: rgba(22, 22, 22, 0.30);
+
+  --calendarSecondTextColor: rgba(22, 22, 22, 0.50);
+  --calendarDisabled: rgba(22, 22, 22, 0.20);
+  --calendarSelectDay: rgba(252, 252, 252, 1);
+  --calendarBorderTop: rgba(22, 22, 22, 0.2);
+
 
   --disabledBgColor: #b4adad;
   --activeBorder:#5255BC;

@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const BgContainer = styled.div``;
 
 export const Title = styled.h3`
-  font-family: 'Poppins';
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
@@ -76,4 +74,5 @@ export const ButtonNoneBg = styled.button`
 
 export const SvgIcons = styled.svg`
   stroke: var(--defaultImgColor);
+  fill:none;
 `;

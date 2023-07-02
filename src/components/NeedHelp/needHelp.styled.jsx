@@ -31,8 +31,8 @@ height: 238px;
 `;
 
 export const Img = styled.img`
-  width: 54px;
-  height: 78px;
+    width: 54px;
+    height: 78px;
 `;
 
 export const Text = styled.p` 
@@ -61,26 +61,6 @@ export const BtnTitle = styled.span`
   font-size: 12px;
   font-weight: 500;
   letter-spacing: -0.24px;
-  &:disabled {
-    background: var(--disabledHelpBgColor);
-  }
-`;
-
-export const ErrorMsg = styled.p`
-  color: var(--colorError);
-  display: block;
-  font-size: 12px;
-  line-height: 16px;
-  overflow: hidden;
-  width: calc(100% - 18px);
-`;
-
-export const WrapperInput = styled.div`
-  margin: 14px 0;
-  ${ErrorMsg} {
-    margin-top:5px;
-    padding-left: 14px;
-  }
 `;
 
 export const WrapperPopUp = styled.div` 
@@ -109,14 +89,14 @@ export const Icon = styled.svg`
 `;
 
 export const Logo = styled.span`
-  color: var(--greenGreenBlueColor);
-`;
+    color: var(--greenGreenBlueColor);
+`;;
 
 export const Input = styled.input`
-  display:flex;
-  width: 100%;
-  padding: 14px 14px 14px 18px;
-  align-items: center;
+    display:flex;
+    width: 100%;
+    padding: 14px 14px 14px 18px;
+    align-items: center;
 
   color: var(--primaryTextColor);
   outline: none;

@@ -17,6 +17,22 @@ export const HeaderMain = styled.div`
   @media screen and (max-width: 768px) {
     .header-burger {
       display: block;
+      fill: #161616;
+
     }
   }
+  @media screen and (max-width: 375px) {
+    .header-burger {
+      width: 24px;
+      height: 24px;
+    }
+    .header-burger svg{
+      width: inherit;
+      height: inherit;
+    }
+  }
+`;
+
+export const Icon = styled.div`
+  
 `;

@@ -8,12 +8,21 @@ import AddColumnButton from './AddColumnsButton/AddColumnsButton';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addColumn, getColumnsForBoard } from 'redux/dashboards/operation';
-import { selectColumnsForBoard } from 'redux/dashboards/selectors';
-import { Box } from '@mui/material';
+import {
+  selectColumnsForBoard,
+  selectDashboards,
+} from 'redux/dashboards/selectors';
+// import { Box } from '@mui/material';
+import { BackgroundContainer } from './ProjectOfficeBgContainer';
 
 const ProjectOffice = () => {
+  const isLoading = useSelector(state => state.dashboard.isLoading);
   const { boardName } = useParams();
   const columns = useSelector(state => selectColumnsForBoard(state, boardName));
+  const dashboards = useSelector(selectDashboards);
+  const currentBoard = dashboards.find(board => board._id === boardName);
+
+  console.log(currentBoard);
 
   const dispatch = useDispatch();
 
@@ -25,20 +34,25 @@ const ProjectOffice = () => {
     dispatch(getColumnsForBoard(boardName));
   }, [dispatch, boardName]);
 
-  console.log(columns);
-
   return (
-    <Box sx={{marginLeft: '20%'}}>
+    <BackgroundContainer bgnumber={currentBoard ? currentBoard.background : ''}>
+      {/* <Box sx={{marginLeft: '20%'}}> */}
       <ProjectOfficeHeader />
-      {columns.length < 0 &&
-        <AddColumnButton handleAddColumn={handleAddColumn} />
-      }
-      {columns.length > 0 &&
-        columns.map(column => {
-          return <ProjectOfficeItem column={column} key={column._id} />;
-        })}
+      {!isLoading && <AddColumnButton handleAddColumn={handleAddColumn} />}
+      {columns ? (
+        columns.map(column => (
+          <ProjectOfficeItem
+            column={column}
+            key={column._id}
+            boardId={boardName}
+          />
+        ))
+      ) : (
+        <p>Loading...</p>
+      )}
       {/* <ProjectOfficeItem column={columns} /> */}
-    </Box>
+      {/* </Box> */}
+    </BackgroundContainer>
   );
 };
 
