@@ -27,18 +27,25 @@ const ProjectOffice = () => {
   }, [dispatch, boardName]);
 
   return (
-    <Box sx={{marginLeft: '20%'}}>
+    // <Box sx={{ marginLeft: '20%' }}>
+    <Box sx={{ marginLeft: 3 }}>
       <ProjectOfficeHeader />
-      {!isLoading &&
-        <AddColumnButton handleAddColumn={handleAddColumn} />
-      }
-      {columns ? (
-  columns.map(column => (
-    <ProjectOfficeItem column={column} key={column._id} />
-  ))
-) : (
-  <p>Loading...</p>
-)}
+      {!isLoading && <AddColumnButton handleAddColumn={handleAddColumn} />}
+      {/* <div style={{ display: 'flex', flexDirection: 'row' }}> */}
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        {columns ? (
+          columns.map(column => (
+            <ProjectOfficeItem
+              column={column}
+              boardId={boardName}
+              key={column._id}
+            />
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
+      {/* </div> */}
       {/* <ProjectOfficeItem column={columns} /> */}
     </Box>
   );
