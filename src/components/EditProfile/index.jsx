@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import {
   ECurrentEditOperationEditAvatar,
@@ -13,7 +13,8 @@ import {
   url2File,
 } from './util';
 import { AvatarEditorContainer } from './AvatarEditor';
-import { updateUser } from "redux/Auth/operations";
+import { updateUser } from "redux/authorization/operations";
+import { resetUpdateUserInfo } from "redux/authorization/slice";
 
 import { ProfileDataEditor } from './ProfileDataEditor';
 import { CustomButtonSend } from 'components/Button/CustomButton';
@@ -24,7 +25,7 @@ import { ResponseMessages } from 'components/NeedHelp/NeedHelpPop';
 export const EditProfile = ({ toggle, open, HeaderRender }) => {
   const { user: { name, email, avatar }, loading, error, init } = useSelector((state) => state.auth);
   const [currentEditOperation, setCurrentEditOperation] = useState(ECurrentEditOperationEditData);
-  const [currentImg, setCurrentImg] = useState(avatar);
+  const [currentImg, setCurrentImg] = useState(null);
   const [uploadImg, setUploadImg] = useState('');
 
   const uploadImgRef = useRef(null);
@@ -37,16 +38,21 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
     defaultValues: getDefaultValuesForm(name, email, avatar),
   });
 
-  const { handleSubmit, setError } = methods;
+  const { handleSubmit, setError, clearErrors } = methods;
   const isEditAvatarOperation = currentEditOperation === ECurrentEditOperationEditAvatar;
 
   const isDisabledSubmitBtn = loading;
   const onSubmit = async (data) => {
+    console.log('dasdasd', uploadImgRef.current);
+    if (!uploadImgRef.current) {
+      setFormFieldFieldAvatarError('This input is required.');
+      return;
+    }
+
     const blob = new Blob([currentImg], { type: 'image/png' })
     let dataUrl = await convert2DataUrl(blob);
     const file = await url2File(dataUrl, currentImg)
 
-    console.log(file);
     const userData = {
       name: data[ERegisterFieldName],
       email: data[ERegisterFieldEmail],
@@ -75,6 +81,7 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
       return;
     }
     uploadImgRef.current = file;
+    clearErrors(ERegisterFieldAvatar)
     setUploadImg(file);
   };
 
@@ -91,6 +98,12 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
     setUploadImg('');
     inputRef.current.value = null;
   };
+
+  useEffect(() => {
+    return (() => {
+      dispatch(resetUpdateUserInfo())
+    });
+  }, [dispatch]);
 
   return (
     <EditProfileWrapper>
