@@ -159,6 +159,9 @@ letter-spacing: -0.02em;
   color :#FFFFFF;
   stroke: #FFFFFF;
 
-
+  & svg {
+      stroke: #ffffff;
+    }
 }
+
 `

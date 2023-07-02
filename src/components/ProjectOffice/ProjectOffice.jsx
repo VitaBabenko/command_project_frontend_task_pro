@@ -32,21 +32,21 @@ const ProjectOffice = () => {
   }, [dispatch, boardName]);
 
   return (
-    <BackgroundContainer bgnumber={currentBoard.background}>
-    <Box sx={{marginLeft: '20%'}}>
+    <BackgroundContainer bgnumber={currentBoard? currentBoard.background: ''}>
+    {/* <Box sx={{marginLeft: '20%'}}> */}
       <ProjectOfficeHeader />
       {!isLoading &&
         <AddColumnButton handleAddColumn={handleAddColumn} />
       }
       {columns ? (
   columns.map(column => (
-    <ProjectOfficeItem column={column} key={column._id} />
+    <ProjectOfficeItem column={column} key={column._id} boardId={boardName} />
   ))
 ) : (
   <p>Loading...</p>
 )}
       {/* <ProjectOfficeItem column={columns} /> */}
-      </Box>
+      {/* </Box> */}
       </BackgroundContainer>
   );
 };

@@ -4,13 +4,11 @@ const ProjectCardAddButton = () => {
   return (
     <>
     <Wrapper>
-        {Array.from(Array(3)).map((_, index) => (
-            <CardButtonStyled direction="row" spacing={2} key={index}>
+            <CardButtonStyled direction="row" spacing={2} >
             <ButtonStyled startIcon={<AddIconStyled />}>
                 Add another card
             </ButtonStyled>
             </CardButtonStyled>
-        ))}
     </Wrapper>
 
 
