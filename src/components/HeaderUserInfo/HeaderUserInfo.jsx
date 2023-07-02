@@ -7,7 +7,7 @@ import { setNameModal } from 'redux/modal';
 import { MODAL_EDIT_PROFILE } from 'components/Modal/ModalMapContainer/enums';
 
 export const HeaderUserInfo = () => {
-  const { name, avatarURL } = useSelector(selectUser);
+  const { name, avatar } = useSelector(selectUser);
   const dispatch = useDispatch();
 
   const toggle = () => {
@@ -18,8 +18,8 @@ export const HeaderUserInfo = () => {
     <Wrapper>
       <p>{name}</p>
       <ImgWrap onClick={toggle}>
-        {avatarURL ? (
-          <Img src={avatarURL} alt="user avatar" />
+        {avatar ? (
+          <Img src={avatar} alt="user avatar" />
         ) : (
           <Svg aria-label="user-default icon">
             <use href={sprite + '#icon-user-default'}></use>

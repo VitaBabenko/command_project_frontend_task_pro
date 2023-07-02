@@ -7,7 +7,8 @@
   width: 100%;
   margin-bottom: 14px;
 }
- /* input:first-child {
+
+/* input:first-child {
   margin-top: 25px;
 } */
 
@@ -37,7 +38,7 @@ input.error {
 }
 
 input.error:focus {
-  border-color:#ff5252;
+  border-color: #ff5252;
 }
 
 input::-webkit-input-placeholder {
@@ -93,17 +94,3 @@ span.error:last-child {
   position: relative;
   min-height: 48px;
 }
-
-/* .toggle_pass .eye {
-  display: block;
-  width: 16px;
-  height: 16px;
-  position: absolute;
-  right: 9px;
-  top: 50%;
-  z-index: 1;
-  cursor: pointer;
-  margin: -8px 0 0;
-  padding: 0;
-  background: white;
-} */

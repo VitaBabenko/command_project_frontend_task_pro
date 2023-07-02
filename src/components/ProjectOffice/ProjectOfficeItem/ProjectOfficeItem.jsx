@@ -4,53 +4,39 @@ import { ActionsButton, StyledTitle } from './OfficeItemStyle.styled';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useEffect, useState } from 'react';
-import { ModalColumn } from 'components/Modal/ModalColumn/ModalColumn';
-import { useDispatch } from 'react-redux';
-import { deleteColumn, updateColumn } from 'redux/dashboards/operation';
 
+import ProjectCardAddButton from '../ProjectCardAddButton/ProjectCardAddButton';
+import axios from 'axios';
 
-const ProjectOfficeItem = ({ column: { title, _id }, boardId }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const ProjectOfficeItem = ({ column: { title, _id: columnId }, boardId }) => {
+  const [tasks, setTasks] = useState([]);
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const { data } = await axios.get(
+        `/boards/${boardId}/columns/${columnId}/tasks`
+      );
 
-  const handleEditColumnName = (newName) => { 
+      setTasks(data.tasks);
+    };
+    fetchTasks();
+  }, [boardId, columnId]);
 
-    dispatch(updateColumn({ boardId, columnId: _id, title: newName }));
-  } 
-
-  const handleDeletecolumn = () => { 
-    dispatch(deleteColumn({ boardId, columnId: _id }));
-
-  }
-
-
-
-
-  const handleToggle = () => { 
-    setIsOpen(!isOpen);
-  } 
-  // console.log(_id)
-  console.log(title)
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
       <Wrapper>
-            <ActionsButton>
-            <StyledTitle>{ title }</StyledTitle>
+        <ActionsButton key={Date.now()}>
+          <StyledTitle>{title}</StyledTitle>
           <ActionsIconsButton>
-            <button type='button' onClick={handleToggle}>
-              <EditIcon fontSize='small' sx={{ color: '#888888' }} />
-            </button>
-            <button type='button' onClick={handleDeletecolumn}>
-              <DeleteOutlineIcon fontSize='small' sx={{ color: '#888888' }} />
-              </button>
-            </ActionsIconsButton>
+            <EditIcon fontSize="small" sx={{ color: '#888888' }} />
+            <DeleteOutlineIcon fontSize="small" sx={{ color: '#888888' }} />
+          </ActionsIconsButton>
         </ActionsButton>
       </Wrapper>
-      <ModalColumn isOpen={isOpen} onClose={handleToggle} type='edit' onUpdate={handleEditColumnName} />
-        <ProjectOfficeCardItem />
+      {tasks && tasks.map(task => <ProjectOfficeCardItem task={task} />)}
+      <ProjectCardAddButton />
+    </div>
 
-    </> 
   );
 };
 

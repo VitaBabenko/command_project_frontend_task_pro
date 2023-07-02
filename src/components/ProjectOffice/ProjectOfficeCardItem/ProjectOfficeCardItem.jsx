@@ -1,69 +1,82 @@
-import { CardWrapper, CardActionsStyled, CardFooterStyled, CardIconsWrapper } from '../ProjectOfficeStyle';
+import {
+  CardActionsStyled,
+  CardFooterStyled,
+  CardIconsWrapper,
+} from '../ProjectOfficeStyle';
 import CardContent from '@mui/material/CardContent';
-import { CardActionArea } from '@mui/material';
+import { Button, CardActionArea } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import { CardStyled, CardTitle, CardText, CardFooterTitle, DividerStyled, WrapperFooter, WrapperText, StatusWrapper, StatusStyled } from './ProjectOfficeCardItem.styled';
-import ProjectCardAddButton from '../ProjectCardAddButton/ProjectCardAddButton';
+import {
+  CardStyled,
+  CardTitle,
+  CardText,
+  CardFooterTitle,
+  DividerStyled,
+  WrapperFooter,
+  WrapperText,
+  StatusWrapper,
+  StatusStyled,
+} from './ProjectOfficeCardItem.styled';
 
-const ProjectOfficeCardItem = () => {
+import { useState } from 'react';
+import { CardPopUp } from 'components/CardPopUp/CardPopUp';
+
+const ProjectOfficeCardItem = ({ task }) => {
+  const { _id, title, description, priority, deadline } = task;
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggleModal = () => {
+    setIsOpen(prevstate => !prevstate);
+  };
+
   return (
     <>
-        <CardWrapper>
-                <CardStyled>
-                    <CardActionArea>
-                        <CardContent>
-                            <CardTitle component="div">
-                                The Watch Spot Design
-                            </CardTitle>
-                            <CardText>
-                                Create a visually stunning and eye-catching watch dial design that embodies our brand's
-                            </CardText>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActionsStyled>
-                        <DividerStyled />
-                    </CardActionsStyled>
-                    <CardFooterStyled>
-                        <CardFooterTitle>
-                            Priority
-                        </CardFooterTitle>
-                        <CardFooterTitle>
-                            Deadline
-                        </CardFooterTitle>
-                    </CardFooterStyled>
+      <CardStyled key={_id}>
+        <CardActionArea>
+          <CardContent>
+            <CardTitle component="div">{title}</CardTitle>
 
-                    <WrapperFooter>
-                    <CardFooterStyled>
-                        <WrapperText>
-                            <StatusWrapper>
-                                <StatusStyled/>Low
-                            </StatusWrapper>
-                        </WrapperText>
-                        <WrapperText>
-                            12/05/2023
-                        </WrapperText>
-                    </CardFooterStyled>
+            <CardText>{description}</CardText>
+          </CardContent>
+        </CardActionArea>
+        <CardActionsStyled>
+          <DividerStyled />
+        </CardActionsStyled>
+        <CardFooterStyled>
+          <CardFooterTitle>Priority</CardFooterTitle>
+          <CardFooterTitle>Deadline</CardFooterTitle>
+        </CardFooterStyled>
 
-                    <CardIconsWrapper>
-                        <NotificationsNoneIcon fontSize='small' sx={{color: '#888888'}}  />
-                        <ArrowCircleRightIcon fontSize='small' sx={{color: '#888888'}}  />
-                        <EditIcon fontSize='small' sx={{color: '#888888'}}  />
-                        <DeleteOutlineIcon fontSize='small' sx={{color: '#888888'}}  />
-                    </CardIconsWrapper>
+        <WrapperFooter>
+          <CardFooterStyled>
+            <WrapperText>
+              <StatusWrapper>
+                <StatusStyled />
+                {priority}
+              </StatusWrapper>
+            </WrapperText>
 
-                    </WrapperFooter>
+            <WrapperText>{deadline}</WrapperText>
+          </CardFooterStyled>
 
-                </CardStyled>
+          <CardIconsWrapper>
+            <NotificationsNoneIcon fontSize="small" sx={{ color: '#888888' }} />
+            <ArrowCircleRightIcon fontSize="small" sx={{ color: '#888888' }} />
+            <Button onClick={handleToggleModal}>
+              <EditIcon fontSize="small" sx={{ color: '#888888' }} />
+            </Button>
 
-            
-        </CardWrapper>
-        <ProjectCardAddButton />
-    </> 
+            <DeleteOutlineIcon fontSize="small" sx={{ color: '#888888' }} />
+          </CardIconsWrapper>
+        </WrapperFooter>
+      </CardStyled>
+      {isOpen && <CardPopUp isOpen={isOpen} onClose={handleToggleModal} />}
+    </>
   );
 };
 
 export default ProjectOfficeCardItem;
-
