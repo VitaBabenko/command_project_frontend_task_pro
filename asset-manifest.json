@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/command_project_frontend_task_pro/static/css/main.36380e2b.css",
-    "main.js": "/command_project_frontend_task_pro/static/js/main.a887f001.js",
-    "static/js/198.f091aeba.chunk.js": "/command_project_frontend_task_pro/static/js/198.f091aeba.chunk.js",
-    "static/js/486.98660dfd.chunk.js": "/command_project_frontend_task_pro/static/js/486.98660dfd.chunk.js",
+    "main.js": "/command_project_frontend_task_pro/static/js/main.3d8c22d2.js",
+    "static/js/198.ce882e6a.chunk.js": "/command_project_frontend_task_pro/static/js/198.ce882e6a.chunk.js",
+    "static/js/486.6e95f465.chunk.js": "/command_project_frontend_task_pro/static/js/486.6e95f465.chunk.js",
     "static/js/110.25ac32ea.chunk.js": "/command_project_frontend_task_pro/static/js/110.25ac32ea.chunk.js",
     "static/css/65.7dcd0fcf.chunk.css": "/command_project_frontend_task_pro/static/css/65.7dcd0fcf.chunk.css",
     "static/js/65.24dcb194.chunk.js": "/command_project_frontend_task_pro/static/js/65.24dcb194.chunk.js",
@@ -14,9 +14,9 @@
     "static/media/logo.svg": "/command_project_frontend_task_pro/static/media/logo.b1359900ecfd4020ac0aa38f78f79245.svg",
     "static/media/burger.svg": "/command_project_frontend_task_pro/static/media/burger.c6a1a215d8b4b8a65139c03451310e2f.svg",
     "main.36380e2b.css.map": "/command_project_frontend_task_pro/static/css/main.36380e2b.css.map",
-    "main.a887f001.js.map": "/command_project_frontend_task_pro/static/js/main.a887f001.js.map",
-    "198.f091aeba.chunk.js.map": "/command_project_frontend_task_pro/static/js/198.f091aeba.chunk.js.map",
-    "486.98660dfd.chunk.js.map": "/command_project_frontend_task_pro/static/js/486.98660dfd.chunk.js.map",
+    "main.3d8c22d2.js.map": "/command_project_frontend_task_pro/static/js/main.3d8c22d2.js.map",
+    "198.ce882e6a.chunk.js.map": "/command_project_frontend_task_pro/static/js/198.ce882e6a.chunk.js.map",
+    "486.6e95f465.chunk.js.map": "/command_project_frontend_task_pro/static/js/486.6e95f465.chunk.js.map",
     "110.25ac32ea.chunk.js.map": "/command_project_frontend_task_pro/static/js/110.25ac32ea.chunk.js.map",
     "65.7dcd0fcf.chunk.css.map": "/command_project_frontend_task_pro/static/css/65.7dcd0fcf.chunk.css.map",
     "65.24dcb194.chunk.js.map": "/command_project_frontend_task_pro/static/js/65.24dcb194.chunk.js.map",
@@ -25,6 +25,6 @@
   },
   "entrypoints": [
     "static/css/main.36380e2b.css",
-    "static/js/main.a887f001.js"
+    "static/js/main.3d8c22d2.js"
   ]
 }
