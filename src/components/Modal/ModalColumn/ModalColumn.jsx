@@ -4,7 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { CustomDialog, StyleInput } from "./ModalColumn.styled";
 import { useState } from "react";
 
-export const ModalColumn = ({ isOpen, onClose, type = "create", initialState = '', onRemove }) => {
+export const ModalColumn = ({ isOpen, onClose, type = "create", initialState = '', onRemove, onUpdate }) => {
   const [title, setTitle] = useState(initialState);
 
   const reset = () => {
@@ -19,6 +19,21 @@ export const ModalColumn = ({ isOpen, onClose, type = "create", initialState = '
   const handleChange = ({ target }) => { 
     setTitle(target.value);
   }
+
+  const handleButtonClick = (title) => { 
+    if (type === "create") { 
+      onRemove(title);
+      handleClose();
+    }
+    if (type === "edit") {
+      console.log(title)
+      onUpdate(title);
+      handleClose();
+    }
+
+    
+  }
+
 
   return (
     <CustomDialog
@@ -70,8 +85,8 @@ export const ModalColumn = ({ isOpen, onClose, type = "create", initialState = '
           value={title}
           onChange={handleChange}
         />
-        <CustomButton onClick={() => { onRemove(title);  handleClose()}}>
-                  Add
+        <CustomButton onClick={() => handleButtonClick(title)}>
+          {type === 'create' ? 'Add' : 'Edit'}
         </CustomButton>
       </DialogContent>
     </CustomDialog>

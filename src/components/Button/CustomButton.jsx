@@ -32,7 +32,6 @@ export const CustomButton = ({
       fullWidth
       type={type}
       sx={{
-          height: "49px",
           maxWidth: "352px",
           fontFamily: "Poppins, sans-serif",
           fontWeight: "500",
@@ -61,33 +60,40 @@ export const CustomButtonSend = ({
   children,
   onClick,
   styleOptions = {},
-    type = "button",
-    isWhiteBackground = false,
+  type = "button",
+  isWhiteBackground = false,
+  disabled = false,
 }) => {
-    
-    
+
+
   return (
-    <Button          
+    <Button
       variant="contained"
       onClick={onClick}
       fullWidth
       type={type}
+      disabled={disabled}
       sx={{
-          height: "49px",
-          maxWidth: "352px",
-          fontFamily: "Poppins, sans-serif",
-          fontWeight: "500",
-          fontSize: "14px",
-          lineHeight: "1.5",
+        height: "49px",
+        maxWidth: "352px",
+        fontFamily: "Poppins, sans-serif",
+        fontWeight: "500",
+        fontSize: "14px",
+        lineHeight: "1.5",
         letterSpacing: "-0.02em",
         display: "flex",
         alignItems: "center",
         background: 'var(--greenGreenBlueColor)',
         borderRadius: "8px",
-        color: isWhiteBackground? "#FFFFFF" : "#161616",
+        color: isWhiteBackground ? "#FFFFFF" : "#161616",
         textTransform: "none",
+        cursor: 'pointer',
         "&:hover": {
           background: 'var(--btnColorHover)',
+        },
+        "&:disabled": {
+          background: 'var(--btnColorHover)',
+          opacity: 0.95,
         },
         ...styleOptions,
       }}

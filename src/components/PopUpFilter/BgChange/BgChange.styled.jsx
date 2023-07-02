@@ -74,4 +74,5 @@ export const ButtonNoneBg = styled.button`
 
 export const SvgIcons = styled.svg`
   stroke: var(--defaultImgColor);
+  fill:none;
 `;

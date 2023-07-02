@@ -1,7 +1,9 @@
-export const ModalBodyWrapper = ({ children, manualControlBody }) => {
+import { ModalBodyWrapperDiv } from "../Modal.styled";
+
+export const ModalBodyWrapper = ({ children }) => {
   return (
-    <div className={!manualControlBody ? 'modal-body-wrapper' : ''}>
+    <ModalBodyWrapperDiv>
       {children}
-    </div>
+    </ModalBodyWrapperDiv>
   );
 };

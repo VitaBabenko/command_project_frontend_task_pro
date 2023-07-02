@@ -36,6 +36,7 @@ const ProjectOfficeItem = ({ column: { title, _id: columnId }, boardId }) => {
       {tasks && tasks.map(task => <ProjectOfficeCardItem task={task} />)}
       <ProjectCardAddButton />
     </div>
+
   );
 };
 

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const LogoLink = styled.div`
   color: inherit;
@@ -147,4 +148,20 @@ width: 16px;
 height: 16px;
 stroke: var(--passiveBorderColor);
 fill: transparent;
+`
+
+export const StyledLink = styled(NavLink)`
+color :rgba(255, 255, 255, 0.5);
+font-size: 14px;
+line-height: 1.5;
+letter-spacing: -0.02em;
+&.active {
+  color :#FFFFFF;
+  stroke: #FFFFFF;
+
+  & svg {
+      stroke: #ffffff;
+    }
+}
+
 `

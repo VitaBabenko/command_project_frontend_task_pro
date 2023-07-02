@@ -21,13 +21,15 @@ export const ModalAddBoard = ({
   } = useForm();
   const dispatch = useDispatch();
 
-  const onSubmit = data => {
+  const onSubmit = ({title, dashboardIcon, background = ''}) => {
     if (type === 'create') {
-      dispatch(addUserBoard(data));
+      background = background || '';
+      console.log({title, dashboardIcon, background})
+      dispatch(addUserBoard({title, dashboardIcon, background}));
     } else if (type === 'edit') {
       console.log('update');
-      console.log(data);
-      handleUpdateBoard(data);
+      console.log({title, dashboardIcon, background});
+      handleUpdateBoard({title, dashboardIcon, background});
     }
     reset();
     onClose();
@@ -68,6 +70,7 @@ export const ModalAddBoard = ({
                     value={img.id}
                     {...register('background')}
                     style={{ display: 'none' }}
+                    
                   />
                   <img
                     srcSet={`${img.backgroundImage} 1x, ${img.retinaBackgroundImage} 2x`}

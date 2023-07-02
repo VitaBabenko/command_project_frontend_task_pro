@@ -8,13 +8,21 @@ import AddColumnButton from './AddColumnsButton/AddColumnsButton';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addColumn, getColumnsForBoard } from 'redux/dashboards/operation';
-import { selectColumnsForBoard } from 'redux/dashboards/selectors';
-import { Box } from '@mui/material';
+import {
+  selectColumnsForBoard,
+  selectDashboards,
+} from 'redux/dashboards/selectors';
+// import { Box } from '@mui/material';
+import { BackgroundContainer } from './ProjectOfficeBgContainer';
 
 const ProjectOffice = () => {
   const isLoading = useSelector(state => state.dashboard.isLoading);
   const { boardName } = useParams();
   const columns = useSelector(state => selectColumnsForBoard(state, boardName));
+  const dashboards = useSelector(selectDashboards);
+  const currentBoard = dashboards.find(board => board._id === boardName);
+
+  console.log(currentBoard);
 
   const dispatch = useDispatch();
 
@@ -47,7 +55,8 @@ const ProjectOffice = () => {
       </div>
       {/* </div> */}
       {/* <ProjectOfficeItem column={columns} /> */}
-    </Box>
+      {/* </Box> */}
+    </BackgroundContainer>
   );
 };
 
