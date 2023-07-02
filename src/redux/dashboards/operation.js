@@ -13,7 +13,7 @@ export const fetchUserDashboards = createAsyncThunk(
       const resp = await axios.get('/boards');
       return resp.data.boards;
     } catch (error) {
-      return console.log(error);
+      return rejectWithValue(error.message); 
     }
   }
 );
@@ -25,7 +25,7 @@ export const addUserBoard = createAsyncThunk(
       const resp = await axios.post('/boards', board);
       return resp.data.board;
     } catch (error) {
-      return console.log(error);
+      return rejectWithValue(error.message); 
     }
   }
 );
@@ -38,7 +38,7 @@ export const updateUserBoard = createAsyncThunk(
       console.log(resp.data);
       return resp.data.board;
     } catch (error) {
-      return console.log(error);
+      return rejectWithValue(error.message); 
     }
   }
 );
@@ -51,7 +51,7 @@ export const deleteUserBoard = createAsyncThunk(
       console.log(resp.data);
       return resp.data.board;
     } catch (error) {
-      return console.log(error);
+      return rejectWithValue(error.message); 
     }
   }
 );
@@ -64,7 +64,7 @@ export const addColumn = createAsyncThunk(
       console.log(resp);
       return resp.data.column;
     } catch (error) {
-      return console.log(error);
+      return rejectWithValue(error.message); 
     }
   }
 );
@@ -77,35 +77,35 @@ export const getColumnsForBoard = createAsyncThunk(
       console.log(resp.data);
       return resp.data.columns;
     } catch (error) {
-      return console.log(error);
+      return rejectWithValue(error.message); 
     }
   }
 );
 
 export const updateColumn = createAsyncThunk(
   'dashboards/updateColumn',
-  async (boardId, columnId, title, { rejectWithValue }) => {
+  async ({ boardId, columnId, title }, { rejectWithValue }) => {
     try {
       const resp = await axios.put(`/boards/${boardId}/columns/${columnId}`, {
         title,
       });
       console.log(resp.data);
-      return resp.data.columns;
+      return resp.data.column;
     } catch (error) {
-      return console.log(error);
+      return rejectWithValue(error.message); 
     }
   }
 );
 
 export const deleteColumn = createAsyncThunk(
   'dashboards/editColumn',
-  async (boardId, columnId, title, { rejectWithValue }) => {
+  async ({ boardId, columnId }, { rejectWithValue }) => {
     try {
       const resp = await axios.delete(`/boards/${boardId}/columns/${columnId}`);
       console.log(resp.data);
-      return resp.data.columns;
+      return resp.data.column;
     } catch (error) {
-      return console.log(error);
+      return rejectWithValue(error.message); 
     }
   }
 );

@@ -98,6 +98,7 @@ const dashboardSlice = createSlice({
         const targetBoard = state.dashboards.find(board => board._id === owner);
         if (targetBoard) {
           targetBoard.columns = columns;
+          console.log(targetBoard.columns);
         }
       })
       .addCase(getColumnsForBoard.rejected, (state, action) => {
@@ -157,21 +158,19 @@ const dashboardSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const { columnId, boardId } = action.payload;
-        const boardIndex = state.dashboards.findIndex(
+        const targetBoard = state.dashboards.find(
           board => board._id === boardId
         );
-        if (boardIndex !== -1) {
-          const columnIndex = state.dashboards[boardIndex].columns.findIndex(
-            column => column._id === columnId
+        if (targetBoard && targetBoard.columns) {
+          targetBoard.columns = targetBoard.columns.filter(
+            column => column._id !== columnId
           );
-          if (columnIndex !== -1) {
-            state.dashboards[boardIndex].columns.splice(columnIndex, 1);
-          }
         }
       })
+
       .addCase(deleteColumn.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = state.payload.message;
+        state.error = state.payload;
       });
   },
 });

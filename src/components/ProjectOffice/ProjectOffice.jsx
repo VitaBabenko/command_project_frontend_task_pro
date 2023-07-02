@@ -7,7 +7,7 @@ import ProjectOfficeHeader from './ProjectOfficeHeader/ProjectOfficeHeader';
 import AddColumnButton from './AddColumnsButton/AddColumnsButton';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addColumn, getColumnsForBoard } from 'redux/dashboards/operation';
+import { addColumn, deleteColumn, getColumnsForBoard, updateColumn } from 'redux/dashboards/operation';
 import {
   selectColumnsForBoard,
   selectDashboards,
@@ -15,16 +15,29 @@ import {
 import { Box } from '@mui/material';
 import { BackgroundContainer } from './ProjectOfficeBgContainer';
 
+
 const ProjectOffice = () => {
   const isLoading = useSelector(state => state.dashboard.isLoading);
   const { boardName } = useParams();
   const columns = useSelector(state => selectColumnsForBoard(state, boardName));
   const dashboards = useSelector(selectDashboards);
   const currentBoard = dashboards.find(board => board._id === boardName);
-
-  console.log(currentBoard);
-
   const dispatch = useDispatch();
+  
+  const handleDeletecolumn = async (boardId, columnId) => {
+    await dispatch(deleteColumn({ boardId, columnId }));
+    dispatch(getColumnsForBoard(boardName));
+  };
+
+
+  const handleEditColumnName = async ({ boardId, columnId, title }) => {
+    await dispatch(updateColumn({ boardId, columnId, title }));
+    console.log('UPADATE NAME NEW')
+    dispatch(getColumnsForBoard(boardName));
+    
+  };
+
+
 
   const handleAddColumn = columnName => {
     dispatch(addColumn({ title: columnName, boardId: boardName }));
@@ -34,9 +47,13 @@ const ProjectOffice = () => {
     dispatch(getColumnsForBoard(boardName));
   }, [dispatch, boardName]);
 
+
+
+
+
   return (
     // <Box sx={{ marginLeft: '20%' }}>
-    <BackgroundContainer>
+    <BackgroundContainer bgnumber={currentBoard ? currentBoard.background : ''}>
       <Box sx={{ marginLeft: 3 }}>
         <ProjectOfficeHeader />
         {!isLoading && <AddColumnButton handleAddColumn={handleAddColumn} />}
@@ -48,6 +65,8 @@ const ProjectOffice = () => {
                 column={column}
                 boardId={boardName}
                 key={column._id}
+                onDelete={handleDeletecolumn}
+                handleEditColumnName={handleEditColumnName}
               />
             ))
           ) : (
