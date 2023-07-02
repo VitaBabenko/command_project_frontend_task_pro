@@ -16,7 +16,7 @@ const AuthPage = () => {
     <AuthPageContainer>
       <ContentWrapper>
         <NavWrapper>
-          <Navlink to="/auth/register">Register</Navlink>
+          <Navlink to="/auth/register">Registration</Navlink>
           <Navlink to="/auth/login">Log In</Navlink>
         </NavWrapper>
         {id === 'register' && <RegisterForm />}

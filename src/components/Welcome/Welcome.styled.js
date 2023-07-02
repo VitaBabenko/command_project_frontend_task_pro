@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const WelcomeWrapper = styled.h1`
-background-color: #ffffff;
+  background-color: #ffffff;
   background-image: var(--authBgGradient);
 `;
 
@@ -11,9 +11,8 @@ export const Title = styled.h1`
   margin: 0;
   color: #161616;
   font-size: 40px;
-  font-family: Poppins;
   font-weight: 600;
-  
+
   letter-spacing: 1.6px;
 `;
 
@@ -34,23 +33,23 @@ export const Icon = styled.svg`
 `;
 
 export const Container = styled.div`
-margin: auto;
+  margin: auto;
   gap: 24px;
   display: flex;
-  width:100%;
+  width: 100%;
   height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-size: cover;
-@media (min-width: 375px) {
-  width: 335px;
-}
+  @media (min-width: 375px) {
+    width: 335px;
+  }
 
-@media (min-width: 768px) {
-  width: 473px;
-}
-  
+  @media (min-width: 768px) {
+    width: 473px;
+  }
+
   /* background-color: #f6f6f7; */
 `;
 
@@ -64,7 +63,7 @@ export const ContainerTitle = styled.div`
 export const Text = styled.p`
   text-align: center;
   font-size: 14px;
-  
+
   line-height: 18px;
   letter-spacing: -0.28px;
   font-weight: 400;
@@ -83,13 +82,10 @@ export const Nav = styled.nav`
   flex-direction: column;
   text-align: center;
   align-items: center;
-  gap: 14px;
   width: 100%;
 `;
 
 export const StyledNavLinkReg = styled(NavLink)`
-
-
   display: flex;
   width: 100%;
   padding: 14px 0;
@@ -98,9 +94,8 @@ export const StyledNavLinkReg = styled(NavLink)`
 
   text-decoration: none;
   font-size: 14px;
-  font-family: Poppins;
   font-weight: 500;
-  letter-spacing: 0.28px;
+  letter-spacing: -0.28px;
 
   border-radius: 8px;
   background: #161616;
@@ -108,11 +103,11 @@ export const StyledNavLinkReg = styled(NavLink)`
 
   transition: opacity var(--transition_data);
   @media (min-width: 375px) {
-  width: 335px;;
-}
-@media (min-width: 768px) {
-  width: 344px;
-}
+    width: 335px;
+  }
+  @media (min-width: 768px) {
+    width: 344px;
+  }
   &:hover {
     opacity: 0.7;
   }
@@ -121,9 +116,8 @@ export const StyledNavLinkReg = styled(NavLink)`
 export const StyledNavLinkLog = styled(NavLink)`
   text-decoration: none;
   font-size: 14px;
-  padding: 14px 0px;
-  font-family: Poppins;
-  font-weight: 500;
+  padding: 14px 0;
+  /* font-weight: 500; */
   letter-spacing: -0.28px;
   justify-content: center;
   align-items: center;
