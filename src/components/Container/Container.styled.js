@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyleContainer = styled.div`
+  
 
   /* background-color: var(--sidebarBgColor); */
 
@@ -9,6 +10,7 @@ export const StyleContainer = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    height: 100vh;
     margin: 0 auto;
     width: 100%;
     display: flex;
