@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const SidebarMain = styled.div`
   min-width: 260px;
   width: 260px;
-  height: 100vh;
   background-color: var(--sidebarBgColor);
   color: #fff;
   transition: left cubic-bezier(0.15, 0.84, 1, 1) 0.219s;
@@ -12,9 +11,14 @@ export const SidebarMain = styled.div`
     width: 225px;
   }
   @media screen and (max-width: 768px) {
+    height: 100vh;
+    overflow: auto;
     position: fixed;
     left: -260px;
-    top: 64px;
+    top: 68px;
+    z-index: 1000;
+    min-height: 100%;
+    padding-bottom: 120px;
     &.visible {
       left: 0;
     }
@@ -22,9 +26,9 @@ export const SidebarMain = styled.div`
 `;
 
 export const Inn = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  // display: flex;
+  // flex-direction: column;
+  // height: 100%;
 `;
 
 export const Text = styled.p`

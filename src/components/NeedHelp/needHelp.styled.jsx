@@ -19,14 +19,19 @@ export const constBorderStyle = css`
  `;
 
 export const Wrapper = styled.div`
+margin-left: 24px;
 width: 197px;
 height: 238px;
   border-radius: 8px;
   background: var(--helpBgColor);
   padding: 20px;
+  @media screen and (max-width: 375px) {
+  margin-left: 14px;
+  }
   @media screen and (min-width: 375px) {
     width: 212px;
     min-height: 272px;
+  margin-left: 24px;
   }
 `;
 
