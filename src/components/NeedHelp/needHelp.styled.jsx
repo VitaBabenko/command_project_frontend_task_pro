@@ -21,7 +21,7 @@ export const constBorderStyle = css`
 export const Wrapper = styled.div`
 margin-left: 24px;
 width: 197px;
-height: 238px;
+height: 100%;
   border-radius: 8px;
   background: var(--helpBgColor);
   padding: 20px;
