@@ -12,8 +12,7 @@ const ProjectOfficeCardItem = () => {
   return (
     <>
         <CardWrapper>
-            {Array.from(Array(1)).map((_, index) => (
-                <CardStyled key={index}>
+                <CardStyled>
                     <CardActionArea>
                         <CardContent>
                             <CardTitle component="div">
@@ -58,7 +57,7 @@ const ProjectOfficeCardItem = () => {
                     </WrapperFooter>
 
                 </CardStyled>
-            ))}
+
             
         </CardWrapper>
         <ProjectCardAddButton />

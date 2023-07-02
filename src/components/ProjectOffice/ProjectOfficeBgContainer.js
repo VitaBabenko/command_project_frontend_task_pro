@@ -8,6 +8,7 @@ export const BackgroundContainer = styled.div`
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+  background-color: ${props => (props.bgnumber ? 'initial' : 'transparent')};
 
 
   @media screen and (max-width: 374px) {
