@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import {
   ECurrentEditOperationEditAvatar,
@@ -46,6 +46,7 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
     let dataUrl = await convert2DataUrl(blob);
     const file = await url2File(dataUrl, currentImg)
 
+    console.log(file);
     const userData = {
       name: data[ERegisterFieldName],
       email: data[ERegisterFieldEmail],

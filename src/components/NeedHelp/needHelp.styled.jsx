@@ -19,11 +19,15 @@ export const constBorderStyle = css`
  `;
 
 export const Wrapper = styled.div`
-  width: 212px;
-  min-height: 272px;
+width: 197px;
+height: 238px;
   border-radius: 8px;
   background: var(--helpBgColor);
   padding: 20px;
+  @media screen and (min-width: 375px) {
+    width: 212px;
+    min-height: 272px;
+  }
 `;
 
 export const Img = styled.img`
@@ -50,7 +54,7 @@ export const Button = styled.button`
   font-size: 12px;
   font-weight: 500;
   border: none;
-`
+`;
 
 export const BtnTitle = styled.span`
   color: var(--needHelpBtn);
@@ -77,9 +81,9 @@ export const WrapperInput = styled.div`
     margin-top:5px;
     padding-left: 14px;
   }
-`
+`;
 
-export const WrapperPopUp = styled.div`
+export const WrapperPopUp = styled.div` 
   width: 100%;
   min-height: 355px;
   padding: 24px;
@@ -87,19 +91,30 @@ export const WrapperPopUp = styled.div`
   border: 1px solid var(--modalBorderColor);
   background: var(--themeListBgColor);
   box-shadow: 0px 4px 16px 0px var(--boxShadowColor);
-`
+
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  };
+  @media screen and (min-width: 768px) {
+    width: 340px;    
+  };
+  @media screen and (min-width: 1440px){
+    width: 400px;    
+  };
+`;
+
 export const Icon = styled.svg`
   stroke: var(--needHelpBtn);
   fill: transparent;
-`
+`;
 
 export const Logo = styled.span`
   color: var(--greenGreenBlueColor);
-`
+`;
 
 export const Input = styled.input`
   display:flex;
-  width: 344px;
+  width: 100%;
   padding: 14px 14px 14px 18px;
   align-items: center;
 
@@ -152,7 +167,7 @@ cursor: pointer;
 
 export const ErrorResponseMessage = styled.p`
 color: var(--colorError);
-`
+`;
 
 export const SuccessResponseMessage = styled.p`
 color: #1fc81f;

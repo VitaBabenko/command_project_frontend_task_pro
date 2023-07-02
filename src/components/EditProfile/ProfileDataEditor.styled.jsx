@@ -2,13 +2,20 @@ import { Input, InputLabel, ErrorMsg } from 'components/NeedHelp/needHelp.styled
 import styled from 'styled-components';
 
 export const EditProfileWrapper = styled.div`
+width: 100%;
   padding: 24px;
-  width: 400px;
   min-height: 440px;
   background: var(--themeListBgColor);
   border: 1px solid rgba(190, 219, 176, 0.5);
   box-shadow: 0px 4px 16px 0px var(--boxShadowColor);
   border-radius: 8px;
+
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  };
+  @media screen and (min-width: 768px){
+    width: 400px;    
+  };
 `;
 
 export const WrapperBox = styled.div`
@@ -114,7 +121,7 @@ export const IconPassword = styled.span`
   cursor: pointer;
   margin: -8px 0 0;
   padding: 0;
-`
+`;
 
 export const WrapperPass = styled.div`
   position: relative;
