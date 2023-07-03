@@ -8,17 +8,13 @@ export const ThemeSelectTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background-color: red; */
-
   width: 68px;
   height: 21px;
-
   color: var(--themeTitleTextColor);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.28px;
   cursor: pointer;
-
   transition: opacity var(--transition_data);
 
   &:hover {
@@ -51,13 +47,11 @@ export const ThemeSelects = styled.li`
   transition: opacity var(--transition_data);
 
   &:hover {
-    /* color: orange; */
     opacity: 0.7;
   }
 `;
 
 export const ThemeSelectIcon = styled.svg`
-  /* margin-left: 4px; */
   width: 16px;
   height: 16px;
   stroke: var(--themeTitleTextColor);
