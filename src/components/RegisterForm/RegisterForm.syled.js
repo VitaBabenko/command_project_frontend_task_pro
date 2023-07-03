@@ -40,8 +40,8 @@ export const Input = styled.input`
 
 export const Icon = styled.svg`
   position: absolute;
-  right: 50px;
-  bottom: 15px;
+  right: 18px;
+  bottom: 16px;
   width: 18px;
   height: 18px;
   stroke: #ffffff;
@@ -83,7 +83,7 @@ export const FormContainer = styled.div`
 
 export const IconLogin = styled.svg`
   position: absolute;
-  right: 50px;
+  right: 18px;
   bottom: 75px;
   width: 18px;
   height: 18px;
