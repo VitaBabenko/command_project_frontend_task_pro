@@ -21,7 +21,7 @@ export const DefaultText = styled.p`
   line-height: 1.3;
   letter-spacing: -0.02em;
   text-align: center;
-  color: var(--popupTextColor);
+  color: var(--primaryTextColor);
 `;
 
 export const AccentText = styled.span`

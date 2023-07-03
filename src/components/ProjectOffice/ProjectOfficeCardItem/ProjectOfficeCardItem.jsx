@@ -30,11 +30,26 @@ import { selectColumnsForBoard } from 'redux/dashboards/selectors';
 
 const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
   const { _id: taskId, title, description, priority, deadline } = task;
+  console.log(deadline)
 
   const columns = useSelector(state => selectColumnsForBoard(state, boardId));
 
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenPopUp, setIsOpenPopUp] = useState(false);
+
+
+  const isDeadLine = () => { 
+    const currentTime = new Date();
+    const deadlineTime = new Date(deadline);
+
+    const timeLeft = deadlineTime.getTime() - currentTime.getTime();
+    const hoursLeft = Math.floor(timeLeft / (1000 * 60 * 60));
+
+    return hoursLeft < 24;
+  }
+
+  const isDeadlineTime = isDeadLine();
+
 
   const handleToggleModal = () => {
     setIsOpen(prevstate => !prevstate);
@@ -81,10 +96,10 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
           </CardFooterStyled>
 
           <CardIconsWrapper>
-            <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
+            {isDeadlineTime && <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
                 <use href={`${sprite}#icon-bell`}></use>
-            </SvgIconsStyled>
-
+            </SvgIconsStyled>}
+          
             <Button
               sx={{ padding: 0, width: '20px', minWidth: '0' }}
               onClick={handleTogglePopUp}
