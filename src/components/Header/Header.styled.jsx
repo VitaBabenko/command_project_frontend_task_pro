@@ -5,6 +5,10 @@ export const HeaderMain = styled.div`
   justify-content: flex-end;
   align-items: center;
   height: 68px;
+  @media screen and (max-width: 375px) {
+    height: 60px;
+  }
+
   background-color: var(--headerBgColor);
 
   position: relative;
@@ -18,7 +22,6 @@ export const HeaderMain = styled.div`
     .header-burger {
       display: block;
       fill: #161616;
-
     }
   }
   @media screen and (max-width: 375px) {
@@ -26,13 +29,11 @@ export const HeaderMain = styled.div`
       width: 24px;
       height: 24px;
     }
-    .header-burger svg{
+    .header-burger svg {
       width: inherit;
       height: inherit;
     }
   }
 `;
 
-export const Icon = styled.div`
-  
-`;
+export const Icon = styled.div``;

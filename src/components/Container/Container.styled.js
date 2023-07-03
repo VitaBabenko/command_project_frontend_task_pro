@@ -5,6 +5,7 @@ export const StyleContainer = styled.div`
   /* height: 100hv; */
 
   @media screen and (min-width: 375px) {
+    /* min-height: 752px; */
     // width: 375px;
   }
 
