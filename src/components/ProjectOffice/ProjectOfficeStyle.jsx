@@ -8,7 +8,7 @@ export const Wrapper = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  marginTop: '5px',
+  paddingTop: '5px',
   marginRight: '10px',
   gap: '5px',
 });
@@ -24,7 +24,6 @@ export const ActionsIconsButton = styled('div')({
   display: 'flex',
   justifyContent: 'flex-end',
   alignItems: 'center',
-  gap: '8px',
 });
 
 export const CardWrapper = styled('div')({
@@ -48,7 +47,7 @@ export const CardIconsWrapper = styled('div')({
   justifyContent: 'flex-end',
   paddingRight: '20px',
   gap: '8px',
-  marginTop: '-5px',
+  marginTop: '2px',
 });
 
 export const CardActionsStyled = styled(CardActions)({
@@ -61,6 +60,7 @@ export const StackWrapper = styled(Stack)({
   height: '56px',
   background: '#F6F6F7',
   borderRadius: '8px',
+  marginBottom: '5px'
 });
 
 export const CardButtonStyled = styled(Stack)({

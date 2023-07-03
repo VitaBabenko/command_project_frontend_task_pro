@@ -13,7 +13,7 @@ import {
   selectDashboards,
 } from 'redux/dashboards/selectors';
 import { Box } from '@mui/material';
-import { BackgroundContainer } from './ProjectOfficeBgContainer';
+import { BackgroundContainer } from './ProjectOfficeBgContainer.styled';
 
 
 const ProjectOffice = () => {
@@ -58,7 +58,7 @@ const ProjectOffice = () => {
         <ProjectOfficeHeader />
         {!isLoading && <AddColumnButton handleAddColumn={handleAddColumn} />}
         {/* <div style={{ display: 'flex', flexDirection: 'row' }}> */}
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '10px' }}>
           {columns ? (
             columns.map(column => (
               <ProjectOfficeItem

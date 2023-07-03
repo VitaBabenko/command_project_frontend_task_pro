@@ -16,8 +16,8 @@ export const SidebarBoards = styled.div`
 export const TitleMin = styled.span`
   margin-bottom: 8px;
   margin-right: auto;
-  margin-left: 24px;
-  color: var(--addAnotherColumnIconBgColor);
+  /* margin-left: 24px; */
+  color: var(--textBoardColor);
   font-size: 12px;
   display: block;
 `;
@@ -43,12 +43,16 @@ export const NewBoardBtn = styled.button`
   justify-content: center;
   font-size: 20px;
   border-radius: 6px;
-  background: #bedbb0;
+  background: var(--createNewBoardIconBgColor);
   line-height: 1;
   color: #121212;
   border: none;
   outline: none;
   cursor: pointer;
+`;
+
+export const SvgIcon = styled.svg`
+  stroke: var(--iconPlus);
 `;
 
 export const SidebarPrjctList = styled.ul`
@@ -103,17 +107,17 @@ export const PrjctActionList = styled.ul`
   height: 100%;
   padding-right: 24px;
   align-items: center;
-  :after{
-      content: "";
-        width: 4px;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        right: 0;
-        background-color:var(--iconLogOut);
-        border-bottom-left-radius: 4px;
-        border-top-left-radius: 4px;
-    }
+  :after {
+    content: '';
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--iconLogOut);
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+  }
   li {
     cursor: pointer;
   }

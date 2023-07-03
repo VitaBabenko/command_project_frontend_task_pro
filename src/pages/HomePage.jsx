@@ -33,7 +33,7 @@ const HomePage = () => {
   return (
     <Container>
       <Sidebar shouldShowSidebar={shouldShowSidebar} />
-      <div style={{ width: '100%' }}>
+      <main style={{ width: '100%' }}>
         <Header onBurgerClick={handleBurgerClick} />
         {/* <Routes>
         { dashboards && dashboards.map(dashboard => {
@@ -43,7 +43,7 @@ const HomePage = () => {
       </Routes> */}
         {/* <TestBg /> */}
         {/* <ProjectOffice /> */}
-        {dashboards && dashboards.length <= 0 && <DefaultScreen />} 
+        {dashboards && dashboards.length <= 0 && <DefaultScreen />}
         <Suspense
           fallback={
             <div>
@@ -53,7 +53,7 @@ const HomePage = () => {
         >
           <Outlet />
         </Suspense>
-      </div>
+      </main>
     </Container>
   );
 };

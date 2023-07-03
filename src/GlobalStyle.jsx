@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
   font-weight: 400;
   transition: 0.3s ease;
-  background-color: var(--boardBgColor);
+  ${'' /* background-color: var(--boardBgColor); */}
 
 
   ul,
@@ -71,12 +71,16 @@ body[data-theme="dark"] {
   --createNewBoardIconBgColor: #bedbb0;
   --addAnotherColumnIconBgColor: #ffffff;
   --addAvatarIconBgColor: #bedbb0;
+  --iconPlus: #121212;
+  --logoIcon: #FFFFFF;
+  --logoBackground: #1F1F1F;
  
 
   --primaryTextColor: #ffffff;
   --secondaryTextColor: rgba(255, 255, 255, 0.5);
   --popupTextColor: rgba(255, 255, 255, 0.5);
   --themeTitleTextColor: rgba(255, 255, 255, 0.8);
+  --textBoardColor: rgba(255, 255, 255, 0.5);
 
   --passiveBorderColor: rgb(190, 219, 176, 0.4);
   --modalGorizontalBorderColor: rgba(255, 255, 255, 0.1);
@@ -97,6 +101,7 @@ body[data-theme="dark"] {
   --iconEyeColor:#FFFFFF;
   --btnColorHover: #d8e9cf;
   --iconColor: rgba(255, 255, 255, 0.5);
+  --iconCardColor: #888888;
 
 
   --calendarWithoutColor: rgba(255, 255, 255, 0.30);
@@ -111,6 +116,26 @@ body[data-theme="dark"] {
 
   --activeBorder:#BEDBB0;
   --disabledBgColor: #b4adad;
+
+  /* полоса прокрутки (скроллбар) */
+  ::-webkit-scrollbar {
+    width: 8px; /* ширина для вертикального скролла */
+    height: 0px; /* высота для горизонтального скролла */
+    background-color: #313131;
+    border-radius: 12px;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: #121212;
+    border-radius: 12px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #121212;
+}
+  
 }
 
 body[data-theme="light"] {
@@ -127,11 +152,15 @@ body[data-theme="light"] {
   --createNewBoardIconBgColor: #bedbb0;
   --addAnotherColumnIconBgColor: #161616;
   --addAvatarIconBgColor: #bedbb0;
+   --iconPlus: #121212;
+   --logoIcon: #FFFFFF;
+   --logoBackground: #1F1F1F;
 
   --primaryTextColor: #161616;
   --secondaryTextColor: rgba(22, 22, 22, 0.7);
   --popupTextColor: #161616;
   --themeTitleTextColor: rgba(22, 22, 22, 0.8);
+  --textBoardColor: rgba(22, 22, 22, 0.5);
 
   --passiveBorderColor: rgb(190, 219, 176, 0.4);
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
@@ -165,6 +194,25 @@ body[data-theme="light"] {
 
   --activeBorder:#BEDBB0;
   --disabledBgColor: #b4adad;
+
+  /* полоса прокрутки (скроллбар) */
+  ::-webkit-scrollbar {
+    width: 8px; /* ширина для вертикального скролла */
+    height: 0px; /* высота для горизонтального скролла */
+    background-color: #E8E8E8;
+    border-radius: 12px;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: #D3D3D3;
+    border-radius: 12px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #D3D3D3;
+}
 }
 
 body[data-theme="violet"] {
@@ -181,11 +229,15 @@ body[data-theme="violet"] {
   --createNewBoardIconBgColor: #b8bcfd;
   --addAnotherColumnIconBgColor: #FFFFFF;
   --addAvatarIconBgColor: #ecedfd;
+   --iconPlus: #FFFFFF;
+   --logoIcon: #5255bc;
+   --logoBackground: #ECEDFD;
 
   --primaryTextColor: #161616;
   --secondaryTextColor: rgba(22, 22, 22, 0.7);
   --popupTextColor: #161616;
   --themeTitleTextColor: rgba(22, 22, 22, 0.8);
+   --textBoardColor: rgba(255, 255, 255, 0.5);
 
   --passiveBorderColor: rgba(82, 85, 188, 0.4);
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
