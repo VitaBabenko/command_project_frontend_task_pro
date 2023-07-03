@@ -6,6 +6,7 @@ export const SidebarMain = styled.div`
   background-color: var(--sidebarBgColor);
   color: #fff;
   transition: left cubic-bezier(0.15, 0.84, 1, 1) 0.219s;
+  height: inherit;
   @media screen and (max-width: 375px) {
     min-width: 225px;
     width: 225px;
@@ -26,6 +27,7 @@ export const SidebarMain = styled.div`
 `;
 
 export const Inn = styled.div`
+background-color: var(--sidebarBgColor);
   // display: flex;
   // flex-direction: column;
   // height: 100%;
