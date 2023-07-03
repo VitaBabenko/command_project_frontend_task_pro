@@ -24,13 +24,11 @@ export const registerUser = createAsyncThunk(
     } catch (error) {
       if (error.response) {
         if (error.response.status === 400) {
-          
           toast.error('Такий користувач вже зареєстрований');
         } else {
-          
-          toast.error('Сталася помилка при реєстрації')
+          toast.error('Сталася помилка при реєстрації');
         }
-      } 
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -48,13 +46,11 @@ export const loginUser = createAsyncThunk(
     } catch (error) {
       if (error.response) {
         if (error.response.status === 401) {
-          
           toast.error('Логін або пароль не вірні');
         } else {
-          
-          toast.error('Сталася помилка сервера')
+          toast.error('Сталася помилка сервера');
         }
-      } 
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -64,18 +60,13 @@ export const updateThema = createAsyncThunk(
   'auth/updateThema',
   async (thema, { rejectWithValue }) => {
     try {
-      // setAuthHeader(
-      //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OThhNjQ4YjIzZTc4OTZhMDY5MTJmYSIsImlhdCI6MTY4Nzg3NTc2MCwiZXhwIjoxNjg3OTU4NTYwfQ.aFl4mScZo_-sC_3DEsXULaICB7gdGqY37BxAcbcbVTQ'
-      // );
       const res = await axios.patch('/auth/thema', { thema });
-
       return res.data;
     } catch (e) {
       return rejectWithValue(e.message);
     }
   }
 );
-
 
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
@@ -107,7 +98,8 @@ export const refreshUser = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  });
+  }
+);
 
 export const updateUser = createAsyncThunk(
   'auth/user',
@@ -115,27 +107,39 @@ export const updateUser = createAsyncThunk(
     try {
       const res = await axios.put('/auth/user', userData, {
         headers: {
-          "Content-Type": "multipart/form-data",
-        }
+          'Content-Type': 'multipart/form-data',
+        },
       });
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.user.token);
       return res.data;
     } catch (error) {
-
       return thunkAPI.rejectWithValue(error.message);
     }
   }
-)
+);
 
 export const technicalSupportRequest = async (userData, callback) => {
   callback({ isFetching: true, init: false, data: null, error: null });
   try {
     const response = await axios.post('/auth/support', userData, {
-      headers: { 'accept': 'application/json', 'content-type': 'application/json', }
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+      },
     });
-    callback({ isFetching: false, init: true, data: response.data.message, error: false });
+    callback({
+      isFetching: false,
+      init: true,
+      data: response.data.message,
+      error: false,
+    });
   } catch (error) {
-    callback({ isFetching: false, init: true, data: null, error: error.message });
+    callback({
+      isFetching: false,
+      init: true,
+      data: null,
+      error: error.message,
+    });
   }
 };
