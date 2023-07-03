@@ -9,8 +9,6 @@ import {
   ERegisterFieldPassword,
   getDefaultValuesForm,
   isTypeFileImg,
-  convert2DataUrl,
-  url2File,
 } from './util';
 import { AvatarEditorContainer } from './AvatarEditor';
 import { updateUser } from "redux/authorization/operations";

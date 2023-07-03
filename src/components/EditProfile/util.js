@@ -42,21 +42,3 @@ export const rotateValue = 90;
 export const isTypeFileImg = (type) => {
   return type.startsWith('image/');
 };
-
-export const convertImg = (img, callbakc) => {
-  return fetch(img).then((response) => {
-    return response.blob()
-  }).then((data) => callbakc(data));
-};
-
-export async function convert2DataUrl(blobOrFile) {
-  let reader = new FileReader()
-  reader.readAsDataURL(blobOrFile)
-  await new Promise(resolve => reader.onload = function () { resolve() })
-  return reader.result
-}
-
-export async function url2File(url, fileName) {
-  const blob = await (await fetch(url)).blob()
-  return new File([blob], fileName, { type: blob.type })
-}
