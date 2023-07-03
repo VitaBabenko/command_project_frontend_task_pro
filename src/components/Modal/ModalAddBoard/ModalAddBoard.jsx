@@ -5,6 +5,7 @@ import { images } from 'utils/bgImgPreview';
 import { useDispatch } from 'react-redux';
 import { addUserBoard } from 'redux/dashboards/operation';
 import { CustomButton } from 'components/Button/CustomButton';
+import CloseIcon from "@mui/icons-material/Close";
 
 const {
   CustomDialog,
@@ -53,6 +54,18 @@ export const ModalAddBoard = ({
   return (
     <CustomDialog open={isOpen} onClose={onClose}>
       <div>
+        <CloseIcon
+          onClick={onClose}
+          sx={{
+            color: "var(--primaryTextColor)",
+            position: "absolute",
+            top: "14px",
+            right: "14px",
+            height: "18px",
+            width: "18px",
+            cursor: "pointer",
+          }}
+        />
         <ModalTitle>
           {type === 'create' ? 'New board' : 'Edit board'}
         </ModalTitle>
