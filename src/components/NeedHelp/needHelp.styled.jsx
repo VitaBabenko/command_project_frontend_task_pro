@@ -21,17 +21,20 @@ export const constBorderStyle = css`
 export const Wrapper = styled.div`
 margin-left: 24px;
 width: 197px;
-height: 100%;
-  border-radius: 8px;
-  background: var(--helpBgColor);
-  padding: 20px;
+height: 238px;
+border-radius: 8px;
+background: var(--helpBgColor);
+padding: 14px;
+
   @media screen and (max-width: 375px) {
   margin-left: 14px;
+ 
   }
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     width: 212px;
     min-height: 272px;
-  margin-left: 24px;
+    margin-left: 24px;
+    padding: 20px;
   }
 `;
 
@@ -42,10 +45,14 @@ export const Img = styled.img`
 
 export const Text = styled.p` 
   color: var(--primaryTextColor);
-  font-size: 14px;
+  font-size: 12px;
   line-height: 20px;
   letter-spacing: -0.28px;
   margin-top: 14px;
+ 
+  @media screen and (min-width: 768px){    
+    font-size: 14px;
+  };
 `;
 
 export const Button = styled.button`
@@ -81,7 +88,7 @@ export const ErrorMsg = styled.p`
 `;
 
 export const WrapperInput = styled.div`
-  margin: 14px 0;
+margin-top: 14px;
   ${ErrorMsg} {
     margin-top:5px;
     padding-left: 14px;

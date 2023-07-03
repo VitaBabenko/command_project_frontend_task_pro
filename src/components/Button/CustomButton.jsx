@@ -37,7 +37,11 @@ export const CustomButton = ({
         color: isWhiteBackground ? '#FFFFFF' : '#161616',
         textTransform: 'none',
         '&:hover': {
-          background: isWhiteBackground ? '#121212' : '#BEDBB0',
+          background: 'var(--btnColorHover)',
+        },
+        '&:disabled': {
+          background: 'var(--btnColorHover)',
+          opacity: 0.95,
         },
         ...styleOptions,
       }}

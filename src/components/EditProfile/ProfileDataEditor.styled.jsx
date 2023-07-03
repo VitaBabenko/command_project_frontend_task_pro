@@ -42,7 +42,7 @@ export const WrapperAvatar = styled.div`
 
 export const WrapperAvatarBody = styled.div`
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 11px;
   ${InputLabel}{
     position: absolute;
     width: 24px;

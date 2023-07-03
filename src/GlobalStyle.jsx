@@ -160,7 +160,7 @@ body[data-theme="light"] {
   --calendarSelectDay: rgba(22, 22, 22, 1);
   --calendarBorderTop: rgba(22, 22, 22, 0.2);
 
-  --currentLinkBgColor: rgba(246, 246, 247, 0.4)
+  --currentLinkBgColor: rgba(246, 246, 247, 0.4);
 
 
   --activeBorder:#BEDBB0;
@@ -208,7 +208,7 @@ body[data-theme="violet"] {
   --calendarDisabled: rgba(22, 22, 22, 0.20);
   --calendarSelectDay: rgba(252, 252, 252, 1);
   --calendarBorderTop: rgba(22, 22, 22, 0.2);
-
+  --activeBorder:#5255BC;
 }
 `;
 
