@@ -9,8 +9,6 @@ import {
   ERegisterFieldPassword,
   getDefaultValuesForm,
   isTypeFileImg,
-  convert2DataUrl,
-  url2File,
 } from './util';
 import { AvatarEditorContainer } from './AvatarEditor';
 import { updateUser } from "redux/authorization/operations";
@@ -25,8 +23,8 @@ import { ResponseMessages } from 'components/NeedHelp/NeedHelpPop';
 export const EditProfile = ({ toggle, open, HeaderRender }) => {
   const { user: { name, email, avatar }, loading, error, init } = useSelector((state) => state.auth);
   const [currentEditOperation, setCurrentEditOperation] = useState(ECurrentEditOperationEditData);
-  const [currentImg, setCurrentImg] = useState(null);
-  const [uploadImg, setUploadImg] = useState('');
+  const [currentImg, setCurrentImg] = useState(avatar);
+  const [uploadImg, setUploadImg] = useState(null);
 
   const uploadImgRef = useRef(null);
   const inputRef = useRef(null);
@@ -43,21 +41,11 @@ export const EditProfile = ({ toggle, open, HeaderRender }) => {
 
   const isDisabledSubmitBtn = loading;
   const onSubmit = async (data) => {
-    console.log('dasdasd', uploadImgRef.current);
-    if (!uploadImgRef.current) {
-      setFormFieldFieldAvatarError('This input is required.');
-      return;
-    }
-
-    const blob = new Blob([currentImg], { type: 'image/png' })
-    let dataUrl = await convert2DataUrl(blob);
-    const file = await url2File(dataUrl, currentImg)
-
     const userData = {
       name: data[ERegisterFieldName],
       email: data[ERegisterFieldEmail],
       password: data[ERegisterFieldPassword],
-      avatarURL: uploadImgRef.current ? uploadImgRef.current : file,
+      avatarURL: uploadImgRef.current,
     }
 
     dispatch(updateUser(userData));
