@@ -5,7 +5,7 @@ export const BtnLogOut = styled.button`
   margin-top: 24px;
   display: flex;
   align-items: center;
-  margin-left: 24px;
+  /* margin-left: 24px; */
   cursor: pointer;
   border: none;
   background-color: inherit;

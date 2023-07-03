@@ -24,14 +24,24 @@ import { CardPopUp } from 'components/CardPopUp/CardPopUp';
 import { dateFormatDedline } from 'utils/dateFormatDedline';
 import { deleteTask } from 'taskServices/deleteTask';
 import sprite from '../../../images/sprite.svg';
+import { ProjectOfficePopUpCardColumn } from '../ProjectOfficePopUpCardColumn/ProjectOfficePopUpCardColumn';
+import { useSelector } from 'react-redux';
+import { selectColumnsForBoard } from 'redux/dashboards/selectors';
 
 const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
   const { _id: taskId, title, description, priority, deadline } = task;
 
+  const columns = useSelector(state => selectColumnsForBoard(state, boardId));
+
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenPopUp, setIsOpenPopUp] = useState(false);
 
   const handleToggleModal = () => {
     setIsOpen(prevstate => !prevstate);
+  };
+
+  const handleTogglePopUp = () => {
+    setIsOpenPopUp(prevstate => !prevstate);
   };
 
   const handleDeleteTask = async () => {
@@ -74,10 +84,15 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
             <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
                 <use href={`${sprite}#icon-bell`}></use>
             </SvgIconsStyled>
-            
+
+            <Button
+              sx={{ padding: 0, width: '20px', minWidth: '0' }}
+              onClick={handleTogglePopUp}
+            >
             <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
                 <use href={`${sprite}#icon-arrow-circle-broken-right`}></use>
             </SvgIconsStyled>
+            </Button>
             <Button
             onClick={handleToggleModal}
               sx={{ padding: 0, width: '20px', minWidth: '0', '&.MuiButtonBase-root.MuiButton-root:hover': { backgroundColor: '#121212'} }}
@@ -101,6 +116,17 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
         <CardPopUp
           isOpen={isOpen}
           onClose={handleToggleModal}
+          columnId={columnId}
+          boardId={boardId}
+          setTasks={setTasks}
+          task={task}
+        />
+      )}
+      {isOpenPopUp && (
+        <ProjectOfficePopUpCardColumn
+          isOpenPopUp={isOpenPopUp}
+          onClose={handleTogglePopUp}
+          columns={columns}
           columnId={columnId}
           boardId={boardId}
           setTasks={setTasks}

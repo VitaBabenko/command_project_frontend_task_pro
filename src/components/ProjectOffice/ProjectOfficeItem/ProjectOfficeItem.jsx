@@ -11,11 +11,13 @@ import sprite from '../../../images/sprite.svg';
 import { SvgIconsStyled } from '../ProjectOfficeCardItem/ProjectOfficeCardItem.styled';
 
 const ProjectOfficeItem = ({
-  column: { title, _id: columnId },
+  column,
   boardId,
   onDelete,
   handleEditColumnName,
 }) => {
+  const { title, _id: columnId } = column;
+
   const [tasks, setTasks] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -36,7 +38,7 @@ const ProjectOfficeItem = ({
       setTasks(data.tasks);
     };
     fetchTasksApi(boardId, columnId);
-  }, [boardId, columnId]);
+  }, [boardId, columnId, column]);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', overflow: 'scroll', maxHeight: '600px'}}>

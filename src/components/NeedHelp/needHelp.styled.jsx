@@ -1,39 +1,35 @@
 import styled, { css } from 'styled-components';
 
 export const placeholderStyle = css`
-  color: var(${props => !!props?.error ? '--colorError' : '--placeholder'});
+  color: var(${props => (!!props?.error ? '--colorError' : '--placeholder')});
   font-size: 14px;
-  `;
+`;
 
 export const focusStyle = css`
-  border: 1px solid var(${props => !!props?.error ? '--colorError' : '--activeBorder'});
+  border: 1px solid
+    var(${props => (!!props?.error ? '--colorError' : '--activeBorder')});
   box-shadow: 0px 4px 16px 0px var(--boxShadowColor);
-  `;
+`;
 
 export const disabledStyle = css`
-   background: var(--disabledBgColor);
-  `;
+  background: var(--disabledBgColor);
+`;
 
 export const constBorderStyle = css`
-   border: 1px solid var(${props => !!props?.error ? '--colorError' : '--passiveBorderColor'});
- `;
+  border: 1px solid
+    var(${props => (!!props?.error ? '--colorError' : '--passiveBorderColor')});
+`;
 
 export const Wrapper = styled.div`
-margin-left: 24px;
-width: 197px;
-height: 238px;
-border-radius: 8px;
-background: var(--helpBgColor);
-padding: 14px;
+  width: 197px;
+  height: 238px;
+  border-radius: 8px;
+  background: var(--helpBgColor);
+  padding: 14px;
 
-  @media screen and (max-width: 375px) {
-  margin-left: 14px;
- 
-  }
   @media screen and (min-width: 768px) {
     width: 212px;
     min-height: 272px;
-    margin-left: 24px;
     padding: 20px;
   }
 `;
@@ -43,20 +39,20 @@ export const Img = styled.img`
   height: 78px;
 `;
 
-export const Text = styled.p` 
-  color: var(--primaryTextColor);
+export const Text = styled.p`
+  color: var(--needHelpBtn);
   font-size: 12px;
   line-height: 20px;
   letter-spacing: -0.28px;
   margin-top: 14px;
- 
-  @media screen and (min-width: 768px){    
+
+  @media screen and (min-width: 768px) {
     font-size: 14px;
-  };
+  }
 `;
 
 export const Button = styled.button`
-  margin-top: 19px; 
+  margin-top: 19px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -88,14 +84,14 @@ export const ErrorMsg = styled.p`
 `;
 
 export const WrapperInput = styled.div`
-margin-top: 14px;
+  margin-top: 14px;
   ${ErrorMsg} {
-    margin-top:5px;
+    margin-top: 5px;
     padding-left: 14px;
   }
 `;
 
-export const WrapperPopUp = styled.div` 
+export const WrapperPopUp = styled.div`
   width: 100%;
   min-height: 355px;
   padding: 24px;
@@ -106,13 +102,13 @@ export const WrapperPopUp = styled.div`
 
   @media screen and (min-width: 375px) {
     width: 335px;
-  };
+  }
   @media screen and (min-width: 768px) {
-    width: 340px;    
-  };
-  @media screen and (min-width: 1440px){
-    width: 400px;    
-  };
+    width: 340px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+  }
 `;
 
 export const Icon = styled.svg`
@@ -125,7 +121,7 @@ export const Logo = styled.span`
 `;
 
 export const Input = styled.input`
-  display:flex;
+  display: flex;
   width: 100%;
   padding: 14px 14px 14px 18px;
   align-items: center;
@@ -138,70 +134,70 @@ export const Input = styled.input`
 
   &::placeholder {
     ${placeholderStyle}
-}
+  }
 
   &:focus {
     ${focusStyle}
-}
-  
+  }
+
   &:disabled {
     ${disabledStyle}
-}
+  }
 `;
 
 export const InputLabel = styled.label``;
 
 export const Textarea = styled.textarea`
-width: 100%;
-height: 120px;
-padding-top: 14px;
-padding-bottom: 14px;
-padding-left: 18px;
-border-radius: 8px;
+  width: 100%;
+  height: 120px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 18px;
+  border-radius: 8px;
   ${constBorderStyle};
-color: var(--primaryTextColor);
-background-color: transparent;
-resize: none;
-outline: none;
-cursor: pointer;
+  color: var(--primaryTextColor);
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  cursor: pointer;
   &::placeholder {
     ${placeholderStyle}
-}
+  }
 
   &:focus {
     ${focusStyle}
-}
-  
+  }
+
   &:disabled {
     ${disabledStyle}
-}
+  }
 `;
 
 export const ErrorResponseMessage = styled.p`
-color: var(--colorError);
+  color: var(--colorError);
 `;
 
 export const SuccessResponseMessage = styled.p`
-color: #1fc81f;
-`
+  color: #1fc81f;
+`;
 
 export const ResponseMessage = styled.span`
-display: inline-block;
-vertical-align: middle;
-font-size: 14px;
-`
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+`;
 
 export const ResponseMessageWrapper = styled.div`
-margin: 14px 0;
+  margin: 14px 0;
   ${SuccessResponseMessage}, ${ErrorResponseMessage} {
-    & > svg{
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 8px;
+    & > svg {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
   }
-}
-`
+`;
 export const WrapperBox = styled.div`
-margin-top: 24px;
-margin-bottom: 24px;
-`
+  margin-top: 24px;
+  margin-bottom: 24px;
+`;

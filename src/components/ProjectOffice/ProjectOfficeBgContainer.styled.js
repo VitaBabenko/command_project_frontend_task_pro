@@ -12,7 +12,6 @@ export const BackgroundContainer = styled.div`
   background-repeat: no-repeat;
   background-color: ${props => (props.bgnumber ? 'initial' : 'transparent')};
 
-
   @media screen and (max-width: 374px) {
     background-image: ${props =>
       `url(${baseBgUrl}mobile/bg-image-${props.bgnumber}.jpg)`};
