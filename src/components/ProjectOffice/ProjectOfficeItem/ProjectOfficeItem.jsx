@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 
 import ProjectCardAddButton from '../ProjectCardAddButton/ProjectCardAddButton';
 
-// import { useDispatch } from 'react-redux';
 import { ModalColumn } from 'components/Modal/ModalColumn/ModalColumn';
 import { fetchTasks } from 'taskServices/fetchTask';
 
@@ -19,8 +18,6 @@ const ProjectOfficeItem = ({
 }) => {
   const [tasks, setTasks] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-
-  // const dispatch = useDispatch();
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -70,7 +67,6 @@ const ProjectOfficeItem = ({
         columnId={columnId}
         boardId={boardId}
         setTasks={setTasks}
-        // task={tasks}
       />
       <ModalColumn
         isOpen={isOpen}
