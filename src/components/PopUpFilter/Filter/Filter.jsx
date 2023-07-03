@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setFilter } from '../../../redux/filter/filterSlice';
 import Radio from '@mui/material/Radio';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-
 import {
   Title,
   FilterContainer,
@@ -13,12 +14,9 @@ import {
 
 export const Filter = () => {
   const [selectedValue, setSelectedValue] = useState('');
+  const dispatch = useDispatch();
 
   const primaryTextColor = `var(--primaryTextColor)`;
-
-  // const handleChange = event => {
-  //   setSelectedValue(event.target.value);
-  // };
 
   const handleReset = () => {
     setSelectedValue('');
@@ -26,12 +24,21 @@ export const Filter = () => {
 
   const handleShowAll = () => {
     console.log('Show all selected');
+    dispatch(setFilter('all'));
     handleReset();
   };
 
+  const handleFilterChange = event => {
+    const { value } = event.target;
+    console.log('Selected filter:', value);
+    setSelectedValue(value);
+    dispatch(setFilter(value));
+  };
+
   const handleRadioButtonChange = event => {
-    console.log(`Selected priority: ${event.target.value}`);
-    setSelectedValue(event.target.value);
+    const { value } = event.target;
+    console.log(`Selected priority: ${value}`);
+    setSelectedValue(value);
   };
 
   return (
@@ -82,6 +89,7 @@ export const Filter = () => {
               value={button.value}
               control={<Radio />}
               label={button.label}
+              onChange={handleFilterChange}
             />
           ))}
         </RadioGr>
