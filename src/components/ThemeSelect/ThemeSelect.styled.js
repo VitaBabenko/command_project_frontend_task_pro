@@ -35,6 +35,7 @@ export const ThemeSelectWrapper = styled.ul`
   border: 1px solid var(--greenGreenBlueColor);
   background-color: var(--themeListBgColor);
   box-shadow: var(--boxShadow);
+  z-index: 50;
 `;
 
 export const ThemeSelects = styled.li`
