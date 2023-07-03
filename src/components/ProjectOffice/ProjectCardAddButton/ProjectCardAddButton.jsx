@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import {
   Wrapper,
-  ButtonStyled,
-  AddIconStyled,
   CardButtonStyled,
 } from '../ProjectOfficeStyle';
 import { CardPopUp } from 'components/CardPopUp/CardPopUp';
+import { CustomButton } from 'components/Button/CustomButton';
 
 const ProjectCardAddButton = ({ columnId, boardId, setTasks, task }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,12 +19,15 @@ const ProjectCardAddButton = ({ columnId, boardId, setTasks, task }) => {
         {/* {Array.from(Array(3)).map((_, index) => ( */}
         {/* <CardButtonStyled direction="row" spacing={2} key={index}> */}
         <CardButtonStyled direction="row" spacing={2}>
-          <ButtonStyled
+            <CustomButton isWhiteBackground={false} onClick={handleToggleModal}>
+            Add another card
+            </CustomButton>
+          {/* <ButtonStyled
             startIcon={<AddIconStyled />}
             onClick={handleToggleModal}
           >
             Add another card
-          </ButtonStyled>
+          </ButtonStyled> */}
         </CardButtonStyled>
         {/* ))} */}
       </Wrapper>

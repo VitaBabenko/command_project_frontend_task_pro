@@ -1,14 +1,14 @@
 import { Wrapper, ActionsIconsButton } from '../ProjectOfficeStyle';
 import ProjectOfficeCardItem from '../ProjectOfficeCardItem/ProjectOfficeCardItem';
-import { ActionsButton, StyledTitle } from './OfficeItemStyle.styled';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { ActionsButton, IconButtonWrapper, StyledTitle } from './OfficeItemStyle.styled';
 import { useEffect, useState } from 'react';
 
 import ProjectCardAddButton from '../ProjectCardAddButton/ProjectCardAddButton';
 
 import { ModalColumn } from 'components/Modal/ModalColumn/ModalColumn';
 import { fetchTasks } from 'taskServices/fetchTask';
+import sprite from '../../../images/sprite.svg';
+import { SvgIconsStyled } from '../ProjectOfficeCardItem/ProjectOfficeCardItem.styled';
 
 const ProjectOfficeItem = ({
   column: { title, _id: columnId },
@@ -39,17 +39,21 @@ const ProjectOfficeItem = ({
   }, [boardId, columnId]);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', overflow: 'scroll', maxHeight: '600px'}}>
       <Wrapper>
         <ActionsButton key={Date.now()}>
           <StyledTitle>{title}</StyledTitle>
           <ActionsIconsButton>
-            <button type="button" onClick={handleToggle}>
-              <EditIcon fontSize="small" sx={{ color: '#888888' }} />
-            </button>
-            <button type="button" onClick={() => onDelete(boardId, columnId)}>
-              <DeleteOutlineIcon fontSize="small" sx={{ color: '#888888' }} />
-            </button>
+            <IconButtonWrapper type="button" onClick={handleToggle}>
+            <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
+                <use href={`${sprite}#icon-pencil`}></use>
+            </SvgIconsStyled>
+            </IconButtonWrapper>
+            <IconButtonWrapper type="button" onClick={() => onDelete(boardId, columnId)}>
+            <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
+                <use href={`${sprite}#icon-trash`}></use>
+            </SvgIconsStyled>
+            </IconButtonWrapper>
           </ActionsIconsButton>
         </ActionsButton>
       </Wrapper>
@@ -63,11 +67,13 @@ const ProjectOfficeItem = ({
             setTasks={setTasks}
           />
         ))}
-      <ProjectCardAddButton
-        columnId={columnId}
-        boardId={boardId}
-        setTasks={setTasks}
-      />
+        <div style={{marginTop: '10px'}}>
+        <ProjectCardAddButton
+            columnId={columnId}
+            boardId={boardId}
+            setTasks={setTasks}
+        />
+        </div>
       <ModalColumn
         isOpen={isOpen}
         onClose={handleToggle}

@@ -97,6 +97,7 @@ body[data-theme="dark"] {
   --iconEyeColor:#FFFFFF;
   --btnColorHover: #d8e9cf;
   --iconColor: rgba(255, 255, 255, 0.5);
+  --iconCardColor: #888888;
 
 
   --calendarWithoutColor: rgba(255, 255, 255, 0.30);

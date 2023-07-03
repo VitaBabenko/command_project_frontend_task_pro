@@ -17,3 +17,10 @@ export const StyledTitle = styled.p`
     line-height: 21px;
 `;
 
+export const IconButtonWrapper = styled.button`
+    background: inherit;
+    border: none;
+    margin-right: -8px;
+    cursor: pointer;
+`;
+

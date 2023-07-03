@@ -3,11 +3,11 @@ import styled from 'styled-components';
 export const CardStyled = styled.p`
   background: var(--cardItem);
   max-width: 334px;
-  height: 154px;
+  min-height: 154px;
   border-radius: 8px;
-  margin-top: 25px;
+  margin-top: 15px;
   margin-right: 10px;
-  margin-bottom: 15px;
+  margin-bottom: -10px;
   border-left: 4px solid #8fa1d0;
   border-left: 4px solid
     ${props => {
@@ -24,7 +24,6 @@ export const CardStyled = styled.p`
           return '#000000';
       }
     }};
-  padding-bottom: 15px;
 `;
 
 export const CardTitle = styled.p`
@@ -98,4 +97,13 @@ export const StatusStyled = styled.div`
     }
   }};
   border-radius: 50%;
+`;
+
+export const SvgIconsStyled = styled.svg`
+  stroke: var(--iconCardColor);
+  &:hover,
+  &:focus {
+    stroke: #bedbb0;
+    box-shadow: 0px 0px 0px 0px #87d3ae;
+  }
 `;

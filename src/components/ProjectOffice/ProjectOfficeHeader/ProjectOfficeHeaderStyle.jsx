@@ -6,14 +6,16 @@ export const Title = styled.p`
   font-size: 18px;
   line-height: 20px;
   margin-bottom: 10px;
+  margin-top: 10px;
 `;
 
-// export const FilterText = styled.button`
-//   color: var(--cardHeaderText);
-//   font-weight: 500;
-//   font-size: 14px;
-//   line-height: 21px;
-// `;
+export const FilterText = styled.p`
+  color: var(--cardHeaderText);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  cursor: pointer;
+`;
 
 export const SvgIcons = styled.svg`
   stroke: var(--primaryTextColor);

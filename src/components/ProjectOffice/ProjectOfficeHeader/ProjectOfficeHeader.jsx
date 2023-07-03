@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Wrapper } from '../ProjectOfficeStyle';
-import { BtnFilter, Title, SvgIcons } from './ProjectOfficeHeaderStyle';
+import { BtnFilter, Title, SvgIcons, FilterText } from './ProjectOfficeHeaderStyle';
 import sprite from '../../../images/sprite.svg';
 import { PopUpFilter } from 'components/PopUpFilter/PopUpFilter';
 
@@ -18,7 +18,7 @@ const ProjectOfficeHeader = () => {
   return (
     <>
       <Wrapper>
-        <Title>Project</Title>
+        <Title>Project office</Title>
 
         <BtnFilter type="button" onClick={togglePopUp}>
           <SvgIcons aria-label="filter icon" width={18} height={18}>
@@ -26,7 +26,7 @@ const ProjectOfficeHeader = () => {
               <use xlinkHref={`${sprite}#icon-filter`} />
             </svg>
           </SvgIcons>
-          <span>Filter</span>
+          <FilterText>Filters</FilterText>
         </BtnFilter>
         {isPopUpVisible && <PopUpFilter onClose={handleClosePopUp} />}
       </Wrapper>
