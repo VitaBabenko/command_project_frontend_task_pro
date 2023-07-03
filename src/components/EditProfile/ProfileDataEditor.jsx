@@ -87,10 +87,14 @@ export const ProfileDataEditor = ({
           disabled={isFetching}
           error={errors?.ERegisterFieldName}
           {...register(ERegisterFieldName, {
-            required: 'This input is required.',
+            required: 'This field is required.',
+            minLength: {
+              value: 2,
+              message: 'Name must be at least 2 characters long',
+            },
             maxLength: {
-              value: 255,
-              message: 'This input must not exceed 255 characters',
+              value: 32,
+              message: 'Name can be maximum 32 characters long',
             },
           })}
         />
@@ -114,8 +118,8 @@ export const ProfileDataEditor = ({
               message: 'Please enter a valid email',
             },
             maxLength: {
-              value: 32,
-              message: 'This input must not exceed 255 characters',
+              value: 64,
+              message: 'This input must not exceed 64 characters',
             },
           })}
         />
@@ -134,9 +138,13 @@ export const ProfileDataEditor = ({
             error={errors?.ERegisterFieldPassword}
             {...register(ERegisterFieldPassword, {
               required: 'This input is required.',
+              minLength: {
+                value: 8,
+                message: 'Password must be at least 8 characters long',
+              },
               maxLength: {
-                value: 32,
-                message: 'This input must not exceed 255 characters',
+                value: 64,
+                message: 'Password can be maximum 64 characters long',
               },
             })}
           />

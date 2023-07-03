@@ -75,10 +75,6 @@ export const NeedHelpPop = ({ HeaderRender }) => {
                   '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$',
                 message: 'Please enter a valid email',
               },
-              maxLength: {
-                value: 32,
-                message: 'This field must not exceed 32 characters',
-              },
             })}
           />
           {errors?.ERegisterFieldEmail && (
