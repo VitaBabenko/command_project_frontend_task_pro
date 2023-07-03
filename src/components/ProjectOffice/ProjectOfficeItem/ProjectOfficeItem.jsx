@@ -10,10 +10,14 @@ import axios from 'axios';
 // import { useDispatch } from 'react-redux';
 import { ModalColumn } from 'components/Modal/ModalColumn/ModalColumn';
 
-const ProjectOfficeItem = ({ column: { title, _id: columnId }, boardId, onDelete, handleEditColumnName }) => {
+const ProjectOfficeItem = ({
+  column: { title, _id: columnId },
+  boardId,
+  onDelete,
+  handleEditColumnName,
+}) => {
   const [tasks, setTasks] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-
 
   // const dispatch = useDispatch();
 
@@ -21,16 +25,12 @@ const ProjectOfficeItem = ({ column: { title, _id: columnId }, boardId, onDelete
     setIsOpen(!isOpen);
   };
 
-
-
-
   const handleUpdate = newName => {
-    console.log(boardId)
-    console.log(columnId)
-    console.log(newName)
+    console.log(boardId);
+    console.log(columnId);
+    console.log(newName);
     handleEditColumnName({ boardId, columnId, title: newName });
   };
-
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -43,8 +43,6 @@ const ProjectOfficeItem = ({ column: { title, _id: columnId }, boardId, onDelete
     fetchTasks();
   }, [boardId, columnId]);
 
-  
-
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <Wrapper>
@@ -54,13 +52,22 @@ const ProjectOfficeItem = ({ column: { title, _id: columnId }, boardId, onDelete
             <button type="button" onClick={handleToggle}>
               <EditIcon fontSize="small" sx={{ color: '#888888' }} />
             </button>
-            <button type='button' onClick={() => onDelete(boardId, columnId)}>
+            <button type="button" onClick={() => onDelete(boardId, columnId)}>
               <DeleteOutlineIcon fontSize="small" sx={{ color: '#888888' }} />
-              </button>
+            </button>
           </ActionsIconsButton>
         </ActionsButton>
       </Wrapper>
-      {tasks && tasks.map(task => <ProjectOfficeCardItem task={task} />)}
+      {tasks &&
+        tasks.map(task => (
+          <ProjectOfficeCardItem
+            key={task._id}
+            task={task}
+            columnId={columnId}
+            boardId={boardId}
+            setTasks={setTasks}
+          />
+        ))}
       <ProjectCardAddButton />
       <ModalColumn
         isOpen={isOpen}
@@ -68,9 +75,7 @@ const ProjectOfficeItem = ({ column: { title, _id: columnId }, boardId, onDelete
         type="edit"
         onUpdate={handleUpdate}
       />
-
     </div>
-
   );
 };
 

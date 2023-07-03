@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import {
+  getColumnsForBoard,
+  updateUserBoard,
+} from 'redux/dashboards/operation';
 
 import sprite from '../../../images/sprite.svg';
 import {
@@ -10,26 +16,20 @@ import {
   BgContainer,
 } from './BgChange.styled';
 import { images } from '../../../utils/bgImgPreview';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { updateUserBoard } from 'redux/dashboards/operation';
 
 const buttonsImg = images;
 
-export const BgChange = () => {
+export const BgChange = React.memo(() => {
   const [loadedImages, setLoadedImages] = useState([]);
 
-  //
   const dispatch = useDispatch();
   const { boardName } = useParams();
 
   const board = useSelector(state =>
     state.dashboard.dashboards.find(item => item._id === boardName)
   );
-  //
 
   const backgroundId = board.background.toString();
-  console.log(backgroundId);
 
   useEffect(() => {
     const loadImage = async imageUrl => {
@@ -48,8 +48,12 @@ export const BgChange = () => {
       const promises = buttonsImg.map(button =>
         loadImage(button.backgroundImage)
       );
+
       try {
-        const images = await Promise.all(promises);
+        const results = await Promise.allSettled(promises);
+        const images = results
+          .filter(result => result.status === 'fulfilled')
+          .map(result => result.value);
         setLoadedImages(images);
       } catch (error) {
         console.error(error);
@@ -67,6 +71,7 @@ export const BgChange = () => {
     };
 
     await dispatch(updateUserBoard({ boardId: board._id, board: data }));
+    await dispatch(getColumnsForBoard(boardName));
   };
 
   return (
@@ -78,7 +83,7 @@ export const BgChange = () => {
             <use href={sprite + '#icon-bg-default'} />
           </SvgIcons>
         </ButtonNoneBg>
-        {buttonsImg.map((button, index) => (
+        {buttonsImg.map(button => (
           <Button
             key={button.id}
             type="button"
@@ -91,7 +96,7 @@ export const BgChange = () => {
               backgroundId.toString() === button.id.toString() ? 'active' : ''
             }
           >
-            {loadedImages[index] && (
+            {loadedImages[button.id] && (
               <img
                 srcSet={`${button.backgroundImage} 1x, ${button.retinaBackgroundImage} 2x`}
                 alt=""
@@ -102,4 +107,4 @@ export const BgChange = () => {
       </ButtonContainer>
     </BgContainer>
   );
-};
+});
