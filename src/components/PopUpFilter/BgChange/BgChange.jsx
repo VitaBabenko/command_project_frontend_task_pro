@@ -10,9 +10,9 @@ import {
   BgContainer,
 } from './BgChange.styled';
 import { images } from '../../../utils/bgImgPreview';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { updateUserBoard } from 'redux/dashboards/operation';
+// import { updateUserBoard } from 'redux/dashboards/operation';
 
 const buttonsImg = images;
 
@@ -20,7 +20,7 @@ export const BgChange = () => {
   const [loadedImages, setLoadedImages] = useState([]);
 
   //
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { boardName } = useParams();
 
   const board = useSelector(state =>
