@@ -8,7 +8,7 @@ import ProjectCardAddButton from '../ProjectCardAddButton/ProjectCardAddButton';
 import { ModalColumn } from 'components/Modal/ModalColumn/ModalColumn';
 import { fetchTasks } from 'taskServices/fetchTask';
 import sprite from '../../../images/sprite.svg';
-import { SvgIconsStyled } from '../ProjectOfficeCardItem/ProjectOfficeCardItem.styled';
+import { ScrollStyled, SvgIconsStyled } from '../ProjectOfficeCardItem/ProjectOfficeCardItem.styled';
 
 const ProjectOfficeItem = ({
   column,
@@ -41,7 +41,7 @@ const ProjectOfficeItem = ({
   }, [boardId, columnId, column]);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', overflow: 'scroll', maxHeight: '600px'}}>
+    <ScrollStyled>
       <Wrapper>
         <ActionsButton key={Date.now()}>
           <StyledTitle>{title}</StyledTitle>
@@ -82,7 +82,7 @@ const ProjectOfficeItem = ({
         type="edit"
         onUpdate={handleUpdate}
       />
-    </div>
+    </ScrollStyled>
   );
 };
 

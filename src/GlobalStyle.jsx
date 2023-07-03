@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
   font-weight: 400;
   transition: 0.3s ease;
   background-color: var(--boardBgColor);
+  
 
 
   ul,
@@ -116,6 +117,26 @@ body[data-theme="dark"] {
 
   --activeBorder:#BEDBB0;
   --disabledBgColor: #b4adad;
+
+  /* полоса прокрутки (скроллбар) */
+  ::-webkit-scrollbar {
+    width: 8px; /* ширина для вертикального скролла */
+    height: 0px; /* высота для горизонтального скролла */
+    background-color: #313131;
+    border-radius: 12px;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: #121212;
+    border-radius: 12px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #121212;
+}
+  
 }
 
 body[data-theme="light"] {
@@ -174,6 +195,25 @@ body[data-theme="light"] {
 
   --activeBorder:#BEDBB0;
   --disabledBgColor: #b4adad;
+
+  /* полоса прокрутки (скроллбар) */
+  ::-webkit-scrollbar {
+    width: 8px; /* ширина для вертикального скролла */
+    height: 0px; /* высота для горизонтального скролла */
+    background-color: #E8E8E8;
+    border-radius: 12px;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: #D3D3D3;
+    border-radius: 12px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #D3D3D3;
+}
 }
 
 body[data-theme="violet"] {
