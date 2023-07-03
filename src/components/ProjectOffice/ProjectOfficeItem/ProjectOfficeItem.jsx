@@ -1,6 +1,10 @@
 import { Wrapper, ActionsIconsButton } from '../ProjectOfficeStyle';
 import ProjectOfficeCardItem from '../ProjectOfficeCardItem/ProjectOfficeCardItem';
-import { ActionsButton, IconButtonWrapper, StyledTitle } from './OfficeItemStyle.styled';
+import {
+  ActionsButton,
+  IconButtonWrapper,
+  StyledTitle,
+} from './OfficeItemStyle.styled';
 import { useEffect, useState } from 'react';
 
 import ProjectCardAddButton from '../ProjectCardAddButton/ProjectCardAddButton';
@@ -8,7 +12,10 @@ import ProjectCardAddButton from '../ProjectCardAddButton/ProjectCardAddButton';
 import { ModalColumn } from 'components/Modal/ModalColumn/ModalColumn';
 import { fetchTasks } from 'taskServices/fetchTask';
 import sprite from '../../../images/sprite.svg';
-import { ScrollStyled, SvgIconsStyled } from '../ProjectOfficeCardItem/ProjectOfficeCardItem.styled';
+import {
+  ScrollStyled,
+  SvgIconsStyled,
+} from '../ProjectOfficeCardItem/ProjectOfficeCardItem.styled';
 
 const ProjectOfficeItem = ({
   column,
@@ -47,37 +54,49 @@ const ProjectOfficeItem = ({
           <StyledTitle>{title}</StyledTitle>
           <ActionsIconsButton>
             <IconButtonWrapper type="button" onClick={handleToggle}>
-            <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
+              <SvgIconsStyled
+                aria-label="close modal select icon"
+                width={16}
+                height={16}
+              >
                 <use href={`${sprite}#icon-pencil`}></use>
-            </SvgIconsStyled>
+              </SvgIconsStyled>
             </IconButtonWrapper>
-            <IconButtonWrapper type="button" onClick={() => onDelete(boardId, columnId)}>
-            <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
+            <IconButtonWrapper
+              type="button"
+              onClick={() => onDelete(boardId, columnId)}
+            >
+              <SvgIconsStyled
+                aria-label="close modal select icon"
+                width={16}
+                height={16}
+              >
                 <use href={`${sprite}#icon-trash`}></use>
-            </SvgIconsStyled>
+              </SvgIconsStyled>
             </IconButtonWrapper>
           </ActionsIconsButton>
         </ActionsButton>
       </Wrapper>
-      <div style={{overflow: 'auto', maxHeight: '500px'}}>
+      {/* <div style={{overflow: 'auto', maxHeight: '500px'}}> */}
+      <div style={{ overflow: 'auto' }}>
         {tasks &&
-            tasks.map(task => (
+          tasks.map(task => (
             <ProjectOfficeCardItem
-                key={task._id}
-                task={task}
-                columnId={columnId}
-                boardId={boardId}
-                setTasks={setTasks}
+              key={task._id}
+              task={task}
+              columnId={columnId}
+              boardId={boardId}
+              setTasks={setTasks}
             />
-            ))}
-        </div>
-        <div style={{marginTop: '10px'}}>
+          ))}
+      </div>
+      <div style={{ marginTop: '10px' }}>
         <ProjectCardAddButton
-            columnId={columnId}
-            boardId={boardId}
-            setTasks={setTasks}
+          columnId={columnId}
+          boardId={boardId}
+          setTasks={setTasks}
         />
-        </div>
+      </div>
       <ModalColumn
         isOpen={isOpen}
         onClose={handleToggle}
