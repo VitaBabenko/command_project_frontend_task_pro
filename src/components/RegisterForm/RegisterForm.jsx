@@ -5,6 +5,7 @@ import sprite from '../../images/sprite.svg';
 import { useDispatch } from 'react-redux';
 import { registerUser } from 'redux/authorization/operations';
 
+
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
@@ -96,7 +97,7 @@ export const RegisterForm = () => {
             },
           })}
         />
-        {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+       
         
         <div onClick={togglePasswordVisibility}>
           {showPassword ? (
@@ -109,7 +110,9 @@ export const RegisterForm = () => {
             </Icon>
           )}
         </div>
-        </ErrorContainer>  
+        
+        </ErrorContainer> 
+        {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>} 
       <Button type="submit">Register Now</Button>
      
     </Form>
