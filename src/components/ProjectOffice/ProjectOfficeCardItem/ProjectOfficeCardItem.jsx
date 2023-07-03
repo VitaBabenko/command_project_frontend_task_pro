@@ -26,14 +26,24 @@ import { CardPopUp } from 'components/CardPopUp/CardPopUp';
 
 import { dateFormatDedline } from 'utils/dateFormatDedline';
 import { deleteTask } from 'taskServices/deleteTask';
+import { ProjectOfficePopUpCardColumn } from '../ProjectOfficePopUpCardColumn/ProjectOfficePopUpCardColumn';
+import { useSelector } from 'react-redux';
+import { selectColumnsForBoard } from 'redux/dashboards/selectors';
 
 const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
   const { _id: taskId, title, description, priority, deadline } = task;
 
+  const columns = useSelector(state => selectColumnsForBoard(state, boardId));
+
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenPopUp, setIsOpenPopUp] = useState(false);
 
   const handleToggleModal = () => {
     setIsOpen(prevstate => !prevstate);
+  };
+
+  const handleTogglePopUp = () => {
+    setIsOpenPopUp(prevstate => !prevstate);
   };
 
   const handleDeleteTask = async () => {
@@ -76,7 +86,10 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
           <CardIconsWrapper>
             <NotificationsNoneIcon fontSize="small" sx={{ color: '#888888' }} />
 
-            <Button sx={{ padding: 0, width: '20px', minWidth: '0' }}>
+            <Button
+              sx={{ padding: 0, width: '20px', minWidth: '0' }}
+              onClick={handleTogglePopUp}
+            >
               <ArrowCircleRightIcon
                 fontSize="small"
                 sx={{ color: '#888888' }}
@@ -101,6 +114,17 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
         <CardPopUp
           isOpen={isOpen}
           onClose={handleToggleModal}
+          columnId={columnId}
+          boardId={boardId}
+          setTasks={setTasks}
+          task={task}
+        />
+      )}
+      {isOpenPopUp && (
+        <ProjectOfficePopUpCardColumn
+          isOpenPopUp={isOpenPopUp}
+          onClose={handleTogglePopUp}
+          columns={columns}
           columnId={columnId}
           boardId={boardId}
           setTasks={setTasks}
