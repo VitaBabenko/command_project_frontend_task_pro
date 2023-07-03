@@ -26,7 +26,6 @@ export const CustomButton = ({
       type={type}
       sx={{
         maxWidth: '352px',
-        fontFamily: 'Poppins, sans-serif',
         fontWeight: '500',
         fontSize: '14px',
         lineHeight: '1.5',

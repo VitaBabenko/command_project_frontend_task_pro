@@ -59,16 +59,17 @@ export const ModalAddBoard = ({
         <form onSubmit={handleSubmit(onSubmit)}>
           <InputWrapper>
             <ModalInput
+              placeholder="Title"
               type="text"
               {...register('title', {
                 required: 'This field is required',
                 maxLength: { value: 20, message: 'Max length is 20' },
-                minLength: {value: 2, message: 'Min length is 2'},
+                minLength: { value: 2, message: 'Min length is 2' },
               })}
             />
             {errors.title && <ErrorText>{errors.title.message}</ErrorText>}
           </InputWrapper>
-          
+
           <IconWrapper>
             <IconsTitle>Icons</IconsTitle>
             {icons.map((icon, index) => {
@@ -77,7 +78,9 @@ export const ModalAddBoard = ({
                   <InputStyled
                     type="radio"
                     value={icon}
-                    {...register('dashboardIcon', {required: 'This field is required',})}
+                    {...register('dashboardIcon', {
+                      required: 'This field is required',
+                    })}
                     style={{ display: 'none' }}
                   />
                   <SvgModal>
@@ -86,7 +89,9 @@ export const ModalAddBoard = ({
                 </StyledLabel>
               );
             })}
-            {errors.dashboardIcon && <ErrorText>{errors.dashboardIcon.message}</ErrorText>}
+            {errors.dashboardIcon && (
+              <ErrorText>{errors.dashboardIcon.message}</ErrorText>
+            )}
           </IconWrapper>
           <div style={{ marginBottom: '40px' }}>
             <IconsTitle>Background</IconsTitle>
