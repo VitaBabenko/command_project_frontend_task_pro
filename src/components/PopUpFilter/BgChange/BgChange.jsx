@@ -10,9 +10,9 @@ import {
   BgContainer,
 } from './BgChange.styled';
 import { images } from '../../../utils/bgImgPreview';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-// import { updateUserBoard } from 'redux/dashboards/operation';
+import { updateUserBoard } from 'redux/dashboards/operation';
 
 const buttonsImg = images;
 
@@ -20,7 +20,7 @@ export const BgChange = () => {
   const [loadedImages, setLoadedImages] = useState([]);
 
   //
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { boardName } = useParams();
 
   const board = useSelector(state =>
@@ -60,15 +60,13 @@ export const BgChange = () => {
   }, []);
 
   const handleButtonClick = async id => {
-    // await dispatch(
-    //   updateUserBoard({
-    //     background: id,
-    //     _id: board._id,
-    //     title: board.title,
-    //     dashboardIcon: board.dashboardIcon,
-    //   })
-    // );
-    console.log(id);
+    const data = {
+      title: board.title,
+      dashboardIcon: board.dashboardIcon,
+      background: `${id}`,
+    };
+
+    await dispatch(updateUserBoard({ boardId: board._id, board: data }));
   };
 
   return (
