@@ -8,7 +8,7 @@ export const Wrapper = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  marginTop: '5px',
+  paddingTop: '5px',
   marginRight: '10px',
   gap: '5px',
 });
