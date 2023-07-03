@@ -107,3 +107,10 @@ export const SvgIconsStyled = styled.svg`
     box-shadow: 0px 0px 0px 0px #87d3ae;
   }
 `;
+
+export const ScrollStyled = styled.div`
+display: flex;
+flex-direction: column;
+overflow: auto;
+max-height: 600px;
+`;
