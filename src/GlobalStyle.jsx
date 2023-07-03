@@ -71,12 +71,16 @@ body[data-theme="dark"] {
   --createNewBoardIconBgColor: #bedbb0;
   --addAnotherColumnIconBgColor: #ffffff;
   --addAvatarIconBgColor: #bedbb0;
+  --iconPlus: #121212;
+  --logoIcon: #FFFFFF;
+  --logoBackground: #1F1F1F;
  
 
   --primaryTextColor: #ffffff;
   --secondaryTextColor: rgba(255, 255, 255, 0.5);
   --popupTextColor: rgba(255, 255, 255, 0.5);
   --themeTitleTextColor: rgba(255, 255, 255, 0.8);
+  --textBoardColor: rgba(255, 255, 255, 0.5);
 
   --passiveBorderColor: rgb(190, 219, 176, 0.4);
   --modalGorizontalBorderColor: rgba(255, 255, 255, 0.1);
@@ -127,11 +131,15 @@ body[data-theme="light"] {
   --createNewBoardIconBgColor: #bedbb0;
   --addAnotherColumnIconBgColor: #161616;
   --addAvatarIconBgColor: #bedbb0;
+   --iconPlus: #121212;
+   --logoIcon: #FFFFFF;
+   --logoBackground: #1F1F1F;
 
   --primaryTextColor: #161616;
   --secondaryTextColor: rgba(22, 22, 22, 0.7);
   --popupTextColor: #161616;
   --themeTitleTextColor: rgba(22, 22, 22, 0.8);
+  --textBoardColor: rgba(22, 22, 22, 0.5);
 
   --passiveBorderColor: rgb(190, 219, 176, 0.4);
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);
@@ -181,11 +189,15 @@ body[data-theme="violet"] {
   --createNewBoardIconBgColor: #b8bcfd;
   --addAnotherColumnIconBgColor: #FFFFFF;
   --addAvatarIconBgColor: #ecedfd;
+   --iconPlus: #FFFFFF;
+   --logoIcon: #5255bc;
+   --logoBackground: #ECEDFD;
 
   --primaryTextColor: #161616;
   --secondaryTextColor: rgba(22, 22, 22, 0.7);
   --popupTextColor: #161616;
   --themeTitleTextColor: rgba(22, 22, 22, 0.8);
+   --textBoardColor: rgba(255, 255, 255, 0.5);
 
   --passiveBorderColor: rgba(82, 85, 188, 0.4);
   --modalGorizontalBorderColor: rgba(22, 22, 22, 0.1);

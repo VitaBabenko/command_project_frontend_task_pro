@@ -1,6 +1,6 @@
 import { BtnLogOut, SvgIcon } from './Logout.styled';
 
-import spriteIcon from '../../../../images/sprite.svg';
+import spriteIcon from 'images/sprite.svg';
 
 export const Logout = ({ onClickLogout }) => {
   return (
