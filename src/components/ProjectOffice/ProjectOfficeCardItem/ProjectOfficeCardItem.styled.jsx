@@ -111,6 +111,4 @@ export const SvgIconsStyled = styled.svg`
 export const ScrollStyled = styled.div`
 display: flex;
 flex-direction: column;
-overflow: auto;
-max-height: 600px;
 `;

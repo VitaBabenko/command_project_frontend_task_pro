@@ -59,16 +59,18 @@ const ProjectOfficeItem = ({
           </ActionsIconsButton>
         </ActionsButton>
       </Wrapper>
-      {tasks &&
-        tasks.map(task => (
-          <ProjectOfficeCardItem
-            key={task._id}
-            task={task}
-            columnId={columnId}
-            boardId={boardId}
-            setTasks={setTasks}
-          />
-        ))}
+      <div style={{overflow: 'auto', maxHeight: '500px'}}>
+        {tasks &&
+            tasks.map(task => (
+            <ProjectOfficeCardItem
+                key={task._id}
+                task={task}
+                columnId={columnId}
+                boardId={boardId}
+                setTasks={setTasks}
+            />
+            ))}
+        </div>
         <div style={{marginTop: '10px'}}>
         <ProjectCardAddButton
             columnId={columnId}
