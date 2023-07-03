@@ -35,7 +35,7 @@ export const BtnShowAll = styled.button`
 
 export const radioButtons = [
   {
-    value: 'withoutPriority',
+    value: 'without',
     label: 'Without priority',
     color: '#5B5B5B',
     checkedColor: '#5B5B5B',

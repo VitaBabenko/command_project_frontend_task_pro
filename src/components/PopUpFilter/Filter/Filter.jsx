@@ -24,7 +24,7 @@ export const Filter = () => {
 
   const handleShowAll = () => {
     console.log('Show all selected');
-    dispatch(setFilter('all'));
+    dispatch(setFilter(null));
     handleReset();
   };
 
