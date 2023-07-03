@@ -26,7 +26,9 @@ import { CustomButton } from 'components/Button/CustomButton';
 import { pureFinalPropsSelectorFactory } from 'react-redux/es/connect/selectorFactory';
 
 import CloseIcon from '@mui/icons-material/Close';
-import axios from 'axios';
+
+import { updateTask } from 'taskServices/updateTask';
+import { addTask } from 'taskServices/addTask';
 
 export const CardPopUp = ({
   isOpen,
@@ -34,14 +36,24 @@ export const CardPopUp = ({
   boardId,
   columnId,
   setTasks,
-  task: {
-    _id: taskId,
-    title = '',
-    description = '',
-    priority = 'without',
-    deadline = new Date(),
-  },
+  task,
 }) => {
+  const {
+    _id: taskId,
+    title,
+    description,
+    priority,
+    deadline,
+  } = task
+    ? { ...task }
+    : {
+        _id: null,
+        title: '',
+        description: '',
+        priority: 'without',
+        deadline: new Date(),
+      };
+
   const {
     register,
     handleSubmit,
@@ -51,27 +63,31 @@ export const CardPopUp = ({
   } = useForm({ defaultValues: { title, description, priority, deadline } });
 
   const onSubmit = async data => {
-    const res = await axios.put(
-      `/boards/${boardId}/columns/${columnId}/tasks/${taskId} `,
-      data
-    );
+    if (task) {
+      const res = await updateTask(boardId, columnId, taskId, data);
 
-    setTasks(p => {
-      return p.map(task => {
-        if (task._id === res.data.task._id) {
-          return res.data.task;
-        }
-        return task;
+      setTasks(p => {
+        return p.map(task => {
+          if (task._id === res.data.task._id) {
+            return res.data.task;
+          }
+          return task;
+        });
       });
-    });
+    } else {
+      const res = await addTask(data, boardId, columnId);
+
+      setTasks(s => {
+        return [...s, res.data.task];
+      });
+    }
     reset();
     onClose();
   };
   const [unixFromat, setUnixFormat] = useState(
-    // new Date(new Date().toUTCString()).getTime() / 1000
     new Date(new Date().toUTCString()).getTime()
   );
-  // const [dateBtn, setDateBtn] = useState(new Date());
+
   const [dateBtn, setDateBtn] = useState(new Date(deadline));
   const [showDatePicker, setShowDatePicker] = useState(false);
 
@@ -186,7 +202,8 @@ export const CardPopUp = ({
           />
         )}
         {errors.exampleRequired && <span>This field is required</span>}
-        <CustomButton type="submit">{'Edit'}</CustomButton>
+        {task && <CustomButton type="submit">{'Edit'}</CustomButton>}
+        {!task && <CustomButton type="submit">{'Add'}</CustomButton>}
       </Form>
     </CustomDialog>
   );

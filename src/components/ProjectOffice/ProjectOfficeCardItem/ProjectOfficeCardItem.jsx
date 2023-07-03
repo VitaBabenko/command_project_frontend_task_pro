@@ -23,8 +23,9 @@ import {
 
 import { useState } from 'react';
 import { CardPopUp } from 'components/CardPopUp/CardPopUp';
-import axios from 'axios';
+
 import { dateFormatDedline } from 'utils/dateFormatDedline';
+import { deleteTask } from 'taskServices/deleteTask';
 
 const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
   const { _id: taskId, title, description, priority, deadline } = task;
@@ -36,16 +37,10 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
   };
 
   const handleDeleteTask = async () => {
-    try {
-      await axios.delete(
-        `/boards/${boardId}/columns/${columnId}/tasks/${taskId}`
-      );
-      setTasks(p => {
-        return p.filter(task => task._id !== taskId);
-      });
-    } catch (e) {
-      console.log('e.message', e.message);
-    }
+    await deleteTask(boardId, columnId, taskId.toString());
+    setTasks(p => {
+      return p.filter(task => task._id !== taskId);
+    });
   };
 
   return (

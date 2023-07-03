@@ -6,9 +6,10 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useEffect, useState } from 'react';
 
 import ProjectCardAddButton from '../ProjectCardAddButton/ProjectCardAddButton';
-import axios from 'axios';
+
 // import { useDispatch } from 'react-redux';
 import { ModalColumn } from 'components/Modal/ModalColumn/ModalColumn';
+import { fetchTasks } from 'taskServices/fetchTask';
 
 const ProjectOfficeItem = ({
   column: { title, _id: columnId },
@@ -33,14 +34,11 @@ const ProjectOfficeItem = ({
   };
 
   useEffect(() => {
-    const fetchTasks = async () => {
-      const { data } = await axios.get(
-        `/boards/${boardId}/columns/${columnId}/tasks`
-      );
-
+    const fetchTasksApi = async (boardId, columnId) => {
+      const data = await fetchTasks(boardId, columnId);
       setTasks(data.tasks);
     };
-    fetchTasks();
+    fetchTasksApi(boardId, columnId);
   }, [boardId, columnId]);
 
   return (
@@ -68,7 +66,12 @@ const ProjectOfficeItem = ({
             setTasks={setTasks}
           />
         ))}
-      <ProjectCardAddButton />
+      <ProjectCardAddButton
+        columnId={columnId}
+        boardId={boardId}
+        setTasks={setTasks}
+        // task={tasks}
+      />
       <ModalColumn
         isOpen={isOpen}
         onClose={handleToggle}
