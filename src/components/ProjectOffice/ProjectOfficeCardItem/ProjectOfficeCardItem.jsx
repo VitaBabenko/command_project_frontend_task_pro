@@ -5,10 +5,6 @@ import {
 } from '../ProjectOfficeStyle';
 import CardContent from '@mui/material/CardContent';
 import { Button, CardActionArea } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import {
   CardStyled,
   CardTitle,
@@ -19,6 +15,7 @@ import {
   WrapperText,
   StatusWrapper,
   StatusStyled,
+  SvgIconsStyled,
 } from './ProjectOfficeCardItem.styled';
 
 import { useState } from 'react';
@@ -26,6 +23,7 @@ import { CardPopUp } from 'components/CardPopUp/CardPopUp';
 
 import { dateFormatDedline } from 'utils/dateFormatDedline';
 import { deleteTask } from 'taskServices/deleteTask';
+import sprite from '../../../images/sprite.svg';
 import { ProjectOfficePopUpCardColumn } from '../ProjectOfficePopUpCardColumn/ProjectOfficePopUpCardColumn';
 import { useSelector } from 'react-redux';
 import { selectColumnsForBoard } from 'redux/dashboards/selectors';
@@ -59,8 +57,7 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
         <CardActionArea>
           <CardContent>
             <CardTitle component="div">{title}</CardTitle>
-
-            <CardText>{description}</CardText>
+                <CardText>{description}</CardText>
           </CardContent>
         </CardActionArea>
         <CardActionsStyled>
@@ -84,28 +81,33 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
           </CardFooterStyled>
 
           <CardIconsWrapper>
-            <NotificationsNoneIcon fontSize="small" sx={{ color: '#888888' }} />
+            <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
+                <use href={`${sprite}#icon-bell`}></use>
+            </SvgIconsStyled>
 
             <Button
               sx={{ padding: 0, width: '20px', minWidth: '0' }}
               onClick={handleTogglePopUp}
             >
-              <ArrowCircleRightIcon
-                fontSize="small"
-                sx={{ color: '#888888' }}
-              />
+            <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
+                <use href={`${sprite}#icon-arrow-circle-broken-right`}></use>
+            </SvgIconsStyled>
             </Button>
             <Button
-              onClick={handleToggleModal}
-              sx={{ padding: 0, width: '20px', minWidth: '0' }}
+            onClick={handleToggleModal}
+              sx={{ padding: 0, width: '20px', minWidth: '0', '&.MuiButtonBase-root.MuiButton-root:hover': { backgroundColor: '#121212'} }}
             >
-              <EditIcon fontSize="small" sx={{ color: '#888888' }} />
+            <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
+                <use href={`${sprite}#icon-pencil`}></use>
+            </SvgIconsStyled>
             </Button>
             <Button
               onClick={handleDeleteTask}
-              sx={{ padding: 0, width: '20px', minWidth: '0' }}
+              sx={{ padding: 0, width: '20px', minWidth: '0', '&.MuiButtonBase-root.MuiButton-root:hover': { backgroundColor: '#121212'}  }}
             >
-              <DeleteOutlineIcon fontSize="small" sx={{ color: '#888888' }} />
+            <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
+                <use href={`${sprite}#icon-trash`}></use>
+            </SvgIconsStyled>
             </Button>
           </CardIconsWrapper>
         </WrapperFooter>
