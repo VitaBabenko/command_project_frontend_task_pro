@@ -45,6 +45,7 @@ export const Icon = styled.svg`
   width: 18px;
   height: 18px;
   stroke: #ffffff;
+  cursor: pointer;
 `;
 
 export const Button = styled.button`
@@ -83,10 +84,11 @@ export const FormContainer = styled.div`
 export const IconLogin = styled.svg`
   position: absolute;
   right: 50px;
-  bottom: 80px;
+  bottom: 75px;
   width: 18px;
   height: 18px;
   stroke: #ffffff;
+  cursor: pointer;
 `;
 
 export const ErrorContainer = styled.div`
