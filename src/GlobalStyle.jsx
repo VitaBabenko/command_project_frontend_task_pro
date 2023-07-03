@@ -192,6 +192,7 @@ body[data-theme="violet"] {
   --modalBorderColor: transparent;
   --defaultImgColor: rgba(22, 22, 22, 0.7);
     --defaultUserColor: #FFFFFF;
+       --cardItem: #FFFFFF;
   --boxShadowColor: rgba(22, 22, 22, 0.05);
   --needHelpBtn: #FFFFFF;
   --iconLogOut: #FFFFFF;
