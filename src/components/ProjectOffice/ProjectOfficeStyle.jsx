@@ -60,7 +60,7 @@ export const StackWrapper = styled(Stack)({
   height: '56px',
   background: '#F6F6F7',
   borderRadius: '8px',
-  marginBottom: '5px'
+  marginBottom: '5px',
 });
 
 export const CardButtonStyled = styled(Stack)({
