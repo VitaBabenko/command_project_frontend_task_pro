@@ -253,7 +253,7 @@ body[data-theme="violet"] {
   --bgPlus:#ECEDFD;
   --iconEyeColor:#161616;
   --btnColorHover: #b8bcfd;
-  --iconColor: rgba(255, 255, 255, 0.5);
+  --iconColor: rgba(22, 22, 22, 0.5);
 
   --calendarWithoutColor: rgba(22, 22, 22, 0.30);
 

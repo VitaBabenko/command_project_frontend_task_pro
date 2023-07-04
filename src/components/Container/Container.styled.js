@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 export const StyleContainer = styled.div`
   /* background-color: var(--sidebarBgColor); */
-  /* height: 100hv; */
+  height: 100vh;
 
   @media screen and (min-width: 375px) {
+    /* min-height: 752px; */
     // width: 375px;
   }
 

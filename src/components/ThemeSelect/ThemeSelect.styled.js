@@ -17,7 +17,8 @@ export const ThemeSelectTitle = styled.div`
   cursor: pointer;
   transition: opacity var(--transition_data);
 
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 0.7;
   }
 `;
