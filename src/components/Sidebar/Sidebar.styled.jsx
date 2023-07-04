@@ -23,10 +23,12 @@ export const SidebarMain = styled.div`
   @media screen and (min-width: 768px) {
     /* height: 100vh; */
     overflow: auto;
-    position: static;
-    /* left: -260px;
-    top: 68px;
-    z-index: 1000; */
+    position: fixed;
+    left: -260px;
+    // top: 68px;
+    z-index: 1000;
+=======
+//     position: static;
     /* min-height: 100%; */
     /* padding-bottom: 120px; */
     &.visible {

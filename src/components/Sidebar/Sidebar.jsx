@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/authorization/operations';
 import classNames from 'classnames';
 
-export const Sidebar = ({ isNeedHelp = true, shouldShowSidebar = true }) => {
+export const Sidebar = ({ isNeedHelp = true, shouldShowSidebar = true, sidebarNode }) => {
   const navigate = useNavigate();
   //
   const dispatch = useDispatch();
@@ -44,16 +44,14 @@ export const Sidebar = ({ isNeedHelp = true, shouldShowSidebar = true }) => {
   });
 
   return (
-    <SidebarMain className={classes}>
-      {/* <Inn> */}
-      <Logo goHome={handleHome} />
+    <SidebarMain className={classes} ref={sidebarNode}>
+        <Logo goHome={handleHome} />
 
       <Boards />
 
       {isNeedHelp && <NeedHelp />}
 
       <Logout onClickLogout={handleLogout} />
-      {/* </Inn> */}
     </SidebarMain>
   );
 };
