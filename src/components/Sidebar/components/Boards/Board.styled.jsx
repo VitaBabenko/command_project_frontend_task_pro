@@ -65,6 +65,7 @@ export const SidebarPrjctList = styled.ul`
     height: calc(100vh - 252px - 358px);
   }
   overflow-y: auto;
+  min-height: 61px;
 `;
 
 export const PrjctItemMain = styled.div`

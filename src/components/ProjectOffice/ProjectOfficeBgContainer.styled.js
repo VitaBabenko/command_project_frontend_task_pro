@@ -6,13 +6,14 @@ const baseBgUrl =
 export const BackgroundContainer = styled.div`
   /* background-color: red; */
 
-  height: calc(100% - 68px);
+  height: calc(100vh - 68px);
 
-  @media screen and (max-width: 768px) {
-    min-height: 956px;
-  }
+  /* @media screen and (max-width: 768px) { */
+  /* min-height: 956px; */
+  /* } */
   @media screen and (max-width: 375px) {
-    min-height: 752px;
+    /* min-height: 752px; */
+    height: calc(100vh - 60px);
   }
 
   background-size: cover;
