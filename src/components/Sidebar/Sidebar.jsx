@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Logo } from './components/Logo/Logo';
 import { Boards } from './components/Boards/Boards';
 import { NeedHelp } from '../NeedHelp/NeedHelp';
@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 // import { addUserBoard } from 'redux/dashboards/operation';
 import { logOut } from '../../redux/authorization/operations';
 import classNames from 'classnames';
+import { fetchUserDashboards } from 'redux/dashboards/operation';
 
 export const Sidebar = ({ isNeedHelp = true, shouldShowSidebar = true, sidebarNode }) => {
   const navigate = useNavigate();
@@ -32,6 +33,14 @@ export const Sidebar = ({ isNeedHelp = true, shouldShowSidebar = true, sidebarNo
   //   dispatch(addUserBoard(newBoard));
   //   console.log('Create new project');
   // };
+
+
+    useEffect(() => {
+    const fetchDashboards = async () => {
+      dispatch(fetchUserDashboards());
+    };
+    fetchDashboards();
+  }, [dispatch]);
 
   const handleHome = e => {
     e.stopPropagation();

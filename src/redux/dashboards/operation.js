@@ -1,10 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-// const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTllYzUzNDljMTJmMzhiMDYzOGVhNSIsImlhdCI6MTY4NzgxMzMzNiwiZXhwIjoxNjg3ODk2MTM2fQ.WTQSf0CbF6e4zomYmlqDrNVZFK--BdIKBnIydL8lOT4'
-// axios.defaults.baseURL = 'https://64975d0e83d4c69925a39dad.mockapi.io';
-
-// axios.defaults.headers.common.Authorization = `Bearer ${TOKEN}`;
+import { toast } from 'react-toastify';
 
 export const fetchUserDashboards = createAsyncThunk(
   'dashboards/fetchUserDashboards',
@@ -13,6 +9,7 @@ export const fetchUserDashboards = createAsyncThunk(
       const resp = await axios.get('/boards');
       return resp.data.boards;
     } catch (error) {
+      toast.error(error.response.message);
       return rejectWithValue(error.message); 
     }
   }
@@ -25,6 +22,7 @@ export const addUserBoard = createAsyncThunk(
       const resp = await axios.post('/boards', board);
       return resp.data.board;
     } catch (error) {
+      toast.error(error.response.message);
       return rejectWithValue(error.message); 
     }
   }
@@ -35,9 +33,9 @@ export const updateUserBoard = createAsyncThunk(
   async ({ boardId, board }, { rejectWithValue }) => {
     try {
       const resp = await axios.put(`/boards/${boardId}`, board);
-      console.log(resp.data);
       return resp.data.board;
     } catch (error) {
+      toast.error(error.response.message);
       return rejectWithValue(error.message); 
     }
   }
@@ -48,9 +46,9 @@ export const deleteUserBoard = createAsyncThunk(
   async (boardId, { rejectWithValue }) => {
     try {
       const resp = await axios.delete(`/boards/${boardId}`);
-      console.log(resp.data);
       return resp.data.board;
     } catch (error) {
+      toast.error(error.response.message);
       return rejectWithValue(error.message); 
     }
   }
@@ -61,9 +59,9 @@ export const addColumn = createAsyncThunk(
   async ({ boardId, title }, { rejectWithValue }) => {
     try {
       const resp = await axios.post(`/boards/${boardId}/columns`, { title });
-      console.log(resp);
       return resp.data.column;
     } catch (error) {
+      toast.error(error.response.message);
       return rejectWithValue(error.message); 
     }
   }
@@ -74,9 +72,9 @@ export const getColumnsForBoard = createAsyncThunk(
   async (boardId, { rejectWithValue }) => {
     try {
       const resp = await axios.get(`/boards/${boardId}/columns`);
-      console.log(resp.data);
       return resp.data.columns;
     } catch (error) {
+      toast.error(error.response.message);
       return rejectWithValue(error.message); 
     }
   }
@@ -89,9 +87,9 @@ export const updateColumn = createAsyncThunk(
       const resp = await axios.put(`/boards/${boardId}/columns/${columnId}`, {
         title,
       });
-      console.log(resp.data);
       return resp.data.column;
     } catch (error) {
+      toast.error(error.response.message);
       return rejectWithValue(error.message); 
     }
   }
@@ -102,9 +100,9 @@ export const deleteColumn = createAsyncThunk(
   async ({ boardId, columnId }, { rejectWithValue }) => {
     try {
       const resp = await axios.delete(`/boards/${boardId}/columns/${columnId}`);
-      console.log(resp.data);
       return resp.data.column;
     } catch (error) {
+      toast.error(error.response.message);
       return rejectWithValue(error.message); 
     }
   }
