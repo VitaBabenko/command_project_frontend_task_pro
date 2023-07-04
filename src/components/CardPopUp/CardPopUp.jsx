@@ -178,7 +178,7 @@ export const CardPopUp = ({
               id="without"
               {...register('priority', { required: false })}
               value="without"
-              checked={true}
+              // checked={true}
             />
             <RadioLabel
               htmlFor="without"
