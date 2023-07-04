@@ -23,10 +23,7 @@ import {
 } from './CardPopUp.styled';
 
 import { CustomButton } from 'components/Button/CustomButton';
-import { pureFinalPropsSelectorFactory } from 'react-redux/es/connect/selectorFactory';
-
 import CloseIcon from '@mui/icons-material/Close';
-
 import { updateTask } from 'taskServices/updateTask';
 import { addTask } from 'taskServices/addTask';
 
@@ -108,18 +105,30 @@ export const CardPopUp = ({
         <CloseIcon sx={{ fontSize: 'medium' }} style={{ marginTop: '14px' }} />
       </CloseButton>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormText>{'Add card'}</FormText>
+        {!task && <FormText>{'Add card'}</FormText>}
+        {task && <FormText>{'Edit card'}</FormText>}
+        {errors?.title && (
+          <p style={{ color: 'red' }}>{errors?.title.message}</p>
+        )}
         <FromInput
           {...register('title', {
             minLength: 3,
-            required: pureFinalPropsSelectorFactory,
+            required: 'This field is required, at least 3 characters!',
           })}
           placeholder="Title"
         />
+
+        {errors?.description && (
+          <p style={{ color: 'red' }}>{errors?.description.message}</p>
+        )}
         <FormTextarea
           placeholder="Description"
-          {...register('description', { minLength: 3, required: false })}
+          {...register('description', {
+            minLength: 3,
+            required: 'This field is required, at least 3 characters!',
+          })}
         ></FormTextarea>
+
         <Text>Label color</Text>
         <RadioGroup>
           <Wrap>
@@ -201,7 +210,7 @@ export const CardPopUp = ({
             minDate={new Date()}
           />
         )}
-        {errors.exampleRequired && <span>This field is required</span>}
+
         {task && <CustomButton type="submit">{'Edit'}</CustomButton>}
         {!task && <CustomButton type="submit">{'Add'}</CustomButton>}
       </Form>
