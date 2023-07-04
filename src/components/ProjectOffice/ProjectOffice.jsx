@@ -7,14 +7,18 @@ import ProjectOfficeHeader from './ProjectOfficeHeader/ProjectOfficeHeader';
 import AddColumnButton from './AddColumnsButton/AddColumnsButton';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addColumn, deleteColumn, getColumnsForBoard, updateColumn } from 'redux/dashboards/operation';
+import {
+  addColumn,
+  deleteColumn,
+  getColumnsForBoard,
+  updateColumn,
+} from 'redux/dashboards/operation';
 import {
   selectColumnsForBoard,
   selectDashboards,
 } from 'redux/dashboards/selectors';
 import { Box } from '@mui/material';
 import { BackgroundContainer } from './ProjectOfficeBgContainer.styled';
-
 
 const ProjectOffice = () => {
   const isLoading = useSelector(state => state.dashboard.isLoading);
@@ -23,21 +27,17 @@ const ProjectOffice = () => {
   const dashboards = useSelector(selectDashboards);
   const currentBoard = dashboards.find(board => board._id === boardName);
   const dispatch = useDispatch();
-  
+
   const handleDeletecolumn = async (boardId, columnId) => {
     await dispatch(deleteColumn({ boardId, columnId }));
     dispatch(getColumnsForBoard(boardName));
   };
 
-
   const handleEditColumnName = async ({ boardId, columnId, title }) => {
     await dispatch(updateColumn({ boardId, columnId, title }));
-    console.log('UPADATE NAME NEW')
+    console.log('UPADATE NAME NEW');
     dispatch(getColumnsForBoard(boardName));
-    
   };
-
-
 
   const handleAddColumn = columnName => {
     dispatch(addColumn({ title: columnName, boardId: boardName }));
@@ -47,10 +47,6 @@ const ProjectOffice = () => {
     dispatch(getColumnsForBoard(boardName));
   }, [dispatch, boardName]);
 
-
-
-
-
   return (
     // <Box sx={{ marginLeft: '20%' }}>
     <BackgroundContainer bgnumber={currentBoard ? currentBoard.background : ''}>
@@ -58,7 +54,14 @@ const ProjectOffice = () => {
         <ProjectOfficeHeader />
         {!isLoading && <AddColumnButton handleAddColumn={handleAddColumn} />}
         {/* <div style={{ display: 'flex', flexDirection: 'row' }}> */}
-        <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '10px' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            gap: '10px',
+          }}
+        >
           {columns ? (
             columns.map(column => (
               <ProjectOfficeItem

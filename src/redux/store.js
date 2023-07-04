@@ -14,6 +14,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './authorization/slice';
+import { filterReducer } from '../redux/filter/filterSlice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -37,6 +38,7 @@ export const store = configureStore({
     modal: modalNameReducer,
 
     dashboard: dashboardReducer,
+    filter: filterReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

@@ -17,6 +17,8 @@ import {
   SvgIconsStyled,
 } from '../ProjectOfficeCardItem/ProjectOfficeCardItem.styled';
 
+import { useSelector } from 'react-redux';
+
 const ProjectOfficeItem = ({
   column,
   boardId,
@@ -27,6 +29,8 @@ const ProjectOfficeItem = ({
 
   const [tasks, setTasks] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+
+  const filter = useSelector(state => state.filter);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -42,10 +46,17 @@ const ProjectOfficeItem = ({
   useEffect(() => {
     const fetchTasksApi = async (boardId, columnId) => {
       const data = await fetchTasks(boardId, columnId);
-      setTasks(data.tasks);
+
+      const filteredTasks = data.tasks.filter(task => {
+        if (filter) {
+          return task.priority === filter;
+        }
+        return true;
+      });
+      setTasks(filteredTasks);
     };
     fetchTasksApi(boardId, columnId);
-  }, [boardId, columnId, column]);
+  }, [boardId, columnId, column, filter]);
 
   return (
     <ScrollStyled>
@@ -77,8 +88,7 @@ const ProjectOfficeItem = ({
           </ActionsIconsButton>
         </ActionsButton>
       </Wrapper>
-      {/* <div style={{overflow: 'auto', maxHeight: '500px'}}> */}
-      <div style={{ overflow: 'auto' }}>
+      <div style={{ overflow: 'auto', maxHeight: '500px' }}>
         {tasks &&
           tasks.map(task => (
             <ProjectOfficeCardItem
