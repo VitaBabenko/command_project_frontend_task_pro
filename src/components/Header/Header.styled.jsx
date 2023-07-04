@@ -18,7 +18,7 @@ export const HeaderMain = styled.div`
     cursor: pointer;
     display: none;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     .header-burger {
       display: block;
       fill: #161616;
