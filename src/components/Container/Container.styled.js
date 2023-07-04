@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyleContainer = styled.div`
   /* background-color: var(--sidebarBgColor); */
-  /* height: 100hv; */
+  height: 100vh;
 
   @media screen and (min-width: 375px) {
     /* min-height: 752px; */
@@ -14,5 +14,6 @@ export const StyleContainer = styled.div`
     margin: 0 auto;
     width: 100%;
     display: flex;
+    flex-direction: row;
   }
 `;

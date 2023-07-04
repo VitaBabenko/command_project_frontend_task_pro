@@ -4,14 +4,10 @@ import { Loader } from '../components/Loader/Loader';
 
 export const Layout = () => {
   return (
-    <Suspense
-      fallback={
-        <div>
-          <Loader />
-        </div>
-      }
-    >
-      <Outlet />
-    </Suspense>
+    <div style={{ width: '100%', heigt: '100vh' }}>
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
+    </div>
   );
 };

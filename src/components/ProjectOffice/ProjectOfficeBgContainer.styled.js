@@ -9,10 +9,10 @@ export const BackgroundContainer = styled.div`
   height: calc(100% - 68px);
 
   @media screen and (max-width: 768px) {
-    min-height: 752px;
+    min-height: 956px;
   }
   @media screen and (max-width: 375px) {
-    min-height: 956px;
+    min-height: 752px;
   }
 
   background-size: cover;
