@@ -27,8 +27,7 @@ export const SidebarMain = styled.div`
     left: -260px;
     // top: 68px;
     z-index: 1000;
-=======
-//     position: static;
+    //     position: static;
     /* min-height: 100%; */
     /* padding-bottom: 120px; */
     &.visible {

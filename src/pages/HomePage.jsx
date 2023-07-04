@@ -3,10 +3,10 @@ import Container from 'components/Container/Container';
 import { Header } from '../components/Header/Header';
 import { Sidebar } from '../components/Sidebar/Sidebar';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { selectDashboards } from 'redux/dashboards/selectors';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { selectDashboards } from 'redux/dashboards/selectors';
 import { useEffect, Suspense, useState, useRef } from 'react';
-import { fetchUserDashboards } from 'redux/dashboards/operation';
+// import { fetchUserDashboards } from 'redux/dashboards/operation';
 
 import { Loader } from '../components/Loader/Loader';
 
@@ -15,8 +15,7 @@ const HomePage = () => {
   // console.log(token)
   // const dispatch = useDispatch();
   const [shouldShowSidebar, setShouldShowSidebar] = useState(false);
-  const sidebarNode = useRef(null)
-
+  const sidebarNode = useRef(null);
 
   useEffect(() => {
     document.addEventListener('click', handleDocumentClick, true);
@@ -26,15 +25,15 @@ const HomePage = () => {
     };
   }, []);
 
-  const handleDocumentClick = (e) => {
+  const handleDocumentClick = e => {
     const { current } = sidebarNode;
 
     if (current !== null || true) {
-      setShouldShowSidebar(e.target === current)
+      setShouldShowSidebar(e.target === current);
     }
-  }
+  };
 
-  const handleBurgerClick = (e) => {
+  const handleBurgerClick = e => {
     setShouldShowSidebar(!shouldShowSidebar);
   };
 
@@ -53,7 +52,7 @@ const HomePage = () => {
         sidebarNode={sidebarNode}
       />
       <div style={{ width: '100%' }}>
-        <Header onBurgerClick={(e) => handleBurgerClick(e)} />
+        <Header onBurgerClick={e => handleBurgerClick(e)} />
 
         <Suspense fallback={<Loader />}>
           <Outlet />
