@@ -17,7 +17,7 @@ export const SidebarMain = styled.div`
     overflow: auto;
     position: fixed;
     left: -260px;
-    top: 68px;
+    // top: 68px;
     z-index: 1000;
     /* min-height: 100%; */
     padding-bottom: 120px;
