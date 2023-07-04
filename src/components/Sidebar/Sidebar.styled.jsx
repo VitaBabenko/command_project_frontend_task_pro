@@ -35,12 +35,12 @@ export const SidebarMain = styled.div`
   }
 `;
 
-export const Inn = styled.div`
-  background-color: var(--sidebarBgColor);
-  // display: flex;
-  // flex-direction: column;
-  // height: 100%;
-`;
+// export const Inn = styled.div`
+//   background-color: var(--sidebarBgColor);
+//   // display: flex;
+//   // flex-direction: column;
+//   // height: 100%;
+// `;
 
 export const Text = styled.p`
   margin-top: 60px;
