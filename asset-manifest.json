@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/command_project_frontend_task_pro/static/css/main.36380e2b.css",
-    "main.js": "/command_project_frontend_task_pro/static/js/main.71bee481.js",
+    "main.js": "/command_project_frontend_task_pro/static/js/main.a78aa9a3.js",
     "static/js/198.ce882e6a.chunk.js": "/command_project_frontend_task_pro/static/js/198.ce882e6a.chunk.js",
     "static/js/486.6e95f465.chunk.js": "/command_project_frontend_task_pro/static/js/486.6e95f465.chunk.js",
-    "static/js/290.1df23dc2.chunk.js": "/command_project_frontend_task_pro/static/js/290.1df23dc2.chunk.js",
+    "static/js/290.3347a0ac.chunk.js": "/command_project_frontend_task_pro/static/js/290.3347a0ac.chunk.js",
     "static/css/610.e04e7c74.chunk.css": "/command_project_frontend_task_pro/static/css/610.e04e7c74.chunk.css",
     "static/js/610.27fb26a1.chunk.js": "/command_project_frontend_task_pro/static/js/610.27fb26a1.chunk.js",
     "static/js/115.27880c42.chunk.js": "/command_project_frontend_task_pro/static/js/115.27880c42.chunk.js",
@@ -13,10 +13,10 @@
     "index.html": "/command_project_frontend_task_pro/index.html",
     "static/media/burger.svg": "/command_project_frontend_task_pro/static/media/burger.c6a1a215d8b4b8a65139c03451310e2f.svg",
     "main.36380e2b.css.map": "/command_project_frontend_task_pro/static/css/main.36380e2b.css.map",
-    "main.71bee481.js.map": "/command_project_frontend_task_pro/static/js/main.71bee481.js.map",
+    "main.a78aa9a3.js.map": "/command_project_frontend_task_pro/static/js/main.a78aa9a3.js.map",
     "198.ce882e6a.chunk.js.map": "/command_project_frontend_task_pro/static/js/198.ce882e6a.chunk.js.map",
     "486.6e95f465.chunk.js.map": "/command_project_frontend_task_pro/static/js/486.6e95f465.chunk.js.map",
-    "290.1df23dc2.chunk.js.map": "/command_project_frontend_task_pro/static/js/290.1df23dc2.chunk.js.map",
+    "290.3347a0ac.chunk.js.map": "/command_project_frontend_task_pro/static/js/290.3347a0ac.chunk.js.map",
     "610.e04e7c74.chunk.css.map": "/command_project_frontend_task_pro/static/css/610.e04e7c74.chunk.css.map",
     "610.27fb26a1.chunk.js.map": "/command_project_frontend_task_pro/static/js/610.27fb26a1.chunk.js.map",
     "115.27880c42.chunk.js.map": "/command_project_frontend_task_pro/static/js/115.27880c42.chunk.js.map",
@@ -24,6 +24,6 @@
   },
   "entrypoints": [
     "static/css/main.36380e2b.css",
-    "static/js/main.71bee481.js"
+    "static/js/main.a78aa9a3.js"
   ]
 }
