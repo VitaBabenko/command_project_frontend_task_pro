@@ -88,7 +88,7 @@ const ProjectOfficeItem = ({
           </ActionsIconsButton>
         </ActionsButton>
       </Wrapper>
-      <div style={{ overflow: 'auto', maxHeight: '500px' }}>
+      <div style={{ overflow: 'auto' }}>
         {tasks &&
           tasks.map(task => (
             <ProjectOfficeCardItem
