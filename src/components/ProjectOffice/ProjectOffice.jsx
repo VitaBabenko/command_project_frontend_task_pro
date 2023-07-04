@@ -62,7 +62,7 @@ const ProjectOffice = () => {
             gap: '10px',
           }}
         >
-          {columns ? (
+          {/* {columns ? (
             columns.map(column => (
               <ProjectOfficeItem
                 column={column}
@@ -74,7 +74,18 @@ const ProjectOffice = () => {
             ))
           ) : (
             <p>Loading...</p>
-          )}
+          )} */}
+
+          {columns &&
+            columns.map(column => (
+              <ProjectOfficeItem
+                column={column}
+                boardId={boardName}
+                key={column._id}
+                onDelete={handleDeletecolumn}
+                handleEditColumnName={handleEditColumnName}
+              />
+            ))}
         </div>
         {/* </div> */}
         {/* <ProjectOfficeItem column={columns} /> */}

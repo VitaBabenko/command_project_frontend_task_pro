@@ -4,7 +4,7 @@ import { Boards } from './components/Boards/Boards';
 import { NeedHelp } from '../NeedHelp/NeedHelp';
 import { Logout } from './components/Logout/Logout';
 import { useNavigate } from 'react-router-dom';
-import { SidebarMain, Inn } from './Sidebar.styled';
+import { SidebarMain } from './Sidebar.styled';
 import { useDispatch } from 'react-redux';
 // import { addUserBoard } from 'redux/dashboards/operation';
 import { logOut } from '../../redux/authorization/operations';
@@ -45,15 +45,15 @@ export const Sidebar = ({ isNeedHelp = true, shouldShowSidebar = true }) => {
 
   return (
     <SidebarMain className={classes}>
-      <Inn>
-        <Logo goHome={handleHome} />
+      {/* <Inn> */}
+      <Logo goHome={handleHome} />
 
-        <Boards />
+      <Boards />
 
-        {isNeedHelp && <NeedHelp />}
+      {isNeedHelp && <NeedHelp />}
 
-        <Logout onClickLogout={handleLogout} />
-      </Inn>
+      <Logout onClickLogout={handleLogout} />
+      {/* </Inn> */}
     </SidebarMain>
   );
 };
