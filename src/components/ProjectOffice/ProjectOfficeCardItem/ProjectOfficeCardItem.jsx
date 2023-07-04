@@ -16,6 +16,7 @@ import {
   StatusWrapper,
   StatusStyled,
   SvgIconsStyled,
+  SvgIconsStyledBell,
 } from './ProjectOfficeCardItem.styled';
 
 import { useState } from 'react';
@@ -44,8 +45,9 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
 
     const timeLeft = deadlineTime.getTime() - currentTime.getTime();
     const hoursLeft = Math.floor(timeLeft / (1000 * 60 * 60));
+    return hoursLeft;
 
-    return hoursLeft < 24;
+    // return hoursLeft < 24;
   }
 
   const isDeadlineTime = isDeadLine();
@@ -96,9 +98,11 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
           </CardFooterStyled>
 
           <CardIconsWrapper>
-            {isDeadlineTime && <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
+            
+            {isDeadlineTime < 24 && 
+              <SvgIconsStyledBell aria-label="icon-bell" width={16} height={16} timeline={isDeadlineTime} >
                 <use href={`${sprite}#icon-bell`}></use>
-            </SvgIconsStyled>}
+              </SvgIconsStyledBell>}
           
             <Button
               sx={{ padding: 0, width: '20px', minWidth: '0' }}

@@ -112,3 +112,17 @@ export const ScrollStyled = styled.div`
 display: flex;
 flex-direction: column;
 `;
+
+export const SvgIconsStyledBell = styled.svg`
+  stroke: ${props => {
+  switch (true) {
+      case props.timeline < 0:
+        return '#e40c0c';
+      case props.timeline < 24:
+        return '#BEDBB0';
+      default:
+        return 'var(--iconCardColor)';
+  }
+}};
+`;
+
