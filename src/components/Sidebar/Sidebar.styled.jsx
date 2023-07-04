@@ -15,7 +15,7 @@ export const SidebarMain = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  /* height: inherit; */
+  height: 100vh;
   @media screen and (max-width: 375px) {
     min-width: 225px;
     width: 225px;

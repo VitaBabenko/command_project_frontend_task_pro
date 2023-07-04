@@ -58,6 +58,13 @@ export const SvgIcon = styled.svg`
 export const SidebarPrjctList = styled.ul`
   width: 100%;
   margin-bottom: 40px;
+  /* background-color: red; */
+  height: calc(100vh - 252px - 392px);
+
+  @media screen and (max-width: 375px) {
+    height: calc(100vh - 252px - 358px);
+  }
+  overflow-y: auto;
 `;
 
 export const PrjctItemMain = styled.div`
