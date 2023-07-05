@@ -4,7 +4,7 @@ import { BtnFilter, Title, SvgIcons, FilterText } from './ProjectOfficeHeader.st
 import sprite from '../../../images/sprite.svg';
 import { PopUpFilter } from 'components/PopUpFilter/PopUpFilter';
 
-const ProjectOfficeHeader = () => {
+const ProjectOfficeHeader = ({boardTitle}) => {
   const [isPopUpVisible, setPopUpVisible] = useState(false);
 
   const togglePopUp = () => {
@@ -14,11 +14,12 @@ const ProjectOfficeHeader = () => {
   const handleClosePopUp = () => {
     setPopUpVisible(false);
   };
+  console.log(boardTitle)
 
   return (
     <>
       <Wrapper>
-        <Title>Project office</Title>
+        {boardTitle && <Title>{boardTitle}</Title>}
 
         <BtnFilter type="button" onClick={togglePopUp}>
           <SvgIcons aria-label="filter icon" width={18} height={18}>

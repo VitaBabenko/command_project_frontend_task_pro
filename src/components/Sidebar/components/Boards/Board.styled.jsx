@@ -56,13 +56,14 @@ export const SvgIcon = styled.svg`
 `;
 
 export const SidebarPrjctList = styled.ul`
-  width: 100%;
+  width: 260px;
   margin-bottom: 40px;
   /* background-color: red; */
   height: calc(100vh - 252px - 392px);
 
   @media screen and (max-width: 375px) {
     height: calc(100vh - 252px - 358px);
+    width: 225px
   }
   overflow-y: auto;
   min-height: 61px;
@@ -115,7 +116,9 @@ export const PrjctActionList = styled.ul`
   height: 100%;
   padding-right: 24px;
   align-items: center;
-  :after {
+
+
+  ::after {
     content: '';
     width: 4px;
     height: 100%;
@@ -157,10 +160,36 @@ export const ListIcon = styled.svg`
 `;
 
 export const LinkWrapper = styled.div`
+position: relative;
   height: 61px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  ::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--needHelpBtn);
+    border-radius: 4px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  :hover::before {
+    transform: scaleX(1);
+  }
+
+  &.active {
+    ::before {
+      content: none;
+    }
+  }
+  
 `;
 
 export const EditDelBtn = styled.button`
@@ -185,14 +214,18 @@ export const StyledLink = styled(NavLink)`
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
+  position: relative;
+
+
+
   &.active {
-    color: var(--primaryTextColor);
+    color: var(--needHelpBtn);
     stroke: var(--iconColor);
     fill: transparent;
     background-color: var(--currentLinkBgColor);
 
     & svg {
-      stroke: var(--primaryTextColor);
+      stroke: var(--needHelpBtn);
     }
   }
 `;

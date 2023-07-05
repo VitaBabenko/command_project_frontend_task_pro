@@ -52,7 +52,7 @@ const ProjectOffice = () => {
     // <Box sx={{ marginLeft: '20%' }}>
     <BackgroundContainer bgnumber={currentBoard ? currentBoard.background : ''}>
       <Box sx={{ marginLeft: 3 }}>
-        <ProjectOfficeHeader />
+        <ProjectOfficeHeader boardTitle={currentBoard.title} />
         {!isLoading && <AddColumnButton handleAddColumn={handleAddColumn} />}
         <ProjectWrapper>
           {/* {columns ? (

@@ -52,8 +52,8 @@ export const ProjectItem = ({
 
   return (
     <LinkWrapper className={isActive ? 'active' : ''}>
-      <StyledLink to={id}>
-        <FlexElems onClick={handleClick}>
+      <StyledLink to={id} onClick={handleClick}>
+        <FlexElems>
           <ListIcon>
             <use href={sprite + dashboardIcon} />
           </ListIcon>
