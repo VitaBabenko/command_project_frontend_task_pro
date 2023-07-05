@@ -34,13 +34,21 @@ import styled from 'styled-components';
 // `;
 
 export const Container = styled.div`
+  position: absolute;
+  bottom: 22px;
+  right: 54px;
+  z-index: 999;
+
+  max-height: 100px;
+  overflow: auto;
+
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 
   width: 165px;
   padding: 18px;
-
   border-radius: 8px;
   background: var(--popupBackground);
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
