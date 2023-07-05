@@ -105,8 +105,10 @@ body[data-theme="dark"] {
   --iconEyeColor:#FFFFFF;
   --btnColorHover: #d8e9cf;
   --iconColor: rgba(255, 255, 255, 0.5);
-  --iconCardColor: #888888;
+  --iconCardColor: rgba(255, 255, 255, 0.50);
+
   --iconPlusColor: #121212;
+
 
 
   --calendarWithoutColor: rgba(255, 255, 255, 0.30);
@@ -117,7 +119,7 @@ body[data-theme="dark"] {
   --calendarSelectDay: rgba(31, 31, 31, 1);
   --calendarBorderTop: rgba(255, 255, 255, 0.2);
 
-  --currentLinkBgColor: rgba(31, 31, 31, 0.4);
+  --currentLinkBgColor: #1F1F1F;
 
   --activeBorder:#BEDBB0;
   --disabledBgColor: #b4adad;
@@ -193,7 +195,11 @@ body[data-theme="light"] {
   --iconEyeColor:#161616;
   --btnColorHover: #d8e9cf;
   --iconColor: rgba(22, 22, 22, 0.5);
+
+   --iconCardColor: rgba(22, 22, 22, 0.5);
+
   --iconPlusColor: #FFFFFF;
+
 
 
   --calendarWithoutColor: rgba(22, 22, 22, 0.30);
@@ -203,7 +209,7 @@ body[data-theme="light"] {
   --calendarSelectDay: rgba(22, 22, 22, 1);
   --calendarBorderTop: rgba(22, 22, 22, 0.2);
 
-  --currentLinkBgColor: rgba(246, 246, 247, 0.4);
+  --currentLinkBgColor: #F6F6F7;
 
 
   --activeBorder:#BEDBB0;
@@ -275,7 +281,10 @@ body[data-theme="violet"] {
   --iconEyeColor:#161616;
   --btnColorHover: #b8bcfd;
   --iconColor: rgba(22, 22, 22, 0.5);
+   --iconCardColor: rgba(22, 22, 22, 0.5);
+
   --iconPlusColor: #FFFFFF;
+
 
   --calendarWithoutColor: rgba(22, 22, 22, 0.30);
 
@@ -284,6 +293,10 @@ body[data-theme="violet"] {
   --calendarSelectDay: rgba(252, 252, 252, 1);
   --calendarBorderTop: rgba(22, 22, 22, 0.2);
   --activeBorder:#5255BC;
+
+  --currentLinkBgColor: rgba(255, 255, 255, 0.50);
+;
+
   --customButtonBackground: #FFFFFF;
   --customButtonColor: #161616;
   --plusButtonBackground: #5255BC;

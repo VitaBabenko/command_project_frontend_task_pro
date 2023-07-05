@@ -174,7 +174,7 @@ export const IconServBtn = styled.svg`
   width: 16px;
   height: 16px;
   stroke: var(--iconColor);
-  fill: transparent;
+  fill: none;
 `;
 
 export const StyledLink = styled(NavLink)`
