@@ -1,7 +1,7 @@
 import React from 'react';
 import ThemeSelect from '../ThemeSelect/ThemeSelect';
 import { HeaderMain } from './Header.styled';
-import { ReactComponent as BurgerIcon } from '../../images/SVG/burger.svg';
+import { ReactComponent as BurgerIcon } from '../../images/burger.svg';
 
 import { HeaderUserInfo } from 'components/HeaderUserInfo/HeaderUserInfo';
 
