@@ -2,11 +2,12 @@ import { Outlet } from 'react-router-dom';
 import Container from 'components/Container/Container';
 import { Header } from '../components/Header/Header';
 import { Sidebar } from '../components/Sidebar/Sidebar';
+import { DefaultScreen } from '../components/DefaultScreen/DefaultScreen';
 
-// import { useDispatch, useSelector } from 'react-redux';
-// import { selectDashboards } from 'redux/dashboards/selectors';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectDashboards } from 'redux/dashboards/selectors';
 import { useEffect, Suspense, useState, useRef } from 'react';
-// import { fetchUserDashboards } from 'redux/dashboards/operation';
+import { fetchUserDashboards } from 'redux/dashboards/operation';
 
 import { Loader } from '../components/Loader/Loader';
 
@@ -14,6 +15,8 @@ const HomePage = () => {
   // const token = useSelector(state => state.auth.token);
   // console.log(token)
   // const dispatch = useDispatch();
+  const dashboards = useSelector(selectDashboards);
+  const dispatch = useDispatch();
   const [shouldShowSidebar, setShouldShowSidebar] = useState(false);
   const sidebarNode = useRef(null);
 
@@ -37,13 +40,13 @@ const HomePage = () => {
     setShouldShowSidebar(!shouldShowSidebar);
   };
 
-  // useEffect(() => {
-  //   const fetchDashboards = async () => {
-  //     dispatch(fetchUserDashboards());
-  //   };
-  //   fetchDashboards();
-  // }, [dispatch]);
-  // console.log(dashboards);
+  useEffect(() => {
+    const fetchDashboards = async () => {
+      dispatch(fetchUserDashboards());
+    };
+    fetchDashboards();
+  }, [dispatch]);
+  console.log(dashboards);
 
   return (
     <Container>
@@ -54,9 +57,13 @@ const HomePage = () => {
       <div style={{ width: '100%' }}>
         <Header onBurgerClick={e => handleBurgerClick(e)} />
 
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
+        {dashboards.length !== 0 ? (
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
+        ) : (
+          <DefaultScreen />
+        )}
       </div>
     </Container>
   );
