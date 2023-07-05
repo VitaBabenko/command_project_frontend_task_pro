@@ -24,3 +24,13 @@ export const IconButtonWrapper = styled.button`
     cursor: pointer;
 `;
 
+export const ProjectWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow: auto;
+    @media screen and (max-width: 375px) {
+        max-height: 450px;
+    }
+`;
+
