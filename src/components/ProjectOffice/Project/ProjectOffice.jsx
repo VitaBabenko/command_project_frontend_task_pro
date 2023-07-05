@@ -1,10 +1,10 @@
 // import { useState } from 'react';
 
-import ProjectOfficeItem from './ProjectOfficeItem/ProjectOfficeItem';
+import ProjectOfficeItem from '../ProjectOfficeItem/ProjectOfficeItem';
 import { useEffect } from 'react';
 // import { getColumns } from 'services/fetchColumn';
-import ProjectOfficeHeader from './ProjectOfficeHeader/ProjectOfficeHeader';
-import AddColumnButton from './AddColumnsButton/AddColumnsButton';
+import ProjectOfficeHeader from '../ProjectOfficeHeader/ProjectOfficeHeader';
+import AddColumnButton from '../AddColumnsButton/AddColumnsButton';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -18,8 +18,8 @@ import {
   selectDashboards,
 } from 'redux/dashboards/selectors';
 import { Box } from '@mui/material';
-import { BackgroundContainer } from './ProjectOfficeBgContainer.styled';
-import { ProjectWrapper } from './ProjectOfficeItem/OfficeItemStyle.styled';
+import { BackgroundContainer } from '../ProjectOfficeBgContainer.styled';
+import { ProjectWrapper } from '../ProjectOfficeItem/OfficeItemStyle.styled';
 
 const ProjectOffice = () => {
   const isLoading = useSelector(state => state.dashboard.isLoading);

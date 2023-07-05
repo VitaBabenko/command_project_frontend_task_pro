@@ -1,4 +1,4 @@
-import { Wrapper, ActionsIconsButton } from '../ProjectOfficeStyle';
+import { Wrapper, ActionsIconsButton } from '../Project/ProjectOfficeStyle';
 import ProjectOfficeCardItem from '../ProjectOfficeCardItem/ProjectOfficeCardItem';
 import {
   ActionsButton,
