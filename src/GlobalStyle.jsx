@@ -126,7 +126,10 @@ body[data-theme="dark"] {
   --customButtonBackground: #121212;
   --plusButtonBackground: #FFFFFF;
   --customButtonColor: #FFFFFF;
-
+  --addCardButtonBackground: #BEDBB0;
+  --addCardButtonColor: #161616;
+  --addPlusButtonBackground: #161616;
+  --addPlusIconColor: #FFFFFF;
 
   /* полоса прокрутки (скроллбар) */
   ::-webkit-scrollbar {
@@ -217,6 +220,10 @@ body[data-theme="light"] {
   --customButtonBackground: #FFFFFF;
   --customButtonColor: #161616;
   --plusButtonBackground: #161616;
+  --addCardButtonBackground: #BEDBB0;
+  --addCardButtonColor: #161616;
+  --addPlusButtonBackground: #161616;
+  --addPlusIconColor: #FFFFFF;
 
   /* полоса прокрутки (скроллбар) */
   ::-webkit-scrollbar {
@@ -300,6 +307,10 @@ body[data-theme="violet"] {
   --customButtonBackground: #FFFFFF;
   --customButtonColor: #161616;
   --plusButtonBackground: #5255BC;
+  --addCardButtonBackground: #5255BC;
+  --addCardButtonColor: #FFFFFF;
+  --addPlusButtonBackground: #FFFFFF;
+  --addPlusIconColor: #161616;
 }
 `;
 

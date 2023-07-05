@@ -127,9 +127,22 @@ export const ModalAddBoard = ({
               })}
             </BgWrapper>
           </div>
-          <CustomButton type="submit">
+        <CustomButton
+            type="submit"
+            styleOptions={{
+                background: 'var(--addCardButtonBackground)',
+                color: 'var(--addCardButtonColor)',
+                width: '302px',
+                height: '49px'
+            }}
+            style={{background: 'var(--addPlusButtonBackground)'}}
+            customIcons={{stroke: 'var(--addPlusIconColor'}}
+        >
             {type === 'create' ? 'Create' : 'Edit'}
-          </CustomButton>
+        </CustomButton>
+          {/* <CustomButton type="submit">
+            {type === 'create' ? 'Create' : 'Edit'}
+          </CustomButton> */}
           {/* <button type="submit">{type === 'create' ? 'Create' : 'Edit'}</button> */}
         </form>
       </div>

@@ -211,8 +211,34 @@ export const CardPopUp = ({
           />
         )}
 
-        {task && <CustomButton type="submit">{'Edit'}</CustomButton>}
-        {!task && <CustomButton type="submit">{'Add'}</CustomButton>}
+        {task &&  <CustomButton
+            type="submit"
+            styleOptions={{
+                background: 'var(--addCardButtonBackground)',
+                color: 'var(--addCardButtonColor)',
+                width: '302px',
+                height: '49px'
+            }}
+            style={{background: 'var(--addPlusButtonBackground)'}}
+            customIcons={{stroke: 'var(--addPlusIconColor'}}
+        >
+            {'Edit'}
+        </CustomButton>
+        }
+        {!task && <CustomButton
+            type="submit"
+            styleOptions={{
+                background: 'var(--addCardButtonBackground)',
+                color: 'var(--addCardButtonColor)',
+                width: '302px',
+                height: '49px'
+            }}
+            style={{background: 'var(--addPlusButtonBackground)'}}
+            customIcons={{stroke: 'var(--addPlusIconColor'}}
+        >
+            {'Add'}
+        </CustomButton>
+    }
       </Form>
     </CustomDialog>
   );

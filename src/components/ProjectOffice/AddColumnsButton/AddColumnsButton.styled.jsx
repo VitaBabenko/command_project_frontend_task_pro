@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const AddCustomButton = styled.button`
-  background: var(--customButtonBackground);
   width: 334px;
   height: 56px;
   border-radius: 8px;
@@ -10,7 +9,6 @@ export const AddCustomButton = styled.button`
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  color: var(--customButtonColor);
   border: none;
   font-weight: 500;
   font-size: 14px;
@@ -32,7 +30,6 @@ export const SvgPlusIcon = styled.svg`
 `;
 
 export const CustomButtonBackground = styled.div`
-    background: var(--plusButtonBackground);
     width: 28px;
     height: 28px;
     border-radius: 8px;

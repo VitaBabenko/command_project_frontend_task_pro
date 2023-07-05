@@ -85,9 +85,23 @@ export const ModalColumn = ({ isOpen, onClose, type = "create", initialState = '
           value={title}
           onChange={handleChange}
         />
-        <CustomButton onClick={() => handleButtonClick(title)} style={{height: '49px !important'}}>
-          {type === 'create' ? 'Add' : 'Edit'}
+        <CustomButton
+            type="submit"
+            onClick={() => handleButtonClick(title)} 
+            styleOptions={{
+                background: 'var(--addCardButtonBackground)',
+                color: 'var(--addCardButtonColor)',
+                width: '302px',
+                height: '49px'
+            }}
+            style={{background: 'var(--addPlusButtonBackground)'}}
+            customIcons={{stroke: 'var(--addPlusIconColor'}}
+        >
+            {type === 'create' ? 'Add' : 'Edit'}
         </CustomButton>
+        {/* <CustomButton onClick={() => handleButtonClick(title)} style={{height: '49px !important'}}>
+          {type === 'create' ? 'Add' : 'Edit'}
+        </CustomButton> */}
       </DialogContent>
     </CustomDialog>
   );
