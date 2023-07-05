@@ -38,29 +38,66 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  padding-top: 14px;
-  border-top: 1px solid var(--modalGorizontalBorderColor);
+  width: 165px;
+  padding: 18px;
+
+  border-radius: 8px;
+  background: var(--popupBackground);
+  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
 `;
 
-export const Title = styled.h3`
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  /* color: var(--primaryTextColor); */
-  color: red;
+export const List = styled.ul`
+  width: 100%;
 `;
 
 export const Button = styled.button`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  padding: 4px 0;
+
   border: none;
-  background: inherit;
-  font-size: 12px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  text-decoration-line: underline;
+  background: transparent;
+  color: inherit;
+`;
 
-  /* color: var(--popupTextColor); */
-  color: red;
+export const Title = styled.span`
+  color: inherit;
+  font-size: 14px;
+  letter-spacing: -0.28px;
 
-  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+export const BtnTitles = styled.span`
+  display: inline-block;
+  margin-right: auto;
+`;
+
+export const SvgIcons = styled.svg`
+  fill: none;
+  stroke: var(--iconCardColor);
+`;
+
+export const ListItem = styled.li`
+  display: flex;
+  gap: 8px;
+  color: var(--popupColor);
+
+  &:hover,
+  &:focus {
+    color: var(--poupHoverColor);
+
+    ${Button} {
+      color: var(--poupHoverColor);
+    }
+
+    ${SvgIcons} {
+      stroke: var(--poupHoverColor);
+    }
+  }
 `;
