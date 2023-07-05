@@ -19,6 +19,7 @@ import {
 } from 'redux/dashboards/selectors';
 import { Box } from '@mui/material';
 import { BackgroundContainer } from './ProjectOfficeBgContainer.styled';
+import { ProjectWrapper } from './ProjectOfficeItem/OfficeItemStyle.styled';
 
 const ProjectOffice = () => {
   const isLoading = useSelector(state => state.dashboard.isLoading);
@@ -53,15 +54,7 @@ const ProjectOffice = () => {
       <Box sx={{ marginLeft: 3 }}>
         <ProjectOfficeHeader />
         {!isLoading && <AddColumnButton handleAddColumn={handleAddColumn} />}
-        {/* <div style={{ display: 'flex', flexDirection: 'row' }}> */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            gap: '10px',
-          }}
-        >
+        <ProjectWrapper>
           {/* {columns ? (
             columns.map(column => (
               <ProjectOfficeItem
@@ -86,9 +79,7 @@ const ProjectOffice = () => {
                 handleEditColumnName={handleEditColumnName}
               />
             ))}
-        </div>
-        {/* </div> */}
-        {/* <ProjectOfficeItem column={columns} /> */}
+        </ProjectWrapper>
       </Box>
     </BackgroundContainer>
   );

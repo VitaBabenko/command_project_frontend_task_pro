@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CardStyled = styled.p`
+export const CardStyled = styled.div`
   background: var(--cardItem);
   max-width: 334px;
   min-height: 154px;
@@ -54,7 +54,7 @@ export const CardFooterTitle = styled.p`
 `;
 
 export const DividerStyled = styled.div`
-  background: var(--cardItemText);
+  background: var(--dividerColor);
   width: 300px;
   height: 1px;
 `;

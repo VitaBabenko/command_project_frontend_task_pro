@@ -15,7 +15,7 @@ export const AddCustomButton = styled.button`
   line-height: 21px;
 
   @media (max-width: 375px) {
-    width: 300px;
+    width: 334px;
   }
 
   @media (min-width: 768px) {

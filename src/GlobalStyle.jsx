@@ -130,6 +130,7 @@ body[data-theme="dark"] {
   --addCardButtonColor: #161616;
   --addPlusButtonBackground: #161616;
   --addPlusIconColor: #FFFFFF;
+  --dividerColor: #2A2A2A;
 
   /* полоса прокрутки (скроллбар) */
   ::-webkit-scrollbar {
@@ -224,6 +225,7 @@ body[data-theme="light"] {
   --addCardButtonColor: #161616;
   --addPlusButtonBackground: #161616;
   --addPlusIconColor: #FFFFFF;
+  --dividerColor: #E8E8E8;
 
   /* полоса прокрутки (скроллбар) */
   ::-webkit-scrollbar {
@@ -311,6 +313,8 @@ body[data-theme="violet"] {
   --addCardButtonColor: #FFFFFF;
   --addPlusButtonBackground: #FFFFFF;
   --addPlusIconColor: #161616;
+  --dividerColor: #E8E8E8;
+  --actionsButton: #FFFFFF;
 }
 `;
 
