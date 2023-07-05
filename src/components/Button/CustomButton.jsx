@@ -1,53 +1,54 @@
 import { Button } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
+import sprite from '../../images/sprite.svg';
+import { AddCustomButton, CustomButtonBackground, SvgPlusIcon } from 'components/ProjectOffice/AddColumnsButton/AddColumnsButton.styled';
 
 export const CustomButton = ({
   children,
   onClick,
+  style = {},
   styleOptions = {},
+  customIcons = {},
   type = 'button',
-  isWhiteBackground = false,
 }) => {
-  const iconStyle = {
-    width: 28,
-    height: 28,
-    size: 14,
-    backgroundColor: isWhiteBackground ? '#FFFFFF' : '#121212',
-    color: isWhiteBackground ? '#121212' : '#FFFFFF',
-    borderRadius: '6px',
-  };
-
   return (
-    <Button
-      startIcon={<AddIcon fontSize="small" sx={iconStyle} />}
-      variant="contained"
-      onClick={onClick}
-      fullWidth
-      type={type}
-      sx={{
-        maxWidth: '352px',
-        fontWeight: '500',
-        fontSize: '14px',
-        lineHeight: '1.5',
-        letterSpacing: '-0.02em',
-        display: 'flex',
-        alignItems: 'center',
-        background: 'var(--greenGreenBlueColor)',
-        borderRadius: '8px',
-        color: isWhiteBackground ? '#FFFFFF' : '#161616',
-        textTransform: 'none',
-        '&:hover': {
-          background: 'var(--btnColorHover)',
-        },
-        '&:disabled': {
-          background: 'var(--btnColorHover)',
-          opacity: 0.95,
-        },
-        ...styleOptions,
-      }}
-    >
-      {children}
-    </Button>
+    <AddCustomButton onClick={onClick} type={type} style={{...styleOptions}}>
+        <CustomButtonBackground style={{...style}}>
+            <SvgPlusIcon style={{...customIcons}} aria-label="icon-bell" width={14} height={14}>
+                <use href={`${sprite}#icon-plus`}></use>
+            </SvgPlusIcon>
+        </CustomButtonBackground>
+            {children}
+    </AddCustomButton>
+    // <Button
+    //   startIcon={<AddIcon fontSize="small" sx={iconStyle} />}
+    //   variant="contained"
+    //   onClick={onClick}
+    //   fullWidth
+    //   type={type}
+    //   sx={{
+    //     maxWidth: '352px',
+    //     fontWeight: '500',
+    //     fontSize: '14px',
+    //     lineHeight: '1.5',
+    //     letterSpacing: '-0.02em',
+    //     display: 'flex',
+    //     alignItems: 'center',
+    //     background: 'var(--greenGreenBlueColor)',
+    //     borderRadius: '8px',
+    //     color: isWhiteBackground ? '#FFFFFF' : '#161616',
+    //     textTransform: 'none',
+    //     '&:hover': {
+    //       background: 'var(--btnColorHover)',
+    //     },
+    //     '&:disabled': {
+    //       background: 'var(--btnColorHover)',
+    //       opacity: 0.95,
+    //     },
+    //     ...styleOptions,
+    //   }}
+    // >
+    //   {children}
+    // </Button>
   );
 };
 

@@ -1,9 +1,7 @@
-// import { CustomButton } from 'components/Button/CustomButton';
+import { CustomButton } from 'components/Button/CustomButton';
 import { useState } from 'react';
 
 import { ModalColumn } from 'components/Modal/ModalColumn/ModalColumn';
-import { AddCustomButton, CustomButtonBackground, SvgPlusIcon } from './AddColumnsButton.styled';
-import sprite from '../../../images/sprite.svg';
 // import { useParams } from 'react-router-dom';
 
 const AddColumnButton = ({ handleAddColumn }) => {
@@ -25,33 +23,22 @@ const AddColumnButton = ({ handleAddColumn }) => {
   return (
     <>
       <>
-        <AddCustomButton onClick={handleToggleModal}>
-            <CustomButtonBackground>
-            <SvgPlusIcon aria-label="icon-bell" width={14} height={14}>
-                <use href={`${sprite}#icon-plus`}></use>
-        </SvgPlusIcon>
-            </CustomButtonBackground>
-            Add another column
-        </AddCustomButton>
-        
-        {/* <CustomButton
-          isWhiteBackground={true}
-          onClick={handleToggleModal}
-          styleOptions={{
-            backgroundColor: 'var(--addAnotherColumnBtnBgColor)',
-            color: 'var(--primaryTextColor)',
-          }}
+        <CustomButton
+            type='button'
+            onClick={handleToggleModal}
+            styleOptions={{
+                background: 'var(--customButtonBackground)',
+                color: 'var(--customButtonColor)',
+            }}
+            style={{background: 'var(--plusButtonBackground)'}}
         >
           Add another column
-        </CustomButton> */}
+        </CustomButton>
         <ModalColumn
           isOpen={isOpen}
           onClose={handleToggleModal}
           onRemove={handleAddColumn}
         />
-        {/* <ButtonStyled startIcon={<AddIconStyled />}>
-                Add another column
-            </ButtonStyled> */}
       </>
     </>
   );
