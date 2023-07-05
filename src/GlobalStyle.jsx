@@ -106,6 +106,7 @@ body[data-theme="dark"] {
   --btnColorHover: #d8e9cf;
   --iconColor: rgba(255, 255, 255, 0.5);
   --iconCardColor: #888888;
+  --iconPlusColor: #121212;
 
 
   --calendarWithoutColor: rgba(255, 255, 255, 0.30);
@@ -120,6 +121,10 @@ body[data-theme="dark"] {
 
   --activeBorder:#BEDBB0;
   --disabledBgColor: #b4adad;
+  --customButtonBackground: #121212;
+  --plusButtonBackground: #FFFFFF;
+  --customButtonColor: #FFFFFF;
+
 
   /* полоса прокрутки (скроллбар) */
   ::-webkit-scrollbar {
@@ -188,6 +193,7 @@ body[data-theme="light"] {
   --iconEyeColor:#161616;
   --btnColorHover: #d8e9cf;
   --iconColor: rgba(22, 22, 22, 0.5);
+  --iconPlusColor: #FFFFFF;
 
 
   --calendarWithoutColor: rgba(22, 22, 22, 0.30);
@@ -202,6 +208,9 @@ body[data-theme="light"] {
 
   --activeBorder:#BEDBB0;
   --disabledBgColor: #b4adad;
+  --customButtonBackground: #FFFFFF;
+  --customButtonColor: #161616;
+  --plusButtonBackground: #161616;
 
   /* полоса прокрутки (скроллбар) */
   ::-webkit-scrollbar {
@@ -266,6 +275,7 @@ body[data-theme="violet"] {
   --iconEyeColor:#161616;
   --btnColorHover: #b8bcfd;
   --iconColor: rgba(22, 22, 22, 0.5);
+  --iconPlusColor: #FFFFFF;
 
   --calendarWithoutColor: rgba(22, 22, 22, 0.30);
 
@@ -274,6 +284,9 @@ body[data-theme="violet"] {
   --calendarSelectDay: rgba(252, 252, 252, 1);
   --calendarBorderTop: rgba(22, 22, 22, 0.2);
   --activeBorder:#5255BC;
+  --customButtonBackground: #FFFFFF;
+  --customButtonColor: #161616;
+  --plusButtonBackground: #5255BC;
 }
 `;
 
