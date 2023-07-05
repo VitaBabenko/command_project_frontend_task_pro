@@ -31,15 +31,14 @@ import { selectColumnsForBoard } from 'redux/dashboards/selectors';
 
 const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
   const { _id: taskId, title, description, priority, deadline } = task;
-  console.log(deadline)
+  console.log(deadline);
 
   const columns = useSelector(state => selectColumnsForBoard(state, boardId));
 
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenPopUp, setIsOpenPopUp] = useState(false);
 
-
-  const isDeadLine = () => { 
+  const isDeadLine = () => {
     const currentTime = new Date();
     const deadlineTime = new Date(deadline);
 
@@ -48,10 +47,9 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
     return hoursLeft;
 
     // return hoursLeft < 24;
-  }
+  };
 
   const isDeadlineTime = isDeadLine();
-
 
   const handleToggleModal = () => {
     setIsOpen(prevstate => !prevstate);
@@ -74,7 +72,7 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
         <CardActionArea>
           <CardContent>
             <CardTitle component="div">{title}</CardTitle>
-                <CardText>{description}</CardText>
+            <CardText>{description}</CardText>
           </CardContent>
         </CardActionArea>
         <CardActionsStyled>
@@ -98,35 +96,76 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
           </CardFooterStyled>
 
           <CardIconsWrapper>
-            
-            {isDeadlineTime < 24 && 
-              <SvgIconsStyledBell aria-label="icon-bell" width={16} height={16} timeline={isDeadlineTime} >
+            {isOpenPopUp && (
+              <ProjectOfficePopUpCardColumn
+                isOpenPopUp={isOpenPopUp}
+                onClose={handleTogglePopUp}
+                columns={columns}
+                columnId={columnId}
+                boardId={boardId}
+                setTasks={setTasks}
+                task={task}
+              />
+            )}
+            {isDeadlineTime < 24 && (
+              <SvgIconsStyledBell
+                aria-label="icon-bell"
+                width={16}
+                height={16}
+                timeline={isDeadlineTime}
+              >
                 <use href={`${sprite}#icon-bell`}></use>
-              </SvgIconsStyledBell>}
-          
+              </SvgIconsStyledBell>
+            )}
             <Button
               sx={{ padding: 0, width: '20px', minWidth: '0' }}
               onClick={handleTogglePopUp}
             >
-            <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
+              <SvgIconsStyled
+                aria-label="close modal select icon"
+                width={16}
+                height={16}
+              >
                 <use href={`${sprite}#icon-arrow-circle-broken-right`}></use>
-            </SvgIconsStyled>
+              </SvgIconsStyled>
             </Button>
             <Button
-            onClick={handleToggleModal}
-              sx={{ padding: 0, width: '20px', minWidth: '0', '&.MuiButtonBase-root.MuiButton-root:hover': { backgroundColor: '#121212'} }}
+              onClick={handleToggleModal}
+              sx={{
+                padding: 0,
+                width: '20px',
+                minWidth: '0',
+                '&.MuiButtonBase-root.MuiButton-root:hover': {
+                  backgroundColor: '#121212',
+                },
+              }}
             >
-            <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
+              <SvgIconsStyled
+                aria-label="close modal select icon"
+                width={16}
+                height={16}
+              >
                 <use href={`${sprite}#icon-pencil`}></use>
-            </SvgIconsStyled>
+              </SvgIconsStyled>
             </Button>
             <Button
               onClick={handleDeleteTask}
-              sx={{ padding: 0, width: '20px', minWidth: '0', '&.MuiButtonBase-root.MuiButton-root:hover': { backgroundColor: '#121212'}  }}
+              sx={{
+                padding: 0,
+                width: '20px',
+                minWidth: '0',
+                '&.MuiButtonBase-root.MuiButton-root:hover': {
+                  backgroundColor: '#121212',
+                },
+              }}
             >
-            <SvgIconsStyled aria-label="close modal select icon" width={16} height={16}>
+              <SvgIconsStyled
+                aria-label="close modal select icon"
+                width={16}
+                height={16}
+              >
                 <use href={`${sprite}#icon-trash`}></use>
-            </SvgIconsStyled>
+              </SvgIconsStyled>
             </Button>
           </CardIconsWrapper>
         </WrapperFooter>
@@ -135,17 +174,6 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
         <CardPopUp
           isOpen={isOpen}
           onClose={handleToggleModal}
-          columnId={columnId}
-          boardId={boardId}
-          setTasks={setTasks}
-          task={task}
-        />
-      )}
-      {isOpenPopUp && (
-        <ProjectOfficePopUpCardColumn
-          isOpenPopUp={isOpenPopUp}
-          onClose={handleTogglePopUp}
-          columns={columns}
           columnId={columnId}
           boardId={boardId}
           setTasks={setTasks}

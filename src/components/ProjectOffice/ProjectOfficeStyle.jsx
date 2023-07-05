@@ -43,6 +43,7 @@ export const CardFooterStyled = styled('div')({
 });
 
 export const CardIconsWrapper = styled('div')({
+  position: 'relative',
   display: 'flex',
   justifyContent: 'flex-end',
   paddingRight: '20px',
