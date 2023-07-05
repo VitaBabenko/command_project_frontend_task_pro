@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Wrapper } from '../ProjectOfficeStyle';
-import { BtnFilter, Title, SvgIcons, FilterText } from './ProjectOfficeHeaderStyle';
+import { Wrapper } from '../Project/ProjectOfficeStyle';
+import { BtnFilter, Title, SvgIcons, FilterText } from './ProjectOfficeHeader.styled';
 import sprite from '../../../images/sprite.svg';
 import { PopUpFilter } from 'components/PopUpFilter/PopUpFilter';
 
