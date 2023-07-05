@@ -25,8 +25,15 @@ const AddColumnButton = ({ handleAddColumn }) => {
   return (
     <>
       <StackWrapper direction="row" spacing={2}>
-        <CustomButton isWhiteBackground={true} onClick={handleToggleModal}>
-        Add another column
+        <CustomButton
+          isWhiteBackground={true}
+          onClick={handleToggleModal}
+          styleOptions={{
+            backgroundColor: 'var(--addAnotherColumnBtnBgColor)',
+            color: 'var(--primaryTextColor)',
+          }}
+        >
+          Add another column
         </CustomButton>
         <ModalColumn
           isOpen={isOpen}

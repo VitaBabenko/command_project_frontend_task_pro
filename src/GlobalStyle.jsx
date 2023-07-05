@@ -67,6 +67,7 @@ body[data-theme="dark"] {
   --currentProjBgColor: #1f1f1f;
   --themeListBgColor: #151515;
   --defaultAvatarBgColor: #1f1f1f;
+  --addAnotherColumnBtnBgColor: #121212;
 
   --createNewBoardIconBgColor: #bedbb0;
   --addAnotherColumnIconBgColor: #ffffff;
@@ -151,6 +152,7 @@ body[data-theme="light"] {
   --currentProjBgColor: #f6f6f7;
   --themeListBgColor: #fcfcfc;
   --defaultAvatarBgColor: #f6f6f7;
+    --addAnotherColumnBtnBgColor: #FFFFFF;
 
   --createNewBoardIconBgColor: #bedbb0;
   --addAnotherColumnIconBgColor: #161616;
@@ -231,6 +233,7 @@ body[data-theme="violet"] {
   --currentProjBgColor: rgba(255, 255, 255, 0.5);
   --themeListBgColor: #fcfcfc;
   --defaultAvatarBgColor: #ecedfd;
+      --addAnotherColumnBtnBgColor: #FFFFFF;
 
   --createNewBoardIconBgColor: #b8bcfd;
   --addAnotherColumnIconBgColor: #FFFFFF;
