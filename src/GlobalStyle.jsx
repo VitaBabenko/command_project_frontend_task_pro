@@ -74,6 +74,9 @@ body[data-theme="dark"] {
   --iconPlus: #121212;
   --logoIcon: #FFFFFF;
   --logoBackground: #1F1F1F;
+  --popupBackground:#1F1F1F;
+  --popupColor: rgba(255, 255, 255, 0.50);
+  --poupHoverColor: rgba(190, 219, 176, 1);
  
 
   --primaryTextColor: #ffffff;
@@ -155,6 +158,9 @@ body[data-theme="light"] {
    --iconPlus: #121212;
    --logoIcon: #FFFFFF;
    --logoBackground: #1F1F1F;
+   --popupBackground: #FCFCFC;
+   --popupColor: rgba(22, 22, 22, 1);
+   --poupHoverColor: rgba(190, 219, 176, 1);
 
   --primaryTextColor: #161616;
   --secondaryTextColor: rgba(22, 22, 22, 0.7);
@@ -232,6 +238,9 @@ body[data-theme="violet"] {
    --iconPlus: #FFFFFF;
    --logoIcon: #5255bc;
    --logoBackground: #ECEDFD;
+   --popupBackground: #FCFCFC;
+  --popupColor: rgba(22, 22, 22, 1);
+  --poupHoverColor: rgba(82, 85, 188, 1);
 
   --primaryTextColor: #161616;
   --secondaryTextColor: rgba(22, 22, 22, 0.7);
