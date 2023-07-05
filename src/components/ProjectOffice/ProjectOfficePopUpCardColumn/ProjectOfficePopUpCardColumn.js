@@ -3,11 +3,17 @@ import {
   Title,
   Container,
   Button,
+  List,
+  ListItem,
+  SvgIcons,
+
   //   CustomDialog,
 } from './ProjectOfficePopUpCardColumn.styled';
 import { changeOwnerTask } from 'taskServices/changeOwnerTask';
 import { getColumnsForBoard } from 'redux/dashboards/operation';
 import { fetchTasks } from 'taskServices/fetchTask';
+
+import sprite from '../../../images/sprite.svg';
 
 export const ProjectOfficePopUpCardColumn = ({
   columns,
@@ -35,32 +41,39 @@ export const ProjectOfficePopUpCardColumn = ({
     setTasks(tasks);
   };
 
+  const truncateText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
+  };
+
   return (
     <>
-      {/* <CustomDialog open={isOpenPopUp} onClose={handleTogglePopUp}> */}
       <Container>
-        <ul>
+        <List>
           {columns.map(column => {
             if (column._id === columnId) {
               return null;
             }
             return (
-              <li key={column._id}>
-                <Container>
-                  <Title>{column.title}</Title>
-                  <Button
-                    type="button"
-                    onClick={() => handleChangeOnerTask(column._id)}
-                  >
-                    Click me
-                  </Button>
-                </Container>
-              </li>
+              <ListItem key={column._id}>
+                <Button
+                  type="button"
+                  onClick={() => handleChangeOnerTask(column._id)}
+                >
+                  <Title>{truncateText(column.title, 10)}</Title>
+                  <SvgIcons aria-label="arrow icon" width={16} height={16}>
+                    <use
+                      href={`${sprite}#icon-arrow-circle-broken-right`}
+                    ></use>
+                  </SvgIcons>
+                </Button>
+              </ListItem>
             );
           })}
-        </ul>
+        </List>
       </Container>
-      {/* </CustomDialog> */}
     </>
   );
 };
