@@ -2,7 +2,7 @@ import {
   CardActionsStyled,
   CardFooterStyled,
   CardIconsWrapper,
-} from '../ProjectOfficeStyle';
+} from '../Project/ProjectOfficeStyle';
 import CardContent from '@mui/material/CardContent';
 import { Button, CardActionArea } from '@mui/material';
 import {

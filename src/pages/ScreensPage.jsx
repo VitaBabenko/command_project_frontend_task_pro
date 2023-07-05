@@ -1,4 +1,4 @@
-import ProjectOffice from '../components/ProjectOffice/ProjectOffice';
+import ProjectOffice from '../components/ProjectOffice/Project/ProjectOffice';
 
 const ScreensPage = () => {
   return <ProjectOffice />;
