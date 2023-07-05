@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/command_project_frontend_task_pro/static/css/main.36380e2b.css",
-    "main.js": "/command_project_frontend_task_pro/static/js/main.50fdc48c.js",
+    "main.js": "/command_project_frontend_task_pro/static/js/main.bff819a6.js",
     "static/js/198.ce882e6a.chunk.js": "/command_project_frontend_task_pro/static/js/198.ce882e6a.chunk.js",
     "static/js/486.6e95f465.chunk.js": "/command_project_frontend_task_pro/static/js/486.6e95f465.chunk.js",
     "static/js/140.f5b59de9.chunk.js": "/command_project_frontend_task_pro/static/js/140.f5b59de9.chunk.js",
@@ -9,11 +9,17 @@
     "static/js/906.1325d330.chunk.js": "/command_project_frontend_task_pro/static/js/906.1325d330.chunk.js",
     "static/js/115.200ccf8c.chunk.js": "/command_project_frontend_task_pro/static/js/115.200ccf8c.chunk.js",
     "static/js/586.66dbfe56.chunk.js": "/command_project_frontend_task_pro/static/js/586.66dbfe56.chunk.js",
+    "static/media/Poppins-Regular.woff": "/command_project_frontend_task_pro/static/media/Poppins-Regular.ab6122bd28174ddf9eeb.woff",
+    "static/media/Poppins-SemiBold.woff": "/command_project_frontend_task_pro/static/media/Poppins-SemiBold.ee8ae013a422a80622c6.woff",
+    "static/media/Poppins-Medium.woff": "/command_project_frontend_task_pro/static/media/Poppins-Medium.c162ccbbda8bd6839b3a.woff",
+    "static/media/Poppins-Regular.woff2": "/command_project_frontend_task_pro/static/media/Poppins-Regular.9641d5d087bc9e626d4c.woff2",
+    "static/media/Poppins-SemiBold.woff2": "/command_project_frontend_task_pro/static/media/Poppins-SemiBold.b2be0bf638eacbb24415.woff2",
+    "static/media/Poppins-Medium.woff2": "/command_project_frontend_task_pro/static/media/Poppins-Medium.13c404f85f4b8532e4e9.woff2",
     "static/media/sprite.svg": "/command_project_frontend_task_pro/static/media/sprite.26702b17b60dbd65257ae089a89dfe71.svg",
     "index.html": "/command_project_frontend_task_pro/index.html",
     "static/media/burger.svg": "/command_project_frontend_task_pro/static/media/burger.c6a1a215d8b4b8a65139c03451310e2f.svg",
     "main.36380e2b.css.map": "/command_project_frontend_task_pro/static/css/main.36380e2b.css.map",
-    "main.50fdc48c.js.map": "/command_project_frontend_task_pro/static/js/main.50fdc48c.js.map",
+    "main.bff819a6.js.map": "/command_project_frontend_task_pro/static/js/main.bff819a6.js.map",
     "198.ce882e6a.chunk.js.map": "/command_project_frontend_task_pro/static/js/198.ce882e6a.chunk.js.map",
     "486.6e95f465.chunk.js.map": "/command_project_frontend_task_pro/static/js/486.6e95f465.chunk.js.map",
     "140.f5b59de9.chunk.js.map": "/command_project_frontend_task_pro/static/js/140.f5b59de9.chunk.js.map",
@@ -24,6 +30,6 @@
   },
   "entrypoints": [
     "static/css/main.36380e2b.css",
-    "static/js/main.50fdc48c.js"
+    "static/js/main.bff819a6.js"
   ]
 }
