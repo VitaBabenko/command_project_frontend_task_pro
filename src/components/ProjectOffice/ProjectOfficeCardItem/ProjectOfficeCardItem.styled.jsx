@@ -101,6 +101,7 @@ export const StatusStyled = styled.div`
 
 export const SvgIconsStyled = styled.svg`
   stroke: var(--iconCardColor);
+  fill: none;
   &:hover,
   &:focus {
     stroke: #bedbb0;
@@ -124,5 +125,6 @@ export const SvgIconsStyledBell = styled.svg`
         return 'var(--iconCardColor)';
   }
 }};
+fill: none;
 `;
 
