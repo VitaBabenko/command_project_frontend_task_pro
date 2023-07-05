@@ -1,18 +1,24 @@
 import styled from 'styled-components';
 
-export const DefaultWrapper = styled.div`
-  width: 100%;
-  height: 100%;
+export const Wrap = styled.div`
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 200px;
-  padding-left: 10px;
-  padding-right: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--boardBgColor);
+  border: none;
+  height: calc(100vh - 68px);
 
-  @media (min-width: 375px) {
-    min-width: 335px;
-    max-width: 486px;
+  @media screen and (max-width: 375px) {
+    height: calc(100vh - 60px);
+  }
+`;
+
+export const DefaultWrapper = styled.div`
+  padding: 20px;
+  width: 335px;
+
+  @media (min-width: 767px) {
+    width: 486px;
   }
 `;
 

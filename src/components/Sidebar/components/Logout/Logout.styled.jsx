@@ -4,8 +4,8 @@ export const BtnLogOut = styled.button`
   color: var(--addAnotherColumnIconBgColor);
   margin-top: 24px;
   display: flex;
+  padding: 0;
   align-items: center;
-  /* margin-left: 24px; */
   cursor: pointer;
   border: none;
   background-color: inherit;
