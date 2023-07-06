@@ -20,8 +20,6 @@ const ProjectOfficeHeader = ({ boardTitle }) => {
   const handleClosePopUp = () => {
     setPopUpVisible(false);
   };
-  console.log(boardTitle);
-
   return (
     <>
       <ContainerOffiseHeader>

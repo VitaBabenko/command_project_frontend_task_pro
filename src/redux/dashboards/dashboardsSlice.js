@@ -26,7 +26,6 @@ const dashboardSlice = createSlice({
       })
       .addCase(fetchUserDashboards.fulfilled, (state, action) => {
         state.isLoading = false;
-        // console.log(action.payload);
         state.dashboards = action.payload.map(board => ({
           ...board,
           columns: [],
@@ -92,13 +91,10 @@ const dashboardSlice = createSlice({
       .addCase(getColumnsForBoard.fulfilled, (state, action) => {
         state.isLoading = false;
         const owner = action.meta.arg;
-        console.log(owner);
         const columns = action.payload;
-        console.log(columns);
         const targetBoard = state.dashboards.find(board => board._id === owner);
         if (targetBoard) {
           targetBoard.columns = columns;
-          console.log(targetBoard.columns);
         }
       })
       .addCase(getColumnsForBoard.rejected, (state, action) => {
@@ -111,11 +107,8 @@ const dashboardSlice = createSlice({
       })
       .addCase(addColumn.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
         const { owner } = action.payload;
-        console.log(owner);
         const newColumn = action.payload;
-        console.log(newColumn);
 
         const targetBoard = state.dashboards.find(board => board._id === owner);
         if (targetBoard) {

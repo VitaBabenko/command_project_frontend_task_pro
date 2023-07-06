@@ -12,9 +12,6 @@ import { fetchUserDashboards } from 'redux/dashboards/operation';
 import { Loader } from '../components/Loader/Loader';
 
 const HomePage = () => {
-  // const token = useSelector(state => state.auth.token);
-  // console.log(token)
-  // const dispatch = useDispatch();
   const dashboards = useSelector(selectDashboards);
   const dispatch = useDispatch();
   const [shouldShowSidebar, setShouldShowSidebar] = useState(false);
@@ -46,7 +43,6 @@ const HomePage = () => {
     };
     fetchDashboards();
   }, [dispatch]);
-  console.log(dashboards);
 
   return (
     <Container>
