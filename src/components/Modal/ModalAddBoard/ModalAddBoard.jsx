@@ -5,7 +5,7 @@ import { images } from 'utils/bgImgPreview';
 import { useDispatch } from 'react-redux';
 import { addUserBoard } from 'redux/dashboards/operation';
 import { CustomButton } from 'components/Button/CustomButton';
-import CloseIcon from "@mui/icons-material/Close";
+import CloseIcon from '@mui/icons-material/Close';
 
 const {
   CustomDialog,
@@ -31,13 +31,17 @@ export const ModalAddBoard = ({
   onClose,
   type = 'create',
   handleUpdateBoard,
+  title = '',
+  background = '',
+  dashboardIcon = '',
 }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm({ defaultValues: { title, dashboardIcon, background } });
+
   const dispatch = useDispatch();
 
   const onSubmit = ({ title, dashboardIcon, background = '' }) => {
@@ -60,13 +64,13 @@ export const ModalAddBoard = ({
         <CloseIcon
           onClick={onClose}
           sx={{
-            color: "var(--primaryTextColor)",
-            position: "absolute",
-            top: "14px",
-            right: "14px",
-            height: "18px",
-            width: "18px",
-            cursor: "pointer",
+            color: 'var(--primaryTextColor)',
+            position: 'absolute',
+            top: '14px',
+            right: '14px',
+            height: '18px',
+            width: '18px',
+            cursor: 'pointer',
           }}
         />
         <ModalTitle>
@@ -113,7 +117,7 @@ export const ModalAddBoard = ({
             <IconsTitle>Background</IconsTitle>
             <BgWrapper>
               <DefaultImgWrapper>
-                <DefaultImg width={16} height={16} >
+                <DefaultImg width={16} height={16}>
                   <use href={sprite + '#icon-bg-default'} />
                 </DefaultImg>
               </DefaultImgWrapper>
@@ -135,19 +139,19 @@ export const ModalAddBoard = ({
               })}
             </BgWrapper>
           </div>
-        <CustomButton
+          <CustomButton
             type="submit"
             styleOptions={{
-                background: 'var(--addCardButtonBackground)',
-                color: 'var(--addCardButtonColor)',
-                width: '302px',
-                height: '49px'
+              background: 'var(--addCardButtonBackground)',
+              color: 'var(--addCardButtonColor)',
+              width: '302px',
+              height: '49px',
             }}
-            style={{background: 'var(--addPlusButtonBackground)'}}
-            customIcons={{stroke: 'var(--addPlusIconColor'}}
-        >
+            style={{ background: 'var(--addPlusButtonBackground)' }}
+            customIcons={{ stroke: 'var(--addPlusIconColor' }}
+          >
             {type === 'create' ? 'Create' : 'Edit'}
-        </CustomButton>
+          </CustomButton>
           {/* <CustomButton type="submit">
             {type === 'create' ? 'Create' : 'Edit'}
           </CustomButton> */}
