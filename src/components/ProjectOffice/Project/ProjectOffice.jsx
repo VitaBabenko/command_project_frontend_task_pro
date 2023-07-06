@@ -65,8 +65,10 @@ const ProjectOffice = () => {
                   handleEditColumnName={handleEditColumnName}
                 />
               ))}
+            {!isLoading && (
+              <AddColumnButton handleAddColumn={handleAddColumn} />
+            )}
           </ProjectWrapper>
-          {!isLoading && <AddColumnButton handleAddColumn={handleAddColumn} />}
         </div>
       </Box>
     </BackgroundContainer>
