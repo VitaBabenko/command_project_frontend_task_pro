@@ -68,3 +68,20 @@ export const PopUpFilterContent = styled.div`
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
   padding: 16px;
 `;
+
+export const ContainerOffiseHeader = styled.div`
+  width: calc(100vw - 300px);
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 767px) {
+    width: 100vw;
+    padding: 18px 32px;
+  }
+  @media screen and (max-width: 375px) {
+    padding: 18px 32px;
+    width: 100vw;
+  }
+`;

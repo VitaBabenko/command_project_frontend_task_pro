@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
   padding-top: 5px;
   margin-right: 10px;
   gap: 5px;
+  padding-bottom: 16px;
+
+  overflow-y: hidden;
+  overflow-x: auto;
 `;
 
 export const ActionsIconsButton = styled.div`

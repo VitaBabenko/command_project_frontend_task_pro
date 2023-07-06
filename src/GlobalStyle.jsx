@@ -135,7 +135,7 @@ body[data-theme="dark"] {
   /* полоса прокрутки (скроллбар) */
   ::-webkit-scrollbar {
     width: 8px; /* ширина для вертикального скролла */
-    height: 0px; /* высота для горизонтального скролла */
+    height: 8px; /* высота для горизонтального скролла */
     background-color: #313131;
     border-radius: 12px;
 }
@@ -230,7 +230,7 @@ body[data-theme="light"] {
   /* полоса прокрутки (скроллбар) */
   ::-webkit-scrollbar {
     width: 8px; /* ширина для вертикального скролла */
-    height: 0px; /* высота для горизонтального скролла */
+    height: 8px; /* высота для горизонтального скролла */
     background-color: #E8E8E8;
     border-radius: 12px;
 }
