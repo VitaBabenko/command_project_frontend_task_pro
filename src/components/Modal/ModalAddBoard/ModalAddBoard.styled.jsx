@@ -24,6 +24,7 @@ export const ModalTitle = styled.p`
 
 export const ModalInput = styled.input`
   color: var(--primaryTextColor);
+  opacity: 0.4;
   background-color: var(--themeListBgColor);
   width: 302px;
   height: 49px;
@@ -33,8 +34,11 @@ export const ModalInput = styled.input`
   border-radius: 8px;
   &:hover,
   &:focus {
-    border-color: #bedbb0;
+    opacity: 1;
+    /* border-color: #bedbb0; */
     box-shadow: 0px 0px 0px 1px #87d3ae;
+    border-color: #bedbb0;
+    outline: none;
   }
 
   &::placeholder {
@@ -122,3 +126,32 @@ export const SvgModal = styled.svg`
 export const ErrorText = styled.p`
   color: red;
 `;
+
+export const DefaultImgWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: var(--boardBgColor);
+  border-radius: 6px;
+  /* background-color: black; */
+  &:hover,
+  &:focus {
+    border: 1px solid var(--themeListBgColor);
+    border-radius: 6px;
+  }
+`
+
+export const DefaultImg = styled.svg`
+width: 18px;
+  height: 18px;
+  fill: transparent;
+  stroke: var(--iconColor);
+`
+
+export const InputBg = styled.input`
+&:checked + img {
+    scale: 1.3;
+  }
+`
