@@ -21,6 +21,9 @@ const {
   InputStyled,
   SvgModal,
   ErrorText,
+  DefaultImgWrapper,
+  DefaultImg,
+  InputBg,
 } = require('./ModalAddBoard.styled');
 
 export const ModalAddBoard = ({
@@ -109,10 +112,15 @@ export const ModalAddBoard = ({
           <div style={{ marginBottom: '40px' }}>
             <IconsTitle>Background</IconsTitle>
             <BgWrapper>
+              <DefaultImgWrapper>
+                <DefaultImg width={16} height={16} >
+                  <use href={sprite + '#icon-bg-default'} />
+                </DefaultImg>
+              </DefaultImgWrapper>
               {images.map((img, index) => {
                 return (
                   <BgLabel key={index}>
-                    <input
+                    <InputBg
                       type="radio"
                       value={img.id}
                       {...register('background')}
