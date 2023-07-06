@@ -74,6 +74,9 @@ export const ProjectItem = ({
               onClose={handleToggleModal}
               type="edit"
               handleUpdateBoard={handleUpdateBoard}
+              title={title}
+              background={background}
+              dashboardIcon={dashboardIcon}
             />
           </li>
           <li>

@@ -5,7 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // import { fetchUserDashboards } from 'redux/dashboards/operation';
 import { selectDashboards } from 'redux/dashboards/selectors';
-import { deleteUserBoard, fetchUserDashboards, getColumnsForBoard, updateUserBoard } from 'redux/dashboards/operation';
+import {
+  deleteUserBoard,
+  fetchUserDashboards,
+  getColumnsForBoard,
+  updateUserBoard,
+} from 'redux/dashboards/operation';
 // import { useNavigate } from 'react-router-dom';
 
 export const BoardsList = () => {
@@ -18,31 +23,22 @@ export const BoardsList = () => {
   // const dispatch = useDispatch();
   // const navigate = useNavigate();
 
-
-
- const handleDeleteBoard = async (boardId) => {
+  const handleDeleteBoard = async boardId => {
     await dispatch(deleteUserBoard(boardId));
-   dispatch(fetchUserDashboards());
-   
- };
-  
-  
-  const UpdateBoard = async (boardId, data) => { 
+    dispatch(fetchUserDashboards());
+  };
+
+  const UpdateBoard = async (boardId, data) => {
     await dispatch(updateUserBoard({ boardId: boardId, board: data }));
     await dispatch(fetchUserDashboards());
     await dispatch(getColumnsForBoard(boardId));
-  }
+  };
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
-
-  
   // console.log(dashboards);
-
-  
-
 
   // const handleDashboardClick = dashboardiId => {
   //   navigate(`/boards/${dashboardiId}`);
