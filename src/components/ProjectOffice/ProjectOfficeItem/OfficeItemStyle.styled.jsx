@@ -1,36 +1,40 @@
 import styled from 'styled-components';
 
 export const ActionsButton = styled.div`
-    background: var(--actionsButton);
-    width: 334px; 
-    height: 56px;
-    border-radius: 8px;
-    padding: 20px;
-    display: flex; 
-    justify-content: space-between;
+  background: var(--actionsButton);
+  width: 334px;
+  height: 56px;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const StyledTitle = styled.p`
-    color: var(--primaryTextColor);
-    font-weight: 500; 
-    font-size: 14px;
-    line-height: 21px;
+  color: var(--primaryTextColor);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
 `;
 
 export const IconButtonWrapper = styled.button`
-    background: inherit;
-    border: none;
-    margin-right: -8px;
-    cursor: pointer;
+  background: inherit;
+  border: none;
+  margin-right: -8px;
+  cursor: pointer;
 `;
 
 export const ProjectWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    overflow: auto;
-    @media screen and (max-width: 375px) {
-        max-height: 450px;
-    }
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  overflow: auto;
+  @media screen and (max-width: 375px) {
+    max-height: 450px;
+  }
 `;
 
+export const ColumnHeight = styled.div`
+  overflow: auto;
+  height: calc(100vh - 340px);
+`;

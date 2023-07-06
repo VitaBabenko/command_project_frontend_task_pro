@@ -54,7 +54,7 @@ const HomePage = () => {
         shouldShowSidebar={shouldShowSidebar}
         sidebarNode={sidebarNode}
       />
-      <div style={{ width: '100%' }}>
+      <div style={{ width: '100%', position: 'relative' }}>
         <Header onBurgerClick={e => handleBurgerClick(e)} />
 
         {dashboards.length !== 0 ? (

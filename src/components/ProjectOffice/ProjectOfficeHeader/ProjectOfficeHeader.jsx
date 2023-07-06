@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
-import { Wrapper } from '../Project/ProjectOfficeStyle';
-import { BtnFilter, Title, SvgIcons, FilterText } from './ProjectOfficeHeader.styled';
+// import { Wrapper } from '../Project/ProjectOfficeStyle';
+import {
+  BtnFilter,
+  Title,
+  SvgIcons,
+  FilterText,
+  ContainerOffiseHeader,
+} from './ProjectOfficeHeader.styled';
 import sprite from '../../../images/sprite.svg';
 import { PopUpFilter } from 'components/PopUpFilter/PopUpFilter';
 
-const ProjectOfficeHeader = ({boardTitle}) => {
+const ProjectOfficeHeader = ({ boardTitle }) => {
   const [isPopUpVisible, setPopUpVisible] = useState(false);
 
   const togglePopUp = () => {
@@ -14,11 +20,11 @@ const ProjectOfficeHeader = ({boardTitle}) => {
   const handleClosePopUp = () => {
     setPopUpVisible(false);
   };
-  console.log(boardTitle)
+  console.log(boardTitle);
 
   return (
     <>
-      <Wrapper>
+      <ContainerOffiseHeader>
         {boardTitle && <Title>{boardTitle}</Title>}
 
         <BtnFilter type="button" onClick={togglePopUp}>
@@ -30,7 +36,7 @@ const ProjectOfficeHeader = ({boardTitle}) => {
           <FilterText>Filters</FilterText>
         </BtnFilter>
         {isPopUpVisible && <PopUpFilter onClose={handleClosePopUp} />}
-      </Wrapper>
+      </ContainerOffiseHeader>
     </>
   );
 };

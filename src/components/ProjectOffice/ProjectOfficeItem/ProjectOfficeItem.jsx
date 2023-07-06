@@ -2,6 +2,7 @@ import { Wrapper, ActionsIconsButton } from '../Project/ProjectOfficeStyle';
 import ProjectOfficeCardItem from '../ProjectOfficeCardItem/ProjectOfficeCardItem';
 import {
   ActionsButton,
+  ColumnHeight,
   IconButtonWrapper,
   StyledTitle,
 } from './OfficeItemStyle.styled';
@@ -88,7 +89,9 @@ const ProjectOfficeItem = ({
           </ActionsIconsButton>
         </ActionsButton>
       </Wrapper>
-      <div style={{ overflow: 'auto', maxHeight: '450px' }}>
+
+      {/* <div style={{ overflow: 'auto', maxHeight: '450px' }}> */}
+      <ColumnHeight>
         {tasks &&
           tasks.map(task => (
             <ProjectOfficeCardItem
@@ -99,7 +102,8 @@ const ProjectOfficeItem = ({
               setTasks={setTasks}
             />
           ))}
-      </div>
+      </ColumnHeight>
+      {/* </div> */}
       <div style={{ marginTop: '10px' }}>
         <ProjectCardAddButton
           columnId={columnId}
