@@ -52,34 +52,22 @@ const ProjectOffice = () => {
     // <Box sx={{ marginLeft: '20%' }}>
     <BackgroundContainer bgnumber={currentBoard ? currentBoard.background : ''}>
       <Box sx={{ marginLeft: 3 }}>
-        <ProjectOfficeHeader boardTitle={currentBoard.title} />
-        {!isLoading && <AddColumnButton handleAddColumn={handleAddColumn} />}
-        <ProjectWrapper>
-          {/* {columns ? (
-            columns.map(column => (
-              <ProjectOfficeItem
-                column={column}
-                boardId={boardName}
-                key={column._id}
-                onDelete={handleDeletecolumn}
-                handleEditColumnName={handleEditColumnName}
-              />
-            ))
-          ) : (
-            <p>Loading...</p>
-          )} */}
-
-          {columns &&
-            columns.map(column => (
-              <ProjectOfficeItem
-                column={column}
-                boardId={boardName}
-                key={column._id}
-                onDelete={handleDeletecolumn}
-                handleEditColumnName={handleEditColumnName}
-              />
-            ))}
-        </ProjectWrapper>
+        <ProjectOfficeHeader boardTitle={currentBoard?.title} />
+        <div style={{ display: 'flex' }}>
+          <ProjectWrapper>
+            {columns &&
+              columns.map(column => (
+                <ProjectOfficeItem
+                  column={column}
+                  boardId={boardName}
+                  key={column._id}
+                  onDelete={handleDeletecolumn}
+                  handleEditColumnName={handleEditColumnName}
+                />
+              ))}
+          </ProjectWrapper>
+          {!isLoading && <AddColumnButton handleAddColumn={handleAddColumn} />}
+        </div>
       </Box>
     </BackgroundContainer>
   );
