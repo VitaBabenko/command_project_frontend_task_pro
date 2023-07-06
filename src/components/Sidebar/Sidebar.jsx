@@ -11,7 +11,11 @@ import { logOut } from '../../redux/authorization/operations';
 import classNames from 'classnames';
 import { fetchUserDashboards } from 'redux/dashboards/operation';
 
-export const Sidebar = ({ isNeedHelp = true, shouldShowSidebar = true, sidebarNode }) => {
+export const Sidebar = ({
+  isNeedHelp = true,
+  shouldShowSidebar = true,
+  sidebarNode,
+}) => {
   const navigate = useNavigate();
   //
   const dispatch = useDispatch();
@@ -25,7 +29,6 @@ export const Sidebar = ({ isNeedHelp = true, shouldShowSidebar = true, sidebarNo
   // };
 
   const handleLogout = () => {
-    console.log('Logout');
     dispatch(logOut());
   };
 
@@ -34,8 +37,7 @@ export const Sidebar = ({ isNeedHelp = true, shouldShowSidebar = true, sidebarNo
   //   console.log('Create new project');
   // };
 
-
-    useEffect(() => {
+  useEffect(() => {
     const fetchDashboards = async () => {
       dispatch(fetchUserDashboards());
     };
@@ -54,7 +56,7 @@ export const Sidebar = ({ isNeedHelp = true, shouldShowSidebar = true, sidebarNo
 
   return (
     <SidebarMain className={classes} ref={sidebarNode}>
-        <Logo goHome={handleHome} />
+      <Logo goHome={handleHome} />
 
       <Boards />
 

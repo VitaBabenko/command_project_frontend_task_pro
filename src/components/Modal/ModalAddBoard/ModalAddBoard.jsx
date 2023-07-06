@@ -47,11 +47,8 @@ export const ModalAddBoard = ({
   const onSubmit = ({ title, dashboardIcon, background = '' }) => {
     if (type === 'create') {
       background = background || '';
-      console.log({ title, dashboardIcon, background });
       dispatch(addUserBoard({ title, dashboardIcon, background }));
     } else if (type === 'edit') {
-      console.log('update');
-      console.log({ title, dashboardIcon, background });
       handleUpdateBoard({ title, dashboardIcon, background });
     }
     reset();

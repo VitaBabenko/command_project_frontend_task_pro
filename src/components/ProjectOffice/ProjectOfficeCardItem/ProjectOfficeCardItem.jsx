@@ -31,7 +31,6 @@ import { selectColumnsForBoard } from 'redux/dashboards/selectors';
 
 const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
   const { _id: taskId, title, description, priority, deadline } = task;
-  console.log(deadline);
 
   const columns = useSelector(state => selectColumnsForBoard(state, boardId));
 
@@ -45,8 +44,6 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
     const timeLeft = deadlineTime.getTime() - currentTime.getTime();
     const hoursLeft = Math.floor(timeLeft / (1000 * 60 * 60));
     return hoursLeft;
-
-    // return hoursLeft < 24;
   };
 
   const isDeadlineTime = isDeadLine();
