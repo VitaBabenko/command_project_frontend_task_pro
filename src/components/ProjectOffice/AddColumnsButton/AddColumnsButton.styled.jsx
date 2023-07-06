@@ -21,8 +21,8 @@ export const AddCustomButton = styled.button`
   @media (min-width: 768px) {
     height: 56px;
     width: 334px;
+    margin-top: 5px;
   }
-
 `;
 
 export const SvgPlusIcon = styled.svg`
@@ -30,11 +30,10 @@ export const SvgPlusIcon = styled.svg`
 `;
 
 export const CustomButtonBackground = styled.div`
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
-
