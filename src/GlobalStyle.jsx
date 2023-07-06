@@ -316,6 +316,25 @@ body[data-theme="violet"] {
   --dividerColor: #E8E8E8;
   --actionsButton: #FFFFFF;
 }
+
+ /* полоса прокрутки (скроллбар) */
+ ::-webkit-scrollbar {
+    width: 8px; /* ширина для вертикального скролла */
+    height: 8px; /* высота для горизонтального скролла */
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 12px;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: rgba(184, 188, 253, 1);
+    border-radius: 12px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8acf6;
+}
 `;
 
 export default GlobalStyle;

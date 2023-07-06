@@ -26,11 +26,17 @@ export const IconButtonWrapper = styled.button`
 
 export const ProjectWrapper = styled.div`
   display: flex;
+  width: calc(100vw - 260px);
+  padding: 0px 24px 8px 0;
   flex-direction: row;
   gap: 10px;
   overflow: auto;
   @media screen and (max-width: 375px) {
     max-height: 450px;
+    width: 100vw;
+  }
+  @media screen and (max-width: 767px) {
+    width: 100vw;
   }
 `;
 

@@ -49,6 +49,6 @@ export const ModalHeader = styled.h4`
 export const Wraper = styled.div`
   position: absolute;
   z-index: 999;
-  top: 32px;
-  right: 0;
+  top: 120px;
+  right: 56px;
 `;
