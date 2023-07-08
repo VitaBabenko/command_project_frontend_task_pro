@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const AddCustomButton = styled.button`
-  min-width: 334px;
+  width: 334px;
   height: 56px;
   border-radius: 8px;
   display: flex;
