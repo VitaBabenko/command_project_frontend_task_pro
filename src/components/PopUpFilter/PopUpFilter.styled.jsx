@@ -50,5 +50,5 @@ export const Wraper = styled.div`
   position: absolute;
   z-index: 999;
   top: 120px;
-  right: 56px;
+  right: 70px;
 `;
