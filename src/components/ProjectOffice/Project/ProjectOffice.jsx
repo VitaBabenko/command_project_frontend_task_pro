@@ -66,7 +66,9 @@ const ProjectOffice = () => {
                 />
               ))}
             {!isLoading && (
-              <AddColumnButton handleAddColumn={handleAddColumn} />
+              <div>
+                <AddColumnButton handleAddColumn={handleAddColumn} />
+              </div>
             )}
           </ProjectWrapper>
         </div>
