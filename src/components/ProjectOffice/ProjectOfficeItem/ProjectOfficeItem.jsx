@@ -20,6 +20,8 @@ import {
 
 import { useSelector } from 'react-redux';
 
+import { Droppable, Draggable } from 'react-beautiful-dnd';
+
 const ProjectOfficeItem = ({
   column,
   boardId,
@@ -91,18 +93,41 @@ const ProjectOfficeItem = ({
       </Wrapper>
 
       {/* <div style={{ overflow: 'auto', maxHeight: '450px' }}> */}
-      <ColumnHeight>
-        {tasks &&
-          tasks.map(task => (
-            <ProjectOfficeCardItem
-              key={task._id}
-              task={task}
-              columnId={columnId}
-              boardId={boardId}
-              setTasks={setTasks}
-            />
-          ))}
-      </ColumnHeight>
+      <Droppable droppableId={columnId} type="task" >
+        {provided => (
+          <div
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            <ColumnHeight>
+              {tasks &&
+                tasks.map((task, index) => (
+                  <Draggable
+            key={task._id}
+            draggableId={task._id}
+            index={index}
+                  >
+                    {provided => (
+              <div
+                ref={provided.innerRef}
+                {...provided.draggableProps}
+                {...provided.dragHandleProps}
+              >
+                  <ProjectOfficeCardItem
+                    key={task._id}
+                    task={task}
+                    columnId={columnId}
+                    boardId={boardId}
+                          setTasks={setTasks}
+                          index={index}
+                        />
+                      </div>
+                      )}
+                </Draggable>
+                ))}
+            </ColumnHeight>
+          </div>)}
+        </Droppable>
       {/* </div> */}
       <div style={{ marginTop: '10px' }}>
         <ProjectCardAddButton

@@ -29,7 +29,9 @@ import { ProjectOfficePopUpCardColumn } from '../ProjectOfficePopUpCardColumn/Pr
 import { useSelector } from 'react-redux';
 import { selectColumnsForBoard } from 'redux/dashboards/selectors';
 
-const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
+import { Draggable } from 'react-beautiful-dnd';
+
+const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks, index }) => {
   const { _id: taskId, title, description, priority, deadline } = task;
 
   const columns = useSelector(state => selectColumnsForBoard(state, boardId));
@@ -65,6 +67,13 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
 
   return (
     <>
+      <Draggable draggableId={task._id} index={index}>
+      {provided => (
+        <div
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
       <CardStyled key={taskId} priority={priority}>
         <CardActionArea>
           <CardContent>
@@ -177,7 +186,10 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks }) => {
           setTasks={setTasks}
           task={task}
         />
+            )}
+            </div>
       )}
+    </Draggable>
     </>
   );
 };

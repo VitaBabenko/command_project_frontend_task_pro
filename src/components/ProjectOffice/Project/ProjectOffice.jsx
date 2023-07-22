@@ -21,6 +21,8 @@ import { Box } from '@mui/material';
 import { BackgroundContainer } from '../ProjectOfficeBgContainer.styled';
 import { ProjectWrapper } from '../ProjectOfficeItem/OfficeItemStyle.styled';
 
+import { DragDropContext } from 'react-beautiful-dnd';
+
 const ProjectOffice = () => {
   const isLoading = useSelector(state => state.dashboard.isLoading);
   const { boardName } = useParams();
@@ -48,8 +50,13 @@ const ProjectOffice = () => {
     dispatch(getColumnsForBoard(boardName));
   }, [dispatch, boardName]);
 
+  const handleDragEnd = (result) => {
+    // Логіка для перетягування
+  };
+
   return (
     // <Box sx={{ marginLeft: '20%' }}>
+    <DragDropContext onDragEnd={handleDragEnd}>
     <BackgroundContainer bgnumber={currentBoard ? currentBoard.background : ''}>
       <Box sx={{ marginLeft: 3 }}>
         <ProjectOfficeHeader boardTitle={currentBoard?.title} />
@@ -73,7 +80,8 @@ const ProjectOffice = () => {
           </ProjectWrapper>
         </div>
       </Box>
-    </BackgroundContainer>
+      </BackgroundContainer>
+      </DragDropContext>
   );
 };
 
