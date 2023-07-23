@@ -176,7 +176,10 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks, index }) => 
             </Button>
           </CardIconsWrapper>
         </WrapperFooter>
-      </CardStyled>
+            </CardStyled>
+            </div>
+      )}
+    </Draggable>
       {isOpen && (
         <CardPopUp
           isOpen={isOpen}
@@ -187,9 +190,7 @@ const ProjectOfficeCardItem = ({ task, boardId, columnId, setTasks, index }) => 
           task={task}
         />
             )}
-            </div>
-      )}
-    </Draggable>
+            
     </>
   );
 };

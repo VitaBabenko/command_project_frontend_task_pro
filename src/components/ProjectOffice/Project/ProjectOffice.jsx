@@ -52,6 +52,15 @@ const ProjectOffice = () => {
 
   const handleDragEnd = (result) => {
     // Логіка для перетягування
+    const { source, destination, type } = result;
+    
+    if (
+    source.droppableId === destination.droppableId &&
+    source.index === destination.index
+  ) {
+    return;
+    }
+    
   };
 
   return (
