@@ -143,3 +143,16 @@ export const technicalSupportRequest = async (userData, callback) => {
     });
   }
 };
+
+export const wakeUpServer = createAsyncThunk(
+  'auth/wakeUpServer',
+  async (_, { rejectWithValue }) => {
+    try {
+      await axios.get('/auth/wakeupserver');
+
+      return true;
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
+  }
+);
