@@ -7,6 +7,7 @@ import {
   refreshUser,
   updateUser,
   updateThema,
+  wakeUpServer,
 } from './operations';
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  isServerSleeping: false,
 };
 
 const authSlice = createSlice({
@@ -96,6 +98,20 @@ const authSlice = createSlice({
         state.error = action.payload;
         state.init = true;
       })
+      .addCase(wakeUpServer.pending, state => {
+        state.loading = true;
+        state.error = null;
+        state.isServerSleeping = true;
+      })
+      .addCase(wakeUpServer.fulfilled, state => {
+        state.loading = false;
+        state.isServerSleeping = false;
+      })
+      .addCase(wakeUpServer.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+        state.isServerSleeping = false;
+      });
   },
 });
 

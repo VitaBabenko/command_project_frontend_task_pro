@@ -15,7 +15,8 @@ import { useAuth } from './hooks';
 import { Loader } from '../components/Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { refreshUser } from 'redux/authorization/operations';
+import { refreshUser, wakeUpServer } from 'redux/authorization/operations';
+import { ServerSleeping } from './ServerSleeping/ServerSleeping';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
@@ -24,13 +25,21 @@ const ScreensPage = lazy(() => import('../pages/ScreensPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, isServerSleeping } = useAuth();
 
   useEffect(() => {
+    const getWakeUpServer = async () => {
+      await dispatch(wakeUpServer());
+    };
+
+    getWakeUpServer();
+
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return isRefreshing ? (
+  return isServerSleeping ? (
+    <ServerSleeping />
+  ) : isRefreshing ? (
     <Loader />
   ) : (
     <>
@@ -49,7 +58,6 @@ export const App = () => {
       <ModalContainer />
       <GlobalStyle />
 
-      {/* <Container> */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route
@@ -86,7 +94,6 @@ export const App = () => {
           <Route path="*" element={<WelcomePage />} />
         </Route>
       </Routes>
-      {/* </Container> */}
     </>
   );
 };
