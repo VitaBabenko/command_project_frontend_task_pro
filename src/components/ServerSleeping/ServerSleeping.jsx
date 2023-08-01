@@ -15,7 +15,6 @@ export const ServerSleeping = () => {
 
   const intervalIdSec = useRef(null);
   const intervalIdsetMsec = useRef(null);
-  const intervalIdComponentVisible = useRef(null);
 
   useEffect(() => {
     intervalIdSec.current = setInterval(() => {
@@ -26,13 +25,13 @@ export const ServerSleeping = () => {
         return pS > 70 ? 10 : pS + 1;
       });
     }, 1);
-    intervalIdComponentVisible.current = setInterval(() => {
+
+    setTimeout(() => {
       setComponentVisible(true);
     }, 500);
     return () => {
       clearInterval(intervalIdSec.current);
       clearInterval(intervalIdsetMsec.current);
-      clearInterval(intervalIdComponentVisible.current);
     };
   }, []);
 
@@ -40,12 +39,10 @@ export const ServerSleeping = () => {
     <Box>
       <Title>
         We use the free version of the server on render.com, because of this we
-        have to wait until the server wakes up (about 500s). Thank you!
+        have to wait until the server wakes up (about 200s). Thank you!
       </Title>
       <CountWrap>
-        <CountSeconds style={{ fontSize: '40px', fontWeight: 900 }}>
-          {seconds},
-        </CountSeconds>
+        <CountSeconds>{seconds},</CountSeconds>
         <CountMilliseconds>{milliseconds}</CountMilliseconds>
       </CountWrap>
     </Box>
